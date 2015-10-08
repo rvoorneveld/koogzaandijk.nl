@@ -201,7 +201,7 @@
 												<td class="team_home_name">'.(($arrMatch['team_home_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamHomeName)).'</strong>' : str_replace(' ', '&nbsp;', stripslashes($strTeamHomeName))).'</td>
 												<td class="team_home_score">'.$arrMatch['team_home_score'].'</td>
 												<td class="seperator">-</td>
-												<td class="team_away_score">'.KZ_Controller_Action_Helper_Score::align($arrMatch['team_away_score'], 'left').'</td>
+												<td class="team_away_score">'.(new KZ_Controller_Action_Helper_Score)->align($arrMatch['team_away_score'], 'left').'</td>
 												<td class="team_away_name">'.(($arrMatch['team_away_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamAwayName)).'</strong>' : str_replace(' ', '&nbsp;', stripslashes($strTeamAwayName))).'</td>
 											</tr>';
 									}

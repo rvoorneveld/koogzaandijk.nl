@@ -15,7 +15,7 @@ class KZ_View_Helper_Guestbook extends Zend_View_Helper_Abstract
 			$arrLimit				= array('count' 	=> 5, 
 											'offset' 	=> 0);
 		} else {
-			$intPageNumber			= KZ_View_Helper_GetParam::GetParam('pagina');
+			$intPageNumber			= $this->view->GetParam('pagina');
 			if(is_null($intPageNumber)) {
 				$intPageNumber		= 1;
 			}
@@ -86,14 +86,14 @@ class KZ_View_Helper_Guestbook extends Zend_View_Helper_Abstract
 					}
 				}
 				
-				if(KZ_View_Helper_GetParam::getParam('controller') == 'gastenboek') {
+				if($this->view->getParam('controller') == 'gastenboek') {
 					$strGuestbookMessage = nl2br(nl2br($strGuestbookMessage));
 				}
 				
 				echo
 				'<li>
 					<ul>
-						<li class="color_kz_yellow poster"><span class="name">'.stripslashes($arrGuestbookValues['guestbook_name']).'</span> <span class="date">'.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'dd').' '.KZ_View_Helper_Date::getMonth($this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'M')).', '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'yyyy').' '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'HH:mm').'</span></li>
+						<li class="color_kz_yellow poster"><span class="name">'.stripslashes($arrGuestbookValues['guestbook_name']).'</span> <span class="date">'.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'dd').' '.$this->view->date()->getMonth($this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'M')).', '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'yyyy').' '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'HH:mm').'</span></li>
 						<li>'.stripslashes($strGuestbookMessage).'</li>
 					</ul>
 				</li>';

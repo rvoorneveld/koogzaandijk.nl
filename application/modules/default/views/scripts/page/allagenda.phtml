@@ -8,7 +8,7 @@
 				foreach($this->agenda as $intMonth => $arrAgenda) {
 					
 					echo '<ol class="month_list">
-							<li class="month"><h4>'.KZ_View_Helper_Date::getMonth($intMonth).'</h4></li>';
+							<li class="month"><h4>'.$this->date()->getMonth($intMonth).'</h4></li>';
 
 					foreach($arrAgenda as $intAgendaKey => $arrAgendaItem) {
 

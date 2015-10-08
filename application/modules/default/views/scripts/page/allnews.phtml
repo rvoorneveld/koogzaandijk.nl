@@ -99,7 +99,7 @@
 				
 				foreach($this->news as $intMonth => $arrNews) {
 					
-					echo '<ol class="month_list"><li class="month"><h4>'.KZ_View_Helper_Date::getMonth($intMonth).'</h4></li>';
+					echo '<ol class="month_list"><li class="month"><h4>'.$this->date()->getMonth($intMonth).'</h4></li>';
 
 					foreach($arrNews as $intNewsKey => $arrNewsItem) {
 						

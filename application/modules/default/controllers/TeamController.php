@@ -21,7 +21,7 @@ class TeamController extends KZ_Controller_Action
 		$arrMatchData		= array();
 		
 		// Get Season Start Date
-		$strSeasonStartDate	= KZ_View_Helper_Date::getSeasonStartDate();
+		$strSeasonStartDate	= $this->view->date()->getSeasonStartDate();
 
 	    // Set Team
 		$strTeam			= $arrParams['team'];
