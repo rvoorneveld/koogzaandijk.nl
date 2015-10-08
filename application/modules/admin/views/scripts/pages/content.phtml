@@ -141,10 +141,10 @@
 				foreach($this->pages_content as $intPagesContentKey => $arrPagesContent) {
 					
 					// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrPagesContent['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrPagesContent['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrPagesContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					$strModifiedDate 	= $this->date()->format($arrPagesContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Set Pages Content Type
 					$strPagesType	= ((isset($this->contentTypes[$arrPagesContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrPagesContent['content_type_id']]['name'])) ? $this->contentTypes[$arrPagesContent['content_type_id']]['name'] : '-');

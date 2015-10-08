@@ -51,7 +51,7 @@ class Admin_ClubController extends KZ_Controller_Action
 
 		// Set Invited
 		$intInvited             = $arrMember['invited'];
-		$strInvitedDate         = ((! is_null($arrMember['invited_date'])) ? KZ_View_Helper_Date::format($arrMember['invited_date'],'dd-MM-yyyy HH:mm:ss') : '');
+		$strInvitedDate         = ((! is_null($arrMember['invited_date'])) ? $this->view->date()->format($arrMember['invited_date'],'dd-MM-yyyy HH:mm:ss') : '');
 
 		// Get Member Info
 		$arrMemberInfo          = $objModelMembers->getMemberTeams($arrMember['members_id']);

@@ -71,8 +71,8 @@ class Admin_AgendaController extends KZ_Controller_Action
                         'news_id'			=> $intNewsID,
                         'location'			=> $strLocation,
                         'nameSlug'			=> KZ_Controller_Action_Helper_Slug::slug($strName),
-                        'date_start'		=> KZ_View_Helper_Date::format($strDateStart, 'yyyy/MM/dd'),
-                        'date_end'			=> KZ_View_Helper_Date::format($strDateEnd, 'yyyy/MM/dd'),
+                        'date_start'		=> $this->view->date()->format($strDateStart, 'yyyy/MM/dd'),
+                        'date_end'			=> $this->view->date()->format($strDateEnd, 'yyyy/MM/dd'),
                         'time_start'		=> $strTimeStart,
                         'time_end'			=> $strTimeEnd,
                         'seo_title'			=> $strSeoTitle,
@@ -162,8 +162,8 @@ class Admin_AgendaController extends KZ_Controller_Action
 		$strName					= $arrAgenda['name'];
 		$intNewsID					= $arrAgenda['news_id'];
 		$strLocation				= $arrAgenda['location'];
-		$strDateStart				= KZ_View_Helper_Date::format($arrAgenda['date_start'], 'dd-MM-yyyy');
-		$strDateEnd					= KZ_View_Helper_Date::format($arrAgenda['date_end'], 'dd-MM-yyyy');
+		$strDateStart				= $this->view->date()->format($arrAgenda['date_start'], 'dd-MM-yyyy');
+		$strDateEnd					= $this->view->date()->format($arrAgenda['date_end'], 'dd-MM-yyyy');
 		$strTimeStart				= $arrAgenda['time_start'];
 		$strTimeEnd					= $arrAgenda['time_end'];
 		$strSeoTitle				= $arrAgenda['seo_title'];
@@ -217,8 +217,8 @@ class Admin_AgendaController extends KZ_Controller_Action
                         'news_id'			=> $intNewsID,
                         'nameSlug'			=> KZ_Controller_Action_Helper_Slug::slug($strName),
                         'location'			=> $strLocation,
-                        'date_start'		=> KZ_View_Helper_Date::format($strDateStart, 'yyyy-MM-dd'),
-                        'date_end'			=> KZ_View_Helper_Date::format($strDateEnd, 'yyyy-MM-dd'),
+                        'date_start'		=> $this->view->date()->format($strDateStart, 'yyyy-MM-dd'),
+                        'date_end'			=> $this->view->date()->format($strDateEnd, 'yyyy-MM-dd'),
                         'time_start'		=> $strTimeStart,
                         'time_end'			=> $strTimeEnd,
                         'seo_title'			=> $strSeoTitle,
@@ -356,8 +356,8 @@ class Admin_AgendaController extends KZ_Controller_Action
 		$this->view->news_name			= $strNewsName;
 		$this->view->news_id			= $intNewsID;
 		$this->view->location			= $strLocation;
-		$this->view->date_start			= KZ_View_Helper_Date::format($strDateStart, 'dd-MM-yyyy');
-		$this->view->date_end			= KZ_View_Helper_Date::format($strDateEnd, 'dd-MM-yyyy');
+		$this->view->date_start			= $this->view->date()->format($strDateStart, 'dd-MM-yyyy');
+		$this->view->date_end			= $this->view->date()->format($strDateEnd, 'dd-MM-yyyy');
 		$this->view->time_start			= $strTimeStart;
 		$this->view->time_end			= $strTimeEnd;
 		$this->view->seo_title			= $strSeoTitle;
@@ -1236,14 +1236,14 @@ class Admin_AgendaController extends KZ_Controller_Action
     					if(isset($arrTableColums[$i])) {
     						if($arrTableColums[$i] == 'date_start') {
     							if($arrAgendaValues['date_start'] != $arrAgendaValues['date_end']) {
-    								$strRowData		= KZ_View_Helper_Date::format($arrAgendaValues['date_start'], 'dd-MM-YYYY').' / '.KZ_View_Helper_Date::format($arrAgendaValues['date_end'], 'dd-MM-YYYY');
+    								$strRowData		= $this->view->date()->format($arrAgendaValues['date_start'], 'dd-MM-YYYY').' / '.$this->view->date()->format($arrAgendaValues['date_end'], 'dd-MM-YYYY');
     							} else {
-    								$strRowData		= KZ_View_Helper_Date::format($arrAgendaValues['date_start'], 'dd-MM-YYYY');	
+    								$strRowData		= $this->view->date()->format($arrAgendaValues['date_start'], 'dd-MM-YYYY');
     							}
     						}elseif($arrTableColums[$i] == 'status') {
     							$strRowData		= '<span class="tag '.(($arrAgendaValues['status'] == 1) ? 'green' : 'red').'">'.(($arrAgendaValues['status'] == 1) ? 'active' : 'inactive').'</span>';
     						} elseif(in_array($arrTableColums[$i], array('created','lastmodified'))) {
-    							$strRowData		= KZ_View_Helper_Date::format($arrAgendaValues[$arrTableColums[$i]], 'dd-MM-YYYY HH:mm:ss');
+    							$strRowData		= $this->view->date()->format($arrAgendaValues[$arrTableColums[$i]], 'dd-MM-YYYY HH:mm:ss');
     						} elseif($arrTableColums[$i] == 'user_id') {
     							$strRowData		= ((isset($this->view->users[$arrAgendaValues['user_id']]['name']) && ! empty($this->view->users[$arrAgendaValues['user_id']]['name'])) ? $this->view->users[$arrAgendaValues['user_id']]['name'] : '-');
     						} else {

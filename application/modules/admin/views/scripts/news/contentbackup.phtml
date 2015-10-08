@@ -31,7 +31,7 @@
 			foreach($this->news_content_backups as $intNewsContentKey => $arrNewsContent) {
 				
 				// Format Created Date
-				$strCreatedDate 	= KZ_View_Helper_Date::format($arrNewsContent['created'], 'dd-MM-yyyy HH:mm:ss');
+				$strCreatedDate 	= $this->date()->format($arrNewsContent['created'], 'dd-MM-yyyy HH:mm:ss');
 				
 				// Set News Content Type
 				$strNewsType	= ((isset($this->contentTypes[$arrNewsContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrNewsContent['content_type_id']]['name'])) ? $this->contentTypes[$arrNewsContent['content_type_id']]['name'] : '-');

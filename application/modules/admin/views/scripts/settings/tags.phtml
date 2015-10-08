@@ -30,10 +30,10 @@
 			<?php foreach($this->tags as $arrTag) {
 					
 					// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrTag['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrTag['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrTag['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					$strModifiedDate 	= $this->date()->format($arrTag['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 			?>
 			
 					<tr>

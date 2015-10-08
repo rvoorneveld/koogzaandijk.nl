@@ -46,8 +46,8 @@
 									
 									foreach($arrMatchesByTeam as $intMatchKey => $arrMatch) {
 									
-										$strDay		= KZ_View_Helper_Date::format($arrMatch['date'], 'EE');
-										$strDate	= KZ_View_Helper_Date::format($arrMatch['date'], 'dd.MM');
+										$strDay		= $this->date()->format($arrMatch['date'], 'EE');
+										$strDate	= $this->date()->format($arrMatch['date'], 'dd.MM');
 										
 										$strTimeRow	=	$this->translate($strDay).' '.$strDate.'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u').'<br>
 														<a href="http://competitie.knkv.nl/competitie/accommodatie/'.$arrMatch['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a>';
@@ -123,7 +123,7 @@
 					
 							echo '	<li>
 										<span class="bullet" title="'.stripslashes($arrLatest['category']).'" style="background: '.$arrLatest['category_color'].';"></span>
-										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
+										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.$this->date()->format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
 										<a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
 									</li>';
 

@@ -31,7 +31,7 @@
 ?>
 				<tr>
 					<td><?php echo $arrLog['api_log_id']; ?></td>
-					<td><?php echo KZ_View_Helper_Date::format($arrLog['time'], 'dd-MM-YYYY HH:mm:ss'); ?></td>
+					<td><?php echo $this->date()->format($arrLog['time'], 'dd-MM-YYYY HH:mm:ss'); ?></td>
 					<td><?php echo $arrLog['ip']?></td>
 					<td><span class="tag <?php echo (($arrLog['type'] == 'success') ? 'green' : 'red'); ?>"><?php echo $this->translate($arrLog['type']); ?></span></td>
 					<td><?php echo $strService; ?></td>

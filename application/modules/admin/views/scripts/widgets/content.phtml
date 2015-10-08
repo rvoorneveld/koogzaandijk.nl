@@ -142,10 +142,10 @@
 				foreach($this->widgets_content as $intWidgetsContentKey => $arrWidgetsContent) {
 					
 					// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrWidgetsContent['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrWidgetsContent['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrWidgetsContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					$strModifiedDate 	= $this->date()->format($arrWidgetsContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Set Widgets Content Type
 					$strWidgetsType	= ((isset($this->contentTypes[$arrWidgetsContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrWidgetsContent['content_type_id']]['name'])) ? $this->contentTypes[$arrWidgetsContent['content_type_id']]['name'] : '-');

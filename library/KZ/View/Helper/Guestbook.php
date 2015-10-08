@@ -93,7 +93,7 @@ class KZ_View_Helper_Guestbook extends Zend_View_Helper_Abstract
 				echo
 				'<li>
 					<ul>
-						<li class="color_kz_yellow poster"><span class="name">'.stripslashes($arrGuestbookValues['guestbook_name']).'</span> <span class="date">'.KZ_View_Helper_Date::format($arrGuestbookValues['guestbook_entry_date'], 'dd').' '.KZ_View_Helper_Date::getMonth(KZ_View_Helper_Date::format($arrGuestbookValues['guestbook_entry_date'], 'M')).', '.KZ_View_Helper_Date::format($arrGuestbookValues['guestbook_entry_date'], 'yyyy').' '.KZ_View_Helper_Date::format($arrGuestbookValues['guestbook_entry_date'], 'HH:mm').'</span></li>
+						<li class="color_kz_yellow poster"><span class="name">'.stripslashes($arrGuestbookValues['guestbook_name']).'</span> <span class="date">'.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'dd').' '.KZ_View_Helper_Date::getMonth($this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'M')).', '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'yyyy').' '.$this->view->date()->format($arrGuestbookValues['guestbook_entry_date'], 'HH:mm').'</span></li>
 						<li>'.stripslashes($strGuestbookMessage).'</li>
 					</ul>
 				</li>';

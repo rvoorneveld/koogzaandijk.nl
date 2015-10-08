@@ -15,7 +15,7 @@
 		</dl>
 		<dl>
 			<dt><label class="label"><?php echo $this->translate('Date'); ?></label></dt>
-			<dd class="text"><?php echo KZ_View_Helper_Date::format($this->entry['guestbook_entry_date'], 'dd-MM-YYYY'); ?></dd>
+			<dd class="text"><?php echo $this->date()->format($this->entry['guestbook_entry_date'], 'dd-MM-YYYY'); ?></dd>
 		</dl>
 		<dl>
 			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>

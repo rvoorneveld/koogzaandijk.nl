@@ -18,7 +18,7 @@
 					<ul>
 						<li>
 							<span class="label">'.$this->translate('Date').'</span>
-							'.(($booShowEndDate === true) ? ucfirst($this->translate('from')).' ' : '').KZ_View_Helper_Date::format($this->agenda['date_start'], 'd MMM yyyy').(($booShowEndDate === true) ? ' '.$this->translate('untill').' '.KZ_View_Helper_Date::format($this->agenda['date_end'], 'd MMM yyyy') : '').'
+							'.(($booShowEndDate === true) ? ucfirst($this->translate('from')).' ' : '').$this->date()->format($this->agenda['date_start'], 'd MMM yyyy').(($booShowEndDate === true) ? ' '.$this->translate('untill').' '.$this->date()->format($this->agenda['date_end'], 'd MMM yyyy') : '').'
 						</li>';
 
 		if(isset($this->agenda['time_start']) && ! empty($this->agenda['time_start'])) {

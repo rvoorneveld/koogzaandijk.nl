@@ -66,7 +66,7 @@ class Toolscontroller extends KZ_Controller_Action
 							
 						}
 						
-						$intMonth					= (int)KZ_View_Helper_Date::format($arrNewsItem['date'], 'MM');
+						$intMonth					= (int)$this->view->date()->format($arrNewsItem['date'], 'MM');
 						
 						// Check if Month wasn't set yet
 						if(! isset($arrNewsByMonth[$intMonth])) {
@@ -130,7 +130,7 @@ class Toolscontroller extends KZ_Controller_Action
 												<span class="date_container">
 													<span class="bullet" title="'.stripslashes($arrMatchingNewsItem['category_name']).'" style="background: '.$arrMatchingNewsItem['category_color'].';"></span>
 													<span class="date newstag">
-														<time datetime="'.KZ_View_Helper_Date::format($arrMatchingNewsItem['date'], 'dd-MM-yyyy').'">'.KZ_View_Helper_Date::format($arrMatchingNewsItem['date'], 'dd-MM').'</time>
+														<time datetime="'.$this->view->date()->format($arrMatchingNewsItem['date'], 'dd-MM-yyyy').'">'.$this->view->date()->format($arrMatchingNewsItem['date'], 'dd-MM').'</time>
 													</span>
 												</span>
 												<span class="title">'.stripslashes($arrMatchingNewsItem['name']).'</span>
@@ -154,10 +154,10 @@ class Toolscontroller extends KZ_Controller_Action
 											<a href="'.ROOT_URL.'/agenda/'.$arrMatchingAgendaItem['nameSlug'].'" title="'.stripslashes($arrMatchingAgendaItem['name']).'">
 												<span class="date_container">
 													<span class="date newstag">
-														<time datetime="'.KZ_View_Helper_Date::format($arrMatchingAgendaItem['date_start'], 'dd-MM-yyyy').'">'.KZ_View_Helper_Date::format($arrMatchingAgendaItem['date_start'], 'dd-MM-yyyy').'</time>';
+														<time datetime="'.$this->view->date()->format($arrMatchingAgendaItem['date_start'], 'dd-MM-yyyy').'">'.$this->view->date()->format($arrMatchingAgendaItem['date_start'], 'dd-MM-yyyy').'</time>';
 
 					if($arrMatchingAgendaItem['date_start'] != $arrMatchingAgendaItem['date_end']) {
-						$strHtml	.= ' / <time datetime="'.KZ_View_Helper_Date::format($arrMatchingAgendaItem['date_end'], 'dd-MM-yyyy').'">'.KZ_View_Helper_Date::format($arrMatchingAgendaItem['date_end'], 'dd-MM-yyyy').'</time>';
+						$strHtml	.= ' / <time datetime="'.$this->view->date()->format($arrMatchingAgendaItem['date_end'], 'dd-MM-yyyy').'">'.$this->view->date()->format($arrMatchingAgendaItem['date_end'], 'dd-MM-yyyy').'</time>';
 					}
 					
 					$strHtml	.= '				</span>

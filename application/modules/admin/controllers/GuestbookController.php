@@ -257,7 +257,7 @@ class Admin_GuestbookController extends KZ_Controller_Action {
     						if($arrTableColums[$i] == 'guestbook_entry_verified') {
     							$strRowData		= '<span class="tag '.(($arrEntry[$arrTableColums[$i]] == 'y') ? 'green' : 'red').'">'.$objTranslate->translate((($arrEntry[$arrTableColums[$i]] == 'y') ? 'Active' : 'Inactive')).'</span>';
     						} elseif($arrTableColums[$i] == 'guestbook_entry_date') { 
-    							$strRowData		= KZ_View_Helper_Date::format($arrEntry[$arrTableColums[$i]], 'dd-MM-YYYY');
+    							$strRowData		= $this->view->date()->format($arrEntry[$arrTableColums[$i]], 'dd-MM-YYYY');
     						} elseif($arrTableColums[$i] == 'guestbook_message') {
     							$strRowData		= substr(stripslashes(strip_tags($arrEntry[$arrTableColums[$i]])), 0, 75).'...';
     						} else {

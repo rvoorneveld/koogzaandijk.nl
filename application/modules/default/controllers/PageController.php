@@ -180,7 +180,7 @@ class PageController extends KZ_Controller_Action
 						
 					}
 					
-					$intMonth					= (int)KZ_View_Helper_Date::format($arrNewsItem['date'], 'MM');
+					$intMonth					= (int)$this->view->date()->format($arrNewsItem['date'], 'MM');
 					
 					// Check if Month wasn't set yet
 					if(! isset($arrNewsByMonth[$intMonth])) {
@@ -363,7 +363,7 @@ class PageController extends KZ_Controller_Action
 						}
 					}
 					
-					$intMonth					= (int)KZ_View_Helper_Date::format($arrAgendaItem['date_start'], 'MM');
+					$intMonth					= (int)$this->view->date()->format($arrAgendaItem['date_start'], 'MM');
 					
 					// Check if Month wasn't set yet
 					if(! isset($arrAgendaByMonth[$intMonth])) {

@@ -33,10 +33,10 @@
 			<?php foreach($this->news_categories as $arrCategory) {
 					
 					// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrCategory['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrCategory['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrCategory['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					$strModifiedDate 	= $this->date()->format($arrCategory['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 			?>
 			
 					<tr>

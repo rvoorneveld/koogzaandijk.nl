@@ -130,11 +130,11 @@
 				foreach($this->agenda_content as $intAgendaContentKey => $arrAgendaContent) {
 					
 					// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
-					
+					$strModifiedDate 	= $this->date()->format($arrAgendaContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+
 					// Set Agenda Content Type
 					$strAgendaType	= ((isset($this->contentTypes[$arrAgendaContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrAgendaContent['content_type_id']]['name'])) ? $this->contentTypes[$arrAgendaContent['content_type_id']]['name'] : '-');
 					

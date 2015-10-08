@@ -52,10 +52,10 @@
 					<?php foreach($arrMenuPages as $arrPages) {
 					
 						// Format Created Date
-						$strCreatedDate 	= KZ_View_Helper_Date::format($arrPages['created'], 'dd-MM-yyyy HH:mm:ss');
+						$strCreatedDate 	= $this->date()->format($arrPages['created'], 'dd-MM-yyyy HH:mm:ss');
 						
 						// Format Modified Date
-						$strModifiedDate 	= KZ_View_Helper_Date::format($arrPages['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+						$strModifiedDate 	= $this->date()->format($arrPages['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 						
 						// Set Page Menu icon
 						$strPageIcon		= (($arrPages['menu'] == 1) ? 'pages_main.png' : (($arrPages['menu'] == 2) ? 'pages_sub.png' : 'pages_sub_sub.png'));
@@ -125,10 +125,10 @@
 			<?php foreach($this->standalonePages as $arrStandalonePage) {
 				
 				// Format Created Date
-					$strCreatedDate 	= KZ_View_Helper_Date::format($arrStandalonePage['created'], 'dd-MM-yyyy HH:mm:ss');
+					$strCreatedDate 	= $this->date()->format($arrStandalonePage['created'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Format Modified Date
-					$strModifiedDate 	= KZ_View_Helper_Date::format($arrStandalonePage['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					$strModifiedDate 	= $this->date()->format($arrStandalonePage['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 					
 					// Set Page Menu icon
 					$strPageIcon		= (($arrStandalonePage['menu'] == 1) ? 'pages_main.png' : (($arrStandalonePage['menu'] == 2) ? 'pages_sub.png' : 'pages_sub_sub.png'));

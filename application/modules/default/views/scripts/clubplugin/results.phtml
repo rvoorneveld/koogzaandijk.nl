@@ -109,7 +109,7 @@
 					
 							echo '	<li>
 										<span class="bullet" title="'.stripslashes($arrLatest['category']).'" style="background: '.$arrLatest['category_color'].';"></span>
-										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
+										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.$this->date()->format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
 										<a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
 									</li>';
 

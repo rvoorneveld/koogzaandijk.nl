@@ -14,7 +14,7 @@
 
 						echo '	<li class="newsItem zapp">
 									<div class="dateContainer">
-										<span class="date news_tag">'.KZ_View_Helper_Date::format($arrAgendaItem['date_start'], 'dd-MM-yyyy').(($arrAgendaItem['date_end'] != $arrAgendaItem['date_start']) ? ' / '.KZ_View_Helper_Date::format($arrAgendaItem['date_end'], 'dd-MM-yyyy') : '').'</span>
+										<span class="date news_tag">'.$this->date()->format($arrAgendaItem['date_start'], 'dd-MM-yyyy').(($arrAgendaItem['date_end'] != $arrAgendaItem['date_start']) ? ' / '.$this->date()->format($arrAgendaItem['date_end'], 'dd-MM-yyyy') : '').'</span>
 									</div>
 									<div class="content">
 										<span class="title">'.stripslashes($arrAgendaItem['content']['title']).'</span><br />

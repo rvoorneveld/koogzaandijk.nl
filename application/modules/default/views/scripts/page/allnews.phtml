@@ -106,7 +106,7 @@
 						echo '	<li class="newsItem zapp">
 									<div class="dateContainer">
 										<span class="bullet" title="'.stripslashes($arrNewsItem['category']).'" style="background: '.$arrNewsItem['category_color'].';"></span>
-										<span class="date newstag">'.KZ_View_Helper_Date::format($arrNewsItem['date'], 'dd-MM-yyyy').'</span>
+										<span class="date newstag">'.$this->date()->format($arrNewsItem['date'], 'dd-MM-yyyy').'</span>
 									</div>
 									<div class="content">
 										<span class="title"><a href="/nieuws/'.$arrNewsItem['nameSlug'].'">'.stripslashes($arrNewsItem['content']['title']).'</a></span><br />

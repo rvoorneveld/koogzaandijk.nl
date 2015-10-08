@@ -40,7 +40,7 @@
 					
 							if($arrLatest['agenda_id'] != $this->agenda['agenda_id']) {
 								echo '	<li>
-											<span class="date newstag"><a href="'.ROOT_URL.'/agenda/'.$arrLatest['nameSlug'].'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date_start'], 'dd-MM-yyyy').(($arrLatest['date_end'] != $arrLatest['date_start']) ? ' / '.KZ_View_Helper_Date::format($arrLatest['date_end'], 'dd-MM-yyyy') : '').'</a></span>
+											<span class="date newstag"><a href="'.ROOT_URL.'/agenda/'.$arrLatest['nameSlug'].'" title="'.stripslashes($arrLatest['name']).'">'.$this->date()->format($arrLatest['date_start'], 'dd-MM-yyyy').(($arrLatest['date_end'] != $arrLatest['date_start']) ? ' / '.$this->date()->format($arrLatest['date_end'], 'dd-MM-yyyy') : '').'</a></span>
 											<a href="'.ROOT_URL.'/agenda/'.$arrLatest['nameSlug'].'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
 										</li>';
 								

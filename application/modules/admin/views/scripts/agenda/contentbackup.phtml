@@ -31,7 +31,7 @@
 			foreach($this->agenda_content_backups as $intagendaContentKey => $arrAgendaContent) {
 				
 				// Format Created Date
-				$strCreatedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
+				$strCreatedDate 	= $this->date()->format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
 				
 				// Set agenda Content Type
 				$stragendaType	= ((isset($this->contentTypes[$arrAgendaContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrAgendaContent['content_type_id']]['name'])) ? $this->contentTypes[$arrAgendaContent['content_type_id']]['name'] : '-');

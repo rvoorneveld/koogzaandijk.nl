@@ -1,4 +1,10 @@
-<script type="text/javascript" src="/assets/default/script/jquery.dateformat.js"></script>
+<?php
+
+$fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
+    return $this->date()->format($strDate,$strFormat,$booReturnObject);
+}
+
+?><script type="text/javascript" src="/assets/default/script/jquery.dateformat.js"></script>
 <script type="text/javascript">
 
 	jQuery(document).ready(function(){
@@ -130,7 +136,7 @@
 				echo '	<li>
 							<div class="date_container">
 								<span class="bullet" title="'.stripslashes($arrNews['category']).'" style="background: '.$arrNews['category_color'].';"></span>
-								<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'"><time datetime="'.KZ_View_Helper_Date::format($arrNews['date'], 'dd-MM-yyyy').'">'.KZ_View_Helper_Date::format($arrNews['date'], 'dd-MM').'</time></a></span>
+								<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'"><time datetime="'.$fncFormat($arrNews['date'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['date'], 'dd-MM').'</time></a></span>
 							</div>
 							<a class="news_title" href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'">'.stripslashes($arrNews['name']).'</a>
 						</li>';
@@ -150,7 +156,7 @@
 			foreach($this->agenda as $intAgendaKey => $arrAgenda) :
 			
 				echo '	<li>
-							<span class="date news_tag"><a href="'.ROOT_URL.'/agenda/'.$arrAgenda['nameSlug'].'" title="'.stripslashes($arrAgenda['name']).'">'.KZ_View_Helper_Date::format($arrAgenda['date_start'], 'dd-MM-yyyy').(($arrAgenda['date_end'] != $arrAgenda['date_start']) ? ' / '.KZ_View_Helper_Date::format($arrAgenda['date_end'], 'dd-MM-yyyy') : '').'</a></span>
+							<span class="date news_tag"><a href="'.ROOT_URL.'/agenda/'.$arrAgenda['nameSlug'].'" title="'.stripslashes($arrAgenda['name']).'">'.$fncFormat($arrAgenda['date_start'], 'dd-MM-yyyy').(($arrAgenda['date_end'] != $arrAgenda['date_start']) ? ' / '.$fncFormat($arrAgenda['date_end'], 'dd-MM-yyyy') : '').'</a></span>
 							<a href="'.ROOT_URL.'/agenda/'.$arrAgenda['nameSlug'].'" title="'.$arrAgenda['name'].'">'.stripslashes($arrAgenda['name']).'</a>
 						</li>';
 			

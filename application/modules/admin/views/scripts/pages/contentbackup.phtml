@@ -31,7 +31,7 @@
 			foreach($this->page_content_backups as $intPagesContentKey => $arrPagesContent) {
 				
 				// Format Created Date
-				$strCreatedDate 	= KZ_View_Helper_Date::format($arrPagesContent['created'], 'dd-MM-yyyy HH:mm:ss');
+				$strCreatedDate 	= $this->date()->format($arrPagesContent['created'], 'dd-MM-yyyy HH:mm:ss');
 				
 				// Set Pages Content Type
 				$strPagesType	= ((isset($this->contentTypes[$arrPagesContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrPagesContent['content_type_id']]['name'])) ? $this->contentTypes[$arrPagesContent['content_type_id']]['name'] : '-');

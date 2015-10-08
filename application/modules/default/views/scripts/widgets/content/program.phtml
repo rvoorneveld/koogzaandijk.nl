@@ -35,7 +35,7 @@
 						
 			foreach($arrMatchesByTeam as $intMatchKey => $arrMatch) {
 			
-				$strDay				= KZ_View_Helper_Date::format($arrMatch['date'], 'EE');
+				$strDay				= $this->date()->format($arrMatch['date'], 'EE');
 				
 				$strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
 				if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {

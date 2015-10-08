@@ -1,6 +1,6 @@
 <?php 
-$strCreatedDate		= KZ_View_Helper_Date::format($this->pagedata['created'], 'dd-MM-yyyy HH:mm:ss');
-$strModifiedDate	= KZ_View_Helper_Date::format($this->pagedata['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+$strCreatedDate		= $this->date()->format($this->pagedata['created'], 'dd-MM-yyyy HH:mm:ss');
+$strModifiedDate	= $this->date()->format($this->pagedata['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 
 // Set Page Menu icon
 $strPageIcon		= (($this->pagedata['menu'] == 1) ? 'pages_main.png' : (($this->pagedata['menu'] == 2) ? 'pages_sub.png' : ''));

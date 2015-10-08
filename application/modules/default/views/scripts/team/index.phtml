@@ -177,9 +177,9 @@
 
 
 									if($booMobileView === true) {
-										$strStartDateAndTime	= KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM').'<br />'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time']);
+										$strStartDateAndTime	= $this->date()->format($arrMatch['date'], 'dd-MM').'<br />'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time']);
 									} else {
-										$strStartDateAndTime	= $this->translate(KZ_View_Helper_Date::format($arrMatch['date'], 'EE')).' '.KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM-YY').'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u');
+										$strStartDateAndTime	= $this->translate($this->date()->format($arrMatch['date'], 'EE')).' '.$this->date()->format($arrMatch['date'], 'dd-MM-YY').'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u');
 									}
 
 									if($booMobileView === true) {

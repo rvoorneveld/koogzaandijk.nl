@@ -62,7 +62,7 @@ class Admin_MatchesController extends KZ_Controller_Action
     	$strPouleName				= $arrMatch['poule_name'];
     	$intYear					= $arrMatch['year'];
     	$intWeek					= $arrMatch['week'];
-    	$strDate					= KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM-yyyy');
+    	$strDate					= $this->view->date()->format($arrMatch['date'], 'dd-MM-yyyy');
     	$strTime					= $arrMatch['time'];
     	$strTimeDeparture			= $arrMatch['time_departure'];
     	$strOfficials				= $arrMatch['officials'];
@@ -89,7 +89,7 @@ class Admin_MatchesController extends KZ_Controller_Action
     			
     			// Set Update array
     			$arrData = array(
-    				'date'				=> KZ_View_Helper_Date::format($strDate, 'yyyy-MM-dd'),
+    				'date'				=> $this->view->date()->format($strDate, 'yyyy-MM-dd'),
 	    			'time'				=> $strTime,
 	    			'time_departure'	=> $strTimeDeparture,
 	    			'officials'			=> $strOfficials,
@@ -257,7 +257,7 @@ class Admin_MatchesController extends KZ_Controller_Action
     	$strPouleName				= $arrMatch['poule_name'];
     	$intYear					= $arrMatch['year'];
     	$intWeek					= $arrMatch['week'];
-    	$strDate					= KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM-yyyy');
+    	$strDate					= $this->view->date()->format($arrMatch['date'], 'dd-MM-yyyy');
     	$strTime					= $arrMatch['time'];
     	$strTimeDeparture			= $arrMatch['time_departure'];
     	$strOfficials				= $arrMatch['officials'];
@@ -387,7 +387,7 @@ class Admin_MatchesController extends KZ_Controller_Action
 							if($arrTableColums[$i] == 'matches_id') {
 								$strRowData		= '<a name="matchid_'.$arrMatch['matches_id'].'" href="/admin/matches/edit/id/'.$arrMatch['matches_id'].'"><strong>'.$arrMatch['matches_id'].'</strong></a>';
     						} elseif($arrTableColums[$i] == 'date') {
-    							$strRowData		= KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM-yyyy');
+    							$strRowData		= $this->view->date()->format($arrMatch['date'], 'dd-MM-yyyy');
     						} else {
     							$strRowData		= stripslashes($arrMatch[$arrTableColums[$i]]);
     						}

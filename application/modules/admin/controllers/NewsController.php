@@ -132,7 +132,7 @@ class Admin_NewsController extends KZ_Controller_Action
                         'name' 				=> $strName,
                         'nameSlug'			=> KZ_Controller_Action_Helper_Slug::slug($strName),
                         'image' 			=> str_replace(ROOT_URL.'/upload/', '', $strImage),
-                        'date'				=> KZ_View_Helper_Date::format($strDate, 'YYYY-MM-dd'),
+                        'date'				=> $this->view->date()->format($strDate, 'YYYY-MM-dd'),
                         'time'				=> $intTime,
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
@@ -349,7 +349,7 @@ class Admin_NewsController extends KZ_Controller_Action
                         'name' 				=> $strName,
                         'nameSlug'			=> KZ_Controller_Action_Helper_Slug::slug($strName),
                         'image' 			=> str_replace(ROOT_URL.'/upload/', '', $strImage),
-                        'date'				=> KZ_View_Helper_Date::format($strDate, 'YYYY-MM-dd'),
+                        'date'				=> $this->view->date()->format($strDate, 'YYYY-MM-dd'),
                         'time'				=> $intTime,
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
@@ -400,7 +400,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->active_tags		= $arrActiveTags;
 		$this->view->name				= $strName;
 		$this->view->image				= $strImage;
-		$this->view->date				= KZ_View_Helper_Date::format($strDate, 'dd-MM-YYYY');
+		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
@@ -496,7 +496,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->active_tags		= $arrActiveTags;
 		$this->view->name				= $strName;
 		$this->view->image				= $strImage;
-		$this->view->date				= KZ_View_Helper_Date::format($strDate, 'dd-MM-YYYY');
+		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
@@ -1402,11 +1402,11 @@ class Admin_NewsController extends KZ_Controller_Action
 								
 								$strRowData = $strTags;
 							} elseif($arrTableColums[$i] == 'date') {
-								$strRowData		= KZ_View_Helper_Date::format($arrNewsValues['date'], 'dd-MM-YYYY').'<br />'.(($arrNewsValues['time'] <= 9) ? '0'.$arrNewsValues['time'] : $arrNewsValues['time']).':00';
+								$strRowData		= $this->view->date()->format($arrNewsValues['date'], 'dd-MM-YYYY').'<br />'.(($arrNewsValues['time'] <= 9) ? '0'.$arrNewsValues['time'] : $arrNewsValues['time']).':00';
     						} elseif($arrTableColums[$i] == 'status') {
     							$strRowData		= '<span class="tag '.(($arrNewsValues['status'] == 1) ? 'green' : 'red').'">'.(($arrNewsValues['status'] == 1) ? 'active' : 'inactive').'</span>';
     						} elseif(in_array($arrTableColums[$i], array('created','lastmodified'))) {
-    							$strRowData		= KZ_View_Helper_Date::format($arrNewsValues[$arrTableColums[$i]], 'dd-MM-YYYY HH:mm:ss');
+    							$strRowData		= $this->view->date()->format($arrNewsValues[$arrTableColums[$i]], 'dd-MM-YYYY HH:mm:ss');
     						} elseif($arrTableColums[$i] == 'user_id') {
     							$strRowData		= ((isset($this->view->users[$arrNewsValues['user_id']]['name']) && ! empty($this->view->users[$arrNewsValues['user_id']]['name'])) ? $this->view->users[$arrNewsValues['user_id']]['name'] : '-');
     						} else {
