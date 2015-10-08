@@ -1,0 +1,70 @@
+<header>
+	<h2><?php echo $this->translate('Manually'); ?></h2>
+</header>
+
+<section>
+
+	<form name="xmlTestForm" action="" method="post">	
+		<dl>
+			<dt width="200"><label><?php echo $this->translate('Url'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->httphost; ?></dd>
+		</dl>
+		<dl>
+			<dt><label for="service"><?php echo $this->translate('Xml'); ?></label></dt>
+			<dd>
+				<?php
+					if(! empty($this->services) && is_array($this->services)) {
+						
+						echo '<select name="service" class="small" id="service">';
+						
+							foreach($this->services as $intServiceKey => $arrService) {
+								
+								echo '<option value="'.$arrService['name'].'">'.$arrService['name'].'</option>';
+
+							}
+						
+						echo '</select>';
+					
+					}
+				?>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="service_results"><?php echo $this->translate('Week'); ?></label></dt>
+			<dd>
+				<?php
+					echo '<select name="params[]" class="small serviceAddition" id="service_getresults">';
+							for($intCount = 0; $intCount <= 52; $intCount++) {
+								$strName	= (($intCount == 0) ? $this->translate('This week') : (($intCount == 1) ? $this->translate('One week ago') : $intCount.' '.$this->translate('weeks ago')));
+								echo '<option value="week_'.$intCount.'">'.$strName.'</option>';
+							}
+					echo '</select>';
+				?>
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" name="formAction" onclick="submitForm();" value="<?php echo $this->translate('Send'); ?>" /></dd>
+		</dl>
+	</form>
+	
+
+</section>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		updateService();
+		jQuery('#service').change(function(){
+			updateService();
+		});
+		function updateService() {
+			jQuery('.serviceAddition').each(function(){
+				jQuery(this).css('display','none');
+			});
+			var service = jQuery('#service').val().toLowerCase();
+			jQuery('#service_'+service).css('display','block');
+		}
+	});
+</script>

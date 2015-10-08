@@ -1,0 +1,71 @@
+<header>
+	<h2><?php echo $this->translate('Delete match'); ?></h2>
+</header>
+
+<section>
+
+	<form name="deleteMatchForm" method="post" action="">
+
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('KNKV ID'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->match_id.' ('.$this->competition_program_id.')'; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Game'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->team_home_name.' - '.$this->team_away_name; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Result'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->team_home_score.' - '.$this->team_away_score; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Poule'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->poule_code.' '.((isset($this->poul_name) && $this->poule_name != '') ? '('.$this->poul_name.')' : ''); ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Year'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->year; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Week'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->week; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="date"><?php echo $this->translate('Date'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->date; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="time"><?php echo $this->translate('Time'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->time; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="time_departure"><?php echo $this->translate('Time departure'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->time_departure; ?>"</p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="officials"><?php echo $this->translate('Officials'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->officials; ?></p></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<?php echo $this->translate('Are you sure you want to delete this match'); ?>?
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Delete match'); ?>" />
+				<a href="/admin/matches/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

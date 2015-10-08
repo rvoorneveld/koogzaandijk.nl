@@ -1,0 +1,27 @@
+<header>
+	<h2><?php echo $this->translate('Edit Translation'); ?></h2>
+</header>
+
+
+<form name="editTranslationForm" action="" method="post">	
+	<fieldset>
+		<dl>
+			<dt width="200"><label for="key"><?php echo $this->translate('Key')?></label></dt>
+			<dd class="text" width="*"><p><?php echo $this->translationdata['keycode']; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label for="language"><?php echo $this->translate('Language'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->translationdata['language']; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label for="translation"><?php echo $this->translate('Translation'); ?></label></dt>
+			<dd>
+				<textarea class="small" cols="35" rows="10" name="translation"><?php echo $this->translationdata['translation']; ?></textarea>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" name="formAction" value="Save" /></dd>
+		</dl>
+	</fieldset>
+</form>

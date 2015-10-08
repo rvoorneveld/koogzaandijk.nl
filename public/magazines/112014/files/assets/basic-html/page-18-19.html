@@ -1,0 +1,574 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "18-19";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+			<a id="pagePrevArrow" class="toLeftButton toolbarLink internalLink" href="./page-16-17.html"><img class="iconToolbar" src="styles/previous.png" alt="Previous Page" /></a>
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;18-19 / 24</span>
+
+				<a id="nextPageArrow" class="toRightButton toolbarLink internalLink" href="./page-20-21.html"><img class="iconToolbar" src="styles/next.png" alt="Next Page" /></a>
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+					<a class="toLeftButton toolbarLink internalLink" href="./page-16-17.html"><img class="iconToolbar" src="styles/prev-mob.png" alt="Previous Page" /></a>
+			<span class="pager">18-19 / 24</span>
+					<a class="toRightButton toolbarLink internalLink" href="./page-20-21.html"><img class="iconToolbar" src="styles/next-mob.png" alt="Next Page" /></a>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 1190px; height: 841px; margin: 40px 0 0 -595px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0010.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:95.838288%;left:2.857143%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>18</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:3.949580%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem testString" style="top:96.076100%;left:4.705882%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:96.076100%;left:89.831933%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:95.838288%;left:95.462185%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:96.218487%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>19</b>
+						</p>
+						<p class="textItem testString" style="top:55.885850%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Drie jaar geleden begon ik alleen en was verant-
+						</p>
+						<p class="textItem " style="top:57.431629%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							woordelijk voor A1, B1, C1 en D1. Alles gebeur-
+						</p>
+						<p class="textItem " style="top:58.977408%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							de uiteraard in overleg en samenwerking met de
+						</p>
+						<p class="textItem " style="top:60.523187%;left:52.352941%;width:11.092437%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							verschillende technische commissies.
+						</p>
+						<p class="textItem " style="top:62.068966%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De &#8216;rode draad&#8217;, trainingsstof voor de trainers,
+						</p>
+						<p class="textItem " style="top:63.614744%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							het aanstellen en begeleiden van goede trainers,
+						</p>
+						<p class="textItem " style="top:65.160523%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							scouting en het geven van trainersclinics heeft
+						</p>
+						<p class="textItem " style="top:66.706302%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							er in drie jaar toe geleid dat al onze topsportploe-
+						</p>
+						<p class="textItem " style="top:68.252081%;left:52.352941%;width:13.613445%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gen dit seizoen op het hoogste niveau spelen.
+						</p>
+						<p class="textItem " style="top:69.797860%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Vanzelfsprekend is ook het benodigde talent
+						</p>
+						<p class="textItem " style="top:71.343639%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							bij onze jeugdleden aanwezig, want zonder dat
+						</p>
+						<p class="textItem " style="top:72.889417%;left:52.352941%;width:4.789916%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							geen resultaten.
+						</p>
+						<p class="textItem " style="top:55.885850%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							In het seizoen 2013-2014 werd KZ / Hiltex D1
+						</p>
+						<p class="textItem " style="top:57.431629%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zowel op het veld als in de zaal landskampioen
+						</p>
+						<p class="textItem " style="top:58.977408%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							en de B1 werd in de zaal vijfde van Nederland.
+						</p>
+						<p class="textItem " style="top:60.523187%;left:67.563025%;width:6.890756%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Uitstekende prestaties!
+						</p>
+						<p class="textItem " style="top:62.068966%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Daarnaast werden Sacha Lanser en Luna Boer-
+						</p>
+						<p class="textItem " style="top:63.614744%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							hout, speelsters van de B1, gekozen in het Ne-
+						</p>
+						<p class="textItem " style="top:65.160523%;left:67.563025%;width:9.831933%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							derlands team onder zestien jaar.
+						</p>
+						<p class="textItem " style="top:68.252081%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Dit seizoen zijn Anna Kriek, Sanne Pasma en
+						</p>
+						<p class="textItem " style="top:69.797860%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Alwin Out uit KZ / Hiltex A1 gekozen in het dis-
+						</p>
+						<p class="textItem " style="top:71.343639%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							trictsteam NW onder negentien jaar. In decem-
+						</p>
+						<p class="textItem " style="top:72.889417%;left:67.563025%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ber gaan zij proberen ook voor het Nederlands
+						</p>
+						<p class="textItem " style="top:44.827586%;left:60.840336%;width:28.235294%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							inds drie jaar heeft KZ / Hiltex naast een senioren topsportcommissie een
+						</p>
+						<p class="textItem " style="top:47.086801%;left:58.151261%;width:32.521008%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							jeugd topsportcommissie. De hoofdreden voor deze aparte jeugd topsportcommissie
+						</p>
+						<p class="textItem " style="top:49.346017%;left:58.151261%;width:28.739496%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							was en is de topsport jeugdteams op het hoogste niveau te laten spelen en
+						</p>
+						<p class="textItem " style="top:51.605232%;left:58.151261%;width:30.336134%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							uiteindelijk door doorontwikkeling spelers(sters) aan de hoofdmacht te leveren.
+						</p>
+						<p class="textItem " style="top:6.064209%;left:58.067227%;width:32.100840%;height:5.231867%;font-size:1.800000em;color:#002E85;font-family:Rockwell;">
+							<b>Talentvolle jeugd van</b>
+						</p>
+						<p class="textItem " style="top:10.939358%;left:58.067227%;width:16.302521%;height:5.231867%;font-size:1.800000em;color:#002E85;font-family:Rockwell;">
+							<b>KZ / Hiltex</b>
+						</p>
+						<p class="textItem testString" style="top:41.617122%;left:57.563025%;width:3.025210%;height:7.253270%;font-size:2.400000em;color:#002E85;font-family:Poppl Exquisit;">
+							S
+						</p>
+						<p class="textItem " style="top:75.980975%;left:82.857143%;width:3.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Foto boven:
+						</p>
+						<p class="textItem testString" style="top:77.407848%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>De Zaanse talenten Sacha Lanser, Luna Boer-</i>
+						</p>
+						<p class="textItem " style="top:78.953627%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>hout van KZ / Hiltex, Kevin Dik (Groen Geel)</i>
+						</p>
+						<p class="textItem " style="top:80.499405%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>en Carlo de Vries (ZKV) in het Nederlands</i>
+						</p>
+						<p class="textItem " style="top:82.045184%;left:82.857143%;width:4.705882%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>team onder 16.</i>
+						</p>
+						<p class="textItem " style="top:85.255648%;left:82.857143%;width:1.764706%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Links:
+						</p>
+						<p class="textItem " style="top:86.682521%;left:82.857143%;width:8.739496%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Het D1 Kampioensteam met:</i>
+						</p>
+						<p class="textItem " style="top:88.228300%;left:82.857143%;width:14.285714%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Chris Bergsma, Sanne Maaike Nieuwenhuizen,</i>
+						</p>
+						<p class="textItem " style="top:89.774078%;left:82.857143%;width:11.764706%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Jelle Ekkes, Cheryl Lazara, Jari Luijckx,</i>
+						</p>
+						<p class="textItem " style="top:91.319857%;left:82.857143%;width:10.252101%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Nikki Boerhout, Noah van der Let,</i>
+						</p>
+						<p class="textItem " style="top:92.865636%;left:82.857143%;width:4.285714%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Jennifer Roos.</i>
+						</p>
+						<p class="textItem testString" style="top:5.350773%;left:26.974790%;width:18.655462%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							Voor een heldere verwerking van uw
+						</p>
+						<p class="textItem " style="top:7.015458%;left:26.974790%;width:4.033613%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							reclame
+						</p>
+						<p class="textItem " style="top:10.463734%;left:26.974790%;width:8.487395%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							- Media planning
+						</p>
+						<p class="textItem " style="top:12.128419%;left:26.974790%;width:7.478992%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							- Media inkoop
+						</p>
+						<p class="textItem " style="top:13.912010%;left:26.974790%;width:8.403361%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							- Media executie
+						</p>
+						<p class="textItem " style="top:15.576694%;left:26.974790%;width:14.957983%;height:2.021403%;font-size:0.600000em;color:#000000;font-family:Verdana;">
+							- Administratieve afhandeling
+						</p>
+						<p class="textItem testString" style="top:61.355529%;left:0.420168%;width:0.336134%;height:1.664685%;font-size:0.548150em;color:#000000;font-family:Helvetica;">
+							<b>:</b>
+						</p>
+						<p class="textItem testString" style="top:63.139120%;left:0.000000%;width:0.336134%;height:2.021403%;font-size:0.498315em;color:#000000;font-family:Helvetica;">
+							&#8226;
+						</p>
+						<p class="textItem " style="top:68.965517%;left:0.336134%;width:0.420168%;height:1.189061%;font-size:0.398650em;color:#000000;font-family:Helvetica;">
+							<b>3</b>
+						</p>
+						<p class="textItem " style="top:70.154578%;left:0.084034%;width:0.756303%;height:1.189061%;font-size:0.398650em;color:#000000;font-family:Helvetica;">
+							<b>.nl</b>
+						</p>
+						<p class="textItem testString" style="top:59.453032%;left:9.747899%;width:10.924370%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PSMT;">
+							De speciaalzaak voor al uw
+						</p>
+						<p class="textItem " style="top:61.117717%;left:9.747899%;width:8.403361%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PSMT;">
+							rijwiel benodigheden
+						</p>
+						<p class="textItem " style="top:62.782402%;left:9.747899%;width:9.831933%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PSMT;">
+							Voor Verkoop-Advies en
+						</p>
+						<p class="textItem " style="top:64.447087%;left:9.747899%;width:12.268908%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PSMT;">
+							Vakkundige Reparatie-afdeling
+						</p>
+						<p class="textItem testString" style="top:50.416171%;left:3.781513%;width:16.218487%;height:3.448276%;font-size:1.072200em;color:#000000;font-family:Times New Roman PS;">
+							<i>RIJWIELSPECIALIST</i>
+						</p>
+						<p class="textItem testString" style="top:53.626635%;left:3.781513%;width:10.756303%;height:3.448276%;font-size:1.072200em;color:#000000;font-family:Times New Roman PS;">
+							<b>MOLENAAR</b>
+						</p>
+						<p class="textItem " style="top:54.221165%;left:15.462185%;width:5.882353%;height:2.615933%;font-size:0.824765em;color:#000000;font-family:Times New Roman PSMT;">
+							anno 1920
+						</p>
+						<p class="textItem " style="top:67.895363%;left:6.050420%;width:14.957983%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PS;">
+							<b>P. Molenaar   dr. J.Mulderstraat 9a</b>
+						</p>
+						<p class="textItem " style="top:69.560048%;left:5.798319%;width:15.462185%;height:1.902497%;font-size:0.583200em;color:#000000;font-family:Times New Roman PS;">
+							<b>1544 VA Zaandijk   Tel. 075-6224520</b>
+						</p>
+						<p class="textItem testString" style="top:44.114150%;left:6.974790%;width:13.109244%;height:2.140309%;font-size:0.680400em;color:#FFFFFF;font-family:Futura;">
+							Westzijde 76 Zaandam 075 6312144
+						</p>
+						<a class="linkTextItem  " href="mailto:info@korfbalspecials.nl" target="_blank"  style="top:46.135553%;left:5.042017%;width:8.571429%;height:2.140309%;font-size:0.680400em;color:#FFFFFF;font-family:Futura;" title="">
+							info@korfbalspecials.nl
+						</a>
+						<a class="linkTextItem  " href="http://www.sportsportief.com/" target="_blank"  style="top:46.135553%;left:13.613445%;width:8.487395%;height:2.140309%;font-size:0.680400em;color:#FFFFFF;font-family:Futura;" title="">
+							 www.sportsportief.com
+						</a>
+						<p class="textItem testString" style="top:54.934602%;left:43.277311%;width:0.252101%;height:1.426873%;font-size:0.471975em;color:#3E292F;font-family:Univers;">
+							-
+						</p>
+						<p class="textItem testString" style="top:57.431629%;left:27.310924%;width:19.327731%;height:3.091558%;font-size:1.153830em;color:#7D0008;font-family:Nobel;">
+							Sport Medisch Centrum
+						</p>
+						<p class="textItem testString" style="top:67.538644%;left:27.310924%;width:2.857143%;height:0.832342%;font-size:0.267915em;color:#7D0008;font-family:Nobel;">
+							<b>SMC IJmond</b>
+						</p>
+						<p class="textItem " style="top:67.538644%;left:30.420168%;width:7.647059%;height:0.832342%;font-size:0.267915em;color:#000000;font-family:Nobel;">
+							Hoflanderweg 83  1945 ZD Beverwijk 
+						</p>
+						<a class="linkTextItem  " href="http://www.smc-ijmond.nl/" target="_blank"  style="top:67.538644%;left:38.067227%;width:3.949580%;height:0.832342%;font-size:0.267915em;color:#000000;font-family:Nobel;" title="">
+							 www.smc-ijmond.nl
+						</a>
+						<p class="textItem " style="top:67.538644%;left:41.932773%;width:4.033613%;height:0.832342%;font-size:0.267915em;color:#000000;font-family:Nobel;">
+							  tel. 0251-25 41 61
+						</p>
+						<p class="textItem " style="top:68.608799%;left:27.310924%;width:3.361345%;height:0.832342%;font-size:0.267915em;color:#7D0008;font-family:Nobel;">
+							<b>SMC Zaanstad</b>
+						</p>
+						<p class="textItem " style="top:68.608799%;left:30.924370%;width:10.672269%;height:0.832342%;font-size:0.267915em;color:#000000;font-family:Nobel;">
+							Westzijde 168  1506 EK Zaandam  tel. 075-6703589
+						</p>
+						<p class="textItem " style="top:61.474435%;left:27.310924%;width:8.487395%;height:1.189061%;font-size:0.428665em;color:#000000;font-family:Nobel;">
+							Gespecialiseerd centrum voor:
+						</p>
+						<p class="textItem " style="top:62.782402%;left:27.310924%;width:0.504202%;height:1.307967%;font-size:0.428665em;color:#FC3F0C;font-family:Nobel;">
+							<b>&#8226;</b>
+						</p>
+						<p class="textItem " style="top:62.782402%;left:28.067227%;width:9.663866%;height:1.189061%;font-size:0.428665em;color:#000000;font-family:Nobel;">
+							Fysiotherapie &#8211; Manuele therapie
+						</p>
+						<p class="textItem " style="top:64.090369%;left:27.310924%;width:0.504202%;height:1.307967%;font-size:0.428665em;color:#FC3F0C;font-family:Nobel;">
+							<b>&#8226;</b>
+						</p>
+						<p class="textItem " style="top:64.209275%;left:28.067227%;width:9.747899%;height:1.189061%;font-size:0.428665em;color:#000000;font-family:Nobel;">
+							Re&#239;ntegratie en (sport) revalidatie
+						</p>
+						<p class="textItem " style="top:61.474435%;left:39.327731%;width:4.285714%;height:0.951249%;font-size:0.340335em;color:#000000;font-family:Nobel;">
+							Contracten met alle
+						</p>
+						<p class="textItem " style="top:62.901308%;left:39.327731%;width:6.470588%;height:0.951249%;font-size:0.340335em;color:#000000;font-family:Nobel;">
+							ziektekostenzorgverzekeraars
+						</p>
+						<p class="textItem " style="top:64.209275%;left:39.327731%;width:7.310924%;height:0.951249%;font-size:0.340335em;color:#000000;font-family:Nobel;">
+							Aangesloten bij het BAG netwerk
+						</p>
+						<p class="textItem " style="top:70.630202%;left:40.336134%;width:6.302521%;height:0.951249%;font-size:0.323670em;color:#FFFFFF;font-family:Nobel;">
+							gezond worden, beter blijven
+						</p>
+						<p class="textItem testString" style="top:83.590963%;left:27.142857%;width:19.159664%;height:3.210464%;font-size:0.950000em;color:#0064A9;font-family:Arial Narrow;">
+							<b>Benut verschillen in een TEAM</b>
+						</p>
+						<p class="textItem testString" style="top:26.872771%;left:3.949580%;width:19.495798%;height:8.799049%;font-size:2.350000em;color:#000000;font-family:Helvetica Neue;">
+							saenkanter
+						</p>
+						<p class="textItem testString" style="top:32.936980%;left:3.949580%;width:6.386555%;height:3.567182%;font-size:1.000000em;color:#000000;font-family:American Typewriter;">
+							fashion,
+						</p>
+						<p class="textItem " style="top:32.936980%;left:10.756303%;width:4.537815%;height:3.567182%;font-size:1.000000em;color:#D6000E;font-family:American Typewriter;">
+							shoes
+						</p>
+						<p class="textItem " style="top:32.936980%;left:15.714286%;width:7.647059%;height:3.567182%;font-size:1.000000em;color:#000000;font-family:American Typewriter;">
+							and more
+						</p>
+						<p class="textItem " style="top:35.315101%;left:3.865546%;width:19.495798%;height:5.826397%;font-size:1.550000em;color:#000000;font-family:Helvetica Neue;">
+							man and woman
+						</p>
+						<p class="textItem " style="top:44.114150%;left:5.882353%;width:15.378151%;height:2.259215%;font-size:0.600000em;color:#000000;font-family:Helvetica Neue;">
+							Wormerv er  +31 (0)75-628 5 55
+						</p>
+						<a class="linkTextItem  " href="mailto:info@korfbalspecials.nl" target="_blank"  style="top:46.016647%;left:5.798319%;width:8.235294%;height:2.259215%;font-size:0.600000em;color:#000000;font-family:Helvetica Neue;" title="">
+							Zaandam        +31
+						</a>
+						<a class="linkTextItem  " href="http://www.sportsportief.com/" target="_blank"  style="top:46.016647%;left:13.949580%;width:7.394958%;height:2.259215%;font-size:0.600000em;color:#000000;font-family:Helvetica Neue;" title="">
+							 (0)75-635 37 52
+						</a>
+						<a class="linkTextItem  " href="http://www.saenkanter.nl/" target="_blank"  style="top:40.071344%;left:5.798319%;width:15.462185%;height:3.567182%;font-size:1.000000em;color:#D6000E;font-family:American Typewriter;" title="">
+							www.saenkanter.nl
+						</a>
+						<p class="textItem " style="top:55.885850%;left:82.857143%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							team onder negentien jaar gekozen te worden.
+						</p>
+						<p class="textItem " style="top:58.977408%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Inmiddels bestaat de jeugd topsportcommissie
+						</p>
+						<p class="textItem " style="top:60.523187%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							uit drie mensen: Miriam Gruijs en Niels Voorne-
+						</p>
+						<p class="textItem " style="top:62.068966%;left:82.857143%;width:13.697479%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							veld maken nu ook deel uit van de commissie.
+						</p>
+						<p class="textItem " style="top:63.614744%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Met z&#8217;n drie&#235;n zijn wij aanspreekpunt voor de
+						</p>
+						<p class="textItem " style="top:65.160523%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							trainers en proberen wij samen met de trainers
+						</p>
+						<p class="textItem " style="top:66.706302%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							de KZ / Hiltex topsport jeugdteams op het ni-
+						</p>
+						<p class="textItem " style="top:68.252081%;left:82.857143%;width:12.184874%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							veau te houden dat bij een topclub hoort.
+						</p>
+						<p class="textItem " style="top:71.224732%;left:82.857143%;width:3.697479%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Tim Bakker,</i>
+						</p>
+						<p class="textItem " style="top:71.224732%;left:86.638655%;width:8.319328%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							jeugd topsportcommissie
+						</p>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

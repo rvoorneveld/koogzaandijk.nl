@@ -1,0 +1,8 @@
+<h1>Uw profiel op koogzaandijk.nl</h1>
+Beste <?php echo $this->firstname; ?>,<br /><br />
+Je bent uitgenodigd om in te loggen met jouw persoonlijk profiel op <a href="<?php echo $this->root_url; ?>" title=""><?php echo $this->root_url; ?></a>.<br />
+Gebruik bovenstaande link om naar de website te gaan en log in met de volgende gegevens:<br />
+E-mail adres: <?php echo $this->email; ?><br />
+Wachtwoord: <?php echo (($this->password === false) ? 'Jouw wachtwoord is al bij je bekend' : $this->password); ?><br /><br />
+Met sportieve groet,<br /><br />
+KV. Koog Zaandijk

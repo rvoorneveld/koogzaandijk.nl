@@ -1,0 +1,104 @@
+<header>
+	<h2><?php echo $this->translate('Show backup content for page').' '.stripslashes($this->news['name']).' ('.$this->translate('Revision').' #'.$this->news_content_backup['revision'].')'; ?></h2>
+</header>
+
+<section>
+
+	<form>
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->name; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Type'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate($this->contentTypes[$this->content_type_id]['name']); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->status == 1) ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		
+		<?php if($this->content_type_id == 1) : ?>
+			<div id="content_1" class="content_type">
+				
+				<br />
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label class="label"><?php echo $this->translate('Title and text'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd class="text"><?php echo $this->content_1_title; ?></dd>
+				</dl>
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Text'); ?></label></dt>
+					<dd class="text"><?php echo nl2br($this->content_1_text); ?></dd>
+				</dl>
+	
+			</div>
+		<?php endif; ?>
+		
+		<?php if($this->content_type_id == 2) : ?>
+			<div id="content_2" class="content_type">
+				
+				<br />
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label class="label"><?php echo $this->translate('Title, image and text'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd class="text"><?php echo $this->content_2_title; ?></dd>
+				</dl>
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Image'); ?></label></dt>
+					<dd class="text"><img src="<?php echo $this->root_url.'/upload/'.$this->content_2_image; ?>" alt="" title=""></dd>
+				</dl>
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Text'); ?></label></dt>
+					<dd class="text"><?php echo nl2br($this->content_2_text); ?></dd>
+				</dl>
+			</div>
+		<?php endif; ?>
+		
+		<?php if($this->content_type_id == 3) : ?>
+			<div id="content_3" class="content_type">
+	
+				<br />
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label class="label"><?php echo $this->translate('Video'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt><label class="label"><?php echo $this->translate('Video'); ?></label></dt>
+					<dd class="text"><?php echo $this->content_3_video; ?></dd>
+				</dl>
+				
+			</div>
+		<?php endif; ?>			
+		
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd class="text">&raquo; <?php echo $this->translate('Are you sure you want to restore this backup'); ?>?</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<a class="button blue" href="/admin/news/contentrestore/id/<?php echo $this->news_content_backup['news_content_backup_id']; ?>/" title="<?php echo $this->translate('Yes, restore'); ?>"><?php echo $this->translate('Yes, restore'); ?></a>
+				<a href="/admin/news/contentbackup/id/<?php echo $this->news_content_backup['news_content_id']; ?>/" title="<?php echo $this->translate('No, go back to overview'); ?>"><?php echo $this->translate('No, go back to overview'); ?></a>
+			</dd>
+		</dl>
+		
+	</form>
+
+</section>

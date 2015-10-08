@@ -1,0 +1,34 @@
+<div id="nextpage" class="zapp">
+	<h2>Agenda</h2>
+	
+	<div class="agenda">
+		<?php 
+			if(isset($this->agenda) && is_array($this->agenda) && count($this->agenda) > 0) {
+				
+				foreach($this->agenda as $intMonth => $arrAgenda) {
+					
+					echo '<ol class="month_list">
+							<li class="month"><h4>'.KZ_View_Helper_Date::getMonth($intMonth).'</h4></li>';
+
+					foreach($arrAgenda as $intAgendaKey => $arrAgendaItem) {
+
+						echo '	<li class="newsItem zapp">
+									<div class="dateContainer">
+										<span class="date news_tag">'.KZ_View_Helper_Date::format($arrAgendaItem['date_start'], 'dd-MM-yyyy').(($arrAgendaItem['date_end'] != $arrAgendaItem['date_start']) ? ' / '.KZ_View_Helper_Date::format($arrAgendaItem['date_end'], 'dd-MM-yyyy') : '').'</span>
+									</div>
+									<div class="content">
+										<span class="title">'.stripslashes($arrAgendaItem['content']['title']).'</span><br />
+										'.strip_tags(stripslashes($arrAgendaItem['content']['text']), '<a>').'
+									</div>
+								</li>';
+						
+					}
+					
+					echo '</ol>';
+					
+				}
+				
+			}
+		?>
+	</div>
+</div>

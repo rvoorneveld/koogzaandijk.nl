@@ -1,0 +1,329 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('a.button').click(function(){
+			var rel 		= jQuery(this).attr('rel');
+			var buttonClass = jQuery(this).attr('class');
+
+			jQuery('#'+rel).attr('checked', ((jQuery('#'+rel).attr('checked') == 'checked') ? false : true));
+			jQuery(this).removeClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'red' : 'green'));
+			jQuery(this).addClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'green' : 'red'));
+		});
+
+	});
+
+</script>
+<header>
+	<h2><?php echo $this->translate('News'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add news'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->news) && is_array($this->news) && count($this->news) > 0) { 
+		?>
+				<table class="ajax_datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="100"><?php echo $this->translate('Type'); ?></th>
+							<th width="100"><?php echo $this->translate('Category'); ?></th>
+							<th width="100"><?php echo $this->translate('Tags'); ?></th>
+							<th width="100"><?php echo $this->translate('Date'); ?></th>
+							<th width="100"><?php echo $this->translate('Status'); ?></th>
+							<th width="150" class="desc" id="isSort"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="125"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+				
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No news items to display').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addNewsForm" method="post" action="#tab1">
+
+			<dl>
+				<dt><label class="label" for="news_type"><?php echo $this->translate('Type'); ?></label></dt>
+				<dd>
+					<?php
+						if(isset($this->newsTypes) && is_array(($this->newsTypes))) {
+								
+							echo '<select class="small" name="news_type_id"><option value="0">'.$this->translate('Choose').'</option>';
+							
+							foreach($this->newsTypes as $intNewsTypeKey => $arrNewsType) {
+									
+								if($arrNewsType['status'] == 1) {
+										
+									$strSelected	= (($arrNewsType['news_type_id'] == $this->news_type_id) ? ' selected="selected"' : '');
+									
+									echo '<option value="'.$arrNewsType['news_type_id'].'"'.$strSelected.'>'.$this->translate($arrNewsType['name']).'</option>';
+										
+								}
+								
+							}
+
+							echo '</select>';
+							
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="category"><?php echo $this->translate('Category'); ?></label></dt>
+				<dd>
+					<?php
+						if(isset($this->categories) && is_array(($this->categories))) {
+								
+							echo '<select class="small" name="category_id"><option value="0">'.$this->translate('Choose').'</option>';
+							
+							foreach($this->categories as $intCategoryKey => $arrCategory) {
+									
+								if($arrCategory['status'] == 1) {
+										
+									$strSelected	= (($arrCategory['category_id'] == $this->category_id) ? ' selected="selected"' : '');
+									
+									echo '<option value="'.$arrCategory['category_id'].'"'.$strSelected.'>'.$this->translate($arrCategory['name']).'</option>';
+										
+								}
+								
+							}
+
+							echo '</select>';
+							
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="tags"><?php echo $this->translate('Tags'); ?></label></dt>
+				<dd>
+					<div id="tagsContainer">
+						<?php
+							if(isset($this->tags) && is_array(($this->tags))) {
+								
+								foreach($this->tags as $intTagKey => $arrTag) {
+									
+									$strStatus 	= ((isset($this->active_tags) && is_array($this->active_tags) && in_array($arrTag['tag_id'], $this->active_tags)) ? ' checked="checked"' : '');
+									$strColor 	= ((isset($this->active_tags) && is_array($this->active_tags) && in_array($arrTag['tag_id'], $this->active_tags)) ? 'green' : 'red');
+									
+									echo '	<a class="button '.$strColor.' small" rel="tag-'.$arrTag['tag_id'].'">'.$arrTag['name'].'</a>
+									  		<input type="checkbox" name="tag-'.$arrTag['tag_id'].'" id="tag-'.$arrTag['tag_id'].'" value="'.$arrTag['tag_id'].'" style="display: none;" '.$strStatus.' />';
+								}
+								
+							}
+						?>
+					</div>
+				</dd>
+			</dl>
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*">
+					<input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" />
+					<p><?php echo $this->translate('This name will be used for the url. The name <em>Example Name</em> will become the url <em>/example-name/</em>'); ?></p>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="image"><?php echo $this->translate('Image'); ?></label></dt>
+				<dd>
+					<input type="text" class="small" id="image" name="image" value="<?php echo $this->image; ?>" />
+					<a class="button" href="javascript:mcImageManager.open('addNewsForm','image','','',{path : '../../../../../upload', remember_last_path : true});"><?php echo $this->translate('Select image'); ?></a>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="date"><?php echo $this->translate('Date'); ?></label></dt>
+				<dd><input type="text" class="small datepicker" id="date" name="date" value="<?php echo $this->date; ?>" /></dd>
+			</dl>
+			
+			<dl>
+				<dt><label class="label" for="time"><?php echo $this->translate('Time'); ?></label></dt>
+				<dd>
+					<select name="time" class="small">
+					<?php
+						for($i = 0; $i <= 23; $i++) {
+							$strSelected = (($this->time == $i) ? 'selected="selected"' : '');
+							$intLeadingZero = (($i <= 9) ? '0'.$i : $i);
+							echo '<option value="'.$i.'"'.$strSelected.'>'.$intLeadingZero.':00</option>';
+						}
+					?>
+					</select>
+				</dd>
+			</dl>
+
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_title"><?php echo $this->translate('SEO title'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_title" name="seo_title" value="<?php echo $this->seo_title; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_description"><?php echo $this->translate('SEO description'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_description" name="seo_description" value="<?php echo $this->seo_description; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_keywords"><?php echo $this->translate('SEO keywords'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_keywords" name="seo_keywords" value="<?php echo $this->seo_keywords; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="widget_layout"><?php echo $this->translate('Widget layout'); ?></label></dt>
+				<dd>
+				
+					<?php 
+					
+						if(isset($this->widgetLayouts) && is_array($this->widgetLayouts) && count($this->widgetLayouts) > 0) :
+						
+							echo '<select name="widget_layout" id="widget_layout" class="small">';
+						
+								echo '<option value="0">'.$this->translate('None').'</option>';
+						
+							foreach($this->widgetLayouts as $intWidgetLayoutKey => $arrWidgetLayout) :
+								
+								echo '<option value="'.$arrWidgetLayout['widget_layout_id'].'"'.((isset($this->widget_layout) && $this->widget_layout == $arrWidgetLayout['widget_layout_id']) ? ' selected="selected"' : '').'>'.$arrWidgetLayout['name'].'</option>';
+							
+							endforeach;
+							
+							echo '</select>';
+							
+						endif;
+					
+					?>
+				
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="page_id"><?php echo $this->translate('Attach to page'); ?></label></dt>
+				<dd>
+					<?php 
+						if(isset($this->pages) && is_array($this->pages) && count($this->pages) > 0) :
+							echo '<select name="page_id" class="small">';
+							foreach($this->pages as $intMenuTypeID => $arrMenuTypePages) {
+									
+								echo '<option value="0">'.$this->translate('None').'</option>';
+									
+								echo '<optgroup label="'.((isset($this->menu_types[$intMenuTypeID]['name']) && $this->menu_types[$intMenuTypeID]['name'] != '') ? $this->menu_types[$intMenuTypeID]['name'] : $intMenuTypeID).'">';
+									foreach($arrMenuTypePages as $intPageKey => $arrPage) {
+	
+										echo '<option value="'.$arrPage['page_id'].'"'.((isset($this->page_id) && $arrPage['page_id'] == $this->page_id) ? ' selected="selected"' : '').'>- '.$arrPage['menu_name'].'</option>';
+	
+										if(isset($arrPage['submenu']) && is_array($arrPage['submenu']) && count($arrPage['submenu']) > 0) {
+											
+											foreach($arrPage['submenu'] as $intSubPageID => $arrSubPage) {
+	
+												echo '<option value="'.$arrSubPage['page_id'].'"'.((isset($this->page_id) && $intSubPageID == $this->page_id) ? ' selected="selected"' : '').'>&nbsp;&nbsp;&nbsp;&nbsp; - '.$arrSubPage['menu_name'].'</option>';
+												
+											}
+	
+										}
+	
+									}
+								echo '</optgroup>';
+								
+								echo '<optgroup label="Standalone pages">';
+								
+								foreach($this->standalonePages as $intPageKey => $arrStandalonePage) {
+									echo '<option value="'.$arrStandalonePage['page_id'].'"'.((isset($this->page_id) && $arrStandalonePage['page_id'] == $this->page_id) ? ' selected="selected"' : '').'>- '.$arrStandalonePage['menu_name'].'</option>';
+								}
+								
+								echo '</optgroup>';
+							}
+	
+							echo '</select>';
+						endif;
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add news'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+		    var _that = this;
+		  
+		    this.each(function (i) {
+		        $.fn.dataTableExt.iApiIndex = i;
+		        var $this = this;
+		        var anControl = $('input', _that.fnSettings().aanFeatures.f);
+		        anControl.unbind('keyup').bind('keypress', function (e) {
+		            if (e.which == 13) {
+		                $.fn.dataTableExt.iApiIndex = i;
+		                _that.fnFilter(anControl.val());
+		            }
+		        });
+		        return this;
+		    });
+		    return this;
+		};
+		
+		jQuery('.ajax_datatable').dataTable( {
+			"bProcessing"		: true,
+			"bServerSide"		: true,
+			"bStateSave"		: true,
+			'iDisplayLength'	: 25,
+			'sPaginationType'	: "full_numbers",
+			"sAjaxSource"		: "/admin/news/generatenewstable/",
+			"fnServerData": function ( sSource, aoData, fnCallback ) {
+							$.ajax( {
+								"dataType": 'json', 
+								"type": "POST", 
+								"url": sSource, 
+								"data": aoData, 
+								"success": fnCallback
+							});
+			},
+	        "aoColumns": [null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      {"bSortable" : false, "bSearchable": false}
+	                      ],
+			'aaSorting'			: [[ 7, "desc" ]]
+			}).fnFilterOnReturn();
+	});
+
+	<?php if (isset($this->editorInit)) echo $this->editorInit; ?>
+</script>

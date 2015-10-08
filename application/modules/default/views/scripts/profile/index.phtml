@@ -1,0 +1,383 @@
+<div id="nextpage" class="zapp">
+	<div class="col full">
+		<div class="inner">
+			<?php
+			if(! empty($this->teams_player) && is_array($this->teams_player)) {
+				?>
+				<h2><?php echo $this->translate('De ploegen waarin u speelt'); ?></h2>
+
+			<?php
+				if(isset($this->teams_player) && is_array($this->teams_player) && count($this->teams_player) > 0) {
+
+					echo '<ul class="teams-profile">';
+
+					foreach($this->teams_player as $intTeamID => $arrTeam) {
+
+						$objModelDate           = new KZ_View_Helper_Date();
+
+					// Set Dates
+					if(! empty($arrTeam['last_match']) && is_array($arrTeam['last_match'])) {
+
+						$objLastMatchDate       = new Zend_Date($arrTeam['last_match']['date']);
+						$intLastMatchDateDay    = $objLastMatchDate->toString('dd');
+						$strLastMatchDateMonth  = $objModelDate->getMonth($objLastMatchDate->toString('M'),false,false);
+
+						// Set Home Team Name
+						if(strstr($arrTeam['last_match']['team_home_name'],'Hiltex')) {
+							$strLastMatchTeamHomeName    = $arrTeam['last_match']['team_home_name'];
+						} else {
+							$arrTeamHomeName    = explode('/',$arrTeam['last_match']['team_home_name']);
+							$strLastMatchTeamHomeName    = $arrTeamHomeName[0];
+							if(count($arrTeamHomeName) > 1) {
+								$strLastMatchTeamHomeName .= ' '.$arrTeam['team']['name'];
+							}
+						}
+
+						// Set Away Team Name
+						if(strstr($arrTeam['last_match']['team_away_name'],'Hiltex')) {
+							$strLastMatchTeamAwayName    = $arrTeam['last_match']['team_away_name'];
+						} else {
+							$arrTeamAwayName    = explode('/',$arrTeam['last_match']['team_away_name']);
+							$strLastMatchTeamAwayName    = $arrTeamAwayName[0];
+							if(count($arrTeamAwayName) > 1) {
+								$strLastMatchTeamAwayName .= ' '.$arrTeam['team']['name'];
+							}
+						}
+
+					}
+
+					if(! empty($arrTeam['next_match']) && is_array($arrTeam['next_match'])) {
+
+						$objNextMatchDate       = new Zend_Date($arrTeam['next_match']['date']);
+						$intNextMatchDateDay    = $objNextMatchDate->toString('dd');
+						$strNextMatchDateMonth  = $objModelDate->getMonth($objNextMatchDate->toString('M'),false,false);
+
+						// Set Home Team Name
+						if(strstr($arrTeam['next_match']['team_home_name'],'Hiltex')) {
+							$strNextMatchTeamHomeName    = $arrTeam['next_match']['team_home_name'];
+						} else {
+							$arrTeamHomeName    = explode('/',$arrTeam['next_match']['team_home_name']);
+							$strNextMatchTeamHomeName    = $arrTeamHomeName[0];
+							if(count($arrTeamHomeName) > 1) {
+								$strNextMatchTeamHomeName .= ' '.$arrTeam['team']['name'];
+							}
+						}
+
+						// Set Away Team Name
+						if(strstr($arrTeam['next_match']['team_away_name'],'Hiltex')) {
+							$strNextMatchTeamAwayName    = $arrTeam['next_match']['team_away_name'];
+						} else {
+							$arrTeamAwayName    = explode('/',$arrTeam['next_match']['team_away_name']);
+							$strNextMatchTeamAwayName    = $arrTeamAwayName[0];
+							if(count($arrTeamAwayName) > 1) {
+								$strNextMatchTeamAwayName .= ' '.$arrTeam['team']['name'];
+							}
+						}
+					}
+
+					echo '<li class="teams-profile-list">
+								<div class="teams-profile-box">
+
+									<span class="teams-profile-name">
+										KZ/Hiltex '.$arrTeam['team']['name'].' ('.$arrTeam['team']['sport'].')
+									</span>
+
+									<span class="teams-profile-list-item zapp">
+										<span class="label" aria-hidden="true">&#xe600;</span>
+										<span class="teams-profile-list-item--content">
+											<a href="/profiel/contactgegevens/" title="">Contactgegevens</a>
+										</span>
+									</span>
+
+									<span class="teams-profile-list-item zapp">
+										<span class="label label--double-line" aria-hidden="true">&#xe601;</span>
+
+											<ol class="matchboard">';
+
+					if(
+						!   empty($arrTeam['last_match'])
+						&&  is_array($arrTeam['last_match'])
+						&&  ! is_null($arrTeam['last_match']['team_home_score'])
+						&&  ! is_null($arrTeam['last_match']['team_away_score'])
+					) {
+
+						echo '  <li class="grid matchboard__match click-box">
+															<div class="matchboard__box">
+																<div class="grid__item one-fifth matchboard__date">
+																	<span class="matchboard__date--day">'.$intLastMatchDateDay.'</span>
+																	<span class="matchboard__date--month">'.$strLastMatchDateMonth.'</span>
+																</div><!--
+																--><div class="grid__item three-fifths matchboard__team">
+																	<span class="matchboard__team--home">'.$strLastMatchTeamHomeName.'</span>
+																	<span class="matchboard__team--away">'.$strLastMatchTeamAwayName.'</span>
+																</div><!--
+																--><div class="grid__item one-fifth matchboard__score">
+																	<div class="matchboard__score--box">
+																		<span class="matchboard__score--home">'.$arrTeam['last_match']['team_home_score'].'</span>
+																		<span class="matchboard__score--away">'.$arrTeam['last_match']['team_away_score'].'</span>
+																	</div>
+																</div>
+															</div>
+															<a class="click-box__link" href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title=""><span class="click-box__body">Bekijk wedstrijd info</span></a>
+														</li>';
+
+					} else {
+						echo '	<li class="grid matchboard__match click-box">
+									<div class="grid__item one-whole matchboard__team">
+										<span class="matchboard__match--nomatchinfo">Er is geen afgelopen wedstrijd bekend.</span>
+									</div>
+								</li>';
+					}
+
+					if(
+						!   empty($arrTeam['next_match'])
+						&&  is_array($arrTeam['next_match'])
+					) {
+
+						echo '  <li class="grid matchboard__match click-box">
+															<div class="matchboard__box">
+																<div class="grid__item one-fifth matchboard__date">
+																	<span class="matchboard__date--day">'.$intNextMatchDateDay.'</span>
+																	<span class="matchboard__date--month">'.$strNextMatchDateMonth.'</span>
+																</div><!--
+																--><div class="grid__item three-fifths matchboard__team">
+																	<span class="matchboard__team--home">'.$strNextMatchTeamHomeName.'</span>
+																	<span class="matchboard__team--away">'.$strNextMatchTeamAwayName.'</span>
+																</div><!--
+																--><div class="grid__item one-fifth matchboard__time">
+																	<span class="matchboard__time--start">'.$arrTeam['next_match']['time'].'</span>
+																	<span class="matchboard__time--rally">'.$arrTeam['next_match']['time_departure'].'</span>
+																</div>
+															</div>
+															<a class="click-box__link" href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title=""><span class="click-box__body">Bekijk wedstrijd info</span></a>
+														</li>';
+
+					} else {
+						echo '	<li class="grid matchboard__match click-box">
+															<div class="grid__item one-whole matchboard__team">
+																<span class="matchboard__match--nomatchinfo">Er is geen aankomende wedstrijd bekend.</span>
+															</div>
+														</li>';
+					}
+
+
+
+					echo '      </ol>
+										</span>
+									</span>
+									<span class="teams-profile-list-item teams-profile-list-item--standings zapp">
+										<span class="label" aria-hidden="true">&#xe602;</span>
+										<span class="teams-profile-list-item--content">';
+
+										if(isset($arrTeam['standings']['position'])) {
+											echo '<a href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title="">'.$arrTeam['standings']['position'].'<sup>e</sup></a>';
+										} else {
+											echo '<span class="dummy_link">Onbekend</span>';
+										}
+
+					echo '				</span>
+									</span>
+								</div>
+							</li>';
+
+				}
+
+					echo '</ul>';
+
+				}
+			?>
+
+			<?php
+			}
+			?>
+
+			<?php
+
+			if(! empty($this->teams_coach) && is_array($this->teams_coach)) {
+				?>
+				<h2><?php echo $this->translate('De ploegen die u coacht'); ?></h2>
+
+				<?php
+				if(isset($this->teams_coach) && is_array($this->teams_coach) && count($this->teams_coach) > 0) {
+
+					echo '<ul class="teams-profile">';
+
+					foreach($this->teams_coach as $intTeamID => $arrTeam) {
+
+						$objModelDate           = new KZ_View_Helper_Date();
+
+						// Set Dates
+						if(! empty($arrTeam['last_match']) && is_array($arrTeam['last_match'])) {
+
+							$objLastMatchDate       = new Zend_Date($arrTeam['last_match']['date']);
+							$intLastMatchDateDay    = $objLastMatchDate->toString('dd');
+							$strLastMatchDateMonth  = $objModelDate->getMonth($objLastMatchDate->toString('M'),false,false);
+
+							// Set Home Team Name
+							if(strstr($arrTeam['last_match']['team_home_name'],'Hiltex')) {
+								$strLastMatchTeamHomeName    = $arrTeam['last_match']['team_home_name'];
+							} else {
+								$arrTeamHomeName    = explode('/',$arrTeam['last_match']['team_home_name']);
+								$strLastMatchTeamHomeName    = $arrTeamHomeName[0];
+								if(count($arrTeamHomeName) > 1) {
+									$strLastMatchTeamHomeName .= ' '.$arrTeam['team']['name'];
+								}
+							}
+
+							// Set Away Team Name
+							if(strstr($arrTeam['last_match']['team_away_name'],'Hiltex')) {
+								$strLastMatchTeamAwayName    = $arrTeam['last_match']['team_away_name'];
+							} else {
+								$arrTeamAwayName    = explode('/',$arrTeam['last_match']['team_away_name']);
+								$strLastMatchTeamAwayName    = $arrTeamAwayName[0];
+								if(count($arrTeamAwayName) > 1) {
+									$strLastMatchTeamAwayName .= ' '.$arrTeam['team']['name'];
+								}
+							}
+
+						}
+
+						if(! empty($arrTeam['next_match']) && is_array($arrTeam['next_match'])) {
+
+							$objNextMatchDate       = new Zend_Date($arrTeam['next_match']['date']);
+							$intNextMatchDateDay    = $objNextMatchDate->toString('dd');
+							$strNextMatchDateMonth  = $objModelDate->getMonth($objNextMatchDate->toString('M'),false,false);
+
+							// Set Home Team Name
+							if(strstr($arrTeam['next_match']['team_home_name'],'Hiltex')) {
+								$strNextMatchTeamHomeName    = $arrTeam['next_match']['team_home_name'];
+							} else {
+								$arrTeamHomeName    = explode('/',$arrTeam['next_match']['team_home_name']);
+								$strNextMatchTeamHomeName    = $arrTeamHomeName[0];
+								if(count($arrTeamHomeName) > 1) {
+									$strNextMatchTeamHomeName .= ' '.$arrTeam['team']['name'];
+								}
+							}
+
+							// Set Away Team Name
+							if(strstr($arrTeam['next_match']['team_away_name'],'Hiltex')) {
+								$strNextMatchTeamAwayName    = $arrTeam['next_match']['team_away_name'];
+							} else {
+								$arrTeamAwayName    = explode('/',$arrTeam['next_match']['team_away_name']);
+								$strNextMatchTeamAwayName    = $arrTeamAwayName[0];
+								if(count($arrTeamAwayName) > 1) {
+									$strNextMatchTeamAwayName .= ' '.$arrTeam['team']['name'];
+								}
+							}
+						}
+
+						echo '<li class="teams-profile-list">
+								<div class="teams-profile-box">
+
+									<span class="teams-profile-name">
+										KZ/Hiltex '.$arrTeam['team']['name'].' ('.$arrTeam['team']['sport'].')
+									</span>
+
+									<span class="teams-profile-list-item zapp">
+										<span class="label" aria-hidden="true">&#xe600;</span>
+										<span class="teams-profile-list-item--content">
+											<a href="/profiel/contactgegevens/" title="">Contactgegevens</a>
+										</span>
+									</span>
+
+									<span class="teams-profile-list-item zapp">
+										<span class="label label--double-line" aria-hidden="true">&#xe601;</span>
+
+											<ol class="matchboard">';
+
+						if(
+							!   empty($arrTeam['last_match'])
+							&&  is_array($arrTeam['last_match'])
+							&&  ! is_null($arrTeam['last_match']['team_home_score'])
+							&&  ! is_null($arrTeam['last_match']['team_away_score'])
+						) {
+
+							echo '  <li class="grid matchboard__match click-box">
+										<div class="matchboard__box">
+											<div class="grid__item one-fifth matchboard__date">
+												<span class="matchboard__date--day">'.$intLastMatchDateDay.'</span>
+												<span class="matchboard__date--month">'.$strLastMatchDateMonth.'</span>
+											</div><!--
+											--><div class="grid__item three-fifths matchboard__team">
+												<span class="matchboard__team--home">'.$strLastMatchTeamHomeName.'</span>
+												<span class="matchboard__team--away">'.$strLastMatchTeamAwayName.'</span>
+											</div><!--
+											--><div class="grid__item one-fifth matchboard__score">
+												<div class="matchboard__score--box">
+													<span class="matchboard__score--home">'.$arrTeam['last_match']['team_home_score'].'</span>
+													<span class="matchboard__score--away">'.$arrTeam['last_match']['team_away_score'].'</span>
+												</div>
+											</div>
+										</div>
+										<a class="click-box__link" href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title=""><span class="click-box__body">Bekijk wedstrijd info</span></a>
+									</li>';
+
+						} else {
+							echo '	<li class="grid matchboard__match click-box">
+										<div class="grid__item one-whole matchboard__team">
+											<span class="matchboard__match--nomatchinfo">Er is geen afgelopen wedstrijd bekend.</span>
+										</div>
+									</li>';
+						}
+
+						if(
+							!   empty($arrTeam['next_match'])
+							&&  is_array($arrTeam['next_match'])
+						) {
+
+							echo '  <li class="grid matchboard__match click-box">
+										<div class="matchboard__box">
+											<div class="grid__item one-fifth matchboard__date">
+												<span class="matchboard__date--day">'.$intNextMatchDateDay.'</span>
+												<span class="matchboard__date--month">'.$strNextMatchDateMonth.'</span>
+											</div><!--
+											--><div class="grid__item three-fifths matchboard__team">
+												<span class="matchboard__team--home">'.$strNextMatchTeamHomeName.'</span>
+												<span class="matchboard__team--away">'.$strNextMatchTeamAwayName.'</span>
+											</div><!--
+											--><div class="grid__item one-fifth matchboard__time">
+												<span class="matchboard__time--start">'.$arrTeam['next_match']['time'].'</span>
+												<span class="matchboard__time--rally">'.$arrTeam['next_match']['time_departure'].'</span>
+											</div>
+										</div>
+										<a class="click-box__link" href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title=""><span class="click-box__body">Bekijk wedstrijd info</span></a>
+									</li>';
+
+						} else {
+							echo '	<li class="grid matchboard__match click-box">
+										<div class="grid__item one-whole matchboard__team">
+											<span class="matchboard__match--nomatchinfo">Er is geen aankomende wedstrijd bekend.</span>
+										</div>
+									</li>';
+						}
+
+						echo '      </ol>
+										</span>
+									</span>
+									<span class="teams-profile-list-item teams-profile-list-item--standings zapp">
+										<span class="label" aria-hidden="true">&#xe602;</span>
+										<span class="teams-profile-list-item--content">';
+										if(isset($arrTeam['standings']['position'])) {
+											echo '<a href="/team/'.$arrTeam['team']['name'].'/#tabs-'.strtolower($arrTeam['team']['sport']).'" title="">'.$arrTeam['standings']['position'].'<sup>e</sup></a>';
+										} else {
+											echo '<span class="dummy_link">Onbekend</span>';
+										}
+						echo '			</span>
+									</span>
+								</div>
+							</li>';
+
+					}
+
+					echo '</ul>';
+
+				}
+				?>
+
+			<?php
+			}
+			?>
+
+		</div>
+	</div>
+</div>

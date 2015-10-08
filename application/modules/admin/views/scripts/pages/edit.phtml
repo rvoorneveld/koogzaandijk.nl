@@ -1,0 +1,119 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('#name').keyup(function(){
+
+			jQuery('#menu_name').val(jQuery(this).val());
+
+			// Make ajax call
+			jQuery.ajax({
+				url			: '/admin/pages/getmenuurl',
+			  	dataType	: 'html',
+			  	data		: {
+					name	: jQuery(this).val() 
+				},
+			  	success		: function(sluggedUrl) {
+			  		jQuery('#menu_url').val(sluggedUrl);
+			  	}
+			});
+			
+		});
+		
+	});
+
+</script>
+<header>
+	<h2><?php echo $this->translate('Edit page'); ?></h2>
+</header>
+<section>
+
+	<form name="addPagesForm" method="post" action="#tab1">
+
+		<dl>
+			<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt width="200"><label class="label" for="menu_name"><?php echo $this->translate('Menu name'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="menu_name" name="menu_name" value="<?php echo $this->menu_name; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt width="200"><label class="label" for="menu_url"><?php echo $this->translate('Menu url'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="menu_url" name="menu_url" value="<?php echo $this->menu_url; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt width="200"><label class="label" for="seo_title"><?php echo $this->translate('SEO title'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="seo_title" name="seo_title" value="<?php echo $this->seo_title; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt width="200"><label class="label" for="seo_description"><?php echo $this->translate('SEO description'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="seo_description" name="seo_description" value="<?php echo $this->seo_description; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt width="200"><label class="label" for="seo_keywords"><?php echo $this->translate('SEO keywords'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="seo_keywords" name="seo_keywords" value="<?php echo $this->seo_keywords; ?>" /></dd>
+		</dl>
+		
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		
+		<dl>
+			<dt width="200"><label class="label" for="widget_layout"><?php echo $this->translate('Widget layout'); ?></label></dt>
+			<dd width="*">
+			
+				<?php 
+				
+					if(isset($this->widgetLayouts) && is_array($this->widgetLayouts) && count($this->widgetLayouts) > 0) :
+					
+						echo '<select name="widget_layout" id="widget_layout" class="small">';
+					
+							echo '<option value="0">'.$this->translate('None').'</option>';
+					
+						foreach($this->widgetLayouts as $intWidgetLayoutKey => $arrWidgetLayout) :
+							
+							echo '<option value="'.$arrWidgetLayout['widget_layout_id'].'"'.((isset($this->widget_layout) && $this->widget_layout == $arrWidgetLayout['widget_layout_id']) ? ' selected="selected"' : '').'>'.$arrWidgetLayout['name'].'</option>';
+						
+						endforeach;
+						
+						echo '</select>';
+						
+					endif;
+				
+				?>
+			
+			</dd>
+		</dl>
+		
+		
+		
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd>
+				<select class="small" name="status">
+					<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+					<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save page'); ?>" />
+				<a href="/admin/pages/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

@@ -1,0 +1,70 @@
+<header>
+	<h2><?php echo $this->translate('Content backups for agenda item').' '.$this->agenda_content_backup['name']; ?></h2>
+</header>
+
+<section>
+
+	<a title="<?php echo $this->translate('Click here to go back to content'); ?>" href="/admin/agenda/content/id/<?php echo $this->agenda['agenda_id']; ?>/">&raquo; <?php echo $this->translate('Click here to go back to content'); ?></a>
+
+	<br /><br />
+
+	<?php
+		if(isset($this->agenda_content_backups) && is_array($this->agenda_content_backups) && count($this->agenda_content_backups) > 0) {
+	?>
+	
+			<table>
+				<thead>
+					<tr>
+						<th width="50"><?php echo $this->translate('ID'); ?></th>
+						<th width="*"><?php echo $this->translate('Name'); ?></th>
+						<th width="*"><?php echo $this->translate('Revision'); ?></th>
+						<th width="125"><?php echo $this->translate('Layout'); ?></th>
+						<th width="125"><?php echo $this->translate('Status'); ?></th>
+						<th width="150"><?php echo $this->translate('Created'); ?></th>
+						<th width="150"><?php echo $this->translate('Created by'); ?></th>
+						<th width="100"><?php echo $this->translate('Options'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+			
+		<?php
+			foreach($this->agenda_content_backups as $intagendaContentKey => $arrAgendaContent) {
+				
+				// Format Created Date
+				$strCreatedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
+				
+				// Set agenda Content Type
+				$stragendaType	= ((isset($this->contentTypes[$arrAgendaContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrAgendaContent['content_type_id']]['name'])) ? $this->contentTypes[$arrAgendaContent['content_type_id']]['name'] : '-');
+				
+		?>	
+			<tr>
+				<td><?php echo $arrAgendaContent['agenda_content_backup_id']; ?></td>
+				<td><a href="/admin/agenda/contentbackupshow/id/<?php echo $arrAgendaContent['agenda_content_backup_id']; ?>"><strong><?php echo $arrAgendaContent['name']; ?></strong></a></td>
+				<td><?php echo $arrAgendaContent['revision']; ?></td>
+				<td><?php echo $stragendaType; ?></td>
+				<td><span class="tag <?php echo (($arrAgendaContent['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrAgendaContent['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+				<td><?php echo $strCreatedDate;?></td>
+				<td><?php echo ((isset($this->users[$arrAgendaContent['user_id']]['name']) && ! empty($this->users[$arrAgendaContent['user_id']]['name'])) ? $this->users[$arrAgendaContent['user_id']]['name'] : '-');?></td>
+				<td>
+					<ul class="actions">
+						<li><a rel="tooltip" href="/admin/agenda/contentbackupshow/id/<?php echo $arrAgendaContent['agenda_content_backup_id']; ?>/" class="view" original-title="<?php echo $this->translate('View content'); ?>"><?php echo $this->translate('View content'); ?></a></li>
+						<li><a rel="tooltip" href="/admin/agenda/contentrestore/id/<?php echo $arrAgendaContent['agenda_content_backup_id']; ?>/" class="restore" original-title="<?php echo $this->translate('Restore content'); ?>"><?php echo $this->translate('Restore content'); ?></a></li>
+					</ul>
+				</td>
+			</tr>	
+		<?php	
+			}
+		?>
+			</tbody>
+		</table>
+		
+	<?php
+		} else {
+			echo $this->translate('No content backup to display').'.';
+		}
+	?>
+	
+	<br /><br />
+	<a title="<?php echo $this->translate('Click here to go back to content'); ?>" href="/admin/agenda/content/id/<?php echo $this->agenda['agenda_id']; ?>/">&raquo; <?php echo $this->translate('Click here to go back to content'); ?></a>
+
+</section>

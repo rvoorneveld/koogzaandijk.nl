@@ -1,0 +1,150 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+
+		jQuery('.sortable').sortable();
+
+		jQuery('ul.sortable li input').each(function(){
+			if(jQuery(this).attr('checked') == 'checked') {
+				jQuery(this).parent().parent().css('background', '#c8e8c0');
+			} else {
+				jQuery(this).parent().parent().css('background', '#e8c0c0');
+			}
+		});
+
+		jQuery('input.widget').change(function(){
+			jQuery('ul.sortable li input').each(function(){
+				if(jQuery(this).attr('checked') == 'checked') {
+					jQuery(this).parent().parent().css('background', '#c8e8c0');
+				} else {
+					jQuery(this).parent().parent().css('background', '#e8c0c0');
+				}
+			});
+		});
+
+		
+
+	});
+</script>
+<header>
+	<h2><?php echo $this->translate('Widget layouts'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add layout'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+<section>
+	
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+		
+			if(isset($this->layouts) && is_array($this->layouts) && count($this->layouts) > 0) { 
+		?>
+		
+				<table class="datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="125"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			<?php foreach($this->layouts as $arrWidgetLayout) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrWidgetLayout['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrWidgetLayout['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					
+			?>
+			
+					<tr>
+						<td><?php echo $arrWidgetLayout['widget_layout_id']; ?></td>
+						<td><a href="/admin/widgets/layoutedit/id/<?php echo $arrWidgetLayout['widget_layout_id']; ?>"><strong><?php echo $arrWidgetLayout['name']; ?></strong></a></td>
+						<td><span class="tag <?php echo (($arrWidgetLayout['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrWidgetLayout['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td><?php echo ((isset($this->users[$arrWidgetLayout['user_id']]['name']) && ! empty($this->users[$arrWidgetLayout['user_id']]['name'])) ? $this->users[$arrWidgetLayout['user_id']]['name'] : '-');?></td>
+						<td>
+							<ul class="actions">
+								<li><a rel="tooltip" href="/admin/widgets/layoutedit/id/<?php echo $arrWidgetLayout['widget_layout_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit widget layout'); ?>"><?php echo $this->translate('Edit widget layout'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/widgets/layoutdelete/id/<?php echo $arrWidgetLayout['widget_layout_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete widget layout'); ?>"><?php echo $this->translate('Delete widget layout'); ?></a></li>
+							</ul>
+						</td>
+					</tr>
+			
+			<?php } ?>
+				
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No widget layouts to display').'.';
+			}
+
+		?>
+		
+	</div>
+	
+	<div id="tab1" class="tab">
+	
+		<form name="addWidgetLayoutForm" method="post" action="#tab1">
+			
+			<dl>
+				<dt><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label><?php echo $this->translate('Widgets');?></label></dt>
+				<dd>
+					<ul class="sortable">
+						<?php
+							foreach($this->widgets as $arrWidget) {
+								
+								$strChecked = ((in_array($arrWidget['widget_id'], $this->selectedWidgets)) ? ' checked="checked"' : '');
+								
+								echo '<li>
+										<table style="width: 310px;">
+											<tr>
+												<td width="25">
+													<input class="widget" type="checkbox" name="widget_'.$arrWidget['widget_id'].'" value="y"'.$strChecked.'>
+												</td>
+												<td width="*">
+													<strong>'.$arrWidget['name'].'</strong>
+												</td>
+											</tr>
+										</table>
+									 </li>';
+							}
+						?>
+					</ul>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add widget layout'); ?>" /></dd>
+			</dl>
+			
+		</form>
+		
+	</div>
+	
+</section>

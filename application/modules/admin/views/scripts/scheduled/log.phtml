@@ -1,0 +1,56 @@
+<header>
+	<h2><?php echo $this->translate('Log'); ?></h2>
+</header>
+
+<section>
+<?php if(isset($this->log) && is_array($this->log) && count($this->log) > 0) : ?>
+		
+		<table class="datatable">
+			<thead>
+				<tr>
+					<th width="60" ID="isSort" class="desc"><?php echo $this->translate('ID'); ?></th>
+					<th><?php echo $this->translate('Date'); ?></th>
+					<th><?php echo $this->translate('IP'); ?></th>
+					<th><?php echo $this->translate('Type'); ?></th>
+					<th><?php echo $this->translate('Service'); ?></th>
+					<th><?php echo $this->translate('Options'); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				
+<?php foreach($this->log as $intLogKey => $arrLog) :
+
+	// Unserialze Log response
+	$arrResponse 	= unserialize($arrLog['response']);
+
+	// Set Log Service
+	$strService 	= ((isset($arrResponse['response']['service']) && ! empty($arrResponse['response']['service'])) ? $arrResponse['response']['service'] : '');
+
+	// Set Log Service
+	$strChannel		= ((isset($arrResponse['response']['channel']) && ! empty($arrResponse['response']['channel'])) ? $arrResponse['response']['channel'] : '');
+?>
+				<tr>
+					<td><?php echo $arrLog['api_log_id']; ?></td>
+					<td><?php echo KZ_View_Helper_Date::format($arrLog['time'], 'dd-MM-YYYY HH:mm:ss'); ?></td>
+					<td><?php echo $arrLog['ip']?></td>
+					<td><span class="tag <?php echo (($arrLog['type'] == 'success') ? 'green' : 'red'); ?>"><?php echo $this->translate($arrLog['type']); ?></span></td>
+					<td><?php echo $strService; ?></td>
+					<td>
+						<ul class="actions">
+							<li><a rel="tooltip" href="/admin/scheduled/logitem/id/<?php echo $arrLog['api_log_id']; ?>/" class="view" original-title="<?php echo $this->translate('Show log'); ?>"><?php echo $this->translate('Show log'); ?></a></li>
+						</ul>
+					</td>
+				</tr>
+
+<?php endforeach; ?>
+	
+			</tbody>
+		</table>
+
+<?php else:
+		
+		echo $this->translate('There isn\'t log data to display');
+		
+	endif;
+?>
+</section>

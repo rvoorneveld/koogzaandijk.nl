@@ -1,0 +1,70 @@
+<header>
+	<h2><?php echo $this->translate('Content backups for page').' '.stripslashes($this->news['name']); ?></h2>
+</header>
+
+<section>
+
+	<a title="<?php echo $this->translate('Click here to go back to content'); ?>" href="/admin/news/content/id/<?php echo $this->news['news_id']; ?>/">&raquo; <?php echo $this->translate('Click here to go back to content'); ?></a>
+
+	<br /><br />
+
+	<?php
+		if(isset($this->news_content_backups) && is_array($this->news_content_backups) && count($this->news_content_backups) > 0) {
+	?>
+	
+			<table>
+				<thead>
+					<tr>
+						<th width="50"><?php echo $this->translate('ID'); ?></th>
+						<th width="*"><?php echo $this->translate('Name'); ?></th>
+						<th width="*"><?php echo $this->translate('Revision'); ?></th>
+						<th width="125"><?php echo $this->translate('Layout'); ?></th>
+						<th width="125"><?php echo $this->translate('Status'); ?></th>
+						<th width="150"><?php echo $this->translate('Created'); ?></th>
+						<th width="150"><?php echo $this->translate('Created by'); ?></th>
+						<th width="100"><?php echo $this->translate('Options'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+			
+		<?php
+			foreach($this->news_content_backups as $intNewsContentKey => $arrNewsContent) {
+				
+				// Format Created Date
+				$strCreatedDate 	= KZ_View_Helper_Date::format($arrNewsContent['created'], 'dd-MM-yyyy HH:mm:ss');
+				
+				// Set News Content Type
+				$strNewsType	= ((isset($this->contentTypes[$arrNewsContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrNewsContent['content_type_id']]['name'])) ? $this->contentTypes[$arrNewsContent['content_type_id']]['name'] : '-');
+				
+		?>	
+			<tr>
+				<td><?php echo $arrNewsContent['news_content_backup_id']; ?></td>
+				<td><a href="/admin/news/contentbackupshow/id/<?php echo $arrNewsContent['news_content_backup_id']; ?>"><strong><?php echo $arrNewsContent['name']; ?></strong></a></td>
+				<td><?php echo $arrNewsContent['revision']; ?></td>
+				<td><?php echo $strNewsType; ?></td>
+				<td><span class="tag <?php echo (($arrNewsContent['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrNewsContent['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+				<td><?php echo $strCreatedDate;?></td>
+				<td><?php echo ((isset($this->users[$arrNewsContent['user_id']]['name']) && ! empty($this->users[$arrNewsContent['user_id']]['name'])) ? $this->users[$arrNewsContent['user_id']]['name'] : '-');?></td>
+				<td>
+					<ul class="actions">
+						<li><a rel="tooltip" href="/admin/news/contentbackupshow/id/<?php echo $arrNewsContent['news_content_backup_id']; ?>/" class="view" original-title="<?php echo $this->translate('View content'); ?>"><?php echo $this->translate('View content'); ?></a></li>
+						<li><a rel="tooltip" href="/admin/news/contentrestore/id/<?php echo $arrNewsContent['news_content_backup_id']; ?>/" class="restore" original-title="<?php echo $this->translate('Restore content'); ?>"><?php echo $this->translate('Restore content'); ?></a></li>
+					</ul>
+				</td>
+			</tr>	
+		<?php	
+			}
+		?>
+			</tbody>
+		</table>
+		
+	<?php
+		} else {
+			echo $this->translate('No content backup to display').'.';
+		}
+	?>
+	
+	<br /><br />
+	<a title="<?php echo $this->translate('Click here to go back to content'); ?>" href="/admin/news/content/id/<?php echo $this->news['news_id']; ?>/">&raquo; <?php echo $this->translate('Click here to go back to content'); ?></a>
+
+</section>

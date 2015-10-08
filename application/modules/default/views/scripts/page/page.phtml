@@ -1,0 +1,47 @@
+<div id="nextpage" class="zapp">
+	<div class="col left">
+		<div class="inner">
+		
+			<?php
+			
+				if(isset($this->content) && is_array($this->content) && count($this->content) > 0) :
+				
+					foreach($this->content as $intContentKey => $arrContent) :
+
+						echo $this->partial($arrContent['template'], array('content' => $arrContent, 'title' => $this->page['name']));
+					
+					endforeach;
+				
+				endif;
+			
+			?>
+
+		</div>
+	</div>
+	<div class="col right">
+
+		<div class="item news bg_kz_lightgrey">
+			<?php
+			
+				if(isset($this->latest) && ! empty($this->latest)) :
+					
+					echo '<h2>'.$this->translate('Laatste nieuws').'</h2><ol>';
+					
+					foreach($this->latest as $arrLatest) :
+					
+							echo '	<li>
+										<span class="bullet" title="'.stripslashes($arrLatest['category']).'" style="background: '.$arrLatest['category_color'].';"></span>
+										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
+										<a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
+									</li>';
+
+					endforeach;
+					
+					echo '</ol>';
+					
+				endif;
+			
+			?>
+		</div>
+	</div>
+</div>

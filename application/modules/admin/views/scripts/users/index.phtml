@@ -1,0 +1,127 @@
+<header>
+	<h2><?php echo $this->translate('Users'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#overview" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#add"><?php echo $this->translate('Add user'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+	
+	<div id="overview" class="tab default-tab">
+		<?php if(isset($this->users) && !empty($this->users)) { ?>
+        	
+	        <table class="datatable">
+				<thead>
+					<tr>
+						<th width="60"><?php echo $this->translate('ID'); ?></th>
+						<th id="isSort"><?php echo $this->translate('Full name'); ?></th>
+						<th><?php echo $this->translate('Level'); ?></th>
+						<th><?php echo $this->translate('Email'); ?></th>
+						<th><?php echo $this->translate('Active'); ?></th>
+						<th><?php echo $this->translate('Options'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<?php foreach($this->users as $arrUserData) : ?>
+						<tr>
+							<td><?php echo $arrUserData['user_id']; ?></td>
+							<td><a href="/admin/settings/usersedit/id/<?php echo $arrUserData['user_id']; ?>"><strong><?php echo $arrUserData['name']; ?></strong></a></td>
+							<td><?php echo $this->translate($arrUserData['authlevel']); ?></td>
+							<td><?php echo $arrUserData['email']; ?></td>
+							<?php if($arrUserData['status'] == 1) { ?>
+								<td><span class="tag green"><?php echo $this->translate('Active')?></span></td>
+							<?php } else { ?>
+								<td><span class="tag red"><?php echo $this->translate('InActive')?></span></td>
+							<?php } ?>
+							<td>
+								<ul class="actions">
+									<li><a rel="tooltip" href="/admin/users/edit/id/<?php echo $arrUserData['user_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit User'); ?>"><?php echo $this->translate('Edit User'); ?></a></li>
+									<li><a rel="tooltip" onclick="javascript.confirm('<?php echo $this->translate('Are you sure you want to delete this user?');?>');" href="/admin/users/delete/id/<?php echo $arrUserData['user_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete User'); ?>"><?php echo $this->translate('Delete User'); ?></a></li>
+								</ul>
+							</td>
+						</tr>
+					
+					<?php endforeach; ?>
+					
+				</tbody>
+			</table>
+	        
+		<?php } else {
+	       
+			echo $this->translate('No Users to display');
+	        
+		} ?>
+    </div>
+    
+    <div id="add" class="tab">
+		
+		<form name="addUserForm" action="#tab1" method="post">
+			<fieldset>
+				<legend><?php echo $this->translate('Add user'); ?></legend>
+				<dl>
+					<dt><label for="user_group_id"><?php echo $this->translate('Access level'); ?></label></dt>
+					<dd>
+						<select class="small" name="user_group_id" id="user_group_id">
+							<?php
+								if(isset($this->usergroups) && is_array($this->usergroups)) {
+									foreach($this->usergroups as $arrAuthLevel) {
+										echo '<option value="'.$arrAuthLevel['user_group_id'].'">'.$arrAuthLevel['name'].'</option>';
+									}
+								}
+							?>
+						</select>
+					</dd>
+				</dl>
+				
+			
+				<dl>
+					<dt><label for="owner"><?php echo $this->translate('Name'); ?></label></dt>
+					<dd><input type="text" class="small" id="name" name="name" value="" /></dd>
+				</dl>
+				<dl>
+					<dt><label for="email"><?php echo $this->translate('Email'); ?></label></dt>
+					<dd><input type="text" class="small" id="email" name="email" value="" /></dd>
+				</dl>
+				
+				<dl>
+					<dt><label><?php echo $this->translate('UserActive'); ?></label></dt>
+				</dl>
+				<dl>
+					<dt class="radio">
+						<label for="active"><?php echo $this->translate('Yes'); ?></label>
+					</dt>
+					<dd>
+						<input type="radio" class="small" id="status" name="status" value="1" checked />
+					</dd>
+					<dt class="radio">
+						<label><?php echo $this->translate('No'); ?></label>
+					</dt>
+					<dd>
+						<input type="radio" class="small" id="status" name="status" value="0" />
+					</dd>
+				</dl>
+				<dl>
+					<dt height="15" colspan="2"></dt>
+				</dl>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd>
+						<input class="button" type="submit" value="<?php echo $this->translate('Add'); ?>" />
+						<?php echo $this->translate('or,'); ?>
+						<a href="/admin/users/"><?php echo $this->translate('go back to overview')?></a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><em><?php echo $this->translate('Password is created automaticly')?></em></dd>
+				</dl>
+			</fieldset>
+		</form>
+		
+    </div>
+    
+</section>

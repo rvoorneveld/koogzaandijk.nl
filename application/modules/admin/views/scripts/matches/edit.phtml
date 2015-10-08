@@ -1,0 +1,65 @@
+<header>
+	<h2><?php echo $this->translate('Edit match'); ?></h2>
+</header>
+<section>
+
+	<form name="editMatchForm" method="post" action="">
+
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('KNKV ID'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->match_id.' ('.$this->competition_program_id.')'; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Game'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->team_home_name.' - '.$this->team_away_name; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Result'); ?></label></dt>
+			<dd>
+				<input type="text" class="tiny" name="team_home_score" value="<?php echo $this->team_home_score; ?>" />
+				- 
+				<input type="text" class="tiny" name="team_away_score" value="<?php echo $this->team_away_score; ?>" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Poule'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->poule_code.' '.((isset($this->poule_name) && $this->poule_name != '') ? '('.$this->poule_name.')' : ''); ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Year'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->year; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Week'); ?></label></dt>
+			<dd class="text"><p><?php echo $this->week; ?></p></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="date"><?php echo $this->translate('Date'); ?></label></dt>
+			<dd><input type="text" class="datepicker" name="date" id="date" value="<?php echo $this->date; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="time"><?php echo $this->translate('Time'); ?></label></dt>
+			<dd><input type="text" name="time" id="time" value="<?php echo $this->time; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="time_departure"><?php echo $this->translate('Time departure'); ?></label></dt>
+			<dd><input type="text" name="time_departure" id="time_departure" value="<?php echo $this->time_departure; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="officials"><?php echo $this->translate('Officials'); ?></label></dt>
+			<dd><textarea class="medium" name="officials" id="officials"><?php echo $this->officials; ?></textarea></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save match'); ?>" />
+				<a href="/admin/matches/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

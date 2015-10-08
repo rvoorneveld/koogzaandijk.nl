@@ -1,0 +1,165 @@
+<div class="l-wrapper l-wrapper--profiles">
+	<h2><?php echo $this->translate('Kies uw profiel'); ?>:</h2>
+	<span class="user-feedback" style="display:none;"></span>
+	<div class="table table--profiles">
+		<ol class="profiles row zapp">
+			<?php
+				if(! empty($this->profiles) && is_array($this->profiles)) {
+					foreach($this->profiles as $arrProfile) {
+
+						$strAvatar      = '/upload/avatars/'.$arrProfile['avatar'];
+
+						if(! is_file($_SERVER['DOCUMENT_ROOT'].$strAvatar)) {
+
+							$intRandomCount     = array_rand($this->arrKorfballgurus);
+							$strAvatar          = '/assets/default/image/temp_test/'.$this->arrKorfballgurus[$intRandomCount].'.jpg';
+						}
+
+						$strAutoLogin   = (($arrProfile['auto_login'] == 1) ? '_auto' : '');
+
+						// Set Default Password Html
+						$strPassword    = '';
+
+						if($arrProfile['auto_login'] == 0) {
+							$strPassword    =  '<form class="form-standard form-standard--profiles profilePassword" method="post" action="">
+													<label>'.$this->translate('Wachtwoord').':</label>
+													<input type="password" name="password" class="loginPassword" value="">
+													<input class="loginWithPassword button" type="submit" value="'.$this->translate('Inloggen').'" rel="'.base64_encode($arrProfile['code']).'">
+												</form>';
+						}
+
+						echo    '<li class="profiles__profile cell">
+									<div class="media zapp">
+										<div class="media__img">
+											<img class="profiles__avatar" src="'.$strAvatar.'">
+										</div>
+										<div class="media__body media__body--profiles">
+											<a class="login'.$strAutoLogin.'" href="javascript:void(0);" rel="'.base64_encode($arrProfile['member_id'].'_'.$arrProfile['code']).'">'.$arrProfile['firstname'].((! empty($arrProfile['insertion'])) ? ' '.$arrProfile['insertion'].' ' : ' ').$arrProfile['lastname'].'</a>
+										</div>
+									</div>
+									'.$strPassword.'
+								</li>';
+					}
+				}
+			?>
+			<li class="profiles__profile profiles__profile--new cell">
+				<a class="newProfile" href="javascript:void(0);" title=""><?php echo $this->translate('Nieuw profiel'); ?></a>
+				<form method="post" class="form-standard form-standard--profiles newProfileForm" action="">
+					<ol>
+						<li><label><?php echo $this->translate('Emailadres'); ?>:</label> <input type="text" name="email" class="email" value=""></li>
+						<li><label><?php echo $this->translate('Wachtwoord'); ?>:</label> <input type="password" name="password" class="password" value=""></li>
+						<li><input class="submit button" type="submit" value="<?php echo $this->translate('Inloggen'); ?>" name="submit"></li>
+					</ol>
+				</form>
+			</li>
+		</ol>
+	</div>
+	<div class="close_profiles"><a href="javascript:void(0);">Sluiten <span aria-hidden="true">&#xe006;</span></a></div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+
+		jQuery('.login_auto').click(function(){
+			jQuery.ajax({
+				type    : 'POST',
+				url     : '/tools/loginauto/',
+				data    : {
+					data        : jQuery(this).attr('rel')
+				}
+			}).done(function(message){
+
+				if(jQuery.isNumeric(message)) {
+					window.location.href = "/profiel/";
+				}
+
+			});
+		});
+
+		jQuery('.login').click(function(){
+
+			jQuery('.profilePassword').hide();
+			jQuery(this).parent().parent().parent().find('.profilePassword').show();
+			jQuery('.newProfileForm').hide();
+
+			jQuery('.loginWithPassword').click(function(e){
+
+				e.preventDefault();
+
+				var profilePassword = jQuery(this).parent().find('.loginPassword').val();
+				var profileRel      = jQuery(this).attr('rel');
+
+				jQuery.ajax({
+					type    : 'POST',
+					url     : '/tools/loginpassword/',
+					data    : {
+						password    : profilePassword,
+						data        : profileRel
+					}
+				}).done(function(message){
+
+						if(jQuery.isNumeric(message)) {
+							window.location.href = "/profiel/";
+						} else {
+							jQuery('.user-feedback').html(message);
+							jQuery('.user-feedback').addClass('user-feedback--error');
+							jQuery('.user-feedback').show();
+
+							setTimeout(function() {
+								jQuery('.user-feedback').removeClass('user-feedback--error');
+								jQuery('.user-feedback').hide();
+							}, 5000);
+
+						}
+
+				});
+			});
+		});
+
+		jQuery('.newProfile').click(function(){
+			jQuery('.profilePassword').hide();
+			jQuery('.newProfileForm').show();
+		});
+
+		jQuery('.submit').click(function(e){
+
+			// Prevent form from submitting
+			e.preventDefault();
+
+			jQuery.ajax({
+				type    : 'POST',
+				url     : '/tools/login/',
+				data    : {
+					email       : jQuery('.email').val(),
+					password    : jQuery('.password').val()
+				}
+			}).done(function(message){
+
+				if(jQuery.isNumeric(message)) {
+					window.location.href = "/profiel/";
+				} else {
+					jQuery('.user-feedback').html(message);
+					jQuery('.user-feedback').addClass('user-feedback--error');
+					jQuery('.user-feedback').show();
+
+					setTimeout(function() {
+						jQuery('.user-feedback').removeClass('user-feedback--error');
+						jQuery('.user-feedback').hide();
+					}, 5000);
+
+				}
+
+			});
+
+		});
+
+		jQuery('.close_profiles').click(function(){
+			jQuery('.l-wrapper--profiles').hide();
+			jQuery('.profilePassword').hide();
+			jQuery('.newProfileForm').hide();
+			jQuery('.user-feedback').hide();
+			jQuery('.user-feedback').removeClass('user-feedback--error');
+			jQuery('.openProfiles').show();
+		});
+
+	});
+</script>

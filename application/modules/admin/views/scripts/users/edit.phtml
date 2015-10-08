@@ -1,0 +1,74 @@
+<header>
+	<h2><?php echo $this->translate('Edit user'); ?></h2>
+</header>
+
+<form name="editUserForm" action="#tab1" method="post">
+	<fieldset>
+		<dl>
+			<dt width="200"><label for="owner"><?php echo $this->translate('FullName'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->user['name']; ?>" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="email"><?php echo $this->translate('E-mail adres'); ?></label></dt>
+			<dd><input type="text" class="small" id="email" name="email" value="<?php echo $this->user['email']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="region"><?php echo $this->translate('UserAccessLevel'); ?></label></dt>
+			<dd>
+				<select class="small" name="user_group_id" id="user_group_id">
+					<option value=""><?php echo $this->translate('Choose Auth. Level')?></option>
+					<?php
+						if(isset($this->usergroups) && is_array($this->usergroups)) {
+							foreach($this->usergroups as $arrAuthLevel) {
+								$strSelected	= ($arrAuthLevel['user_group_id']== $this->user['user_group_id']) ? 'selected="selected"' : '';
+								echo '<option value="'.$arrAuthLevel['user_group_id'].'" '.$strSelected.'>'.$arrAuthLevel['name'].'</option>';
+							}
+						}
+					?>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="city"><?php echo $this->translate('UserActive'); ?></label></dt>
+		</dl>
+		<dl>
+			<dt class="radio">
+				<label for="active"><?php echo $this->translate('Yes'); ?></label>
+			</dt>
+			<dd>
+				<input type="radio" class="small" id="status" name="status" value="1" <?php echo (($this->user['status'] == 1) ? 'checked' : ''); ?> />
+			</dd>
+			<dt class="radio">
+				<label><?php echo $this->translate('No'); ?></label>
+			</dt>
+			<dd>
+				<input type="radio" class="small" id="status" name="status" value="0" <?php echo (($this->user['status'] == 0) ? 'checked' : ''); ?>  />
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+
+		<dl>
+			<dt><label for="loginname"><?php echo $this->translate('ChangePassword'); ?> *</label></dt>
+			<dd>&nbsp;</dd>
+		</dl>
+		<dl>
+			<dt><label for="loginname"><?php echo $this->translate('NewPassword'); ?></label></dt>
+			<dd><input type="text" class="small" id="password" name="password" value="" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="city"><?php echo $this->translate('RetypPassword'); ?></label></dt>
+			<dd><input type="text" class="small" id="confirm_password" name="confirm_password" value="" /></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+			<dd><em>* Leave both fields blank to keep current password</em></dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" value="<?php echo $this->translate('Save'); ?>" /></dd>
+		</dl>
+	</fieldset>
+</form>

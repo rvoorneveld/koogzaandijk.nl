@@ -1,0 +1,39 @@
+<header>
+	<h2><?php echo $this->translate('Services'); ?></h2>
+</header>
+
+<section>
+	
+<?php if(isset($this->services) && is_array($this->services) && count($this->services) > 0) : ?>
+		
+		<table class="datatable">
+			<thead>
+				<tr>
+					<th width="60"><?php echo $this->translate('ID'); ?></th>
+					<th><?php echo $this->translate('Name'); ?></th>
+					<th><?php echo $this->translate('Description'); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				
+<?php foreach($this->services as $intServiceKey => $arrService) : ?>
+
+				<tr>
+					<td><?php echo $arrService['api_service_id']; ?></td>
+					<td><?php echo $arrService['name']?></td>
+					<td><?php echo $arrService['description']; ?></td>
+				</tr>
+
+<?php endforeach; ?>
+	
+			</tbody>
+		</table>
+
+<?php else:
+		
+		echo $this->translate('There are no services to display');
+		
+	endif;
+?>
+
+</section>

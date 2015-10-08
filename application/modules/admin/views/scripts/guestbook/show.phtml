@@ -1,0 +1,41 @@
+<header>
+	<h2><?php echo $this->translate('Show entry'); ?></h2>
+</header>
+
+<section>
+
+	<form>
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->entry['guestbook_name']; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Email'); ?></label></dt>
+			<dd class="text"><?php echo $this->entry['guestbook_email']; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Date'); ?></label></dt>
+			<dd class="text"><?php echo KZ_View_Helper_Date::format($this->entry['guestbook_entry_date'], 'dd-MM-YYYY'); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->entry['guestbook_entry_verified'] == 'y') ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Message'); ?></label></dt>
+			<dd class="text"><?php echo nl2br($this->entry['guestbook_message']); ?></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<a class="button blue" href="/admin/guestbook/" title="<?php echo $this->translate('Go back to overview'); ?>"><?php echo $this->translate('Go back to overview'); ?></a>
+				<a class="button blue" href="/admin/guestbook/edit/id/<?php echo $this->entry['guestbook_entry_id']; ?>" title="<?php echo $this->translate('Edit entry'); ?>"><?php echo $this->translate('Edit entry'); ?></a>
+				<a class="button blue" href="/admin/guestbook/delete/id/<?php echo $this->entry['guestbook_entry_id']; ?>" title="<?php echo $this->translate('Delete entry'); ?>"><?php echo $this->translate('Delete entry'); ?></a>
+			</dd>
+		</dl>
+	</form>
+
+</section>

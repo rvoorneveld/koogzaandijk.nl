@@ -1,0 +1,48 @@
+<?php
+	
+	// Set Unserialized Data arary
+	$arrData = unserialize($this->content['data']);
+	
+	echo '<h2>'.stripslashes($arrData['content_1_title']).'</h2>';
+
+	if(
+			isset($this->agenda) 
+		&& 	is_array($this->agenda) 
+		&& 	count($this->agenda) > 0
+		&& $this->content['rank'] == 1)
+	{
+		
+		$booShowEndDate		= ((isset($this->agenda['date_end']) && ! empty($this->agenda['date_end']) && $this->agenda['date_end'] != $this->agenda['date_start']) ? true : false);
+		
+		echo '	<div class="agenda">
+					<ul>
+						<li>
+							<span class="label">'.$this->translate('Date').'</span>
+							'.(($booShowEndDate === true) ? ucfirst($this->translate('from')).' ' : '').KZ_View_Helper_Date::format($this->agenda['date_start'], 'd MMM yyyy').(($booShowEndDate === true) ? ' '.$this->translate('untill').' '.KZ_View_Helper_Date::format($this->agenda['date_end'], 'd MMM yyyy') : '').'
+						</li>';
+
+		if(isset($this->agenda['time_start']) && ! empty($this->agenda['time_start'])) {
+			$booShowEndTime		= ((isset($this->agenda['time_end']) && ! empty($this->agenda['time_end']) && $this->agenda['time_end'] != $this->agenda['time_start']) ? true : false);
+			echo '	<li>
+						<span class="label">'.$this->translate('Time').'</span>
+						'.(($booShowEndTime === true) ? ucfirst($this->translate('from')).' ' : '').$this->agenda['time_start'].(($booShowEndDate === true) ? ' '.$this->translate('till').' '.$this->agenda['time_end'] : '').'
+					</li>';			
+		}
+		
+		if(isset($this->agenda['location']) && ! empty($this->agenda['location'])) {
+			echo '	<li>
+						<span class="label">'.$this->translate('Location').'</span>
+						'.$this->agenda['location'].'
+					</li>';
+		}
+						
+		echo '
+					</ul>
+				</div>';
+			
+		
+	}
+	
+	echo stripslashes($arrData['content_1_text']);
+	
+?>

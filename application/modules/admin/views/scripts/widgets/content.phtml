@@ -1,0 +1,476 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('a.button').click(function(){
+
+			var rel 		= jQuery(this).attr('rel');
+			var buttonClass = jQuery(this).attr('class');
+
+			jQuery('#'+rel).attr('checked', ((jQuery('#'+rel).attr('checked') == 'checked') ? false : true));
+			jQuery(this).removeClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'red' : 'green'));
+			jQuery(this).addClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'green' : 'red'));
+
+		});
+		
+		var type = jQuery('#content_type_id').val();
+
+		if(type == 0) {
+			jQuery('.layoutPreview').css('display', 'none');
+		} else {
+			jQuery('.layoutPreview').css('display', 'block');
+			jQuery('.layoutPreview').attr('href', '/assets/admin/image/layout/type' + type + '.jpg');
+			jQuery('.layoutPreview img').attr('src', '/assets/admin/image/layout/thumb_type' + type + '.jpg');
+		}
+		
+		jQuery('.content_type').hide();
+		jQuery('#content_'+type).toggle();
+		jQuery('#activeContentType').val(type);
+
+		jQuery('#content_type_id').change(function(){
+
+			var type = jQuery(this).val();
+
+			if(type == 0) {
+				jQuery('.layoutPreview').css('display', 'none');
+			} else {
+				jQuery('.layoutPreview').css('display', 'block');
+				jQuery('.layoutPreview').attr('href', '/assets/admin/image/layout/type' + type + '.jpg');
+				jQuery('.layoutPreview img').attr('src', '/assets/admin/image/layout/thumb_type' + type + '.jpg');
+			}
+			
+			jQuery('.content_type').hide();
+			jQuery('#content_'+type).toggle();
+			jQuery('#activeContentType').val(type);
+
+		});
+
+		jQuery('table.sortable').sortable({
+			helper: fixHelper,
+			items: 'tr.sortable',
+			cancel: 'tr.unsortable',
+			update: function(event, ui) {
+
+		  		jQuery(this).children().each(function() {
+
+					var pIDs	= new Array();
+					var	i		= 0;
+					jQuery(this).children('tr').each(function(){
+
+						var pID 	= jQuery(this).attr('rel');
+						
+						if(pID != ''){
+							pIDs[i]	= pID;
+							i++;
+						}
+
+
+					});
+
+					// Make ajax call
+					$.ajax({
+						url			: '/admin/widgets/sortcontent',
+					  	dataType	: 'html',
+					  	data		: {
+							rank	: pIDs 
+						},
+					  	success		: function(data) {
+							//alert(data);
+					  	}
+
+					});
+
+		  		});
+
+			}
+
+		});
+
+		jQuery("a.layoutPreview").fancybox({
+			width: '50%',
+			height: '100%',
+			showNavArrows: false
+		});
+		
+	});
+
+	// Sortable tables
+	var fixHelper = function(e, ui) {
+	    ui.children().each(function() {
+	        $(this).width($(this).width());
+	    });
+	    return ui;
+	};
+
+</script>
+
+<header>
+	<h2><?php echo $this->translate('Content for widget').' '.$this->widget['name']; ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add content'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->widgets_content) && is_array($this->widgets_content) && count($this->widgets_content) > 0) {
+		?>
+				
+				<table class="sortable">
+					<thead>
+						<tr class="unsortable">
+							<th width="25"></th>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Layout'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="100"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+				
+			<?php
+				foreach($this->widgets_content as $intWidgetsContentKey => $arrWidgetsContent) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrWidgetsContent['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrWidgetsContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Set Widgets Content Type
+					$strWidgetsType	= ((isset($this->contentTypes[$arrWidgetsContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrWidgetsContent['content_type_id']]['name'])) ? $this->contentTypes[$arrWidgetsContent['content_type_id']]['name'] : '-');
+					
+			?>	
+				<tr class="sortable" rel="content_<?php echo $arrWidgetsContent['widget_content_id']; ?>">
+					<td><img class="noBorder" src="/assets/admin/image/jquery/sort_both.png" style="cursor: move;" /></td>
+					<td><?php echo $arrWidgetsContent['widget_content_id']; ?></td>
+					<td><a href="/admin/widgets/contentedit/id/<?php echo $arrWidgetsContent['widget_content_id']; ?>"><strong><?php echo $arrWidgetsContent['name']; ?></strong></a></td>
+					<td><?php echo $strWidgetsType; ?></td>
+					<td><span class="tag <?php echo (($arrWidgetsContent['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrWidgetsContent['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+					<td><?php echo $strCreatedDate;?></td>
+					<td><?php echo $strModifiedDate;?></td>
+					<td><?php echo ((isset($this->users[$arrWidgetsContent['user_id']]['name']) && ! empty($this->users[$arrWidgetsContent['user_id']]['name'])) ? $this->users[$arrWidgetsContent['user_id']]['name'] : '-');?></td>
+					<td>
+						<ul class="actions">
+							<li><a rel="tooltip" href="/admin/widgets/contentbackup/id/<?php echo $arrWidgetsContent['widget_content_id']; ?>/widget_id/<?php echo $arrWidgetsContent['widget_id']; ?>/" class="backup" class="content" original-title="<?php echo $this->translate('Show content backups'); ?>"><?php echo $this->translate('Show backups'); ?></a></li>
+							<li><a rel="tooltip" href="/admin/widgets/contentedit/id/<?php echo $arrWidgetsContent['widget_content_id']; ?>/" class="edit" class="content" original-title="<?php echo $this->translate('Edit content'); ?>"><?php echo $this->translate('Edit content'); ?></a></li>
+							<li><a rel="tooltip" href="/admin/widgets/contentdelete/id/<?php echo $arrWidgetsContent['widget_content_id']; ?>/" class="delete" class="content" original-title="<?php echo $this->translate('Delete content'); ?>"><?php echo $this->translate('Delete content'); ?></a></li>
+						</ul>
+					</td>
+				</tr>	
+			<?php	
+				}
+			?>
+				</tbody>
+			</table>
+		<?php
+			} else {
+				echo $this->translate('No content to display').'.';
+			}
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+	
+		<form name="addWidgetsContentForm" method="post" action="#tab1">
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="content_type_id"><?php echo $this->translate('Layout'); ?></label></dt>
+				<dd>
+					<?php
+						if(isset($this->contentTypes) && is_array(($this->contentTypes))) {
+								
+							echo '<select class="small" name="content_type_id" id="content_type_id"><option value="0">'.$this->translate('Choose').'</option>';
+							
+							foreach($this->contentTypes as $intContentTypeKey => $arrContentType) {
+									
+								if($arrContentType['status'] == 1) {
+										
+									$strSelected	= (($arrContentType['content_type_id'] == $this->content_type_id) ? ' selected="selected"' : '');
+									
+									echo '<option value="'.$arrContentType['content_type_id'].'" '.$strSelected.'>'.$this->translate($arrContentType['name']).'</option>';
+										
+								}
+								
+							}
+
+							echo '</select>';
+							
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			
+		
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><a class="layoutPreview" style="display: none;" href="" title=""><img src="" alt="" title=""></a></dd>
+			</dl>
+			
+			
+			<div id="content_3" class="content_type">
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Facebook'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt width="200"><label class="label" for="content_3_url"><?php echo $this->translate('Rss url'); ?></label></dt>
+					<dd width="*">
+						<input type="text" class="small" id="content_3_url" name="content_3_url" value="<?php echo $this->content_3_url; ?>" />
+						<p><?php echo $this->translate('For example: http://www.facebook.com/feeds/page.php?format=rss20&id=205769322795305'); ?></p>
+					</dd>
+				</dl>
+	
+			</div>
+			
+			<div id="content_4" class="content_type">
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Twitter'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt width="200"><label class="label" for="content_4_username"><?php echo $this->translate('Username'); ?></label></dt>
+					<dd width="*">
+						<input type="text" class="small" id="content_4_username" name="content_4_username" value="<?php echo $this->content_4_username; ?>" />
+						<p><?php echo $this->translate('For example: KZ_Hiltex'); ?></p>
+					</dd>
+				</dl>
+				
+	
+			</div>		
+			
+			<div id="content_5" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Title'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label" for="content_5_title"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd width="*">
+						<input type="text" class="small" id="content_5_title" name="content_5_title" value="<?php echo $this->content_5_title; ?>" />
+					</dd>
+				</dl>
+				
+			</div>	
+			
+			<div id="content_6" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Link (bottom)'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label" for="content_6_title"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd width="*">
+						<input type="text" class="small" id="content_6_title" name="content_6_title" value="<?php echo $this->content_6_title; ?>" />
+					</dd>
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_6_location"><?php echo $this->translate('Location'); ?></label></dt>
+					<dd><input type="text" class="large" id="content_6_location" name="content_6_location" value="<?php echo $this->content_6_location; ?>" /></dd>
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_6_target"><?php echo $this->translate('Target'); ?></label></dt>
+					<dd>
+						<select class="small" name="content_6_target">
+							<option value="_self"<?php echo (($this->content_6_target == '_self') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Current page'); ?></option>
+							<option value="_blank"<?php echo (($this->content_6_target == '_blank') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('New page'); ?></option>
+						</select>
+					</dd>
+				</dl>
+				
+			</div>
+			
+			<div id="content_7" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Text'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label" for="content_7_text"><?php echo $this->translate('Text'); ?></label></dt>
+					<dd width="*">
+						<textarea class="tinymce large" id="content_7_text" name="content_7_text"><?php echo $this->content_7_text; ?></textarea>
+					</dd>
+				</dl>
+				
+			</div>
+			
+			<div id="content_8" class="content_type">
+	
+				<dl>
+					<dt width="200"><label class="label" for="content_8_home"><?php echo $this->translate('Team home'); ?></label></dt>
+					<dd width="*">
+						<input type="text" class="small" id="content_8_home" name="content_8_home" value="<?php echo $this->content_8_home; ?>" />
+					
+					</dd>
+				</dl>
+				
+				<dl>
+					<dt><label class="label" for="content_8_away"><?php echo $this->translate('Team away'); ?></label></dt>
+					<dd>
+						<input type="text" class="small" id="content_8_away" name="content_8_away" value="<?php echo $this->content_8_away; ?>" />
+					</dd>
+				</dl>
+				
+				<dl>
+					<dt><label class="label" for="content_8_details"><?php echo $this->translate('Details'); ?></label></dt>
+					<dd>
+						<input type="text" class="small" id="content_8_details" name="content_8_details" value="<?php echo $this->content_8_details; ?>" />
+					</dd>
+				</dl>
+				
+			</div>
+			
+			<div id="content_9" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Program'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label"><?php echo $this->translate('Teams'); ?></label></dt>
+					<dd width="*">
+						<div id="tagsContainer">
+						<?php
+							if(isset($this->teams) && is_array(($this->teams))) {
+								
+								foreach($this->teams as $intTeamKey => $strTeam) {
+									
+									$strStatus 			= ((isset($this->content_9_teams) && is_array($this->content_9_teams) && in_array($strTeam, $this->content_9_teams)) ? ' checked="checked"' : '');
+									$strColor 			= ((isset($this->content_9_teams) && is_array($this->content_9_teams) && in_array($strTeam, $this->content_9_teams)) ? 'green' : 'red');
+									
+									echo '	<a class="button '.$strColor.' small" rel="team-program-'.$strTeam.'">'.$strTeam.'</a>
+									  		<input type="checkbox" name="team-program-'.$strTeam.'" id="team-program-'.$strTeam.'" value="'.$strTeam.'" style="display: none;" '.$strStatus.' />';
+								}
+								
+							}
+						?>
+					</div>				
+					</dd>
+				</dl>
+	
+			</div>					
+			
+			<div id="content_10" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Schedule'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label"><?php echo $this->translate('Teams'); ?></label></dt>
+					<dd width="*">
+						<div id="tagsContainer">
+						<?php
+							if(isset($this->teams) && is_array(($this->teams))) {
+								
+								foreach($this->teams as $intTeamKey => $strTeam) {
+									
+									$strStatus 			= ((isset($this->content_10_teams) && is_array($this->content_10_teams) && in_array($strTeam, $this->content_10_teams)) ? ' checked="checked"' : '');
+									$strColor 			= ((isset($this->content_10_teams) && is_array($this->content_10_teams) && in_array($strTeam, $this->content_10_teams)) ? 'green' : 'red');
+									
+									echo '	<a class="button '.$strColor.' small" rel="team-results-'.$strTeam.'">'.$strTeam.'</a>
+									  		<input type="checkbox" name="team-results-'.$strTeam.'" id="team-results-'.$strTeam.'" value="'.$strTeam.'" style="display: none;" '.$strStatus.' />';
+								}
+								
+							}
+						?>
+					</div>				
+					</dd>
+				</dl>
+	
+			</div>
+			
+			<div id="content_11" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Guestbook'); ?></label></dd>	
+				</dl>
+				
+			</div>
+			
+			<div id="content_12" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Livestream'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_12_image"><?php echo $this->translate('Image'); ?></label></dt>
+					<dd><input type="text" class="small" id="content_12_image" name="content_12_image" value="<?php echo $this->content_12_image; ?>" /> <a class="button" href="javascript:mcImageManager.open('addWidgetsContentForm','content_12_image');"><?php echo $this->translate('Select image'); ?></a></dd>
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_12_location"><?php echo $this->translate('Location'); ?></label></dt>
+					<dd><input type="text" class="large" id="content_12_location" name="content_12_location" value="<?php echo $this->content_12_location; ?>" /></dd>
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_12_target"><?php echo $this->translate('Target'); ?></label></dt>
+					<dd>
+						<select class="small" name="content_12_target">
+							<option value="_self"<?php echo (($this->content_12_target == '_self') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Current page'); ?></option>
+							<option value="_blank"<?php echo (($this->content_12_target == '_blank') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('New page'); ?></option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+			
+			<div id="content_14" class="content_type">
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Youtube'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_14_youtube"><?php echo $this->translate('Youtube stream'); ?></label></dt>
+					<dd><input type="text" class="small" id="content_14_youtube" name="content_14_youtube" value="<?php echo $this->content_14_youtube; ?>" /></dd>
+				</dl>
+			</div>
+
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add widget content'); ?>" /></dd>
+			</dl>
+			
+			<input type="hidden" id="activeContentType" name="activeContentType" value="">
+			
+		</form>
+
+	</div>
+
+</section>
+<script language="JavaScript">
+
+<?php if (isset($this->editorInit)) print $this->editorInit; ?>
+
+</script>

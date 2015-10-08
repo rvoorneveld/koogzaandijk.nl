@@ -1,0 +1,119 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('button.colorPicker').ColorPicker({
+			onChange: function (hsb, hex, rgb) {
+				jQuery('button.colorPicker').css('backgroundColor', '#'+hex);
+				jQuery('#color').val('#' + hex);
+			}
+		});
+		<?php if(isset($this->color) && ! empty($this->color)) : ?>
+
+			jQuery('button.colorPicker').css('backgroundColor', '<?php echo $this->color; ?>');
+		
+		<?php endif; ?>
+	});
+</script>
+<header>
+	<h2><?php echo $this->translate('Categories'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add category'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->categories) && is_array($this->categories) && count($this->categories) > 0) { 
+		?>
+				<table class="datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Color'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="75"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			<?php foreach($this->categories as $arrCategory) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrCategory['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrCategory['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+			?>
+			
+					<tr>
+						<td><?php echo $arrCategory['category_id']; ?></td>
+						<td><a href="/admin/news/categoriesedit/id/<?php echo $arrCategory['category_id']; ?>"><strong><?php echo $arrCategory['name']; ?></strong></a></td>
+						<td><span class="tag" style="background-color: <?php echo $arrCategory['color']; ?>;"><?php echo $arrCategory['color']; ?></span></td>
+						<td><span class="tag <?php echo (($arrCategory['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrCategory['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td>
+							<ul class="actions">
+								<li><a rel="tooltip" href="/admin/settings/categoriesedit/id/<?php echo $arrCategory['category_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit category'); ?>"><?php echo $this->translate('Edit category'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/settings/categoriesdelete/id/<?php echo $arrCategory['category_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete category'); ?>"><?php echo $this->translate('Delete category'); ?></a></li>
+							</ul>
+						</td>
+					</tr>
+			
+			<?php } ?>
+				
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No categories to display').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addCategoryForm" method="post" action="#tab1">
+		
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label"><?php echo $this->translate('Color'); ?></label></dt>
+				<dd>
+					<button class="colorPicker"></button>
+					<input type="hidden" name="color" id="color" value="<?php echo $this->color;?>">
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add category'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>

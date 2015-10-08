@@ -1,0 +1,96 @@
+
+.icon-tr-down:before
+{
+    content: '\e807';
+}
+.icon-menu:before
+{
+    content: '\e804';
+}
+.icon-toc:before
+{
+    content: '\e808';
+}
+.icon-bookmark-mini:before
+{
+    content: '\e809';
+}
+.icon-th:before
+{
+    content: '\e802';
+}
+.icon-search:before
+{
+    content: '\e803';
+}
+.icon-share:before
+{
+    content: '\e801';
+}
+.icon-bookmark:before
+{
+    content: '\e805';
+}
+.icon-help:before
+{
+    content: '\e800';
+}
+.icon-back:before
+{
+    content: '\e810';
+}
+.icon-preferences:before
+{
+    content: '\e811';
+}
+.icon-tr-right:before
+{
+    content: '\e806';
+}
+.icon-share-linkedin:before
+{
+    content: '\e812';
+}
+.icon-share-twitter:before
+{
+    content: '\e813';
+}
+.icon-share-facebook:before
+{
+    content: '\e814';
+}
+.icon-share-tumblr:before
+{
+    content: '\e815';
+}
+.icon-share-mail:before
+{
+    content: '\e816';
+}
+.icon-close:before
+{
+    content: '\e817';
+}
+
+.icon-share-gplus:before
+{
+    content: '\e818';
+}
+.icon-share-vk:before
+{
+    content: '\e819';
+}
+.icon-bookmark-del:before
+{
+    content: '\e820';
+}
+
+.icon-empty-cart:before
+{
+    content: '\e821';
+}
+
+.icon-full-cart:before
+{
+    content: '\e822';
+}

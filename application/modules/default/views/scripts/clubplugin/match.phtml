@@ -1,0 +1,123 @@
+<div id="nextpage" class="zapp">
+	<div class="col left">
+		<div class="inner">
+			
+			<?php
+				
+				$objDate		= new Zend_Date();
+				$objDateMatch	= new Zend_Date($this->match['date']);
+				
+				$strDay		= KZ_View_Helper_Date::format($this->match['date'], 'EEEE');
+				$strDate	= KZ_View_Helper_Date::format($this->match['date'], 'dd-MM-yyyy');
+			
+			?>
+			
+			<h2><?php echo stripslashes($this->match['team_home_name']); ?> - <?php echo stripslashes($this->match['team_away_name']); ?></h2>
+			
+			<div class="match">
+				<ul>
+					
+					<?php
+					
+						if($this->match['team_home_score'] > 0 || $this->match['team_away_score'] > 0) {
+							
+							echo '<li>
+									<span class="label">'.$this->translate('Result').'</span>
+									'.$this->match['team_home_score'].' - '.$this->match['team_away_score'].'
+								</li>';
+							
+						}
+						
+					?>
+					
+					<li>
+						<span class="label"><?php echo $this->translate('Wedstrijdnr'); ?>.</span>
+						<?php echo $this->match['match_id']; ?>
+					</li>
+					<li>
+						<span class="label"><?php echo $this->translate('Klasse'); ?></span>
+						<?php echo $this->match['poule_name'].((isset($this->match['poule_code']) && ! empty($this->match['poule_code'])) ? ' ('.$this->match['poule_code'].')' : ''); ?>
+					</li>
+					<li>
+						<span class="label"><?php echo $this->translate('Date'); ?></span>
+						<?php echo ucfirst($strDay).' '.$strDate; ?>
+					</li>
+					
+					<li>
+						<span class="label"><?php echo $this->translate('Time'); ?></span>
+						<?php echo (($this->match['time'] == '00:00') ? $this->translate('Unknown') : $this->match['time'].' uur'); ?>
+					</li>
+					
+					<li>
+						<span class="label"><?php echo $this->translate('Time departure'); ?></span>
+						<?php echo (($this->match['time_departure'] == '') ? $this->translate('Unknown') : ((in_array($this->match['time_departure'], array('i.o.', 'in overleg'))) ? 'In overleg' : $this->match['time_departure'].' uur')); ?>
+					</li>
+					
+					<?php 
+					
+						if(! empty($this->match['facility_name'])) {
+							
+							$strLocation	= stripslashes($this->match['facility_name']);
+							
+							if(! empty($this->match['facility_id'])) {
+								$strLocation	= '<a href="http://competitie.knkv.nl/competitie/accommodatie/'.$this->match['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($this->match['facility_name']).'">'.stripslashes($this->match['facility_name']).'</a>';
+							}
+
+							echo '<li>
+									<span class="label">'.$this->translate('Location').'</span>
+									'.$strLocation.'
+								</li>';
+							
+						}
+						
+						if(! empty($this->match['officials'])) {
+							
+							echo '<li>
+									<span class="label">'.$this->translate('Officials').'</span>
+									'.stripslashes(substr(str_replace('<br /> ', ', ', $this->match['officials']), 0, -2)).'
+								</li>';
+							
+						}
+						
+						if(! empty($this->match['poule_code'])) {
+							
+							echo '<li>
+									<span class="label">'.$this->translate('Poule').'</span>
+									'.stripslashes($this->match['poule_code'].((! empty($this->match['poule_name'])) ? ', '.$this->match['poule_name'] : '')).'
+								</li>';
+							
+						}
+					
+					?>
+					
+				</ul>	
+			</div>		
+		</div>
+	</div>
+	<div class="col right">
+
+		<div class="item news bg_kz_lightgrey">
+			<?php
+			
+				if(isset($this->latest) && ! empty($this->latest)) :
+					
+					echo '<h2>'.$this->translate('Laatste nieuws').'</h2><ol>';
+					
+					foreach($this->latest as $arrLatest) :
+					
+							echo '	<li>
+										<span class="bullet" title="'.stripslashes($arrLatest['category']).'" style="background: '.$arrLatest['category_color'].';"></span>
+										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
+										<a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
+									</li>';
+
+					endforeach;
+					
+					echo '</ol>';
+					
+				endif;
+			
+			?>
+		</div>
+	</div>
+</div>

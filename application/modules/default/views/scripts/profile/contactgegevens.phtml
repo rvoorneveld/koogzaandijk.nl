@@ -1,0 +1,73 @@
+<div id="nextpage" class="zapp">
+
+			<?php
+				$intCount = 0;
+				if(! empty($this->contacts) && is_array($this->contacts)) {
+					foreach($this->contacts as $intContactKey => $arrContact) {
+
+						// Skip your own contact details
+						if($arrContact['members_id'] == $this->profile['members_id']) { continue; }
+
+						// Skip Contact when not shared
+						if($arrContact['share'] != 1) { continue; }
+
+						// Add One to Counter
+						$intCount++;
+
+						echo '	<div class="col full">
+									<div class="inner">';
+
+						// Set Full Name
+						$strFullName    = $arrContact['firstname'].(($arrContact['insertion'] == '') ? ' ' : ' '.$arrContact['insertion'].' ').$arrContact['lastname'];
+
+						$strAvatar      = '/upload/avatars/'.$arrContact['avatar'];
+
+						if(! is_file($_SERVER['DOCUMENT_ROOT'].$strAvatar)) {
+
+							// Set Korfball Guru's array
+							$arrKorfballGurus   = array('placeholder');
+
+							$intRandomCount     = array_rand($arrKorfballGurus);
+							$strAvatar          = '/assets/default/image/temp_test/'.$arrKorfballGurus[$intRandomCount].'.jpg';
+						}
+
+						// Set Twitter Account
+						$strTwitterAccount      = ((substr($arrContact['twitter'], 0,1) == '@') ? $arrContact['twitter'] : '@'.$arrContact['twitter']);
+			?>
+					<div class="media media--contacts zapp">
+
+						<h2><?php echo $strFullName; ?></h2>
+
+						<div class="media__img">
+							<img alt="<?php echo $strFullName; ?>" title="<?php echo $strFullName; ?>" src="<?php echo $strAvatar; ?>" class="profiles__avatar">
+						</div>
+						<div class="media__body media__body--loggedin">
+							<ul>
+								<li><span class="icon" aria-hidden="true">&#xe600;</span><a href="tel:<?php echo $arrContact['mobile_number']; ?>" title=""><?php echo $arrContact['mobile_number']; ?></a></li>
+								<li><span class="icon" aria-hidden="true">&#xe605;</span><a href="mailto:<?php echo $arrContact['email']; ?>" title="<?php echo $arrContact['email']; ?>"><?php echo $arrContact['email']; ?></a></li>
+
+								<?php if($arrContact['facebook'] != '') : ?>
+									<li><span class="icon" aria-hidden="true">&#xe604;</span><a href="<?php echo 'http://www.facebook.com/'.$arrContact['facebook']; ?>" target="_blank" title="<?php echo $arrContact['facebook']; ?>"><?php echo $arrContact['facebook']; ?></a></li>
+								<?php endif; ?>
+
+								<?php if($arrContact['twitter'] != '') : ?>
+									<li><span class="icon" aria-hidden="true">&#xe603;</span><a href="<?php echo 'http://www.twitter.com/'.$strTwitterAccount; ?>" target="_blank" title="<?php echo $strTwitterAccount; ?>"><?php echo $strTwitterAccount; ?></a></li>
+								<?php endif; ?>
+
+							</ul>
+						</div>
+					</div>
+			<?php
+					}
+				}
+
+				// No contact attached
+				if($intCount == 0) {
+					echo '	<div class="col left">
+								<div class="inner">
+									Er zijn nog geen contactpersonen aan u gekoppeld.';
+				}
+			?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,646 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "10-11";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+			<a id="pagePrevArrow" class="toLeftButton toolbarLink internalLink" href="./page-8-9.html"><img class="iconToolbar" src="styles/previous.png" alt="Previous Page" /></a>
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;10-11 / 24</span>
+
+				<a id="nextPageArrow" class="toRightButton toolbarLink internalLink" href="./page-12-13.html"><img class="iconToolbar" src="styles/next.png" alt="Next Page" /></a>
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+					<a class="toLeftButton toolbarLink internalLink" href="./page-8-9.html"><img class="iconToolbar" src="styles/prev-mob.png" alt="Previous Page" /></a>
+			<span class="pager">10-11 / 24</span>
+					<a class="toRightButton toolbarLink internalLink" href="./page-12-13.html"><img class="iconToolbar" src="styles/next-mob.png" alt="Next Page" /></a>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 1190px; height: 841px; margin: 40px 0 0 -595px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0006.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:95.838288%;left:2.857143%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>10</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:3.949580%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem testString" style="top:96.076100%;left:4.705882%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:96.076100%;left:89.831933%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:95.838288%;left:95.462185%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:96.218487%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>11</b>
+						</p>
+						<p class="textItem testString" style="top:45.065398%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Voordat wij op dit idee kwamen, was KZ / Hiltex
+						</p>
+						<p class="textItem " style="top:46.611177%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							al in gesprek met het topsportfonds van de ge-
+						</p>
+						<p class="textItem " style="top:48.156956%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							meente Zaanstad en haar partner woningcorpo-
+						</p>
+						<p class="textItem " style="top:49.702735%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ratie Parteon over &#8216;topsportwoningen&#8217;. Verschil-
+						</p>
+						<p class="textItem " style="top:51.248514%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							lende topsportverenigingen in Zaanstad trekken
+						</p>
+						<p class="textItem " style="top:52.794293%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							topsporters aan die uit andere provincies of zelfs
+						</p>
+						<p class="textItem " style="top:54.340071%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							andere landen komen. Zij willen hen graag on-
+						</p>
+						<p class="textItem " style="top:55.885850%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							derdak bieden, zodat de sporters minder reistijd
+						</p>
+						<p class="textItem " style="top:57.431629%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							hebben en er meer energie over blijft voor de
+						</p>
+						<p class="textItem " style="top:58.977408%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							trainingen en wedstrijden.  Als partner van het
+						</p>
+						<p class="textItem " style="top:60.523187%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							topsportfonds kan Parteon woningen in de vrije
+						</p>
+						<p class="textItem " style="top:62.068966%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							sector beschikbaar stellen aan topsportvereni-
+						</p>
+						<p class="textItem " style="top:63.614744%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gingen uit de stad, die daar overigens wel de
+						</p>
+						<p class="textItem " style="top:65.160523%;left:52.352941%;width:11.596639%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							normale huurprijs voor moeten betalen.
+						</p>
+						<p class="textItem " style="top:68.133175%;left:52.352941%;width:2.521008%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Charell:
+						</p>
+						<p class="textItem testString" style="top:68.133175%;left:55.042017%;width:11.680672%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>&#8216;Doordat wij alle drie in de selectie van</i>
+						</p>
+						<p class="textItem " style="top:69.678954%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>KZ / Hiltex spelen, ons sociale leven in Zaan-</i>
+						</p>
+						<p class="textItem " style="top:71.224732%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>stad hebben en dus graag hier wilden blijven</i>
+						</p>
+						<p class="textItem " style="top:72.770511%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>wonen, hebben wij KZ / Hiltex gevraagd of zij</i>
+						</p>
+						<p class="textItem " style="top:74.316290%;left:52.352941%;width:11.176471%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>ons konden helpen aan huisvesting.&#8217;</i>
+						</p>
+						<p class="textItem " style="top:75.862069%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Ondertussen verliepen de gesprekken met Par-</i>
+						</p>
+						<p class="textItem " style="top:77.407848%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>teon en Gemeente Zaanstad erg goed en had</i>
+						</p>
+						<p class="textItem " style="top:78.953627%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Parteon al snel een woning ter beschikking ge-</i>
+						</p>
+						<p class="textItem " style="top:80.499405%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>steld. Deze woning had de ideale ligging en</i>
+						</p>
+						<p class="textItem " style="top:82.045184%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>indeling voor een huis wat bewoond kon wor-</i>
+						</p>
+						<p class="textItem " style="top:83.590963%;left:52.352941%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>den voor het drietal. Zodoende ging het balletje</i>
+						</p>
+						<p class="textItem " style="top:85.136742%;left:52.352941%;width:3.361345%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>snel rollen.</i>
+						</p>
+						<p class="textItem " style="top:88.347206%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Na een bezichtiging en een renovatie door Par-
+						</p>
+						<p class="textItem " style="top:89.892985%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							teon kon het klussen beginnen. Omdat het huis
+						</p>
+						<p class="textItem " style="top:91.438763%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							kaal opgeleverd werd, moest er nog een hoop
+						</p>
+						<p class="textItem " style="top:92.984542%;left:52.352941%;width:3.025210%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gebeuren.
+						</p>
+						<p class="textItem " style="top:44.946492%;left:67.647059%;width:2.352941%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Esther:
+						</p>
+						<p class="textItem " style="top:44.946492%;left:70.420168%;width:11.512605%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>&#8216;Gelukkig waren onze ouders erg</i>
+						</p>
+						<p class="textItem " style="top:46.492271%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>behulpzaam. De moeders hebben het huis</i>
+						</p>
+						<p class="textItem " style="top:48.038050%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>behangen en de vaders hebben de vloeren</i>
+						</p>
+						<p class="textItem " style="top:49.583829%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>gelegd. Daarnaast moesten er nog een hoop</i>
+						</p>
+						<p class="textItem " style="top:51.129608%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>kleine klusjes gebeuren, welke we in de loop</i>
+						</p>
+						<p class="textItem " style="top:52.675386%;left:67.647059%;width:10.168067%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>der tijd allemaal gedaan hebben.&#8217;</i>
+						</p>
+						<p class="textItem " style="top:55.885850%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Het voordeel van een grote sportclub is dat veel
+						</p>
+						<p class="textItem " style="top:57.431629%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							mensen ondertussen van dit project af wisten
+						</p>
+						<p class="textItem " style="top:58.977408%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ondanks dat het zomervakantie was. Daardoor
+						</p>
+						<p class="textItem " style="top:60.523187%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							konden zij gemakkelijk aan spullen komen welke
+						</p>
+						<p class="textItem " style="top:62.068966%;left:67.647059%;width:5.882353%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ze nog niet hadden.
+						</p>
+						<p class="textItem " style="top:63.614744%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Charell: &#8216;Via vrienden van mijn ouders hebben
+						</p>
+						<p class="textItem " style="top:65.160523%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							we een mooie zithoek kunnen krijgen. We zijn blij
+						</p>
+						<p class="textItem " style="top:66.706302%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							dat mensen van de club ons op deze manier wil-
+						</p>
+						<p class="textItem " style="top:68.252081%;left:67.647059%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							len helpen om toch op onszelf te kunnen wonen.&#8217;
+						</p>
+						<p class="textItem " style="top:71.224732%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ondertussen wonen zij alweer een half jaar
+						</p>
+						<p class="textItem " style="top:72.770511%;left:67.647059%;width:4.873950%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							in Westerkoog.
+						</p>
+						<p class="textItem " style="top:74.316290%;left:67.647059%;width:2.941176%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Marjolijn:
+						</p>
+						<p class="textItem " style="top:74.316290%;left:70.756303%;width:11.176471%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>&#8216;Aan het begin is het wat onwennig</i>
+						</p>
+						<p class="textItem " style="top:75.862069%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>om met nog twee meiden samen te wonen,</i>
+						</p>
+						<p class="textItem " style="top:77.407848%;left:67.647059%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>maar het went snel en zo lang je goede afspra-</i>
+						</p>
+						<p class="textItem " style="top:78.953627%;left:67.647059%;width:10.840336%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>ken maakt, is er niets aan de hand.&#8217;</i>
+						</p>
+						<p class="textItem testString" style="top:14.387634%;left:77.815126%;width:17.731092%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>at doe je wanneer je als jonge topsporter en</b>
+						</p>
+						<p class="textItem " style="top:16.527943%;left:74.789916%;width:21.596639%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>student op jezelf wilt wonen, maar dit niet haalbaar is</b>
+						</p>
+						<p class="textItem " style="top:18.668252%;left:74.789916%;width:22.184874%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>in de stad waar je zou willen? Juist, andere topsporters</b>
+						</p>
+						<p class="textItem " style="top:20.808561%;left:74.789916%;width:21.260504%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>vragen om samen een mooi plekje te vinden zodat je</b>
+						</p>
+						<p class="textItem " style="top:22.948870%;left:74.789916%;width:14.789916%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>toch het ouderlijk huis kunt verlaten.</b>
+						</p>
+						<p class="textItem " style="top:25.089180%;left:74.789916%;width:21.848739%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>Zo kwamen wij, Esther Cordus, Charell Schoolmeester</b>
+						</p>
+						<p class="textItem " style="top:27.229489%;left:74.789916%;width:19.915966%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>en Marjolijn Kroon op het idee om samen te gaan</b>
+						</p>
+						<p class="textItem " style="top:29.369798%;left:74.789916%;width:15.378151%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>wonen in de buurt van onze sportclub.</b>
+						</p>
+						<p class="textItem testString" style="top:10.939358%;left:73.361345%;width:4.285714%;height:7.253270%;font-size:2.400000em;color:#FDB704;font-family:Poppl Exquisit;">
+							W
+						</p>
+						<p class="textItem " style="top:45.065398%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Dit seizoen zijn er verscheidene nieuwe spelers
+						</p>
+						<p class="textItem " style="top:46.611177%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							in de selectie te zien. Joost Hofman en Emiel
+						</p>
+						<p class="textItem " style="top:48.156956%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							de Kruijff bijvoorbeeld komen uit Groningen en
+						</p>
+						<p class="textItem " style="top:49.702735%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Delft en zijn gaan studeren in Amsterdam. Om-
+						</p>
+						<p class="textItem " style="top:51.248514%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							dat zij zich ook graag zo optimaal mogelijk willen
+						</p>
+						<p class="textItem " style="top:52.794293%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							voorbereiden op trainingen en wedstrijden zijn
+						</p>
+						<p class="textItem " style="top:54.340071%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ook zij via KZ / Hiltex aan een woning gekomen
+						</p>
+						<p class="textItem " style="top:55.885850%;left:82.857143%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							in Westerkoog.  De spelers/speelsters betalen
+						</p>
+						<p class="textItem " style="top:57.431629%;left:82.857143%;width:13.781513%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gezamenlijk de huurkosten van iedere woning.
+						</p>
+						<p class="textItem " style="top:60.404281%;left:82.857143%;width:2.352941%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Esther:
+						</p>
+						<p class="textItem " style="top:60.404281%;left:85.378151%;width:11.764706%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>&#8216;Het leuke van dicht bij elkaar wonen,</i>
+						</p>
+						<p class="textItem " style="top:61.950059%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>is dat je je ook gezamenlijk kunt voorbereiden</i>
+						</p>
+						<p class="textItem " style="top:63.495838%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>op trainingen. Zo eten we bijna elke donderdag</i>
+						</p>
+						<p class="textItem " style="top:65.041617%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>voor de training met zijn allen en schuiven er</i>
+						</p>
+						<p class="textItem " style="top:66.587396%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>regelmatig nog andere selectiegenoten aan.</i>
+						</p>
+						<p class="textItem " style="top:68.133175%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Maar als dat een keer niet goed uit komt, is</i>
+						</p>
+						<p class="textItem " style="top:69.678954%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>het ook prima, dan kun je gewoon voor jezelf</i>
+						</p>
+						<p class="textItem " style="top:71.224732%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>koken. We zijn blij met de hulp die KZ / Hiltex</i>
+						</p>
+						<p class="textItem " style="top:72.770511%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>ons heeft geboden. Op deze manier is het voor</i>
+						</p>
+						<p class="textItem " style="top:74.316290%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>ons toch mogelijk om op onszelf te wonen zo-</i>
+						</p>
+						<p class="textItem " style="top:75.862069%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>lang we in de selectie spelen van KZ / Hiltex.</i>
+						</p>
+						<p class="textItem " style="top:77.407848%;left:82.857143%;width:14.369748%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Op deze manier hopen wij alles uit onze sport-</i>
+						</p>
+						<p class="textItem " style="top:78.953627%;left:82.857143%;width:5.294118%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>carri&#232;re te halen.&#8217;</i>
+						</p>
+						<p class="textItem " style="top:35.790725%;left:52.268908%;width:20.000000%;height:4.994055%;font-size:1.700000em;color:#000000;font-family:Rockwell;">
+							<b>De KZ-woning</b>
+						</p>
+						<p class="textItem " style="top:35.434007%;left:52.605042%;width:20.000000%;height:4.994055%;font-size:1.700000em;color:#FDB704;font-family:Rockwell;">
+							<b>De KZ-woning</b>
+						</p>
+						<p class="textItem " style="top:33.650416%;left:74.789916%;width:18.403361%;height:4.518430%;font-size:1.550000em;color:#002E85;font-family:Rockwell;">
+							<b>van Marjolijn,</b>
+						</p>
+						<p class="textItem " style="top:38.644471%;left:74.789916%;width:22.436975%;height:4.518430%;font-size:1.550000em;color:#002E85;font-family:Rockwell;">
+							<b>Charell en Esther</b>
+						</p>
+						<p class="textItem testString" style="top:7.372176%;left:7.647059%;width:12.352941%;height:2.021403%;font-size:0.660200em;color:#000000;font-family:Helvetica;">
+							Chinees Indisch Restaurant
+						</p>
+						<p class="textItem testString" style="top:20.808561%;left:4.201681%;width:19.327731%;height:1.545779%;font-size:0.550165em;color:#000000;font-family:Helvetica Neue;">
+							Winkelcentrum Westerkoog   Tel. 075-6156736
+						</p>
+						<p class="textItem " style="top:23.305589%;left:14.033613%;width:20.084034%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							&#8226; Ook voor zakenlunches, recepties, feesten en partijen
+						</p>
+						<p class="textItem " style="top:25.326992%;left:14.033613%;width:10.168067%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							&#8226; Capaciteit tot 72 personen
+						</p>
+						<p class="textItem " style="top:27.229489%;left:14.033613%;width:13.109244%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							&#8226; Dinsdag t/m zondag geopend van:
+						</p>
+						<p class="textItem " style="top:29.250892%;left:14.285714%;width:23.949580%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							12.00 - 22.00 uur, ook op zon- en feestdagen. Maandag gesloten.
+						</p>
+						<p class="textItem " style="top:23.186683%;left:0.168067%;width:3.277311%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							e keuken
+						</p>
+						<p class="textItem " style="top:25.208086%;left:0.000000%;width:10.336134%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							isen aan een goede kwaliteit
+						</p>
+						<p class="textItem " style="top:27.110583%;left:0.168067%;width:2.016807%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							nheid
+						</p>
+						<p class="textItem " style="top:29.131986%;left:0.084034%;width:6.386555%;height:1.664685%;font-size:0.550165em;color:#000000;font-family:Helvetica;">
+							et airconditioning
+						</p>
+						<p class="textItem testString" style="top:17.241379%;left:28.151261%;width:17.563025%;height:2.853746%;font-size:1.124998em;color:#FFFFFF;font-family:Angelina;">
+							K ledi nglevera ncier K Z /Hiltex
+						</p>
+						<p class="textItem testString" style="top:39.833532%;left:4.201681%;width:14.789916%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Voor alles Wat Telt in je Leven</b>
+						</p>
+						<p class="textItem testString" style="top:42.330559%;left:4.201681%;width:7.563025%;height:1.307967%;font-size:0.536780em;color:#000000;font-family:Arial MT;">
+							Finenzo Zaanstad
+						</p>
+						<p class="textItem " style="top:43.876338%;left:4.201681%;width:13.445378%;height:1.307967%;font-size:0.536780em;color:#000000;font-family:Arial MT;">
+							Zuideinde 49 Koog aan de Zaan
+						</p>
+						<p class="textItem " style="top:45.303210%;left:4.201681%;width:7.142857%;height:1.307967%;font-size:0.536780em;color:#000000;font-family:Arial MT;">
+							075 - 612 14 17 -
+						</p>
+						<a class="linkTextItem  " href="mailto:zaanstad@finenzo.nl" target="_blank"  style="top:45.303210%;left:11.344538%;width:9.075630%;height:1.307967%;font-size:0.536780em;color:#000000;font-family:Arial MT;" title="">
+							 zaanstad@finenzo.nl
+						</a>
+						<a class="linkTextItem  " href="http://www.finenzozaanstad.nl/" target="_blank"  style="top:46.848989%;left:4.201681%;width:10.168067%;height:1.307967%;font-size:0.536780em;color:#000000;font-family:Arial MT;" title="">
+							www.finenzozaanstad.nl
+						</a>
+						<p class="textItem " style="top:28.656361%;left:15.966387%;width:5.882353%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Hypotheken</b>
+						</p>
+						<p class="textItem " style="top:30.321046%;left:15.966387%;width:7.058824%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Verzekeringen</b>
+						</p>
+						<p class="textItem " style="top:31.866825%;left:15.966387%;width:5.798319%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Pensioenen</b>
+						</p>
+						<p class="textItem " style="top:33.531510%;left:15.966387%;width:4.537815%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Sparen &amp;</b>
+						</p>
+						<p class="textItem " style="top:35.196195%;left:15.966387%;width:4.621849%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Beleggen</b>
+						</p>
+						<p class="textItem " style="top:36.741974%;left:15.966387%;width:3.025210%;height:1.426873%;font-size:0.596420em;color:#000000;font-family:Arial;">
+							<b>Lenen</b>
+						</p>
+						<p class="textItem testString" style="top:50.772889%;left:3.865546%;width:20.084034%;height:5.469679%;font-size:1.950000em;color:#000000;font-family:Gill Sans;">
+							Boek voordelig
+						</p>
+						<p class="textItem " style="top:56.242568%;left:8.067227%;width:11.764706%;height:5.469679%;font-size:1.950000em;color:#000000;font-family:Gill Sans;">
+							uw hotel
+						</p>
+						<p class="textItem " style="top:64.684899%;left:26.890756%;width:9.915966%;height:2.378121%;font-size:0.694170em;color:#FFFFFF;font-family:Arial;">
+							<b>Tel: 075-6216689  </b>
+						</p>
+						<a class="linkTextItem  " href="mailto:info@germieco.nl" target="_blank"  style="top:64.684899%;left:36.722689%;width:10.168067%;height:2.378121%;font-size:0.694170em;color:#FFFFFF;font-family:Arial;" title="">
+							<b> info@germieco.nl</b>
+						</a>
+						<a class="linkTextItem  " href="http://www.germieco.nl/" target="_blank"  style="top:66.587396%;left:32.100840%;width:9.579832%;height:2.378121%;font-size:0.694170em;color:#FFFFFF;font-family:Arial;" title="">
+							<b>www.germieco.nl</b>
+						</a>
+						<p class="textItem testString" style="top:84.542212%;left:27.563025%;width:6.470588%;height:3.686088%;font-size:1.372850em;color:#4CA825;font-family:Eurostile Bold;">
+							Mars
+						</p>
+						<p class="textItem testString" style="top:84.542212%;left:34.705882%;width:11.596639%;height:3.686088%;font-size:1.372850em;color:#FFFFFF;font-family:Eurostile Regular;">
+							Hoveniers
+						</p>
+						<p class="textItem " style="top:88.109394%;left:27.647059%;width:18.571429%;height:1.307967%;font-size:0.457615em;color:#FFFFFF;font-family:Eurostile Regular;">
+							o n t w e r p , r e a l i s a t i e &amp; o n d e r h o u d
+						</p>
+						<p class="textItem " style="top:91.438763%;left:27.478992%;width:7.731092%;height:1.426873%;font-size:0.500000em;color:#FFFFFF;font-family:Eurostile Regular;">
+							T 075 771 62 55 &#8226;
+						</p>
+						<a class="linkTextItem  " href="mailto:info@marshoveniers.nl" target="_blank"  style="top:91.438763%;left:35.126050%;width:11.092437%;height:1.426873%;font-size:0.500000em;color:#FFFFFF;font-family:Eurostile Regular;" title="">
+							 info@marshoveniers.nl
+						</a>
+						<a class="linkTextItem  " href="http://www.marshoveniers.nl/" target="_blank"  style="top:92.865636%;left:31.260504%;width:11.176471%;height:1.426873%;font-size:0.500000em;color:#FFFFFF;font-family:Eurostile Regular;" title="">
+							www.marshoveniers.nl
+						</a>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,75 @@
+<header>
+	<h2><?php echo $this->translate('Delete widget'); ?></h2>
+</header>
+
+<section>
+
+	<form name="deleteWidgetsForm" method="post" action="">
+
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->name; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Size'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->size == 'small') ? 'Small' : 'Large')); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Background color'); ?></label></dt>
+			<dd class="text"><?php echo ((isset($this->color_background) && ! empty($this->color_background) && isset($this->colors[$this->color_background]) && is_array($this->colors[$this->color_background])) ? $this->colors[$this->color_background]['name'] : '-'); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Text color'); ?></label></dt>
+			<dd class="text"><?php echo ((isset($this->color_text) && ! empty($this->color_text) && isset($this->colors[$this->color_text]) && is_array($this->colors[$this->color_text])) ? $this->colors[$this->color_text]['name'] : '-'); ?></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->status == 1) ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		
+		<?php if(isset($this->widgetContent) && is_array($this->widgetContent) && count($this->widgetContent) > 0) : ?>
+			
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd class="text">
+					<div class="notification attention">
+						<p>
+							<strong><?php echo $this->translate('Attention'); ?></strong>
+							<?php echo $this->translate('Attached widget content will also be deleted'); ?>
+						</p>
+					</div>
+					
+				</dd>
+			</dl>
+			
+		
+		<?php endif; ?>
+		
+		
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd class="text">&raquo; <?php echo $this->translate('Are you sure you want to delete this widget'); ?>?</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Yes'); ?>" style="margin-right: 15px;" />
+				<a href="/admin/widgets/index/" title="<?php echo $this->translate('No, go back to overview'); ?>"><?php echo $this->translate('No, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

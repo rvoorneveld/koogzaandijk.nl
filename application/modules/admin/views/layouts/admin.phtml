@@ -1,0 +1,122 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<title><?php echo $this->applicationName; ?> | Admin</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--<link rel="shortcut icon" href="/image/admin/favicon.png">
+	<link rel="apple-touch-icon" href="/image/admin/favicon.png">-->
+	
+	<!-- CSS Styles -->
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/colors.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.tipsy.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.datatables.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.nyromodal.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.datepicker.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.fileinput.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.fullcalendar.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.visualize.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.fancybox.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery-ui-1.8.16.custom.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/reveal.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/colorpicker.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.tagit.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/menu.css">
+	
+	<!-- Google WebFonts -->
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+
+	<script src="/assets/admin/script/libs/modernizr-1.7.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="/assets/admin/script/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.fileupload.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.fileupload.ui.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.fancybox.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.reveal.js"></script>
+	<script src="/assets/admin/script/jquery/colorpicker.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.tagit.js"></script>
+	<script src="/assets/admin/script/tiny_mce/tiny_mce.js"></script>
+    <script src="/assets/admin/script/tiny_mce/plugins/imagemanager/js/mcimagemanager.js"></script>
+
+</head>
+
+<!-- Add class .fixed for fixed layout. You would need also edit CSS file for width -->
+<body>
+	
+	<?php echo ((! is_null($this->feedback)) ? $this->message($this->feedback['type'], $this->feedback['message']) : ''); ?>
+	
+	<!-- Fixed Layout Wrapper -->
+	<div class="fixed-wraper">
+
+	<!-- Aside Block -->
+	<section role="navigation">
+		<!-- Header with logo and headline -->
+		<header>
+			<a href="<?php echo $this->root_url; ?>/admin/" title="Back to Homepage"></a>
+		</header>
+		
+		<!-- User Info -->
+		<section id="user-info">
+			<img src="/assets/admin/image/sample_user.png" alt="Sample User Avatar">
+			<div>
+				<a href="/admin/users/" title="<?php echo $this->translate('Go to your profile'); ?>"><?php echo $this->login_name; ?></a>
+				<em><?php echo $this->login_group; ?></em>
+				<ul>
+					<li><a class="button-link" href="/admin/logout/" title="<?php echo $this->translate('Logout from admin panel'); ?>" rel="tooltip">logout</a></li>
+				</ul>
+			</div>
+		</section>
+		<!-- /User Info -->
+		
+		<!-- Main Navigation -->
+		<?php echo $this->navigator(); ?>
+		
+	</section>
+	<!-- /Aside Block -->
+	
+	<!-- Main Content -->
+	<section role="main">
+		
+		<?php echo $this->breadcrumb(); ?>
+		
+		<article class="full-block clearfix">
+			
+			<div class="article-container">
+
+				<?php echo ((! is_null($this->note)) ? $this->notification($this->note['type'], $this->note['message']) : ''); ?>
+
+				<?php echo $this->layout()->content; ?>
+				
+			</div>
+			
+		</article>
+				
+	
+	</section>
+	<!-- /Main Content -->
+	
+	</div>
+	<!-- /Fixed Layout Wrapper -->
+
+	<!-- JS Libs at the end for faster loading -->
+	<script src="/assets/admin/script/libs/selectivizr.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.nyromodal.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.tipsy.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.datatables.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.datepicker.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.fileinput.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.fullcalendar.min.js"></script>
+	<script src="/assets/admin/script/jquery/excanvas.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.visualize.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.visualize.tooltip.js"></script>
+	<script src="/assets/admin/script/script.js"></script>
+</body>
+</html>

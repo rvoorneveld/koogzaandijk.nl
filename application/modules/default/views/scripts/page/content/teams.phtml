@@ -1,0 +1,16 @@
+<?php
+	// Set Unserialized Data arary
+	$arrData = unserialize($this->content['data']);
+	
+	$arrTeams = explode(',', $arrData['content_13_teams']);
+	asort($arrTeams);
+?>
+<h4><?php echo $this->content['name']; ?></h4>
+<ol class="teams zapp">
+
+<?php
+	foreach($arrTeams as $intTeamKey => $strTeam) {
+		echo '<li><a href="/team/'.$strTeam.'/">KZ/Hiltex '.$strTeam.'</a></li>';	
+	}
+?>
+</ol>

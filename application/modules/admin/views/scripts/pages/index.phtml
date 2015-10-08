@@ -1,0 +1,372 @@
+<header>
+	<h2><?php echo $this->translate('Pages'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add page'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+
+	<label><?php echo $this->translate('Search'); ?>:</label>
+	<input class="autocomplete medium" type="text" name="search" id="search" value="" />
+	<br /><br />
+
+	<?php 
+		// Check if we have menu types
+		if(!empty($this->menuTypes) && is_array($this->menuTypes)) {
+
+			// Loop over the Available items
+			foreach($this->menuTypes as $intKey => $arrMenuTypes) {
+
+				// Set the Menu Type ID
+				$intMenuTypeID		= $arrMenuTypes['menu_type_id'];
+				
+				// Start the HTML
+				$strMenuHtml		= '	<h3>'.$this->translate($arrMenuTypes['name'], 'admin').'</h3>
+										<div class="navigation_rows">
+											<span class="page_header_options">'.$this->translate('Options').'</span>
+											<span class="page_header_modified_by">'.$this->translate('Modified by').'</span>
+											<span class="page_header_modified">'.$this->translate('Lastmodified').'</span>
+											<span class="page_header_created">'.$this->translate('Created').'</span>
+											<span class="page_header_active">'.$this->translate('Status').'</span>
+											<span class="page_header_page_id">'.$this->translate('ID').'</span>
+											<span class="page_header_name">'.$this->translate('Name').'</span>
+										</div>
+										<div class="navigation" id="nestable'.$intMenuTypeID.'">';
+				
+				// Check if we have any pages available
+				if(isset($this->pages) && is_array($this->pages) && count($this->pages) > 0) {
+					
+					// Check if the Menu type has Pages
+					if(in_array($intMenuTypeID, array_keys($this->pages))) {
+						
+						// Set the Pages
+						$arrMenuPages		= $this->pages[$intMenuTypeID];
+						$strMenuHtml		.= '<ol class="dd-list">';
+
+						foreach($arrMenuPages as $intMainPageID => $arrPages) {
+							
+							// Get the HTML from partial
+							$strMenuHtml		.= $this->partial('pages/menuitem.phtml', array('pagedata'	=> $arrPages,
+																								'users'		=> $this->users));
+														
+							// Check if we have sub-pages
+							if(!empty($this->subpages) && in_array($arrPages['page_id'], array_keys($this->subpages)) && !empty($this->subpages[$arrPages['page_id']])) {
+							
+								// Set the Sub Pages
+								$arrSubPages		= $this->subpages[$arrPages['page_id']];
+									
+								$strMenuHtml		.= '<ol class="dd-list">';
+								// Loop over the SubPage
+								foreach($arrSubPages as $intSubPageKey => $arrSubPageValues) {
+
+									// Get the HTML from partial
+									$strMenuHtml		.= $this->partial('pages/menuitem.phtml', array('pagedata'	=> $arrSubPageValues,
+																										'users'		=> $this->users));
+									
+									// Check for sub-sub pages
+									if(!empty($this->subsubpages) && in_array($arrSubPageValues['page_id'], array_keys($this->subsubpages)) && !empty($this->subsubpages[$arrSubPageValues['page_id']])) {
+						
+										// Set the SubSub Pages
+										$arrSubSubPages		= $this->subsubpages[$arrSubPageValues['page_id']];
+						
+										$strMenuHtml		.= '<ol class="dd-list">';
+										
+										// Loop over the SubSubPage
+										foreach($arrSubSubPages as $intSubSubPageKey => $arrSubSubPageValues) {
+											
+											// Get the HTML from partial
+											$strMenuHtml		.= $this->partial('pages/menuitem.phtml', array('pagedata'	=> $arrSubSubPageValues,
+																												'users'		=> $this->users));
+										}
+										
+										$strMenuHtml		.= '</ol>';
+									}
+										
+									$strMenuHtml		.= '</li>';
+								}
+						
+								$strMenuHtml			.= '</ol>';
+							}
+								
+							$strMenuHtml		.= '</li>';
+						}
+						$strMenuHtml		.= '</ol>';
+					} else {
+						$strMenuHtml		.= '<ol class="dd-empty">
+													<li class="no-items">'.$this->translate('Add menu item by dragging a Standalone page', 'admin').'</li>
+												</ol>';
+					}
+					
+				} else {
+					$strMenuHtml		.= '<ol class="dd-empty">
+												<li class="no-items">'.$this->translate('Add menu item by dragging a Standalone page', 'admin').'</li>
+											</ol>';
+				}
+				
+				$strMenuHtml		.=	'</div>';
+				echo $strMenuHtml;
+			}
+		}					
+		?>
+		
+		
+		<h3><?php echo $this->translate('Standalone pages'); ?></h3>
+		
+		<?php
+			if(isset($this->standalonePages) && is_array($this->standalonePages) && count($this->standalonePages) > 0) { 
+		?>
+				<div class="navigation_rows">
+					<span class="page_header_options"><?php echo $this->translate('Options'); ?></span>
+					<span class="page_header_modified_by"><?php echo $this->translate('Modified by'); ?></span>
+					<span class="page_header_modified"><?php echo $this->translate('Lastmodified'); ?></span>
+					<span class="page_header_created"><?php echo $this->translate('Created'); ?></span>
+					<span class="page_header_active"><?php echo $this->translate('Status'); ?></span>
+					<span class="page_header_page_id"><?php echo $this->translate('ID'); ?></span>
+					<span class="page_header_name"><?php echo $this->translate('Name'); ?></span>
+					
+				</div>
+				<div class="navigation" id="nestable0">
+					<ol class="dd-list">
+					
+				<?php 
+					foreach($this->standalonePages as $arrStandalonePage) { 
+						
+						// Get the HTML from partial
+						echo $this->partial('pages/menuitem.phtml', array('pagedata' => $arrStandalonePage,
+																		  'users'		=> $this->users));
+					} 
+				?>	
+					</ol>
+				</div>
+			<?php
+			} else {
+				echo $this->translate('No standalone pages to display', 'admin').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addPagesForm" method="post" action="#tab1">
+
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt width="200"><label class="label" for="menu_name"><?php echo $this->translate('Menu name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="menu_name" name="menu_name" value="<?php echo $this->menu_name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt width="200"><label class="label" for="menu_url"><?php echo $this->translate('Menu url'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="menu_url" name="menu_url" value="<?php echo $this->menu_url; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2">&nbsp;</dt>
+			</dl>
+			
+			<dl>
+				<dt width="200"><label class="label" for="seo_title"><?php echo $this->translate('SEO title'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="seo_title" name="seo_title" value="<?php echo $this->seo_title; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt width="200"><label class="label" for="seo_description"><?php echo $this->translate('SEO description'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="seo_description" name="seo_description" value="<?php echo $this->seo_description; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt width="200"><label class="label" for="seo_keywords"><?php echo $this->translate('SEO keywords'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="seo_keywords" name="seo_keywords" value="<?php echo $this->seo_keywords; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2">&nbsp;</dt>
+			</dl>
+            <dl>
+                <dt width="200"><label class="label" for="widget_layout"><?php echo $this->translate('Widget layout'); ?></label></dt>
+                <dd width="*">
+
+                    <?php
+
+                    if(isset($this->widgetLayouts) && is_array($this->widgetLayouts) && count($this->widgetLayouts) > 0) :
+
+                        echo '<select name="widget_layout" id="widget_layout" class="small">';
+
+                        echo '<option value="0">'.$this->translate('None').'</option>';
+
+                        foreach($this->widgetLayouts as $intWidgetLayoutKey => $arrWidgetLayout) :
+
+                            echo '<option value="'.$arrWidgetLayout['widget_layout_id'].'"'.((isset($this->widget_layout) && $this->widget_layout == $arrWidgetLayout['widget_layout_id']) ? ' selected="selected"' : '').'>'.$arrWidgetLayout['name'].'</option>';
+
+                        endforeach;
+
+                        echo '</select>';
+
+                    endif;
+
+                    ?>
+
+                </dd>
+            </dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : ' selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add page'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>
+
+<script src="/assets/admin/script/jquery/jquery.nestable.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	jQuery('#name').keyup(function(){
+
+		jQuery('#menu_name').val(jQuery(this).val());
+
+		// Make ajax call
+		jQuery.ajax({
+			url			: '/admin/pages/getmenuurl',
+		  	dataType	: 'html',
+		  	data		: {
+				name	: jQuery(this).val() 
+			},
+		  	success		: function(sluggedUrl) {
+		  		jQuery('#menu_url').val(sluggedUrl);
+		  	}
+		});
+		
+	});
+	
+    var updateOutput = function(e) {
+        var list   	= e.length ? e : $(e.target);
+        var listID	= list.attr('id');
+
+        // Check is sortable menu exists
+        if(jQuery('#'+listID).length > 0) {
+
+        	var pIDs			= {};
+			var pagesubdata		= {};
+			var pagesubsubdata	= {};
+			var page			= 0;
+			var subpage			= 0;
+			var subsubpage		= 0;
+			
+			jQuery(this).children().children('li').each( function() {
+				
+				var pageID 	= jQuery(this).attr('data-id');
+				
+				if(pageID != '') {
+					var pagedata				= {};
+					pagedata.id					= pageID;
+					
+					if(jQuery(this).find('ol.dd-list').length > 0 ) {
+
+						pagedata.children				= {};
+						
+						jQuery(this).children().children('li').each( function() {
+
+							var pagesubID 					= jQuery(this).attr('data-id');
+							pagedata.children[subpage]		= {};
+							pagedata.children[subpage].id	= pagesubID;
+							
+							if(jQuery(this).find('ol.dd-list').length > 0 ) {
+
+								pagedata.children[subpage].children		= {};
+								
+								jQuery(this).children().children('li').each( function() {
+
+									var pagesubsubID 									= jQuery(this).attr('data-id');
+									pagedata.children[subpage].children[subsubpage]		= {};
+									pagedata.children[subpage].children[subsubpage].id	= pagesubsubID;
+									subsubpage++;
+								});
+									
+							}
+							subpage++;
+						});
+					}
+					
+					pIDs[page]		= pagedata;
+					page++;
+				}
+			});
+        
+
+            // Send the new menu ordering
+			var url			= '/admin/pages/savemenu/menutype/'+listID+'/'
+			jQuery.ajax({
+				'type' 			: 'POST',
+				'url' 			: url,
+				'data'			: {
+					rank		: pIDs
+				}
+			});
+		}
+	};
+
+    // activate Nestable for Standalone pages
+    jQuery('#nestable0').nestable({
+        group		: 1,
+        rootClass 	: 'navigation',
+        maxDepth	: 2
+    }).on('change',  updateOutput);
+
+	// activate Nestable for Main Navigation and default Collapse All Submenu-items
+    jQuery('#nestable1').nestable({
+        group		: 1,
+        rootClass 	: 'navigation',
+        maxDepth	: 2
+    }).on('change',  updateOutput);
+    jQuery('#nestable1').nestable('collapseAll');
+    
+    // activate Nestable for Footer Navigation and default Collapse All Submenu-items
+    jQuery('#nestable2').nestable({
+        group		: 1,
+        rootClass 	: 'navigation',
+        maxDepth	: 2
+    }).on('change',  updateOutput);
+    jQuery('#nestable2').nestable('collapseAll');
+
+
+	jQuery.get('/admin/pages/autocomplete/', function(returnData){
+
+		objAutoComplete = JSON.parse(returnData);
+
+		jQuery(".autocomplete").autocomplete({
+			source: objAutoComplete,
+			select: function(event,ui){
+
+				window.open('<?php echo ROOT_URL; ?>/admin/pages/edit/id/'+ui.item.value+'/');
+				window.open('<?php echo ROOT_URL; ?>/admin/pages/content/id/'+ui.item.value+'/');
+
+				setTimeout(function (){
+					jQuery('#search').val('');
+				}, 1000);
+
+			}
+
+		});
+
+	});
+
+});
+</script>

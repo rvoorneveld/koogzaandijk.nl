@@ -1,0 +1,80 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+
+		jQuery('.sortable').sortable();
+
+		jQuery('ul.sortable li input').each(function(){
+			if(jQuery(this).attr('checked') == 'checked') {
+				jQuery(this).parent().parent().css('background', '#c8e8c0');
+			} else {
+				jQuery(this).parent().parent().css('background', '#e8c0c0');
+			}
+		});
+
+		jQuery('input.widget').change(function(){
+			jQuery('ul.sortable li input').each(function(){
+				if(jQuery(this).attr('checked') == 'checked') {
+					jQuery(this).parent().parent().css('background', '#c8e8c0');
+				} else {
+					jQuery(this).parent().parent().css('background', '#e8c0c0');
+				}
+			});
+		});
+
+		
+
+	});
+</script>
+	<header>
+		<h2><?php echo $this->translate('Update widget layout'); ?></h2>
+	</header>
+<section>
+	<form name="updateWidgetLayoutForm" method="post" action="">
+		<dl>
+			<dt><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label><?php echo $this->translate('Widgets');?></label></dt>
+			<dd>
+				<ul class="sortable">
+					<?php
+						foreach($this->widgets as $arrWidget) {
+							
+							$strChecked = ((in_array($arrWidget['widget_id'], $this->selectedWidgets)) ? ' checked="checked"' : '');
+							
+							echo '<li>
+									<table style="width: 310px;">
+										<tr>
+											<td width="25">
+												<input class="widget" type="checkbox" name="widget_'.$arrWidget['widget_id'].'" value="y"'.$strChecked.'>
+											</td>
+											<td width="*">
+												<strong>'.$arrWidget['name'].'</strong>
+											</td>
+										</tr>
+									</table>
+								 </li>';
+						}
+					?>
+				</ul>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd>
+				<select class="small" name="status">
+					<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+					<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save widget layout'); ?>" />
+				<a href="/admin/widgets/layout/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	</form>
+</section>

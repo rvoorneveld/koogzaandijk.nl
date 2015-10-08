@@ -1,0 +1,126 @@
+<script type="text/javascript" src="/assets/default/script/jquery.dateformat.js"></script>
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		var months = ['','Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+		
+		jQuery('#newsDropdown ul li').click(function(){
+
+			jQuery('span.dropdown_button').html(jQuery(this).html());
+			jQuery('span.dropdown_button').append('<span class="downarrow">&#xe000;</span>');
+			jQuery('span.dropdown_button').removeClass('dropdown-open');
+			jQuery('#newsDropdown').hide();
+			
+			var categoryID = jQuery(this).attr('rel');
+
+			jQuery.get('/tools/newsfilter/id/'+categoryID+'/type/allnews',
+	
+				function(returnData) {
+
+					jQuery('div.news').html('');
+
+					var strList				= '';
+					
+					var arrModel 			= eval( '(' + returnData + ')' );
+
+					jQuery.each(arrModel, function(intMonth) {
+
+						strList				= strList + '<ol class="month_list"><li class="month"><h4>'+months[intMonth]+'</h4></li>';
+						
+						jQuery.each(arrModel[intMonth], function(intNewsKey) {
+
+							var itemName		= arrModel[intMonth][intNewsKey].name;
+							var	itemCategory	= arrModel[intMonth][intNewsKey].category;
+							var	itemColor		= arrModel[intMonth][intNewsKey].color;
+							var itemCreated		= arrModel[intMonth][intNewsKey].date + '00:00:00';
+							var itemUrl			= arrModel[intMonth][intNewsKey].nameSlug;
+							var itemTitle		= arrModel[intMonth][intNewsKey].content.title;
+							var itemText		= arrModel[intMonth][intNewsKey].content.text;
+
+							itemCreated		= jQuery.format.date(itemCreated, "dd-MM-yyyy");
+							
+
+							strList			= strList + '<li class="newsItem zapp"><div class="dateContainer"><span class="bullet" title="'+itemCategory+'" style="background: '+itemColor+';"></span><span class="date newstag">'+itemCreated+'</span></div><div class="content"><span class="title"><a href="/nieuws/'+itemUrl+'/" title="'+itemTitle+'">'+itemTitle+'</a></span><br />'+itemText+'</div></li>';
+							
+						});
+
+						$strList	= strList + '</ol>';
+						
+					});
+
+					jQuery('div.news').html(strList);
+
+				}
+					
+			);
+
+		});
+		
+	});
+
+</script>
+<div id="nextpage" class="zapp">
+	<h2>Nieuws</h2>
+	
+	<?php
+		// Set Categories Dropdown
+		if(isset($this->categories) && is_array($this->categories) && count($this->categories) > 0) : 
+					
+			if(isset($this->category) && is_array($this->category)) {
+				
+				echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: '.$this->category['color'].';"></span>'.$this->category['name'].'<span class="downarrow">&#xe000;</span></span>';
+				
+			} else {
+				
+				echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: #000;"></span>Alle categorie&euml;n<span class="downarrow">&#xe000;</span></span>';
+			}
+			
+					
+				echo '<div id="newsDropdown" class="dropdown-menu has-tip anchor-right">
+						<ul>
+							<li rel="false"><span class="bullet" style="background: #000;"></span>'.$this->translate('Alle categorie&euml;n').'</li>';
+			
+				foreach($this->categories as $intCategoryID => $arrCategory) :
+				
+					echo '<li rel="'.$arrCategory['category_id'].'"><span class="bullet" title="'.stripslashes($arrCategory['name']).'" style="background: '.$arrCategory['color'].';"></span>'.stripslashes($arrCategory['name']).'</li>';
+					
+				endforeach;
+						
+			echo '		</ul>
+					</div>';
+			
+		endif;
+	?>
+	
+	<div class="news">
+		<?php 
+			if(isset($this->news) && is_array($this->news) && count($this->news) > 0) {
+				
+				foreach($this->news as $intMonth => $arrNews) {
+					
+					echo '<ol class="month_list"><li class="month"><h4>'.KZ_View_Helper_Date::getMonth($intMonth).'</h4></li>';
+
+					foreach($arrNews as $intNewsKey => $arrNewsItem) {
+						
+						echo '	<li class="newsItem zapp">
+									<div class="dateContainer">
+										<span class="bullet" title="'.stripslashes($arrNewsItem['category']).'" style="background: '.$arrNewsItem['category_color'].';"></span>
+										<span class="date newstag">'.KZ_View_Helper_Date::format($arrNewsItem['date'], 'dd-MM-yyyy').'</span>
+									</div>
+									<div class="content">
+										<span class="title"><a href="/nieuws/'.$arrNewsItem['nameSlug'].'">'.stripslashes($arrNewsItem['content']['title']).'</a></span><br />
+										'.stripslashes($arrNewsItem['content']['text']).'
+									</div>
+								</li>';
+						
+					}
+					
+					echo '</ol>';
+					
+				}
+				
+			}
+		?>
+	</div>
+</div>

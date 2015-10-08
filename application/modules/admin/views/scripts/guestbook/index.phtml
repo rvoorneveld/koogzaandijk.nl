@@ -1,0 +1,79 @@
+<header>
+	<h2><?php echo $this->translate('Guestbook entries'); ?></h2>
+</header>
+<section>
+<?php
+	if(isset($this->entries) && is_array($this->entries) && count($this->entries) > 0) {
+?>
+		<table class="ajax_datatable">
+			<thead>
+				<tr>
+					<th width="50"><?php echo $this->translate('ID'); ?></th>
+					<th width="150"><?php echo $this->translate('Name'); ?></th>
+					<th width="150"><?php echo $this->translate('Email'); ?></th>
+					<th width="*"><?php echo $this->translate('Message'); ?></th>
+					<th width="125" class="desc" id="isSort"><?php echo $this->translate('Date'); ?></th>
+					<th width="100"><?php echo $this->translate('Status'); ?></th>
+					<th width="125"><?php echo $this->translate('Options'); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+		
+<?php
+	} else {
+		echo $this->translate('No entries to display').'.';
+	}
+?>
+</section>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+		    var _that = this;
+		  
+		    this.each(function (i) {
+		        $.fn.dataTableExt.iApiIndex = i;
+		        var $this = this;
+		        var anControl = $('input', _that.fnSettings().aanFeatures.f);
+		        anControl.unbind('keyup').bind('keypress', function (e) {
+		            if (e.which == 13) {
+		                $.fn.dataTableExt.iApiIndex = i;
+		                _that.fnFilter(anControl.val());
+		            }
+		        });
+		        return this;
+		    });
+		    return this;
+		};
+		
+		jQuery('.ajax_datatable').dataTable( {
+			"bProcessing"		: true,
+			"bServerSide"		: true,
+			"bStateSave"		: true,
+			'iDisplayLength'	: 25,
+			'sPaginationType'	: "full_numbers",
+			"sAjaxSource"		: "/admin/guestbook/generateentriestable/",
+			"fnServerData": function ( sSource, aoData, fnCallback ) {
+							$.ajax( {
+								"dataType": 'json', 
+								"type": "POST", 
+								"url": sSource, 
+								"data": aoData, 
+								"success": fnCallback
+							});
+			},
+	        "aoColumns": [null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      {"bSortable" : false, "bSearchable": false}
+	                      ],
+			'aaSorting'			: [[ 4, "desc" ]]
+			}).fnFilterOnReturn();
+	});
+</script>

@@ -1,0 +1,38 @@
+<?php
+	if(! empty($this->member) && is_array($this->member)) {
+
+		// Set Full Name
+		$strFullName    = $this->member['firstname'].(($this->member['insertion'] == '') ? ' ' : ' '.$this->member['insertion'].' ').$this->member['lastname'];
+
+		$strAvatar      = '/upload/avatars/'.$this->member['avatar'];
+
+		if(! is_file($_SERVER['DOCUMENT_ROOT'].$strAvatar)) {
+
+			$intRandomCount     = array_rand($this->arrKorfballgurus);
+			$strAvatar          = '/assets/default/image/temp_test/'.$this->arrKorfballgurus[$intRandomCount].'.jpg';
+		}
+?>
+	<div class="col left">
+		<div class="media zapp">
+			<div class="media__img">
+				<img class="profiles__avatar" src="<?php echo $strAvatar; ?>" title="<?php echo $strFullName; ?>" alt="<?php echo $strFullName; ?>">
+			</div>
+			<div class="media__body media__body--loggedin">
+				<ul>
+					<li><?php echo $this->translate('Welkom').' <a href="/profiel/" title="'.$strFullName.'">'.$strFullName.'</a>!';?></li>
+					<li>&raquo; <a href="/profiel/">Ga naar profiel</a></li>
+					<li>&raquo; <a href="/profiel/wijzig">Wijzig profiel</a></li>
+					<li>&raquo; <a href="/tools/logout/" title="<?php echo $this->translate('Uitloggen'); ?>"><?php echo $this->translate('Uitloggen'); ?></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<?php
+	} else {
+?>
+	<div class="col left">
+		<a class="button button--login openProfiles" href="javascript:void(0);" title="<?php echo $this->translate('Inloggen met uw profiel'); ?>"><?php echo $this->translate('Inloggen met uw profiel'); ?></a>
+	</div>
+<?php
+	}
+?>

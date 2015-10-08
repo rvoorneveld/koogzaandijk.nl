@@ -1,0 +1,349 @@
+<div id="nextpage" class="zapp">
+	<div class="col full">
+		<div class="inner">
+			<span class="user-feedback" style="display:none;"></span>
+			<div class="table infobox">
+
+				<h2><?php echo $this->translate('Wijzig uw profiel'); ?></h2>
+
+				<ul class="row">
+					<li class="cell large bg_kz_white color_kz_black">
+
+						<h3><?php echo $this->translate('Kies uw profiel foto'); ?></h3>
+						<?php
+
+							// Set Full Name
+							$strFullName    = $this->profile['firstname'].(($this->profile['insertion'] == '') ? ' ' : ' '.$this->profile['insertion'].' ').$this->profile['lastname'];
+
+							$strAvatar      = '/upload/avatars/'.$this->profile['avatar'];
+
+
+							if(! is_file($_SERVER['DOCUMENT_ROOT'].$strAvatar)) {
+
+								// Set Korfball Guru's array
+								$arrKorfballGurus   = array('placeholder');
+
+								$intRandomCount     = array_rand($arrKorfballGurus);
+								$strAvatar          = '/assets/default/image/temp_test/'.$arrKorfballGurus[$intRandomCount].'.jpg';
+							}
+						?>
+
+						<div class="newProfileAvatar"></div>
+
+						<div class="media media--profile-edit javascript_relation_1 zapp">
+							<div class="media__img media--profile-edit media--profile-active">
+								<img rel="1" alt="<?php echo $strFullName; ?>" title="<?php echo $strFullName; ?>" src="<?php echo $strAvatar; ?>" class="profiles__avatar">
+							</div>
+						</div>
+
+						<?php
+							if(! empty($this->profile['avatar_history'])) {
+
+								$arrAvatarHistory   = array_reverse(explode(',',$this->profile['avatar_history']));
+								foreach($arrAvatarHistory as $intAvatarKey => $strAvatar) {
+
+									$intAvatarKey = $intAvatarKey+2;
+						?>
+									<div class="media media--profile-edit javascript_relation_<?php echo $intAvatarKey; ?> zapp">
+										<div class="media__img media--profile-edit">
+											<img rel="<?php echo $intAvatarKey; ?>" alt="<?php echo $strFullName; ?>" title="<?php echo $strFullName; ?>" src="/upload/avatars/<?php echo $strAvatar; ?>" class="profiles__avatar">
+										</div>
+									</div>
+						<?php
+								}
+							}
+						?>
+
+						<div class="zapp"></div>
+						<br>
+
+				<?php if($this->isDesktop === true) : ?>
+
+					<h3><?php echo $this->translate('Upload een profiel foto'); ?></h3>
+
+					<br>
+
+					<div class="avatar_uploader">
+						<div id="container">
+							<a id="pickfiles" class="button" href="javascript:;">Nieuwe afbeelding uploaden</a>
+						</div>
+						<br />
+						<pre id="console"></pre>
+					</div>
+
+					<form class="default" style="display:none;" name="cropimageform" method="post" id="cropimageform" action="">
+						<input type="hidden" id="start_pos_x" name="x" />
+						<input type="hidden" id="start_pos_y" name="y" />
+						<input type="hidden" id="new_width" name="w" />
+						<input type="hidden" id="new_height" name="h" />
+
+						<input class="button" type="submit" value="<?php echo $this->translate('Selecteer de juiste uitsnede'); ?>" onclick="return checkCoords();" class="btn btn-large btn-inverse" />
+
+					</form>
+
+					<br>
+
+					<div class="avatar_image"></div>
+
+				<?php endif; ?>
+
+					</li>
+
+					<li class="cell large bg_kz_blue color_kz_white">
+
+						<h3 class="color_kz_white left">Contact gegevens</h3>
+
+						<form class="default ketchup form-standard form-standard--profiles" name="contactinformation" method="post" id="contactinformation" action="">
+
+							<ol class="block-list">
+								<li>
+									<label for="auto_login">Manier van inloggen:</label>
+									<select class="input" name="auto_login" id="auto_login">
+										<option value="0"<?php echo (($this->defaults['auto_login'] == 0) ? ' selected="selected"' : ''); ?>>Inloggen via een wachtwoord.</option>
+										<option value="1"<?php echo (($this->defaults['auto_login'] == 1) ? ' selected="selected"' : ''); ?>>Automatisch inloggen, geen wachtwoord nodig.</option>
+									</select>
+								</li>
+								<li>
+									<label for="share">Contactgegevens delen:</label>
+									<select class="input" name="share" id="share">
+										<option value="0"<?php echo (($this->defaults['share'] == 0) ? ' selected="selected"' : ''); ?>>Nee, mijn contactgegevens niet delen.</option>
+										<option value="1"<?php echo (($this->defaults['share'] == 1) ? ' selected="selected"' : ''); ?>>Ja, mijn contactgegevens wel delen.</option>
+									</select>
+								</li>
+								<li>
+									<label for="mobile_number">Mobiel:</label>
+									<input type="text" name="mobile_number" id="mobile_number" value="<?php echo $this->defaults['mobile_number']; ?>" data-validate="" />
+								</li>
+								<li>
+									<label for="email">Email adres:</label>
+									<input type="text" name="email" id="email" value="<?php echo $this->defaults['email']; ?>" data-validate="" />
+								</li>
+								<li>
+									<label for="facebook">Facebook:</label>
+									<input type="text" name="facebook" id="facebook" value="<?php echo $this->defaults['facebook']; ?>" data-validate="" />
+								</li>
+								<li>
+									<label for="twitter">Twitter:</label>
+									<input type="text" name="twitter" id="twitter" value="<?php echo $this->defaults['twitter']; ?>" data-validate="" />
+								</li>
+								<li>
+									<input type="hidden" name="members_id" id="members_id" value="<?php echo $this->defaults['members_id']; ?>" />
+									<a class="button button--contact-details">Gegevens opslaan</a>
+								</li>
+							</ol>
+
+						</form>
+
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+<link href="/assets/default/css/jquery.ui.plupload.css" rel="stylesheet" type="text/css">
+<link href="/assets/default/css/jcrop.css" rel="stylesheet" type='text/css'>
+
+<script type="text/javascript" src="/assets/default/script/plupload.full.min.js"></script>
+<script type="text/javascript" src="/assets/default/script/jquery.crop.min.js"></script>
+
+
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('.button--contact-details').click(function(e){
+
+			e.preventDefault();
+			jQuery.post("/tools/updateprofilecontact",{
+				'auto_login'    : jQuery('#auto_login').val(),
+				'share'         : jQuery('#share').val(),
+				'firstname'     : jQuery('#firstname').val(),
+				'insertion'     : jQuery('#insertion').val(),
+				'lastname'      : jQuery('#lastname').val(),
+				'mobile_number' : jQuery('#mobile_number').val(),
+				'email'         : jQuery('#email').val(),
+				'facebook'      : jQuery('#facebook').val(),
+				'twitter'       : jQuery('#twitter').val(),
+				'members_id'    : jQuery('#members_id').val()
+			}).done(function(intUpdateID) {
+				jQuery('.user-feedback').addClass('user-feedback--success');
+				jQuery('.user-feedback').html('Uw contact informatie is met succes opgeslagen.');
+				jQuery('.user-feedback').show();
+
+				setTimeout(function(){
+					jQuery('.user-feedback').removeClass('user-feedback--success');
+					jQuery('.user-feedback').hide();
+				}, 5000);
+			});
+		});
+
+		jQuery('.profiles__avatar').live('click',function(){
+
+			var currentElement  = jQuery(this);
+			var imageSource     = jQuery(this).attr('src');
+			var imageRel        = jQuery(this).attr('rel');
+
+			jQuery.post("/tools/changeavatar",{
+				'avatar'    : imageSource,
+				'rel'       : imageRel
+			}).done(function(changeStatus) {
+				if(imageRel > 0) {
+
+					jQuery('.user-feedback').addClass('user-feedback--success');
+					jQuery('.user-feedback').html('Uw profiel foto is met succes veranderd.');
+					jQuery('.user-feedback').show();
+
+					setTimeout(function(){
+						jQuery('.user-feedback').removeClass('user-feedback--success');
+						jQuery('.user-feedback').hide();
+					}, 5000);
+
+					var activeProfile = jQuery('.media--profile-active').parent();
+					jQuery(activeProfile).find('.media--profile-edit').removeClass('media--profile-active');
+					jQuery('.javascript_relation_'+imageRel).find('.media--profile-edit').addClass('media--profile-active');
+
+					var activeAvatarSource = jQuery('.javascript_relation_'+imageRel).find('.profiles__avatar').attr('src');
+					jQuery('header .profiles__avatar').attr('src', activeAvatarSource);
+
+
+				} else {
+					jQuery('.user-feedback').addClass('user-feedback--error');
+					jQuery('.user-feedback').html('Er is iets mis gegaan met het veranderen van uw profiel foto.');
+					jQuery('.user-feedback').show();
+					setTimeout(function(){
+						jQuery('.user-feedback').removeClass('user-feedback--error');
+						jQuery('.user-feedback').hide();
+					}, 5000);
+				}
+			});
+
+		});
+	});
+
+	var uploader = new plupload.Uploader({
+		runtimes            : 'html5,html4,gears,flash,silverlight,browserplus',
+		browse_button       : 'pickfiles', // you can pass in id...
+		url                 : "/tools/uploadavatar/",
+		max_file_size       : '10mb',
+		filters 			: [	{title : "Image files", extensions : "jpg,jpeg,gif,jpeg"} ],
+		unique_names 		: true,
+		multi_selection		: false,
+		multiple_queues		: false,
+		init: {
+			FilesAdded: function(up, files) {
+				up.start();
+			},
+			Error: function(up, err) {
+
+				alert(err);
+
+				document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+			}
+		},
+		preinit				: attachCallbacks//,
+		//multipart           : false
+	});
+
+	// added redirect function after uploaded
+	function attachCallbacks(uploader) {
+		uploader.bind('FileUploaded', function(Up, File, Response) {
+
+			if(Response.response == 'error') {
+				jQuery('.user-feedback').addClass('user-feedback--error');
+				jQuery('.user-feedback').html('Er is iets mis gegaan met het uploaden van uw foto, probeer een andere foto.');
+				jQuery('.user-feedback').show();
+				setTimeout(function(){
+					jQuery('.user-feedback').removeClass('user-feedback--error');
+					jQuery('.user-feedback').hide();
+				}, 5000);
+			} else {
+
+				var decodedResponse = JSON.parse(Response.response);
+				var imageName       = decodedResponse.image_name;
+
+				jQuery('.avatar_uploader').hide();
+				jQuery('.avatar_image').html('<img src="/upload/avatars/'+imageName+'?t=<?php echo time(); ?>" alt="" title="" style="width:300px;" id="cropbox">');
+				jQuery('#cropimageform').show();
+
+				setTimeout('setCropbox()',1000);
+
+			}
+
+		}
+	)};
+
+	function setCropbox(){
+
+		jQuery('#cropbox').Jcrop({
+			aspectRatio		: 1,
+			maxSize			: [300,300],
+			minSize			: [100,100],
+			onChange		: updateCoords,
+			bgColor			: 'black',
+			bgOpacity		: .4,
+			setSelect		: [75,75,225,225]
+		});
+
+	}
+
+	function updateCoords(c) {
+		jQuery('#start_pos_x').val(c.x);
+		jQuery('#start_pos_y').val(c.y);
+		jQuery('#new_width').val(c.w);
+		jQuery('#new_height').val(c.h);
+	};
+
+	function checkCoords() {
+		if (jQuery('#new_width').val() != '' && parseInt(jQuery('#new_width').val())) {
+			return true;
+		}
+
+		alert('<?php echo $this->translate('U dient een selectie van uw foto te maken.'); ?>');
+		return false;
+	};
+
+	jQuery('#cropimageform').submit(function(e){
+		e.preventDefault();
+		jQuery.post("/tools/docropavatar",{
+			x : jQuery('#start_pos_x').val(),
+			y : jQuery('#start_pos_y').val(),
+			w : jQuery('#new_width').val(),
+			h : jQuery('#new_height').val()
+		}).done(function(imageName) {
+			jQuery('header .profiles__avatar').attr('src', imageName+'?t=<?php echo time(); ?>');
+
+			jQuery('.avatar_image').html('');
+			jQuery('#cropimageform').hide();
+			jQuery('.avatar_uploader').show();
+
+			var activeProfile       = jQuery('.media--profile-active').parent();
+			var activeProfileSource = jQuery(activeProfile).find('.media--profile-edit').html();
+
+
+
+			if(activeProfileSource.indexOf('temp_test/placeholder.jpg')  != -1) {
+				jQuery('.javascript_relation_1').remove();
+			} else {
+				jQuery(activeProfile).find('.media--profile-edit').removeClass('media--profile-active');
+			}
+
+			var totalProfileAvatars     = 0;
+
+			if(jQuery('.media--profile-edit').length > 0) {
+				var totalProfileAvatars     = jQuery('.media--profile-edit').length;
+			}
+
+			var newProfileAvatarHtml    =  '<div class="media media--profile-edit javascript_relation_'+totalProfileAvatars+' zapp">';
+			newProfileAvatarHtml    += '    <div class="media__img media--profile-edit media--profile-active">';
+			newProfileAvatarHtml    += '        <img rel="'+totalProfileAvatars+'" alt="" title="" src="'+imageName+'?t=<?php echo time(); ?>" class="profiles__avatar">';
+			newProfileAvatarHtml    += '    </div>';
+			newProfileAvatarHtml    += '</div>';
+
+			jQuery('.newProfileAvatar').prepend(newProfileAvatarHtml);
+		});
+	});
+
+	uploader.init();
+
+</script>

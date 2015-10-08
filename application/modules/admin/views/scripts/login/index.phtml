@@ -1,0 +1,21 @@
+<p><?php echo $this->translate('Welcome to the KZ/Hiltex admin panel.'); ?></p>
+<p><?php echo $this->translate('Please fill in your credentials to authenticate yourself.'); ?></p>
+<form method="post" name="loginForm" action="">
+	<fieldset>
+		<dl>
+			<dt>
+				<label for="email">Email</label>
+			</dt>
+			<dd>
+				<input name="email" type="text" id="email" class="large">
+			</dd>
+			<dt>
+				<label for="password">Password</label>
+			</dt>
+			<dd>
+				<input name="password" type="password" id="password" class="large">
+			</dd>
+		</dl>
+	</fieldset>
+	<input type="submit" class="button right" value="Log in" />
+</form>

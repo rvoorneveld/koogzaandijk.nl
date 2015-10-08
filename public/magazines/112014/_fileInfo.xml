@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FtpUploadInfo LocalBasePath="C:\Users\Pien\AppData\Roaming\Mediaparts Interactive\FlippingBook Publisher\FtpTemp\KZ magazine" RemoteBasePath="/domains/bladermee.nl/public_html/kz_magazine_november2014/">
+  <Entry Name="">
+    <Entry Type="File" Name=".htaccess" CrcValue="2645440538" Length="24" ModificationDate="11/04/2014 16:51:14" />
+    <Entry Type="File" Name="index.html" CrcValue="1076725577" Length="10351" ModificationDate="11/04/2014 16:51:14" />
+    <Entry Type="Dir" Name="files">
+      <Entry Type="Dir" Name="assets">
+        <Entry Type="Dir" Name="basic-html">
+          <Entry Type="File" Name="flipbook.html" CrcValue="1923468807" Length="1463" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="index.html" CrcValue="270342986" Length="730" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-1.html" CrcValue="1583559987" Length="15686" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-10-11.html" CrcValue="1354801666" Length="39052" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-12-13.html" CrcValue="2235451948" Length="13916" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-14-15.html" CrcValue="1940907444" Length="42023" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-16-17.html" CrcValue="798531585" Length="39324" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-18-19.html" CrcValue="267022692" Length="32838" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-2-3.html" CrcValue="3140142544" Length="27277" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-20-21.html" CrcValue="2474450632" Length="47500" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-22-23.html" CrcValue="2259937351" Length="87781" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-24.html" CrcValue="334220565" Length="15429" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-4-5.html" CrcValue="1848671123" Length="31017" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-6-7.html" CrcValue="3365740404" Length="31577" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="File" Name="page-8-9.html" CrcValue="3114612165" Length="38827" ModificationDate="11/04/2014 16:52:11" />
+          <Entry Type="Dir" Name="javascript">
+            <Entry Type="File" Name="init.js" CrcValue="1992600755" Length="17268" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="localizator.js" CrcValue="2066977920" Length="2821" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="Dir" Name="locales">
+              <Entry Type="Dir" Name="de">
+                <Entry Type="File" Name="textlang.js" CrcValue="2967115721" Length="3717" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="en">
+                <Entry Type="File" Name="textlang.js" CrcValue="2853202109" Length="3504" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="es">
+                <Entry Type="File" Name="textlang.js" CrcValue="894316466" Length="3816" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="fi">
+                <Entry Type="File" Name="textlang.js" CrcValue="3925665847" Length="3628" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="fr">
+                <Entry Type="File" Name="textlang.js" CrcValue="1677613345" Length="3900" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="it">
+                <Entry Type="File" Name="textlang.js" CrcValue="2313763539" Length="3804" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="ja">
+                <Entry Type="File" Name="textlang.js" CrcValue="4170904010" Length="4236" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="ko">
+                <Entry Type="File" Name="textlang.js" CrcValue="2853202109" Length="3504" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="nl">
+                <Entry Type="File" Name="textlang.js" CrcValue="912191230" Length="3706" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="no">
+                <Entry Type="File" Name="textlang.js" CrcValue="1622142934" Length="3604" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="pl">
+                <Entry Type="File" Name="textlang.js" CrcValue="856702089" Length="3820" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="pt">
+                <Entry Type="File" Name="textlang.js" CrcValue="428533525" Length="3794" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="ru">
+                <Entry Type="File" Name="textlang.js" CrcValue="2569202776" Length="5255" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="sv">
+                <Entry Type="File" Name="textlang.js" CrcValue="1040554947" Length="3581" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+              <Entry Type="Dir" Name="zh">
+                <Entry Type="File" Name="textlang.js" CrcValue="3850670061" Length="3238" ModificationDate="11/04/2014 16:51:04" />
+              </Entry>
+            </Entry>
+          </Entry>
+          <Entry Type="Dir" Name="locals" />
+          <Entry Type="Dir" Name="styles">
+            <Entry Type="File" Name="close.png" CrcValue="2460606412" Length="1082" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="close_button.png" CrcValue="2447750610" Length="41073" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="email_32.png" CrcValue="3470182910" Length="1328" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="facebook_32.png" CrcValue="2755780019" Length="1187" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="flipbook.css" CrcValue="758901485" Length="858" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="google_32.png" CrcValue="2118523553" Length="1585" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="info.png" CrcValue="3608945358" Length="483" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="linkedin_32.png" CrcValue="3587636767" Length="1248" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="mobile-menu.png" CrcValue="2128240345" Length="1090" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="mobile.css" CrcValue="234659981" Length="2736" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="next-mob.png" CrcValue="2410981798" Length="1032" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="next.png" CrcValue="296507195" Length="362" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="prev-mob.png" CrcValue="2238645068" Length="1019" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="previous.png" CrcValue="3966403631" Length="384" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="save-mobile.png" CrcValue="218164736" Length="350" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="save.png" CrcValue="2289598077" Length="385" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="style.css" CrcValue="2576797936" Length="5845" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="toc-mobile.png" CrcValue="988068503" Length="288" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="toc.css" CrcValue="3498394331" Length="730" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="toc.png" CrcValue="526258568" Length="282" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="tumblr_32.png" CrcValue="3567944930" Length="1251" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="twitter_32.png" CrcValue="2819689458" Length="1432" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="videoIcon.png" CrcValue="2210887153" Length="4823" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="vk_32.png" CrcValue="909246059" Length="1461" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="zoomIn.png" CrcValue="1465892398" Length="667" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="zoomOut.png" CrcValue="33765241" Length="659" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+        </Entry>
+        <Entry Type="Dir" Name="common">
+          <Entry Type="Dir" Name="downloads">
+            <Entry Type="File" Name="page0001.pdf" CrcValue="879116673" Length="5424736" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002.pdf" CrcValue="1703498664" Length="5832458" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003.pdf" CrcValue="2654531080" Length="3232547" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004.pdf" CrcValue="408215860" Length="2445396" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005.pdf" CrcValue="100733555" Length="3327048" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006.pdf" CrcValue="3765387044" Length="2707587" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007.pdf" CrcValue="1697938064" Length="9256417" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008.pdf" CrcValue="471895313" Length="1646573" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009.pdf" CrcValue="3966228281" Length="1297430" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="File" Name="page0010.pdf" CrcValue="3730787003" Length="2731395" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="File" Name="page0011.pdf" CrcValue="4202120684" Length="2129592" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="File" Name="page0012.pdf" CrcValue="2778171849" Length="1519150" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="File" Name="page0013.pdf" CrcValue="4093410577" Length="2457604" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="File" Name="publication.pdf" CrcValue="3146418401" Length="42883054" ModificationDate="11/04/2014 16:51:07" />
+            <Entry Type="Dir" Name="files" />
+          </Entry>
+          <Entry Type="Dir" Name="ecommerce">
+            <Entry Type="File" Name="cart.js" CrcValue="4237082162" Length="20014" ModificationDate="11/04/2014 16:52:10" />
+            <Entry Type="File" Name="products.js" CrcValue="256522414" Length="18" ModificationDate="11/04/2014 16:52:10" />
+          </Entry>
+          <Entry Type="Dir" Name="page-substrates">
+            <Entry Type="File" Name="page0001.jpg" CrcValue="1200297926" Length="235623" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002.jpg" CrcValue="2104757200" Length="556301" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003.jpg" CrcValue="4241714994" Length="333788" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004.jpg" CrcValue="998449643" Length="246920" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005.jpg" CrcValue="2681382094" Length="276864" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006.jpg" CrcValue="3716353623" Length="297592" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007.jpg" CrcValue="656276497" Length="450071" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008.jpg" CrcValue="2857904996" Length="252278" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009.jpg" CrcValue="1672290712" Length="217680" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0010.jpg" CrcValue="636488173" Length="341259" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0011.jpg" CrcValue="1303836174" Length="231762" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0012.jpg" CrcValue="1460994486" Length="224595" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0013.jpg" CrcValue="2503878190" Length="139824" ModificationDate="11/04/2014 16:51:06" />
+          </Entry>
+          <Entry Type="Dir" Name="pages-content" />
+        </Entry>
+        <Entry Type="Dir" Name="flash">
+          <Entry Type="File" Name="font.swf" CrcValue="4165065541" Length="97245" ModificationDate="11/04/2014 16:46:50" />
+          <Entry Type="File" Name="page.html" CrcValue="1712937586" Length="4907" ModificationDate="11/04/2014 16:51:14" />
+          <Entry Type="File" Name="properties.swf" CrcValue="578464457" Length="2710" ModificationDate="11/04/2014 16:52:10" />
+          <Entry Type="File" Name="spread.html" CrcValue="1019132865" Length="1072" ModificationDate="11/04/2014 16:51:14" />
+          <Entry Type="File" Name="style.swf" CrcValue="1337743943" Length="68402" ModificationDate="11/04/2014 16:52:13" />
+          <Entry Type="Dir" Name="embed">
+            <Entry Type="File" Name="arrow.png" CrcValue="2197564980" Length="999" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="center.png" CrcValue="3681965898" Length="940" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="embed-hover.css" CrcValue="2646251637" Length="2444" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="embed.js" CrcValue="2897856372" Length="12038" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="left.png" CrcValue="407147482" Length="1066" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="right.png" CrcValue="851200976" Length="1071" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="image">
+            <Entry Type="File" Name="kz-magazine2.doorblader.png" CrcValue="3610287719" Length="4336" ModificationDate="11/04/2014 16:52:13" />
+          </Entry>
+          <Entry Type="Dir" Name="pages">
+            <Entry Type="File" Name="page0001.swf" CrcValue="1186299203" Length="171930" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0001_s.jpg" CrcValue="62487239" Length="11173" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002.swf" CrcValue="3308865154" Length="312336" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002_s.jpg" CrcValue="2555831170" Length="12277" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003.swf" CrcValue="3894436125" Length="173750" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003_s.jpg" CrcValue="2828016308" Length="9439" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004.swf" CrcValue="3210977666" Length="572532" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004_s.jpg" CrcValue="583003746" Length="9595" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005.swf" CrcValue="9923659" Length="178371" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005_s.jpg" CrcValue="92308599" Length="9572" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006.swf" CrcValue="2200868279" Length="176163" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006_s.jpg" CrcValue="311392987" Length="10993" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007.swf" CrcValue="1944533820" Length="257121" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007_s.jpg" CrcValue="1718268677" Length="11203" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008.swf" CrcValue="309105594" Length="368650" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008_s.jpg" CrcValue="936118995" Length="9061" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009.swf" CrcValue="927426299" Length="327753" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009_s.jpg" CrcValue="418685937" Length="9091" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0010.swf" CrcValue="4262261" Length="195185" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0010_s.jpg" CrcValue="1086083875" Length="10232" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0011.swf" CrcValue="158971038" Length="560894" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0011_s.jpg" CrcValue="310772012" Length="9141" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0012.swf" CrcValue="3857204590" Length="361512" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0012_s.jpg" CrcValue="982064225" Length="9142" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0013.swf" CrcValue="995322605" Length="135154" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0013_s.jpg" CrcValue="586847448" Length="7977" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="pagestub.png" CrcValue="146266170" Length="922" ModificationDate="11/04/2014 16:51:06" />
+          </Entry>
+          <Entry Type="Dir" Name="search">
+            <Entry Type="File" Name="search0001.swf" CrcValue="265478754" Length="1530" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0002.swf" CrcValue="1058204869" Length="6053" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0003.swf" CrcValue="3621507623" Length="10902" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0004.swf" CrcValue="2166840425" Length="12039" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0005.swf" CrcValue="3831531053" Length="16114" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0006.swf" CrcValue="2327777933" Length="11703" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0007.swf" CrcValue="2797528964" Length="2510" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0008.swf" CrcValue="1036299877" Length="14841" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0009.swf" CrcValue="3290303645" Length="13701" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0010.swf" CrcValue="1575703065" Length="8554" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0011.swf" CrcValue="2509158717" Length="13594" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0012.swf" CrcValue="3957444456" Length="23502" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0013.swf" CrcValue="3625446271" Length="1866" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="searchtext.swf" CrcValue="2697039190" Length="21168" ModificationDate="11/04/2014 16:51:06" />
+          </Entry>
+          <Entry Type="Dir" Name="sound">
+            <Entry Type="File" Name="blow.mp3" CrcValue="2637059690" Length="19124" ModificationDate="11/04/2014 16:51:14" />
+            <Entry Type="File" Name="flip2.mp3" CrcValue="2634966747" Length="16559" ModificationDate="11/04/2014 16:51:14" />
+            <Entry Type="File" Name="flip3.mp3" CrcValue="2543685772" Length="19631" ModificationDate="11/04/2014 16:51:14" />
+            <Entry Type="File" Name="flip4.mp3" CrcValue="1318007904" Length="20399" ModificationDate="11/04/2014 16:51:14" />
+            <Entry Type="Dir" Name="pages" />
+          </Entry>
+        </Entry>
+        <Entry Type="Dir" Name="mobile">
+          <Entry Type="File" Name="iosskin.css" CrcValue="2625949403" Length="3211" ModificationDate="11/04/2014 16:52:13" />
+          <Entry Type="File" Name="properties.js" CrcValue="696384318" Length="16614" ModificationDate="11/04/2014 16:52:12" />
+          <Entry Type="File" Name="skin.css" CrcValue="2327235789" Length="539" ModificationDate="11/04/2014 16:52:13" />
+          <Entry Type="File" Name="thumb.jpg" CrcValue="842422272" Length="3076" ModificationDate="11/04/2014 16:51:06" />
+          <Entry Type="Dir" Name="pages">
+            <Entry Type="File" Name="page0001_i1.jpg" CrcValue="2385086473" Length="93876" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0001_i2.jpg" CrcValue="2177128664" Length="239400" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002_i1.jpg" CrcValue="2952260041" Length="259651" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0002_i2.jpg" CrcValue="793543105" Length="636872" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003_i1.jpg" CrcValue="2154163424" Length="234053" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0003_i2.jpg" CrcValue="1216836589" Length="608157" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004_i1.jpg" CrcValue="1335158202" Length="207321" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0004_i2.jpg" CrcValue="3048926185" Length="533806" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005_i1.jpg" CrcValue="3086017812" Length="238912" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0005_i2.jpg" CrcValue="518873445" Length="636153" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006_i1.jpg" CrcValue="1861668521" Length="223644" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0006_i2.jpg" CrcValue="801562239" Length="561211" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007_i1.jpg" CrcValue="2545855601" Length="189159" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0007_i2.jpg" CrcValue="645652919" Length="468993" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008_i1.jpg" CrcValue="2326113815" Length="224042" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0008_i2.jpg" CrcValue="1320842190" Length="579355" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009_i1.jpg" CrcValue="3268906254" Length="212408" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0009_i2.jpg" CrcValue="1764146505" Length="555615" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0010_i1.jpg" CrcValue="4119996396" Length="228124" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0010_i2.jpg" CrcValue="364949914" Length="562513" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0011_i1.jpg" CrcValue="2730752594" Length="205973" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0011_i2.jpg" CrcValue="1701579807" Length="539432" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0012_i1.jpg" CrcValue="398207464" Length="289694" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0012_i2.jpg" CrcValue="1164360392" Length="736085" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0013_i1.jpg" CrcValue="3231855299" Length="69352" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="page0013_i2.jpg" CrcValue="69773441" Length="186312" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="Dir" Name="android" />
+            <Entry Type="Dir" Name="ios" />
+          </Entry>
+          <Entry Type="Dir" Name="search">
+            <Entry Type="File" Name="search0001.xml" CrcValue="2067225171" Length="2868" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0002.xml" CrcValue="1442790359" Length="14162" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0003.xml" CrcValue="3725460392" Length="28364" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0004.xml" CrcValue="921763472" Length="32348" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0005.xml" CrcValue="1728971551" Length="43282" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0006.xml" CrcValue="2568425539" Length="29777" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0007.xml" CrcValue="3808041089" Length="5264" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0008.xml" CrcValue="3775225445" Length="41648" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0009.xml" CrcValue="4282336781" Length="36192" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0010.xml" CrcValue="2040633419" Length="20022" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0011.xml" CrcValue="2193590966" Length="35761" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0012.xml" CrcValue="1697183628" Length="76649" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="search0013.xml" CrcValue="2647623842" Length="3287" ModificationDate="11/04/2014 16:51:06" />
+            <Entry Type="File" Name="searchtext.js" CrcValue="3044763922" Length="56942" ModificationDate="11/04/2014 16:51:06" />
+          </Entry>
+          <Entry Type="Dir" Name="textures" />
+        </Entry>
+      </Entry>
+      <Entry Type="Dir" Name="common">
+        <Entry Type="Dir" Name="loader">
+          <Entry Type="File" Name="flash-init.js" CrcValue="4013781076" Length="3392" ModificationDate="11/04/2014 16:51:11" />
+          <Entry Type="File" Name="mobile-init.js" CrcValue="2225966940" Length="1246" ModificationDate="11/04/2014 16:51:11" />
+        </Entry>
+        <Entry Type="Dir" Name="styles">
+          <Entry Type="File" Name="style.css" CrcValue="2842571235" Length="987" ModificationDate="11/04/2014 16:51:11" />
+        </Entry>
+      </Entry>
+      <Entry Type="Dir" Name="flash">
+        <Entry Type="File" Name="160x41_Get_Flash_Player.jpg" CrcValue="316465805" Length="4341" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="checkflash.js" CrcValue="2437942739" Length="6154" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="close.png" CrcValue="441192930" Length="1076" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="expressInstall.swf" CrcValue="2538818110" Length="727" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="flash-cart.js" CrcValue="2267022194" Length="1909" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="flash.gif" CrcValue="724592143" Length="1241" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="flippingbook.swf" CrcValue="4120789911" Length="774751" ModificationDate="11/04/2014 16:52:11" />
+        <Entry Type="File" Name="offline.png" CrcValue="2828477222" Length="1831" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="preloader.swf" CrcValue="2418898278" Length="33787" ModificationDate="11/04/2014 16:52:11" />
+        <Entry Type="File" Name="swfaddress.js" CrcValue="1878301268" Length="11737" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="File" Name="swfobject.js" CrcValue="1904936603" Length="9181" ModificationDate="11/04/2014 16:51:04" />
+        <Entry Type="Dir" Name="libs">
+          <Entry Type="File" Name="framework_4.6.0.23201.swf" CrcValue="3296691010" Length="542900" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="framework_4.6.0.23201.swz" CrcValue="3760289184" Length="327044" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="mx_4.6.0.23201.swf" CrcValue="1530377033" Length="528317" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="mx_4.6.0.23201.swz" CrcValue="3756925560" Length="322020" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="sparkskins_4.6.0.23201.swf" CrcValue="2167162088" Length="69334" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="sparkskins_4.6.0.23201.swz" CrcValue="2146829569" Length="54416" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="spark_4.6.0.23201.swf" CrcValue="3700758407" Length="776202" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="spark_4.6.0.23201.swz" CrcValue="2836696474" Length="482555" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="textLayout_2.0.0.232.swf" CrcValue="1212655381" Length="312694" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="textLayout_2.0.0.232.swz" CrcValue="4055631682" Length="186370" ModificationDate="11/04/2014 16:51:04" />
+        </Entry>
+      </Entry>
+      <Entry Type="Dir" Name="mobile">
+        <Entry Type="File" Name="index.html" CrcValue="539634054" Length="390" ModificationDate="11/04/2014 16:51:14" />
+        <Entry Type="File" Name="mobile.html" CrcValue="539634054" Length="390" ModificationDate="11/04/2014 16:51:14" />
+        <Entry Type="File" Name="tablet.html" CrcValue="539634054" Length="390" ModificationDate="11/04/2014 16:51:14" />
+        <Entry Type="Dir" Name="javascript">
+          <Entry Type="File" Name="production.js" CrcValue="3899393286" Length="175497" ModificationDate="11/04/2014 16:51:04" />
+        </Entry>
+        <Entry Type="Dir" Name="locals">
+          <Entry Type="Dir" Name="de">
+            <Entry Type="File" Name="textlang.js" CrcValue="2917167234" Length="1588" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="en">
+            <Entry Type="File" Name="textlang.js" CrcValue="2111015373" Length="1428" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="es">
+            <Entry Type="File" Name="textlang.js" CrcValue="1452243025" Length="1604" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="fi">
+            <Entry Type="File" Name="textlang.js" CrcValue="490091506" Length="1492" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="fr">
+            <Entry Type="File" Name="textlang.js" CrcValue="3535045988" Length="1683" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="it">
+            <Entry Type="File" Name="textlang.js" CrcValue="671186947" Length="1589" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="ja">
+            <Entry Type="File" Name="textlang.js" CrcValue="3422930753" Length="1772" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="ko">
+            <Entry Type="File" Name="textlang.js" CrcValue="638572644" Length="1439" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="nl">
+            <Entry Type="File" Name="textlang.js" CrcValue="3125152069" Length="1528" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="no">
+            <Entry Type="File" Name="textlang.js" CrcValue="2107241548" Length="1431" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="pl">
+            <Entry Type="File" Name="textlang.js" CrcValue="23576390" Length="1614" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="pt">
+            <Entry Type="File" Name="textlang.js" CrcValue="3734388144" Length="1618" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="ru">
+            <Entry Type="File" Name="textlang.js" CrcValue="276774986" Length="2336" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="sv">
+            <Entry Type="File" Name="textlang.js" CrcValue="3841931728" Length="1469" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="zh">
+            <Entry Type="File" Name="textlang.js" CrcValue="4186809488" Length="1348" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+        </Entry>
+        <Entry Type="Dir" Name="styles">
+          <Entry Type="File" Name="preloader_2-3.gif" CrcValue="3738393439" Length="4103" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="preloader_3.gif" CrcValue="3901931156" Length="4812" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="production.css" CrcValue="1355199378" Length="32469" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="File" Name="publapp.png" CrcValue="3522653664" Length="55846" ModificationDate="11/04/2014 16:51:04" />
+          <Entry Type="Dir" Name="font">
+            <Entry Type="File" Name="fbfont-codes.css" CrcValue="4068205657" Length="1117" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fbfont.eot" CrcValue="1068084149" Length="8148" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fbfont.svg" CrcValue="166293710" Length="18690" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fbfont.ttf" CrcValue="4109321193" Length="7984" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fbfont.woff" CrcValue="2997234769" Length="5864" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fonticons.eot" CrcValue="1242793922" Length="24514" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fonticons.svg" CrcValue="4049289836" Length="38494" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fonticons.ttf" CrcValue="338734627" Length="24248" ModificationDate="11/04/2014 16:51:04" />
+            <Entry Type="File" Name="fonticons.woff" CrcValue="4079025629" Length="12284" ModificationDate="11/04/2014 16:51:04" />
+          </Entry>
+          <Entry Type="Dir" Name="help">
+            <Entry Type="Dir" Name="mobile">
+              <Entry Type="File" Name="1-2x.png" CrcValue="3989479503" Length="73438" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="1.png" CrcValue="1624235228" Length="38404" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="2-2x.png" CrcValue="93442019" Length="77127" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="2.png" CrcValue="577960002" Length="39692" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="3-2x.png" CrcValue="1432015568" Length="89703" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="3.png" CrcValue="2618620678" Length="53921" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="4-2x.png" CrcValue="2839809791" Length="106674" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="4.png" CrcValue="2337925327" Length="64837" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="5-2x.png" CrcValue="413738978" Length="92404" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="5.png" CrcValue="1109005786" Length="55160" ModificationDate="11/04/2014 16:51:04" />
+            </Entry>
+            <Entry Type="Dir" Name="tablet">
+              <Entry Type="File" Name="1-2x.png" CrcValue="3088769609" Length="89534" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="1.png" CrcValue="1794417326" Length="42306" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="2-2x.png" CrcValue="4096592185" Length="89839" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="2.png" CrcValue="3814936709" Length="42246" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="3-2x.png" CrcValue="2564258330" Length="121005" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="3.png" CrcValue="3782570356" Length="46889" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="4-2x.png" CrcValue="1837507659" Length="115184" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="4.png" CrcValue="1006301531" Length="46569" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="5-2x.png" CrcValue="857808343" Length="127019" ModificationDate="11/04/2014 16:51:04" />
+              <Entry Type="File" Name="5.png" CrcValue="3793523718" Length="49086" ModificationDate="11/04/2014 16:51:04" />
+            </Entry>
+          </Entry>
+        </Entry>
+      </Entry>
+    </Entry>
+  </Entry>
+</FtpUploadInfo>

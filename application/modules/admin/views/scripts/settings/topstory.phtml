@@ -1,0 +1,169 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('.topstoryInput').click(function() {
+
+			jQuery('.topstoryInput').each(function(){
+				jQuery(this).parent().parent().removeClass('active');
+			});
+
+			var topstoryID	= jQuery(this).val();			
+			jQuery(this).parent().parent().addClass('active');
+
+			jQuery.get('/admin/settings/updatetopstory/id/'+topstoryID+'/', function(returnData){
+
+				jQuery(document).ready(function() {
+
+					jQuery('body').append('<div id="message" class="notification success" style="display: none;"><p><strong>Successs</strong> Succesfully updated topstory</p></div>');
+					
+					jQuery('#message').fadeIn('slow',function(){
+						jQuery(this).delay('4000').fadeOut('slow');
+					});
+				});
+			});			
+		});
+	});
+</script>
+<header>
+	<h2><?php echo $this->translate('Top story'); ?></h2>
+</header>
+<section>
+	<?php
+			if(isset($this->pages) && is_array($this->pages) && count($this->pages) > 0) { 
+		?>
+			
+			<?php foreach($this->pages as $intMenuTypeID => $arrMenuPages) { ?>
+				
+				<h3><?php echo $this->translate(((isset($this->menuTypes[$intMenuTypeID]['name']) && ! empty($this->menuTypes[$intMenuTypeID]['name'])) ? $this->menuTypes[$intMenuTypeID]['name'] : 'Menu')); ?></h3>
+				<table>
+					<thead>
+						<tr>
+							<th width="50"></th>
+							<th width="50"></th>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*" class="leftAlign"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					<?php foreach($arrMenuPages as $arrPages) {
+					
+						// Format Created Date
+						$strCreatedDate 	= KZ_View_Helper_Date::format($arrPages['created'], 'dd-MM-yyyy HH:mm:ss');
+						
+						// Format Modified Date
+						$strModifiedDate 	= KZ_View_Helper_Date::format($arrPages['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+						
+						// Set Page Menu icon
+						$strPageIcon		= (($arrPages['menu'] == 1) ? 'pages_main.png' : (($arrPages['menu'] == 2) ? 'pages_sub.png' : 'pages_sub_sub.png'));
+						
+						// Set Page Menu icon alignment
+						$strPageIconAlign	= (($arrPages['menu'] == 1) ? ' style="text-align: left;"' : (($arrPages['menu'] == 2) ? ' style="text-align: center;"' : ' style="text-align: right;"'));
+		
+						// Set Nav Padding
+						$strNavPaddingClass	= (($arrPages['menu'] == 1) ? '' : (($arrPages['menu'] == 2) ? 'subNav' : 'subsubNav'));
+						
+						$strRadioChecked	= ((isset($this->topstoryID) && ! empty($this->topstoryID) && is_numeric($this->topstoryID) && $this->topstoryID == $arrPages['page_id']) ? ' checked="checked"' : '');
+						
+						$strTrClass			= ((isset($this->topstoryID) && ! empty($this->topstoryID) && is_numeric($this->topstoryID) && $this->topstoryID == $arrPages['page_id']) ?  ' active' : '');
+						
+						$strRadioInput		= (($arrPages['status'] == 1) ? '<input type="radio" class="topstoryInput" name="topstory" value="'.$arrPages['page_id'].'" '.$strRadioChecked.'/>' : '');
+
+					?>
+			
+						<tr class="<?php echo $strTrClass; ?>">
+							<td><?php echo $strRadioInput; ?></td>
+							<td<?php echo $strPageIconAlign; ?>><img class="noBorder" src="/assets/admin/image/jquery/<?php echo $strPageIcon; ?>" /></td>
+							<td><?php echo $arrPages['page_id']; ?></td>
+							<td class="leftAlign <?php echo $strNavPaddingClass; ?>"><strong><?php echo $arrPages['name']; ?></strong></td>
+							<td><span class="tag <?php echo (($arrPages['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrPages['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+							<td><?php echo $strCreatedDate;?></td>
+							<td><?php echo $strModifiedDate;?></td>
+							<td><?php echo ((isset($this->users[$arrPages['user_id']]['name']) && ! empty($this->users[$arrPages['user_id']]['name'])) ? $this->users[$arrPages['user_id']]['name'] : '-');?></td>
+						</tr>
+						
+				<?php } ?>
+				
+					</tbody>
+				</table>
+				<br /><br />
+			
+			<?php } ?>	
+			
+			<?php
+			} else {
+				echo $this->translate('No menu pages to display').'.';
+			}
+
+		?>
+		
+		<br />
+		<h3><?php echo $this->translate('Standalone pages'); ?></h3>
+		
+		<?php
+			if(isset($this->standalonePages) && is_array($this->standalonePages) && count($this->standalonePages) > 0) { 
+		?>
+				<table>
+					<thead>
+						<tr>
+							<th width="50"></th>
+							<th width="50"></th>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*" class="leftAlign"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="125"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			
+			<?php foreach($this->standalonePages as $arrStandalonePage) {
+				
+				// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrStandalonePage['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrStandalonePage['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Set Page Menu icon
+					$strPageIcon		= (($arrStandalonePage['menu'] == 1) ? 'pages_main.png' : (($arrStandalonePage['menu'] == 2) ? 'pages_sub.png' : 'pages_sub_sub.png'));
+					
+					// Set Page Menu icon alignment
+					$strPageIconAlign	= (($arrStandalonePage['menu'] == 1) ? ' style="text-align: left;"' : (($arrStandalonePage['menu'] == 2) ? ' style="text-align: center;"' : ' style="text-align: right;"'));
+	
+					// Set Nav Padding
+					$strNavPaddingClass	= (($arrStandalonePage['menu'] == 1) ? '' : (($arrStandalonePage['menu'] == 2) ? 'subNav' : 'subsubNav'));
+					
+					$strRadioInput		= (($arrStandalonePage['status'] == 1) ? '<input type="radio" class="topstoryInput" name="topstory" value="'.$arrStandalonePage['page_id'].'" />' : '');
+					
+					$strTrClass			= ((isset($this->topstoryID) && ! empty($this->topstoryID) && is_numeric($this->topstoryID) && $this->topstoryID == $arrStandalonePage['page_id']) ?  ' active' : '');
+					
+			?>
+			
+					<tr class="<?php echo $strTrClass; ?>">
+						<td><?php echo $strRadioInput; ?></td>
+						<td></td>
+						<td><?php echo $arrStandalonePage['page_id']; ?></td>
+						<td class="leftAlign <?php echo $strNavPaddingClass; ?>"><strong><?php echo $arrStandalonePage['name']; ?></strong></td>
+						<td><span class="tag <?php echo (($arrStandalonePage['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrStandalonePage['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td><?php echo ((isset($this->users[$arrStandalonePage['user_id']]['name']) && ! empty($this->users[$arrStandalonePage['user_id']]['name'])) ? $this->users[$arrStandalonePage['user_id']]['name'] : '-');?></td>
+					</tr>
+			<?php } ?>
+
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No standalone pages to display').'.';
+			}
+
+		?>
+</section>

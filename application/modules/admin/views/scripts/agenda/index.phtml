@@ -1,0 +1,200 @@
+<header>
+	<h2><?php echo $this->translate('Agenda'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add agenda item'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->agenda) && is_array($this->agenda) && count($this->agenda) > 0) { 
+		?>
+				<table class="ajax_datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Date'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150" id="isSort" class="desc"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="125"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No agenda item to display').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addAgendaForm" method="post" action="#tab1">
+
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="news_id"><?php echo $this->translate('News'); ?></label></dt>
+				<dd>
+					<?php
+						if(isset($this->news) && is_array($this->news) && count($this->news) > 0) { 
+							echo '	<select class="small" name="news_id" id="news_id">
+										<option value="0">'.$this->translate('None').'</option>';
+							
+							foreach($this->news as $intNewsKey => $arrNews) {
+								$strSelected	= (($arrNews['news_id'] == $this->news_id) ? ' selected="selected"' : '');
+								echo '<option value="'.$arrNews['news_id'].'"'.$strSelected.'>'.$arrNews['name'].'</option>';
+							}
+							
+							echo '</select>';
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="location"><?php echo $this->translate('Location'); ?></label></dt>
+				<dd><input type="text" class="small" id="location" name="location" value="<?php echo $this->location; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="date_start"><?php echo $this->translate('Start date'); ?></label></dt>
+				<dd><input type="text" class="small datepicker" id="date_start" name="date_start" value="<?php echo $this->date_start; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="date_end"><?php echo $this->translate('End date'); ?></label></dt>
+				<dd><input type="text" class="small datepicker" id="date_end" name="date_end" value="<?php echo $this->date_end; ?>" /></dd>
+			</dl>
+				<dl>
+				<dt><label class="label" for="time_start"><?php echo $this->translate('Start time'); ?></label></dt>
+				<dd><input type="text" class="small" id="time_start" name="time_start" value="<?php echo $this->time_start; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="time_end"><?php echo $this->translate('End time'); ?></label></dt>
+				<dd><input type="text" class="small" id="time_end" name="time_end" value="<?php echo $this->time_end; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_title"><?php echo $this->translate('SEO title'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_title" name="seo_title" value="<?php echo $this->seo_title; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_description"><?php echo $this->translate('SEO description'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_description" name="seo_description" value="<?php echo $this->seo_description; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="seo_keywords"><?php echo $this->translate('SEO keywords'); ?></label></dt>
+				<dd><input type="text" class="small" id="seo_keywords" name="seo_keywords" value="<?php echo $this->seo_keywords; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="widget_layout"><?php echo $this->translate('Widget layout'); ?></label></dt>
+				<dd>
+				
+					<?php 
+					
+						if(isset($this->widgetLayouts) && is_array($this->widgetLayouts) && count($this->widgetLayouts) > 0) :
+						
+							echo '<select name="widget_layout" id="widget_layout" class="small">';
+						
+								echo '<option value="0">'.$this->translate('None').'</option>';
+						
+							foreach($this->widgetLayouts as $intWidgetLayoutKey => $arrWidgetLayout) :
+								
+								echo '<option value="'.$arrWidgetLayout['widget_layout_id'].'"'.((isset($this->widget_layout) && $this->widget_layout == $arrWidgetLayout['widget_layout_id']) ? ' selected="selected"' : '').'>'.$arrWidgetLayout['name'].'</option>';
+							
+							endforeach;
+							
+							echo '</select>';
+							
+						endif;
+					
+					?>
+				
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add agenda item'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+		    var _that = this;
+		  
+		    this.each(function (i) {
+		        $.fn.dataTableExt.iApiIndex = i;
+		        var $this = this;
+		        var anControl = $('input', _that.fnSettings().aanFeatures.f);
+		        anControl.unbind('keyup').bind('keypress', function (e) {
+		            if (e.which == 13) {
+		                $.fn.dataTableExt.iApiIndex = i;
+		                _that.fnFilter(anControl.val());
+		            }
+		        });
+		        return this;
+		    });
+		    return this;
+		};
+		
+		jQuery('.ajax_datatable').dataTable( {
+			"bProcessing"		: true,
+			"bServerSide"		: true,
+			"bStateSave"		: true,
+			'iDisplayLength'	: 25,
+			'sPaginationType'	: "full_numbers",
+			"sAjaxSource"		: "/admin/agenda/generateagendatable/",
+			"fnServerData": function ( sSource, aoData, fnCallback ) {
+							$.ajax( {
+								"dataType": 'json', 
+								"type": "POST", 
+								"url": sSource, 
+								"data": aoData, 
+								"success": fnCallback
+							});
+			},
+	        "aoColumns": [null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      {"bSortable" : false, "bSearchable": false}
+	                      ],
+			'aaSorting'			: [[ 4, "desc" ]]
+			}).fnFilterOnReturn();
+	});
+
+	<?php if (isset($this->editorInit)) echo $this->editorInit; ?>
+</script>

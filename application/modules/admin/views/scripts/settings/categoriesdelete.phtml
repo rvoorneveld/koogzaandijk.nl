@@ -1,0 +1,40 @@
+<header>
+	<h2><?php echo $this->translate('Delete category'); ?></h2>
+</header>
+<section>
+	<form name="deleteCategoryForm" method="post" action="">
+	
+		<dl>
+			<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->name;?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Color'); ?></label></dt>
+			<dd class="text"><button class="colorPicker" style="background-color:<?php echo $this->color; ?>;"></button></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->status == 1) ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		<dl>
+			<dt height="15">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd class="text">
+				<?php echo $this->translate('Are you sure you want to delete this').' '.$this->translate('category'); ?>?
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Yes'); ?>" />
+				<?php echo $this->translate('or'); ?> <a href="/admin/settings/categories/"><?php echo $this->translate('go back to overview');?>.</a>
+			</dd>
+		</dl>
+	
+	</form>
+</section>

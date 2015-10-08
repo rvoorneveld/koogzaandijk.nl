@@ -1,0 +1,83 @@
+<?php
+	// Set Models
+	$objModelMatches		= new KZ_Models_Matches();
+	
+	// Set Date Object
+	$objDate				= new Zend_Date();
+	
+	// Set Current Week
+	$intWeek				= (int)$objDate->toString('w');
+
+	// Set Year
+	$intYear		        = (int)$objDate->get(Zend_Date::YEAR_8601);
+	
+	// Set Teams array
+	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_9_teams']));
+	
+	// Get Matches for current week
+	$arrMatches 			= $objModelMatches->getMatches($intYear, $intWeek, $arrTeams, true, 50);
+	
+	if(isset($arrMatches) && is_array($arrMatches) && count($arrMatches) > 0) {
+		
+		// Dynamically fill match info on click
+		echo '<div id="match_info_program"></div>';
+		
+		echo '<ol class="clubplugin program">
+				<li class="heading">
+					<span class="time">Aanv</span>
+					<span class="time_departure">Verz</span>
+					<span class="team_home_name">Thuis</span>
+					<span class="seperator"></span>
+					<span class="team_away_name">Uit</span>
+				</li>';
+		
+		foreach($arrMatches as $strTeam => $arrMatchesByTeam) {
+						
+			foreach($arrMatchesByTeam as $intMatchKey => $arrMatch) {
+			
+				$strDay				= KZ_View_Helper_Date::format($arrMatch['date'], 'EE');
+				
+				$strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
+				if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
+					if(strstr($strTeamHomeName, '/')) {
+						$arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
+						$arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
+						$intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
+						
+						$strTeamHomeName	= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
+					}
+				}
+				$strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
+				
+				$strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
+				if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
+					if(strstr($strTeamAwayName, '/')) {
+						$arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
+						$arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
+						$intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+						
+						$strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
+					}
+				}
+				$strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+				
+				echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
+								<span class="time">'.$strDay.' '.$arrMatch['time'].'</span>
+								<span class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</span>
+								<span class="team_home_name">'.$strTeamHomeName.'</span>
+								<span class="seperator">-</span>
+								<span class="team_away_name">'.$strTeamAwayName.'</span>
+							</li>';
+				
+			}
+			
+		}
+		
+		echo '</ol>';
+		
+	} else {
+		
+		echo $this->translate('No program for week').' '.$intWeek;
+		
+	}
+?>

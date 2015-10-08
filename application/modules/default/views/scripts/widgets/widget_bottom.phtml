@@ -1,0 +1,15 @@
+<?php echo (((in_array($this->count, $this->openInfoBoxes))) ? '<ul class="row last-row">' : ''); ?>
+<li class="cell <?php echo $this->widget['size']; ?> bg<?php echo $this->widget['color_background']; ?> color<?php echo $this->widget['color_text']; ?> readmore">
+	<?php
+		foreach($this->widget_content as $intWidgetContentKey => $arrWidgetContent) {
+			
+			if($arrWidgetContent['content_type_id'] == 6) {
+				echo $this->partial($arrWidgetContent['template'], array(
+					'color'	=> $this->widget['color_text'],
+					'data' 	=> unserialize($arrWidgetContent['data']
+				)));
+			}
+		}
+	?> 
+</li>
+<?php echo ((($this->count % 2) == 0 || $this->total == $this->count) ? '</ul>' : ''); ?>

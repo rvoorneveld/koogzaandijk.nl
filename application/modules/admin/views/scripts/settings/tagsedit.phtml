@@ -1,0 +1,32 @@
+<header>
+	<h2><?php echo $this->translate('Edit tag'); ?></h2>
+</header>
+
+<section>
+
+		<form name="editTagForm" method="post" action="">
+		
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Update tag'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+</section>

@@ -1,0 +1,353 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "1";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;1 / 24</span>
+
+				<a id="nextPageArrow" class="toRightButton toolbarLink internalLink" href="./page-2-3.html"><img class="iconToolbar" src="styles/next.png" alt="Next Page" /></a>
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+			<span class="pager">1 / 24</span>
+					<a class="toRightButton toolbarLink internalLink" href="./page-2-3.html"><img class="iconToolbar" src="styles/next-mob.png" alt="Next Page" /></a>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 595px; height: 841px; margin: 40px 0 0 -297px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0001.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:96.076100%;left:80.504202%;width:10.756303%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem testString" style="top:95.838288%;left:91.932773%;width:1.176471%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:93.277311%;width:1.008403%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>1</b>
+						</p>
+						<p class="textItem " style="top:88.822830%;left:66.218487%;width:27.563025%;height:4.042806%;font-size:1.450000em;color:#FFFFFF;font-family:Rockwell;">
+							<b>het leukste</b>
+						</p>
+						<p class="textItem " style="top:91.795482%;left:66.218487%;width:21.512605%;height:4.042806%;font-size:1.450000em;color:#FFFFFF;font-family:Rockwell;">
+							<b>KZ team?!</b>
+						</p>
+						<p class="textItem testString" style="top:20.927467%;left:8.403361%;width:23.697479%;height:1.545779%;font-size:0.515000em;color:#FFFFFF;font-family:Akzidenz Grotesk BE;">
+							NR.2 NOVEMBER 2014
+						</p>
+						<p class="textItem " style="top:25.921522%;left:4.201681%;width:2.521008%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							(K)
+						</p>
+						<p class="textItem " style="top:25.921522%;left:6.554622%;width:2.352941%;height:2.259215%;font-size:0.800000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							[Z]
+						</p>
+						<p class="textItem " style="top:25.921522%;left:9.075630%;width:5.378151%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							AAN DE
+						</p>
+						<p class="textItem " style="top:28.061831%;left:6.218487%;width:6.050420%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							WANDEL
+						</p>
+						<p class="textItem " style="top:30.083234%;left:2.689076%;width:13.109244%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							KZ EN HET GOEDE DOEL
+						</p>
+						<p class="textItem " style="top:32.818074%;left:2.184874%;width:14.117647%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							STAPJE BIJ STAPJE
+						</p>
+						<p class="textItem " style="top:34.839477%;left:3.361345%;width:12.100840%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DE WETHOUDER OVER
+						</p>
+						<p class="textItem " style="top:36.266350%;left:4.369748%;width:9.747899%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DE TOPSPORTHAL
+						</p>
+						<p class="textItem " style="top:39.001189%;left:3.865546%;width:10.924370%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							DE KZ WONING
+						</p>
+						<p class="textItem " style="top:41.022592%;left:3.025210%;width:12.436975%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							HUISVESTING VOOR KZ
+						</p>
+						<p class="textItem " style="top:42.568371%;left:4.705882%;width:9.243697%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							SPELERS(STERS)
+						</p>
+						<p class="textItem " style="top:45.303210%;left:2.521008%;width:13.613445%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							NIEUWE TRAINERS
+						</p>
+						<p class="textItem " style="top:47.324614%;left:4.705882%;width:9.243697%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							CHRIS KAPER EN
+						</p>
+						<p class="textItem " style="top:48.751486%;left:6.890756%;width:4.873950%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DICO DIK
+						</p>
+						<p class="textItem " style="top:51.486326%;left:3.361345%;width:11.932773%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							NIEUWE SPELERS
+						</p>
+						<p class="textItem " style="top:53.507729%;left:3.697479%;width:11.092437%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							STELLEN ZICH VOOR
+						</p>
+						<p class="textItem " style="top:56.242568%;left:2.689076%;width:13.277311%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							VERSCHILMAKERS
+						</p>
+						<p class="textItem " style="top:58.382878%;left:3.361345%;width:11.932773%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							TOPSPORTCOMMISSIE
+						</p>
+						<p class="textItem " style="top:61.117717%;left:5.714286%;width:7.226891%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							DE JEUGD
+						</p>
+						<p class="textItem " style="top:63.139120%;left:5.378151%;width:7.731092%;height:1.664685%;font-size:0.600000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							STORMT AAN
+						</p>
+						<p class="textItem " style="top:65.992866%;left:3.865546%;width:10.924370%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							UPS &amp; DOWNS
+						</p>
+						<p class="textItem " style="top:68.014269%;left:4.033613%;width:10.756303%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ANDRE KUIPERS EN
+						</p>
+						<p class="textItem " style="top:69.560048%;left:5.378151%;width:7.899160%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ERIK DE VRIES
+						</p>
+						<p class="textItem " style="top:72.294887%;left:4.537815%;width:9.579832%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							NIEUW TENUE
+						</p>
+						<p class="textItem " style="top:74.435196%;left:3.361345%;width:11.932773%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							WEER BLAUW-ZWART
+						</p>
+						<p class="textItem " style="top:77.170036%;left:2.689076%;width:13.445378%;height:2.259215%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							NIEUW ONDERDAK
+						</p>
+						<p class="textItem " style="top:79.310345%;left:2.521008%;width:13.781513%;height:1.545779%;font-size:0.550000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							HET GAAT ERVAN KOMEN
+						</p>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

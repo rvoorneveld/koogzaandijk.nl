@@ -1,0 +1,673 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "14-15";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+			<a id="pagePrevArrow" class="toLeftButton toolbarLink internalLink" href="./page-12-13.html"><img class="iconToolbar" src="styles/previous.png" alt="Previous Page" /></a>
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;14-15 / 24</span>
+
+				<a id="nextPageArrow" class="toRightButton toolbarLink internalLink" href="./page-16-17.html"><img class="iconToolbar" src="styles/next.png" alt="Next Page" /></a>
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+					<a class="toLeftButton toolbarLink internalLink" href="./page-12-13.html"><img class="iconToolbar" src="styles/prev-mob.png" alt="Previous Page" /></a>
+			<span class="pager">14-15 / 24</span>
+					<a class="toRightButton toolbarLink internalLink" href="./page-16-17.html"><img class="iconToolbar" src="styles/next-mob.png" alt="Next Page" /></a>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 1190px; height: 841px; margin: 40px 0 0 -595px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0008.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:95.838288%;left:2.857143%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>14</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:3.949580%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem testString" style="top:96.076100%;left:4.705882%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:96.076100%;left:89.831933%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:95.838288%;left:95.462185%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:96.218487%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>15</b>
+						</p>
+						<p class="textItem testString" style="top:82.164090%;left:2.857143%;width:14.201681%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ik heb voor KZ / Hiltex gekozen omdat ik dacht
+						</p>
+						<p class="textItem " style="top:83.709869%;left:2.857143%;width:14.117647%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							hier het meeste te gaan leren, en de vereniging
+						</p>
+						<p class="textItem " style="top:85.255648%;left:2.857143%;width:13.109244%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zelf mijn enorm aansprak. Ik heb drie jaar bij
+						</p>
+						<p class="textItem " style="top:86.801427%;left:2.857143%;width:14.117647%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Deetossnel in het eerste mogen spelen, en ook
+						</p>
+						<p class="textItem " style="top:88.347206%;left:2.857143%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							drie jaar op het hoogste niveau mogen korfbal-
+						</p>
+						<p class="textItem " style="top:89.892985%;left:2.857143%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							len. Toen wij met Deetossnel degradeerden uit
+						</p>
+						<p class="textItem " style="top:91.438763%;left:2.857143%;width:13.697479%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							de Korfballeague was dit voor mij een enorme
+						</p>
+						<p class="textItem " style="top:92.984542%;left:2.857143%;width:13.781513%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							teleurstelling. Ik ben toen gaan nadenken over
+						</p>
+						<p class="textItem " style="top:82.164090%;left:18.067227%;width:13.781513%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							wat ik wilde, drie jaar in de Korfballeague spe-
+						</p>
+						<p class="textItem " style="top:83.709869%;left:18.067227%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							len, dat smaakte naar meer. Ik ben in contact
+						</p>
+						<p class="textItem " style="top:85.255648%;left:18.067227%;width:13.277311%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gekomen met KZ / Hiltex, &#160;ik was er vrij snel
+						</p>
+						<p class="textItem " style="top:86.801427%;left:18.067227%;width:13.613445%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							uit dat ik graag deel uit wilde maken van deze
+						</p>
+						<p class="textItem " style="top:88.347206%;left:18.067227%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							selectie. Ik had er een goed gevoel bij en het
+						</p>
+						<p class="textItem " style="top:89.892985%;left:18.067227%;width:8.571429%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							idee dat ik hier veel ga leren.
+						</p>
+						<p class="textItem " style="top:91.438763%;left:18.067227%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Mijn ervaringen tot nu toe zijn: Ik heb deel uit
+						</p>
+						<p class="textItem " style="top:92.984542%;left:18.067227%;width:13.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							mogen maken van Nederland &lt;16 en Neder-
+						</p>
+						<p class="textItem " style="top:69.797860%;left:33.445378%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							land &lt;19. Dit waren erg leuke ervaringen waar
+						</p>
+						<p class="textItem " style="top:71.343639%;left:33.445378%;width:5.966387%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik veel heb geleerd.&#160;
+						</p>
+						<p class="textItem " style="top:72.889417%;left:33.445378%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hier ontdekte ik ook dat ik graag op het hoog-
+						</p>
+						<p class="textItem " style="top:74.435196%;left:33.445378%;width:8.067227%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ste niveau wilde korfballen.
+						</p>
+						<p class="textItem " style="top:75.980975%;left:33.445378%;width:14.285714%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Verschil met Deetossnel is dat er bij KZ / Hiltex
+						</p>
+						<p class="textItem " style="top:77.526754%;left:33.445378%;width:13.781513%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							een selectie is waarbij iedereen heel graag wil
+						</p>
+						<p class="textItem " style="top:79.072533%;left:33.445378%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							spelen. Wij trainen met de selectie veel harder.
+						</p>
+						<p class="textItem " style="top:80.618312%;left:33.445378%;width:12.352941%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ook doen wij veel meer krachttraining, dit
+						</p>
+						<p class="textItem " style="top:82.164090%;left:33.445378%;width:10.672269%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							deden wij bij Deetossnel bijna nooit.
+						</p>
+						<p class="textItem " style="top:85.255648%;left:33.445378%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Mijn verwachtingen/doelstellingen: Ik ben naar
+						</p>
+						<p class="textItem " style="top:86.801427%;left:33.445378%;width:14.201681%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							KZ / Hiltex gekomen om mezelf te ontwikkelen
+						</p>
+						<p class="textItem " style="top:88.347206%;left:33.445378%;width:13.109244%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							tot een betere korfbalster. Mijn uit eindelijke
+						</p>
+						<p class="textItem " style="top:89.892985%;left:33.445378%;width:13.781513%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							doel is in het eerste team te komen. Ook hoop
+						</p>
+						<p class="textItem " style="top:91.438763%;left:33.445378%;width:12.773109%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik Ahoy te behalen en dan natuurlijk ook te
+						</p>
+						<p class="textItem " style="top:92.984542%;left:33.445378%;width:2.521008%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							winnen.&#160;
+						</p>
+						<p class="textItem " style="top:23.424495%;left:52.352941%;width:13.277311%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De reden dat onze keuze op KZ / Hiltex viel,
+						</p>
+						<p class="textItem " style="top:24.970273%;left:52.352941%;width:14.369748%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							was vooral te danken aan de leermogelijkheden.
+						</p>
+						<p class="textItem " style="top:26.516052%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							In de selectie lopen een boel mensen rond met
+						</p>
+						<p class="textItem " style="top:28.061831%;left:52.352941%;width:14.201681%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							veel ervaring die ons kunnen helpen een betere
+						</p>
+						<p class="textItem " style="top:29.607610%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							korfballer te worden. Ons grote doel is dan ook
+						</p>
+						<p class="textItem " style="top:31.153389%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							om de finale van de Korfballeague te winnen in
+						</p>
+						<p class="textItem " style="top:32.699168%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ahoy of Ziggodome of waar de finale ook maar
+						</p>
+						<p class="textItem " style="top:34.244946%;left:52.352941%;width:5.546218%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							plaats gaat vinden.
+						</p>
+						<p class="textItem " style="top:35.790725%;left:52.352941%;width:13.445378%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Mijn roots liggen in Hoogkerk, en daarna heb
+						</p>
+						<p class="textItem " style="top:54.340071%;left:57.899160%;width:18.655462%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Aangezien ik naar Amsterdam ging verhuizen, was het voor mij
+						</p>
+						<p class="textItem " style="top:55.885850%;left:57.899160%;width:18.655462%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							niet handig om in Bennekom te blijven korfballen bij DVO waar
+						</p>
+						<p class="textItem " style="top:57.431629%;left:57.899160%;width:18.991597%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik de afgelopen vier jaar in de selectie heb gespeeld. Ik kwam al
+						</p>
+						<p class="textItem " style="top:58.977408%;left:57.899160%;width:19.075630%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							snel in contact met KZ / Hiltex en had bij deze club meteen een
+						</p>
+						<p class="textItem " style="top:60.523187%;left:57.899160%;width:18.235294%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							goed gevoel. KZ / Hiltex leek mij een ambitieuze en gezellige
+						</p>
+						<p class="textItem " style="top:62.068966%;left:57.899160%;width:18.487395%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							korfbalvereniging met een sterke selectie. Tot nu toe zijn deze
+						</p>
+						<p class="textItem " style="top:63.614744%;left:57.899160%;width:18.739496%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							verwachtingen bevestigd. Ik ben open ontvangen en voelde me
+						</p>
+						<p class="textItem " style="top:65.160523%;left:57.899160%;width:18.487395%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							meteen op mijn gemak. Ik moest in het begin wel wennen aan
+						</p>
+						<p class="textItem " style="top:62.663496%;left:5.294118%;width:24.033613%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							mma Klompmaker en Kelly Scheffer kenden wij al, zij zijn voort
+						</p>
+						<p class="textItem " style="top:64.565993%;left:2.857143%;width:29.327731%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							gekomen uit onze jeugd. Net als de vijf nieuwe spelers van buitenaf, behoren
+						</p>
+						<p class="textItem " style="top:66.468490%;left:2.857143%;width:9.747899%;height:1.545779%;font-size:0.500000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zij tot de huidige selectie.
+						</p>
+						<p class="textItem " style="top:51.129608%;left:8.739496%;width:38.907563%;height:5.231867%;font-size:1.800000em;color:#002E85;font-family:Rockwell;">
+							<b>De nieuwe selectiespelers</b>
+						</p>
+						<p class="textItem " style="top:55.529132%;left:8.739496%;width:24.369748%;height:5.231867%;font-size:1.800000em;color:#002E85;font-family:Rockwell;">
+							<b>stellen zich voor</b>
+						</p>
+						<p class="textItem testString" style="top:58.263971%;left:2.436975%;width:2.773109%;height:7.253270%;font-size:2.400000em;color:#FFFFFF;font-family:Poppl Exquisit;">
+							E
+						</p>
+						<p class="textItem testString" style="top:48.038050%;left:18.235294%;width:28.655462%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Vlnr. Joan Vos, Emiel de Kruijff, Emma Klompmaker, Senna van den Bos, Joost Hofman,</i>
+						</p>
+						<p class="textItem " style="top:49.583829%;left:18.235294%;width:9.579832%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Sieta Bijker en Kelly Scheffer</i>
+						</p>
+						<p class="textItem " style="top:69.560048%;left:8.319328%;width:3.445378%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Joan Vos
+						</p>
+						<p class="textItem " style="top:72.770511%;left:8.319328%;width:11.764706%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hallo, ik zal mezelf even voorstellen.
+						</p>
+						<p class="textItem " style="top:74.316290%;left:8.319328%;width:22.605042%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ik ben Joan Vos, 22 jaar oud en woonachtig in Oss. Ik volg op het mo-
+						</p>
+						<p class="textItem " style="top:75.862069%;left:8.319328%;width:23.781513%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ment de studie fysiotherapie in Breda. Als laatste heb ik gekorfbald bij de
+						</p>
+						<p class="textItem " style="top:77.407848%;left:8.319328%;width:7.478992%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							vereniging Deetossnel.
+						</p>
+						<p class="textItem " style="top:10.820452%;left:63.277311%;width:13.613445%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Joost Hofman (l) en Emiel de Kruijff
+						</p>
+						<p class="textItem " style="top:14.030916%;left:63.277311%;width:6.722689%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hallo Superkoogers,
+						</p>
+						<p class="textItem " style="top:15.576694%;left:63.277311%;width:17.478992%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Wij stellen ons even voor. Ik ben Joost Hofman en ben
+						</p>
+						<p class="textItem " style="top:17.122473%;left:63.277311%;width:18.235294%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							twintig jaar oud. En de andere nieuwe speler is Emiel de
+						</p>
+						<p class="textItem " style="top:18.668252%;left:63.277311%;width:17.647059%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Kruijff, negentien jaar. We wonen in Koog aan de Zaan.
+						</p>
+						<p class="textItem " style="top:23.424495%;left:67.647059%;width:13.697479%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik nog twee jaar bij Nic./Alfacollege gespeeld.
+						</p>
+						<p class="textItem " style="top:24.970273%;left:67.647059%;width:13.193277%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Emiels roots liggen in Delft waar hij zijn hele
+						</p>
+						<p class="textItem " style="top:26.516052%;left:67.647059%;width:12.689076%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							leven bij Excelsior heeft gespeeld. Door de
+						</p>
+						<p class="textItem " style="top:28.061831%;left:67.647059%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							overstap naar hier moest er bij Emiel ook meer
+						</p>
+						<p class="textItem " style="top:29.607610%;left:67.647059%;width:13.193277%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							veranderen. Zo studeert hij nu verder aan de
+						</p>
+						<p class="textItem " style="top:31.153389%;left:67.647059%;width:8.403361%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Johan Cruyff University/VU.
+						</p>
+						<p class="textItem " style="top:34.244946%;left:67.647059%;width:13.445378%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Ik ben naast school bezig met het helpen van
+						</p>
+						<p class="textItem " style="top:35.790725%;left:67.647059%;width:13.445378%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							bedrijven, ik geef jou de mogelijkheid om een
+						</p>
+						<p class="textItem " style="top:41.736029%;left:63.361345%;width:7.394958%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Senna van den Bos
+						</p>
+						<p class="textItem " style="top:44.946492%;left:63.361345%;width:21.680672%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Mijn naam is Senna van den Bos, ik ben 23 jaar oud en woon sinds
+						</p>
+						<p class="textItem " style="top:46.492271%;left:63.361345%;width:22.016807%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							dit jaar in Amsterdam. Ik ben van Arnhem naar Amsterdam verhuisd
+						</p>
+						<p class="textItem " style="top:48.038050%;left:63.361345%;width:23.613445%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							vanwege mijn studie. Sinds dit jaar studeer ik bewegingswetenschappen
+						</p>
+						<p class="textItem " style="top:49.583829%;left:63.361345%;width:12.184874%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							(pre-master) aan de Vrije Universiteit.
+						</p>
+						<p class="textItem " style="top:11.058264%;left:82.857143%;width:13.277311%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							platform te bereiken of uit te breiden. Op die
+						</p>
+						<p class="textItem " style="top:12.604043%;left:82.857143%;width:13.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							manier kan het adverteren en aantrekken van
+						</p>
+						<p class="textItem " style="top:14.149822%;left:82.857143%;width:12.941176%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							de doelgroep niet moeilijk meer zijn. Details
+						</p>
+						<p class="textItem " style="top:15.695600%;left:82.857143%;width:9.663866%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							kunnen altijd besproken worden.
+						</p>
+						<p class="textItem " style="top:17.241379%;left:82.857143%;width:12.268908%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Emiel is nog op zoek naar werk, hij is een
+						</p>
+						<p class="textItem " style="top:18.787158%;left:82.857143%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							enthousiaste zeer sociale jongen die hard wil
+						</p>
+						<p class="textItem " style="top:20.332937%;left:82.857143%;width:14.201681%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							werken. Voor contact kun je hem altijd aanspre-
+						</p>
+						<p class="textItem " style="top:21.878716%;left:82.857143%;width:5.630252%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ken bij KZ / Hiltex.
+						</p>
+						<p class="textItem " style="top:23.424495%;left:82.857143%;width:13.613445%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Het grootste verschil met onze oude clubs, en
+						</p>
+						<p class="textItem " style="top:24.970273%;left:82.857143%;width:13.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							indirect regio&#8217;s, is het accent, zoals te bewon-
+						</p>
+						<p class="textItem " style="top:26.516052%;left:82.857143%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							deren bij Jordi Pasma. Verder is het hier leuk
+						</p>
+						<p class="textItem " style="top:28.061831%;left:82.857143%;width:13.613445%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							en zijn we hard aan het trainen, we zijn al veel
+						</p>
+						<p class="textItem " style="top:29.607610%;left:82.857143%;width:13.109244%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							sneller/sterker geworden. En we hopen hier
+						</p>
+						<p class="textItem " style="top:31.153389%;left:82.857143%;width:13.193277%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							een plezierige en succesvolle tijd te beleven.
+						</p>
+						<p class="textItem " style="top:34.126040%;left:82.857143%;width:4.621849%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Was getekend,</i>
+						</p>
+						<p class="textItem " style="top:35.671819%;left:82.857143%;width:13.277311%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<i>Joost Hofman, ook namens Emiel de Kruijff</i>
+						</p>
+						<p class="textItem " style="top:83.709869%;left:52.352941%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Door een rugblessure kon ik mijn laatste sei-
+						</p>
+						<p class="textItem " style="top:85.255648%;left:52.352941%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zoen bij LDODK nauwelijks spelen. Het plezier
+						</p>
+						<p class="textItem " style="top:86.801427%;left:52.352941%;width:13.361345%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							in het spelletje ging een beetje weg, mijn rug
+						</p>
+						<p class="textItem " style="top:88.347206%;left:52.352941%;width:13.025210%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							werd niet beter en doordat ik voor studie en
+						</p>
+						<p class="textItem " style="top:89.892985%;left:52.352941%;width:13.865546%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							werk naar Utrecht verhuisde, besloot ik voorlo-
+						</p>
+						<p class="textItem " style="top:91.438763%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							pig te stoppen met korfbal. Gelukkig ligt dat nu
+						</p>
+						<p class="textItem " style="top:92.984542%;left:52.352941%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							achter me en kon ik een nieuwe club uitzoeken
+						</p>
+						<p class="textItem " style="top:54.340071%;left:78.319328%;width:17.983193%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							het zware krachttrainingsprogramma, op deze manier trainde
+						</p>
+						<p class="textItem " style="top:55.885850%;left:78.319328%;width:17.983193%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik niet bij DVO. Helaas heb ik een valse start gehad met een
+						</p>
+						<p class="textItem " style="top:57.431629%;left:78.319328%;width:18.823529%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							voetblessure waardoor ik nog weinig speelminuten heb kunnen
+						</p>
+						<p class="textItem " style="top:58.977408%;left:78.319328%;width:18.235294%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							maken voor KZ / Hiltex, maar de verwachtingen zijn dat ik op
+						</p>
+						<p class="textItem " style="top:60.523187%;left:78.319328%;width:18.655462%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							tijd fit ben voor het zaalseizoen. Ik hoop in de zaal mijn bijdrage
+						</p>
+						<p class="textItem " style="top:62.068966%;left:78.319328%;width:18.319328%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							te kunnen leveren aan het doel om Ahoy te halen. Ik denk dat
+						</p>
+						<p class="textItem " style="top:63.614744%;left:78.319328%;width:18.571429%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							we met deze sterke, ambitieuze en brede selectie een mooi en
+						</p>
+						<p class="textItem " style="top:65.160523%;left:78.319328%;width:11.680672%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							succesvol seizoen kunnen verwachten.&#160;
+						</p>
+						<p class="textItem " style="top:69.560048%;left:57.899160%;width:4.453782%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Sieta Bijker
+						</p>
+						<p class="textItem " style="top:72.770511%;left:57.899160%;width:23.193277%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Mijn naam is Sieta, 25 jaar, woonachtig in Amsterdam en vier dagen per
+						</p>
+						<p class="textItem " style="top:74.316290%;left:57.899160%;width:23.193277%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							week werkzaam bij een vastgoedbelegger in Hoofddorp. Na twintig jaar
+						</p>
+						<p class="textItem " style="top:75.862069%;left:57.899160%;width:23.193277%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							bij LDODK/AH Gorredijk te hebben gespeeld en een jaar rust, ben ik dit
+						</p>
+						<p class="textItem " style="top:77.407848%;left:57.899160%;width:23.361345%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							seizoen begonnen bij KZ / Hiltex wat tot nu toe erg goed bevalt! Dat ter-
+						</p>
+						<p class="textItem " style="top:78.953627%;left:57.899160%;width:19.579832%;height:1.307967%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							wijl ik een jaar geleden helemaal niet bezig was met korfbal.
+						</p>
+						<p class="textItem " style="top:83.709869%;left:67.647059%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							waar ik nog steeds voor de top kan gaan, maar
+						</p>
+						<p class="textItem " style="top:85.255648%;left:67.647059%;width:11.008403%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							waar gezelligheid net zo belangrijk is.
+						</p>
+						<p class="textItem " style="top:86.801427%;left:67.647059%;width:13.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Dat ik voor KZ / Hiltex heb gekozen, was dus
+						</p>
+						<p class="textItem " style="top:88.347206%;left:67.647059%;width:5.714286%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							een logisch gevolg!
+						</p>
+						<p class="textItem " style="top:89.892985%;left:67.647059%;width:13.697479%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Het verschil met LDODK? Met mijn Fries kom
+						</p>
+						<p class="textItem " style="top:91.438763%;left:67.647059%;width:14.201681%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ik hier niet zo ver en ik heb nu een blauw shirtje
+						</p>
+						<p class="textItem " style="top:92.984542%;left:67.647059%;width:14.117647%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							aan in plaats van een groene, maar verder voelt
+						</p>
+						<p class="textItem " style="top:72.889417%;left:82.857143%;width:14.033613%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							KZ al bijna net zo thuis. Behalve dan dat ik nog
+						</p>
+						<p class="textItem " style="top:74.435196%;left:82.857143%;width:12.689076%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							niet zoveel mensen van de club ken, alleen
+						</p>
+						<p class="textItem " style="top:75.980975%;left:82.857143%;width:13.613445%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							ook dat zal vanzelf wel veranderen. Mijn eigen
+						</p>
+						<p class="textItem " style="top:77.526754%;left:82.857143%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							doelstelling is dat ik in de zaal helemaal fit ben,
+						</p>
+						<p class="textItem " style="top:79.072533%;left:82.857143%;width:13.529412%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zodat ik alle wedstrijden kan uitspelen. Wat ik
+						</p>
+						<p class="textItem " style="top:80.618312%;left:82.857143%;width:14.117647%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							tenslotte vooral hoop, is dat jullie als supporters
+						</p>
+						<p class="textItem " style="top:82.164090%;left:82.857143%;width:12.857143%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							van ons gaan genieten in de zaal. Van mooi
+						</p>
+						<p class="textItem " style="top:83.709869%;left:82.857143%;width:13.949580%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							korfbal, leuke acties en wedstrijden die we nipt
+						</p>
+						<p class="textItem " style="top:85.255648%;left:82.857143%;width:14.285714%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							winnen. Ik heb er namelijk alle vertrouwen in dat
+						</p>
+						<p class="textItem " style="top:86.801427%;left:82.857143%;width:11.428571%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							dit een heel leuk seizoen gaat worden!
+						</p>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

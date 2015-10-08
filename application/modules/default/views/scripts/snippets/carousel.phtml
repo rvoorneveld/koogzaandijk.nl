@@ -1,0 +1,96 @@
+<div id="main-slider" class="flexslider">
+	<ul id="carousel" class="slides">
+		<?php
+			if(isset($this->items) && is_array($this->items) && count($this->items) > 0) {
+
+				foreach($this->items as $intItemKey => $arrItem) {
+					
+					$strCarouselTitle		= $arrItem['name'];
+					$strCarouselText		= '';
+					
+					if(isset($arrItem['content']) && is_array($arrItem['content']) && count($arrItem['content']) > 0) {
+						
+						if(isset($arrItem['content'][0]['data']) && ! empty($arrItem['content'][0]['data'])) {
+							
+							$arrData 	= unserialize($arrItem['content'][0]['data']);
+							
+							if(isset($arrData) && is_array($arrData) && count($arrData) > 0) {
+								
+								foreach($arrData as $strDataKey => $strDataValue) {
+									
+									if(strstr($strDataKey, 'title')) {
+										// Set Title
+										$strCarouselTitle		= $strDataValue;
+									}
+									
+									if(strstr($strDataKey, 'content')) {
+										// Set Content
+										$strCarouselText		= strip_tags($strDataValue, '<p><a><br>');
+									}
+									
+								}
+								
+							}
+							
+						}
+					
+					}
+					
+					// Set Defaults
+					$strCarouselLink	= '/nieuws/'.$arrItem['nameSlug'];
+					
+					if(isset($arrItem['page_id']) && ! is_null($arrItem['page_id']) && is_numeric($arrItem['page_id'])) {
+						
+						// Set Models
+						$objModelPages		= new KZ_Models_Pages();
+						
+						// Get Linked Page
+						$arrLinkedPage		= $objModelPages->getPageByID($arrItem['page_id']);
+						
+						// Check if Page was found
+						if(isset($arrLinkedPage) && is_array($arrLinkedPage) && count($arrLinkedPage) > 0) {
+							
+							$strCarouselLink = '/'.$arrLinkedPage['menu_url'];
+							
+							if(isset($arrLinkedPage['parent_id']) && ! is_null($arrLinkedPage['parent_id']) && is_numeric($arrLinkedPage['parent_id']) && $arrLinkedPage['parent_id'] > 0) {
+								
+								// Get Linked Parent Page								
+								$arrLinkedParentPage	= $objModelPages->getPageByID($arrLinkedPage['parent_id']);
+								
+								if(isset($arrLinkedParentPage) && is_array($arrLinkedParentPage) && count($arrLinkedParentPage) > 0) {
+									$strCarouselLink	=	'/'.$arrLinkedParentPage['menu_url'].'/'.$arrLinkedPage['menu_url'].'/';
+								}
+								
+							}
+								
+						}
+
+					}
+					
+					$strSubPageUrl		= ((strstr($arrItem['nameSlug'], 'http://')) ? $arrItem['nameSlug'] : $strCarouselLink);
+					$strSubPageTarget	= ((strstr($arrItem['nameSlug'], 'http://')) ? ' target="_blank"' : '');
+						
+					$strTruncatedCarouselText	= $this->truncate($strCarouselText, 40, false);
+					
+					echo '	<li class="zapp">
+								<div class="main_image">
+									<img src="'.ROOT_URL.'/upload/'.$arrItem['image'].'">
+								</div>
+								<div class="content color_kz_white">
+									<h2 class="color_kz_yellow">'.stripslashes($strCarouselTitle).'</h2>
+									'.stripslashes($strTruncatedCarouselText).'
+								</div>';
+
+					echo '		<div class="read-more-carousel">
+									<a href="'.$strCarouselLink.'">Lees meer &raquo;</a>
+								</div>';
+
+					echo '	</li>';
+					
+				}
+			
+			}
+		?>
+	
+	</ul>
+</div>

@@ -1,0 +1,46 @@
+<?php 
+$strCreatedDate		= KZ_View_Helper_Date::format($this->pagedata['created'], 'dd-MM-yyyy HH:mm:ss');
+$strModifiedDate	= KZ_View_Helper_Date::format($this->pagedata['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+
+// Set Page Menu icon
+$strPageIcon		= (($this->pagedata['menu'] == 1) ? 'pages_main.png' : (($this->pagedata['menu'] == 2) ? 'pages_sub.png' : ''));
+
+// Set Page Menu icon alignment
+$strPageIconAlign	= (($this->pagedata['menu'] == 1) ? ' style="text-align: left;"' : (($this->pagedata['menu'] == 2) ? ' style="text-align: center;"' : ' style="text-align: right;"'));
+
+// Set Nav Padding
+$strNavPaddingClass	= (($this->pagedata['menu'] == 1) ? '' : (($this->pagedata['menu'] == 2) ? 'subNav' : 'subsubNav'));
+
+?>
+<li data-id="<?php echo $this->pagedata['page_id'];?>" class="dd-item">
+	<div class="dd-handle">&nbsp;</div>
+	
+	<div class="dd-content">
+		<span class="page_options">&nbsp;</span>
+		<span class="page_modified_by">
+			<?php echo ((isset($this->users[$this->pagedata['user_id']]['name']) && ! empty($this->users[$this->pagedata['user_id']]['name'])) ? $this->users[$this->pagedata['user_id']]['name'] : '-');?>
+		</span>
+		<span class="page_modified"><?php echo $strModifiedDate; ?></span>
+		<span class="page_created"><?php echo $strCreatedDate; ?></span>
+		<span class="page_active tag <?php echo (($this->pagedata['status'] == '1') ? 'green' : 'red'); ?>">
+			<?php echo $this->translate((($this->pagedata['status'] == '1') ? 'active' : 'inactive'), 'admin'); ?>
+		</span>
+		<span class="page_id"><?php echo $this->pagedata['page_id']; ?></span>
+		<span class="page_name">
+			<a href="/admin/pages/edit/id/<?php echo $this->pagedata['page_id']; ?>">
+				<strong><?php echo $this->pagedata['name']; ?></strong>
+			</a>
+		</span>
+	</div>
+	
+	<div class="dd-actions">
+		<ul class="actions">
+			<li><a rel="tooltip" href="/preview/index/id/<?php echo  $this->pagedata['page_id']; ?>/" target="_blank" class="view" original-title="<?php echo $this->translate('Show preview'); ?>"></a></li>
+			<li><a rel="tooltip" href="/admin/pages/content/id/<?php echo  $this->pagedata['page_id']; ?>/" class="content" original-title="<?php echo $this->translate('Edit content'); ?>"></a></li>
+			<li><a rel="tooltip" href="/admin/pages/edit/id/<?php echo  $this->pagedata['page_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit page'); ?>"></a></li>
+			
+		<?php if( $this->pagedata['delete'] == 1) : ?>
+			<li><a rel="tooltip" href="/admin/pages/delete/id/<?php echo  $this->pagedata['page_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete page'); ?>"></a></li>
+		<?php endif; ?>
+		</ul>
+	</div>

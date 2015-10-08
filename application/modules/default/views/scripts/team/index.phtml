@@ -1,0 +1,288 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('#tabs').tabs();
+	});
+</script>
+<div id="nextpage" class="zapp">
+	<div class="col full">
+		<div class="inner">
+			
+			<?php
+
+				$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
+				$booDesktopView	= $objResponsive->isDesktop();
+				$booTabletView	= $objResponsive->isTablet();
+				$booMobileView	= $objResponsive->isMobile();
+
+				if(isset($this->data) && is_array($this->data) && count($this->data) > 0) {
+					
+					echo '<div id="tabs"><ul>';
+					
+					foreach($this->data as $strSportType => $arrData) {
+						
+						echo '<li><a href="#tabs-'.strtolower(str_replace(' ', '', $strSportType)).'">'.$strSportType.'</a></li>';
+						
+					}
+					
+					echo '</ul>';
+					
+					foreach($this->data as $strSportType => $arrData) {
+					
+						echo '  <div id="tabs-'.strtolower(str_replace(' ', '', $strSportType)).'">';
+
+						if($strSportType == 'Team') {
+
+							if($this->category == 'Senioren') {
+								$strMales   = 'Heren';
+								$strFemales = 'Dames';
+							} else {
+								$strMales   = 'Jongens';
+								$strFemales = 'Meiden';
+							}
+
+							echo '  <h2>'.$this->translate('Spelers').'</h2>
+									<table class="default clubplugin team">
+										<tr>
+											<th width="50%">'.$this->translate($strMales).'</th>
+											<th width="50%">'.$this->translate($strFemales).'</th>
+										</tr>';
+
+							// Count Players
+							$intTotalMale   = ((! empty($arrData['player']['m']) && is_array($arrData['player']['m'])) ? count($arrData['player']['m']) : 0);
+							$intTotalFemale = ((! empty($arrData['player']['f']) && is_array($arrData['player']['f'])) ? count($arrData['player']['f']) : 0);
+
+							// Set The Most Players for loop
+							$intMostPlayers = (($intTotalMale >$intTotalFemale) ? $intTotalMale : $intTotalFemale);
+
+							for($intCount = 0; $intCount < $intMostPlayers; $intCount++) {
+
+								// Set Names
+								$strMaleName    = ((! empty($arrData['player']['m'][$intCount]) && is_array($arrData['player']['m'][$intCount])) ? $arrData['player']['m'][$intCount]['firstname'].' '.$arrData['player']['m'][$intCount]['lastname'] : '');
+								$strFemaleName  = ((! empty($arrData['player']['f'][$intCount]) && is_array($arrData['player']['f'][$intCount])) ? $arrData['player']['f'][$intCount]['firstname'].' '.$arrData['player']['f'][$intCount]['lastname'] : '');
+
+								// Set Default Links
+								$strMaleLink    = $strMaleName;
+								$strFemaleLink  = $strFemaleName;
+
+								// Set Male Link
+								if(! empty($arrData['player']['m'][$intCount]['link'])) {
+									$strMaleLink    = '<a href="'.$arrData['player']['m'][$intCount]['link'].'" title="'.$strMaleName.'" target="_blank">'.$strMaleName.'</a>';
+								}
+
+								// Set Female Link
+								if(! empty($arrData['player']['f'][$intCount]['link'])) {
+									$strFemaleLink  = '<a href="'.$arrData['player']['f'][$intCount]['link'].'" title="'.$strFemaleName.'" target="_blank">'.$strFemaleName.'</a>';
+								}
+
+								echo '  <tr>
+											<td>'.$strMaleLink.'</td>
+											<td>'.$strFemaleLink.'</td>
+										</tr>';
+
+							}
+
+							echo '</table><br />';
+
+							// Unset The Players, only team supervisors
+							$arrTeamSupervisors = $arrData;
+							unset($arrTeamSupervisors['player']);
+
+							if(! empty($arrTeamSupervisors) && is_array($arrTeamSupervisors)) {
+
+								echo '  <h2>'.$this->translate('Staf').'</h2>
+										<table class="default clubplugin team">
+											<tr>
+												<th width="50%">'.$this->translate('Role').'</th>
+												<th width="50%">'.$this->translate('Name').'</th>
+											</tr>';
+
+								foreach($arrTeamSupervisors as $strSupervisorType => $arrSupervisorsByType) {
+
+									foreach($arrSupervisorsByType as $strSupervisorGender => $arrSupervisorsByTypeAndGender) {
+
+										foreach($arrSupervisorsByTypeAndGender as $arrTeamSupervisor) {
+
+											// Set Supervisor Name
+											$strSupervisorName    = $arrTeamSupervisor['firstname'].' '.$arrTeamSupervisor['lastname'];
+
+											// Set Default Links
+											$strSupervisorLink    = $strSupervisorName;
+
+											// Set Supervisor Link
+											if(! empty($arrTeamSupervisor['link'])) {
+												$strSupervisorLink  = '<a href="'.$arrTeamSupervisor['link'].'" title="'.$strSupervisorName.'" target="_blank">'.$strSupervisorName.'</a>';
+											}
+
+											echo '  <tr>
+														<td>'.ucfirst($this->translate($strSupervisorType)).'</td>
+														<td>'.$strSupervisorLink.'</td>
+													</tr>';
+
+										}
+									}
+								}
+
+								echo '</table>';
+							}
+
+						} else {
+
+							if(isset($arrData['matches']) && is_array($arrData['matches']) && count($arrData['matches'] > 0)) {
+
+								echo '	<h2>'.$this->translate('Programma en Uitslagen').'</h2>
+											<table class="clubplugin program">
+												<tr class="heading">';
+
+								if($booMobileView === true) {
+									echo '	<th class="time_departure">Ver.</th>
+											<th class="time">Aan.</th>
+											<th class="team_home_name"></th>
+											<th class="team_home_score"></th>';
+								} else {
+									echo '	<th class="time_departure">Verz.</th>
+											<th class="time">Aanvang</th>
+											<th class="team_home_name">Thuis</th>
+											<th class="team_home_score"></th>
+											<th class="seperator"></th>
+											<th class="team_away_score"></th>
+											<th class="team_away_name">Uit</th>';
+								}
+
+								echo '</tr>';
+
+								foreach($arrData['matches'] as $intMatchKey => $arrMatch) {
+
+									$strTeamHomeName 	= $arrMatch['team_home_name'];
+									if($booMobileView === true) {
+										if(strstr($strTeamHomeName, '/')) {
+											$arrTeamHomeName	= explode('/', $strTeamHomeName);
+											$strTeamHomeName	= $arrTeamHomeName[0];
+											if(strstr($arrTeamHomeName[1], 'Hiltex')) {
+												$strTeamHomeName	= $arrTeamHomeName[0].'/'.$arrTeamHomeName[1];
+											}
+										}
+									}
+
+									$strTeamAwayName 	= $arrMatch['team_away_name'];
+									if($booMobileView === true) {
+										if(strstr($strTeamAwayName, '/')) {
+											$arrTeamAwayName	= explode('/', $strTeamAwayName);
+											$strTeamAwayName	= $arrTeamAwayName[0];
+											if(strstr($arrTeamAwayName[1], 'Hiltex')) {
+												$strTeamAwayName	= $arrTeamAwayName[0].'/'.$arrTeamAwayName[1];
+											}
+										}
+									}
+
+
+
+									if($booMobileView === true) {
+										$strStartDateAndTime	= KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM').'<br />'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time']);
+									} else {
+										$strStartDateAndTime	= $this->translate(KZ_View_Helper_Date::format($arrMatch['date'], 'EE')).' '.KZ_View_Helper_Date::format($arrMatch['date'], 'dd-MM-YY').'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u');
+									}
+
+									if($booMobileView === true) {
+										echo '	<tr rel="'.$arrMatch['match_id'].'">
+													<td class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</td>
+													<td class="time">'.$strStartDateAndTime.'</td>
+													<td class="team_home_name">
+														'.(($arrMatch['team_home_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamHomeName)).'</strong>' : stripslashes($strTeamHomeName)).'<br />
+														'.(($arrMatch['team_away_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamAwayName)).'</strong>' : stripslashes($strTeamAwayName)).'
+													</td>
+													<td class="team_home_score">
+													'.$arrMatch['team_home_score'].'<br />'.$arrMatch['team_away_score'].'
+													</td>
+												</tr>';
+									} else {
+										echo '	<tr rel="'.$arrMatch['match_id'].'">
+												<td class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</td>
+												<td class="time">'.$strStartDateAndTime.'</td>
+												<td class="team_home_name">'.(($arrMatch['team_home_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamHomeName)).'</strong>' : str_replace(' ', '&nbsp;', stripslashes($strTeamHomeName))).'</td>
+												<td class="team_home_score">'.$arrMatch['team_home_score'].'</td>
+												<td class="seperator">-</td>
+												<td class="team_away_score">'.KZ_Controller_Action_Helper_Score::align($arrMatch['team_away_score'], 'left').'</td>
+												<td class="team_away_name">'.(($arrMatch['team_away_clubteam'] == 1) ? '<strong>'.str_replace(' ', '&nbsp;', stripslashes($strTeamAwayName)).'</strong>' : str_replace(' ', '&nbsp;', stripslashes($strTeamAwayName))).'</td>
+											</tr>';
+									}
+
+
+
+
+								}
+
+								echo '</table>';
+
+							}
+
+						}
+
+						if(isset($arrData['standings']) && is_array($arrData['standings']) && count($arrData['standings']) > 0) {
+							
+							echo '<br /><h2>'.$this->translate('Stand').'</h2>
+								<table class="clubplugin standings">
+									<tr class="heading">
+										<th class="position">#</th>
+										<th class="clubname">'.$this->translate('Team').'</th>
+										<th class="gespeeld">'.$this->translate((($booDesktopView === true) ? 'Gespeeld' : (($booTabletView === true) ? 'GES' : 'G'))).'</th>
+										<th class="punten">'.$this->translate((($booDesktopView === true) ? 'Punten' : (($booTabletView === true) ? 'PUN' : 'P'))).'</th>';
+							
+							if($booMobileView !== true) {
+							
+							echo '		<th class="winst">'.$this->translate((($booDesktopView === true) ? 'Winst' : (($booTabletView === true) ? 'WIN' : 'W'))).'</th>
+										<th class="verlies">'.$this->translate((($booDesktopView === true) ? 'Verlies' : (($booTabletView === true) ? 'VER' : 'V'))).'</th>
+										<th class="gelijk">'.$this->translate((($booDesktopView === true) ? 'Gelijk' : (($booTabletView === true) ? 'GEL' : 'G'))).'</th>
+										<th class="voor">'.$this->translate((($booDesktopView === true) ? 'Voor' : (($booTabletView === true) ? 'VOO' : 'V'))).'</th>
+										<th class="tegen">'.$this->translate((($booDesktopView === true) ? 'Tegen' : (($booTabletView === true) ? 'TEG' : 'T'))).'</th>
+										<th class="saldo">'.$this->translate((($booDesktopView === true) ? 'Saldo' : (($booTabletView === true) ? 'SAL' : 'S'))).'</th>
+										<th class="mindering">'.$this->translate((($booDesktopView === true) ? 'Mindering' : (($booTabletView === true) ? 'MIN' : 'M'))).'</th>
+									</tr>';
+							}
+							
+							foreach($arrData['standings'] as $intStandingsKey => $arrStanding) {
+								$strTeamName 	= $arrStanding['team_name'];
+								if($booMobileView === true) {
+									if(strstr($strTeamName, '/')) {
+										$arrTeamName	= explode('/', $strTeamName);
+										$strTeamName	= $arrTeamName[0];
+										if($arrTeamName[1] == 'Hiltex') {
+											$strTeamName	= $arrTeamName[0].'/'.$arrTeamName[1];
+										}
+									}
+								}
+								
+								echo '	<tr>
+											<td class="position">'.$arrStanding['position'].'</td>
+											<td class="clubname">'.(($arrStanding['clubteam'] == 1) ? '<strong>'.$strTeamName.'</strong>' : $strTeamName).'</td>
+											<td>'.$arrStanding['played'].'</td>
+											<td>'.$arrStanding['points'].'</td>';
+								
+								if($booMobileView !== true) {
+									echo '	<td>'.$arrStanding['won'].'</td>
+											<td>'.$arrStanding['lost'].'</td>
+											<td>'.$arrStanding['draw'].'</td>
+											<td>'.$arrStanding['goals_for'].'</td>
+											<td>'.$arrStanding['goals_against'].'</td>
+											<td>'.$arrStanding['difference'].'</td>
+											<td>'.$arrStanding['penalties'].'</td>
+										</tr>';
+								}
+												
+							}
+							
+							echo '</table>';
+								
+						}
+						
+						
+						echo '</div>';
+					
+					}
+					
+					echo '</div>';
+					
+				}
+			?>
+		</div>
+	</div>
+</div>

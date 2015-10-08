@@ -1,0 +1,160 @@
+<header>
+	<h2><?php echo $this->translate('Widgets'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add widget'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->widgets) && is_array($this->widgets) && count($this->widgets) > 0) { 
+		?>
+				<table class="datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="125"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			<?php foreach($this->widgets as $arrWidgets) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrWidgets['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrWidgets['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					
+			?>
+			
+					<tr>
+						<td><?php echo $arrWidgets['widget_id']; ?></td>
+						<td><a href="/admin/widgets/edit/id/<?php echo $arrWidgets['widget_id']; ?>"><strong><?php echo $arrWidgets['name']; ?></strong></a></td>
+						<td><span class="tag <?php echo (($arrWidgets['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrWidgets['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td><?php echo ((isset($this->users[$arrWidgets['user_id']]['name']) && ! empty($this->users[$arrWidgets['user_id']]['name'])) ? $this->users[$arrWidgets['user_id']]['name'] : '-');?></td>
+						<td>
+							<ul class="actions">
+								<li><a rel="tooltip" href="/preview/index/id/<?php echo $arrWidgets['widget_id']; ?>/" target="_blank" class="view" original-title="<?php echo $this->translate('Show preview'); ?>"><?php echo $this->translate('Show preview'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/widgets/content/id/<?php echo $arrWidgets['widget_id']; ?>/" class="content" original-title="<?php echo $this->translate('Edit content'); ?>"><?php echo $this->translate('Edit widget content'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/widgets/edit/id/<?php echo $arrWidgets['widget_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit widget'); ?>"><?php echo $this->translate('Edit widget'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/widgets/delete/id/<?php echo $arrWidgets['widget_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete widget'); ?>"><?php echo $this->translate('Delete widget'); ?></a></li>
+							</ul>
+						</td>
+					</tr>
+			
+			<?php } ?>
+				
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No widgets to display').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addWidgetsForm" method="post" action="#tab1">
+
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="size"><?php echo $this->translate('Size'); ?></label></dt>
+				<dd>
+					<select class="tiny" name="size">
+						<option value="small"<?php echo (($this->size == 'small') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Small'); ?></option>
+						<option value="large"<?php echo (($this->size == 'large') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Large'); ?></option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="name"><?php echo $this->translate('Background color'); ?></label></dt>
+				<dd>
+					<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+					
+						<select name="color_background">
+						
+							<?php
+							
+								foreach($this->colors as $intColorKey => $arrColor) :
+
+									$strSelectedBackgroundColor	= ((isset($this->color_background) && $arrColor['code'] == $this->color_background) ? ' selected="selected"' : '');
+								
+									echo '<option value="'.$arrColor['code'].'"'.$strSelectedBackgroundColor.'>'.$arrColor['name'].'</option>';
+								
+						
+								endforeach;
+							
+							?>
+						
+						</select>
+					
+					
+					<?php endif; ?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="name"><?php echo $this->translate('Text color'); ?></label></dt>
+				<dd>
+					<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+					
+						<select name="color_text">
+						
+							<?php
+							
+								foreach($this->colors as $intColorKey => $arrColor) :
+
+									$strSelectedTextColor	= ((isset($this->color_text) && $arrColor['code'] == $this->color_text) ? ' selected="selected"' : '');
+								
+									echo '<option value="'.$arrColor['code'].'"'.$strSelectedTextColor.'>'.$arrColor['name'].'</option>';
+								
+						
+								endforeach;
+							
+							?>
+						
+						</select>
+					
+					<?php endif; ?>
+				</dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add widget'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>

@@ -1,0 +1,1282 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "22-23";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+			<a id="pagePrevArrow" class="toLeftButton toolbarLink internalLink" href="./page-20-21.html"><img class="iconToolbar" src="styles/previous.png" alt="Previous Page" /></a>
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;22-23 / 24</span>
+
+				<a id="nextPageArrow" class="toRightButton toolbarLink internalLink" href="./page-24.html"><img class="iconToolbar" src="styles/next.png" alt="Next Page" /></a>
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+					<a class="toLeftButton toolbarLink internalLink" href="./page-20-21.html"><img class="iconToolbar" src="styles/prev-mob.png" alt="Previous Page" /></a>
+			<span class="pager">22-23 / 24</span>
+					<a class="toRightButton toolbarLink internalLink" href="./page-24.html"><img class="iconToolbar" src="styles/next-mob.png" alt="Next Page" /></a>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 1190px; height: 841px; margin: 40px 0 0 -595px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0012.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:95.838288%;left:2.857143%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>22</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:3.949580%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem testString" style="top:96.076100%;left:4.705882%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:96.076100%;left:89.831933%;width:5.378151%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem " style="top:95.838288%;left:95.462185%;width:0.588235%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:96.218487%;width:0.924370%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>23</b>
+						</p>
+						<p class="textItem testString" style="top:14.030916%;left:66.554622%;width:4.537815%;height:7.253270%;font-size:2.400000em;color:#FDB704;font-family:Poppl Exquisit;">
+							M
+						</p>
+						<p class="textItem testString" style="top:92.746730%;left:52.268908%;width:32.352941%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>Word sponsor van KZ / Hiltex. KZ / Hiltex heeft een zeer druk bezochte website. Voor informatie:</b>
+						</p>
+						<a class="linkTextItem  " href="mailto:sponsorcommissie@koogzaandijk.nl" target="_blank"  style="top:92.746730%;left:84.621849%;width:12.436975%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;" title="">
+							<b> sponsorcommissie@koogzaandijk.nl</b>
+						</a>
+						<p class="textItem testString" style="top:26.516052%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Toen mijn zoon Jeroen, nu in de B spelend, zes jaar geleden naar de E&#8217;tjes ging, werd ik gevraagd
+						</p>
+						<p class="textItem " style="top:28.061831%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							om voorzitter te worden van de E/F TC. Dat heb ik een aantal jaar gedaan, naast trainen geven en af
+						</p>
+						<p class="textItem " style="top:29.607610%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							en toe een jeugdwedstrijd fluiten. Twee jaar geleden, aan het einde van het zaalseizoen, werd ik ge-
+						</p>
+						<p class="textItem " style="top:31.153389%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							vraagd of ik Paul Detering wilde opvolgen als leaguemanager. Ik hoefde daar eigenlijk niet eens heel
+						</p>
+						<p class="textItem " style="top:32.699168%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							lang over na te denken. Ik was toch vrijwel alle zaterdagen dat het eerste speelde al in de Sprong.
+						</p>
+						<p class="textItem " style="top:34.244946%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Qua tijd was het dus niet zo heel veel extra, en met organiseren had ik ook de nodige ervaring in mijn
+						</p>
+						<p class="textItem " style="top:35.790725%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							werk. Ik moest van het bestuur wel een toezegging doen om het minimaal drie jaar vol te houden, dan
+						</p>
+						<p class="textItem " style="top:37.336504%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							zou ik als beloning de eerste leaguemanager in de nieuwe sporthal worden. Volgens mij betekent dat
+						</p>
+						<p class="textItem " style="top:38.882283%;left:67.647059%;width:15.798319%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							nu al dat ik er nog een jaartje aan vast moet plakken!
+						</p>
+						<p class="textItem " style="top:40.428062%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De leagueploeg is een geweldige groep vrijwilligers die vooral op de achtergrond van zo&#8217;n league-
+						</p>
+						<p class="textItem " style="top:41.973841%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							avond aan net werk is. Totaal gaat het om een groep van meer dan dertig vrijwilligers: gastvrouwen,
+						</p>
+						<p class="textItem " style="top:43.519620%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							floormanagers, jurytafel, quickmoppers, kassadames etc. Er zaten ook een paar mannen bij van het
+						</p>
+						<p class="textItem " style="top:45.065398%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							eerste uur, die mij dat eerste seizoen terzijde stonden. Er komt echter ook wel een beetje veran-
+						</p>
+						<p class="textItem " style="top:46.611177%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							dering.  Het wordt namelijk steeds lastiger om vrijwilligers te vinden die dat commitment van tien
+						</p>
+						<p class="textItem " style="top:48.156956%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							wedstrijden aanwezig zijn, kunnen waarmaken. Daarom ben ik bezig met het maken van een flexi-
+						</p>
+						<p class="textItem " style="top:49.702735%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							beler concept, met meer mensen die rouleren op diverse functies. Dus, er is altijd plek voor nieuwe
+						</p>
+						<p class="textItem " style="top:51.248514%;left:67.647059%;width:10.000000%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							mensen, in verschillende functies.
+						</p>
+						<p class="textItem " style="top:52.794293%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Het komende seizoen willen we ook weer de pauzeact terugbrengen om van een leagueavond weer
+						</p>
+						<p class="textItem " style="top:54.340071%;left:67.647059%;width:29.579832%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							een compleet avondje uit te maken. Het duurt nog even voor de eerste avond, want de eerste thuis-
+						</p>
+						<p class="textItem " style="top:55.885850%;left:67.647059%;width:8.319328%;height:1.189061%;font-size:0.425000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							wedstrijd is een midweekse.
+						</p>
+						<p class="textItem " style="top:58.858502%;left:67.647059%;width:29.579832%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Ik hoop u allen te zien en mochten er nog mensen zijn die deel van deze fantastische ploeg
+						</p>
+						<p class="textItem " style="top:60.404281%;left:67.647059%;width:10.840336%;height:1.307967%;font-size:0.425000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							willen worden, laat het me weten.
+						</p>
+						<p class="textItem " style="top:17.479191%;left:71.008403%;width:25.966387%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>ijn naam is Monica Briefjes en ik ben komend seizoen leaguema-</b>
+						</p>
+						<p class="textItem " style="top:19.381688%;left:67.647059%;width:27.142857%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>nager bij KZ / Hiltex. Het wordt mijn tweede seizoen in deze functie.</b>
+						</p>
+						<p class="textItem " style="top:21.284185%;left:67.647059%;width:28.403361%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>Naast deze vrijwilligersfunctie werk ik fulltime als wijkmanager voor de</b>
+						</p>
+						<p class="textItem " style="top:23.186683%;left:67.647059%;width:24.705882%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>Gemeente Zaanstad, momenteel in Wormerveer en Westzaan.</b>
+						</p>
+						<p class="textItem " style="top:6.302021%;left:56.386555%;width:25.546218%;height:4.637337%;font-size:1.600000em;color:#002E85;font-family:Rockwell;">
+							<b>Tweede seizoen als</b>
+						</p>
+						<p class="textItem " style="top:10.107015%;left:56.386555%;width:20.840336%;height:4.637337%;font-size:1.600000em;color:#002E85;font-family:Rockwell;">
+							<b>leaguemanager</b>
+						</p>
+						<p class="textItem " style="top:12.247325%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 1</b>
+						</p>
+						<p class="textItem " style="top:13.555291%;left:3.445378%;width:4.789916%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-11 20:30
+						</p>
+						<p class="textItem " style="top:13.555291%;left:9.495798%;width:12.773109%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							TOP (S) - PKC/SWKGroep        De Korf
+						</p>
+						<p class="textItem " style="top:14.744352%;left:3.445378%;width:12.857143%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							22-11 19:30 DVO - OVVO/De Kroon
+						</p>
+						<p class="textItem " style="top:14.744352%;left:20.000000%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:16.052319%;left:3.445378%;width:20.252101%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							22-11 20:00 Dalto/BNApp.nl - KVS/Maritiem        Hoenderdaal
+						</p>
+						<p class="textItem " style="top:17.241379%;left:3.445378%;width:20.336134%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							22-11 20:30 Blauw-Wit  - LDODK/AH        Blauw-Withal
+						</p>
+						<p class="textItem " style="top:18.549346%;left:3.445378%;width:20.420168%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>23-11 15:30 Fortuna/My Coll. - KZ/Hiltex        Fortuna-hal</b>
+						</p>
+						<p class="textItem " style="top:21.046373%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 2</b>
+						</p>
+						<p class="textItem " style="top:22.235434%;left:3.445378%;width:11.260504%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>26-11 20:30 KZ/Hiltex - DVO</b>
+						</p>
+						<p class="textItem " style="top:22.235434%;left:20.000000%;width:3.445378%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>De Sprong</b>
+						</p>
+						<p class="textItem " style="top:23.543401%;left:3.445378%;width:13.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							26-11 20:30 OVVO/De Kroon - TOP (S)
+						</p>
+						<p class="textItem " style="top:23.543401%;left:20.000000%;width:2.857143%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							OVVO-hal
+						</p>
+						<p class="textItem " style="top:24.732461%;left:3.445378%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							26-11 20:30 LDODK/AH - Dalto/BNApp.nl        Kortezwaag
+						</p>
+						<p class="textItem " style="top:26.040428%;left:3.445378%;width:18.991597%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							26-11 20:30 PKC/SWKGroep - Blauw-Wit         PKC-hal
+						</p>
+						<p class="textItem " style="top:27.229489%;left:3.445378%;width:19.075630%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							26-11 20:30 KVS/Maritiem - Fortuna/My Coll.       Houtrust
+						</p>
+						<p class="textItem " style="top:29.726516%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 3</b>
+						</p>
+						<p class="textItem " style="top:31.034483%;left:3.445378%;width:12.268908%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>29-11 19:00 TOP (S) - KZ/Hiltex</b>
+						</p>
+						<p class="textItem " style="top:31.034483%;left:19.831933%;width:2.521008%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>De Korf</b>
+						</p>
+						<p class="textItem " style="top:32.223543%;left:3.445378%;width:18.907563%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							29-11 15:30 PKC/SWKGr - OVVO/De Kroon       PKC-hal
+						</p>
+						<p class="textItem " style="top:33.531510%;left:3.445378%;width:4.789916%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							29-11 19:30
+						</p>
+						<p class="textItem " style="top:33.531510%;left:9.495798%;width:5.966387%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO - KVS/Maritiem
+						</p>
+						<p class="textItem " style="top:33.531510%;left:19.831933%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:34.720571%;left:3.445378%;width:14.033613%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							29-11 20:00 Dalto/BNApp.nl - Blauw-Wit
+						</p>
+						<p class="textItem " style="top:34.720571%;left:19.831933%;width:3.613445%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hoenderdaal
+						</p>
+						<p class="textItem " style="top:36.028537%;left:3.445378%;width:19.663866%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							30-11 15:30 Fortuna/My Coll. - LDODK/AH        Fortuna-hal
+						</p>
+						<p class="textItem " style="top:38.525565%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 4</b>
+						</p>
+						<p class="textItem " style="top:39.714625%;left:3.445378%;width:19.831933%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>06-12 20:00 KZ/Hiltex - PKC/SWKGroep       De Sprong</b>
+						</p>
+						<p class="textItem " style="top:41.022592%;left:3.445378%;width:12.941176%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							06-12 19:30 KVS/Maritiem - TOP (S)
+						</p>
+						<p class="textItem " style="top:41.022592%;left:19.831933%;width:2.521008%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Houtrust
+						</p>
+						<p class="textItem " style="top:42.211653%;left:3.445378%;width:20.000000%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							06-12 20:00 Dalto/BNApp.nl - Fortuna/My Coll.   Hoenderdaal
+						</p>
+						<p class="textItem " style="top:43.519620%;left:3.445378%;width:20.168067%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							06-12 20:00 Blauw-Wit - OVVO/De Kroon       Blauw-Withal
+						</p>
+						<p class="textItem " style="top:44.708680%;left:3.445378%;width:19.747899%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							06-12 20:00 LDODK/AH Gorredijk - DVO       Kortezwaag
+						</p>
+						<p class="textItem " style="top:47.205707%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 5</b>
+						</p>
+						<p class="textItem " style="top:48.513674%;left:3.445378%;width:19.579832%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>13-12 20:00 OVVO/De Kroon - KZ/Hiltex       OVVO-hal</b>
+						</p>
+						<p class="textItem " style="top:49.702735%;left:3.445378%;width:18.823529%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							13-12 15:30 PKC/SWKGroep - KVS/Maritiem     PKC-hal
+						</p>
+						<p class="textItem " style="top:51.010702%;left:3.445378%;width:18.655462%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							13-12 19:00 TOP (S) - LDODK/AH Gorredijk       De Korf
+						</p>
+						<p class="textItem " style="top:52.199762%;left:3.445378%;width:12.521008%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							13-12 19:30 DVO - Dalto/BNApp.nl
+						</p>
+						<p class="textItem " style="top:52.199762%;left:19.831933%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:53.507729%;left:3.445378%;width:19.663866%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14-12 15:30 Fortuna/My Coll. - Blauw-Wit       Fortuna-hal
+						</p>
+						<p class="textItem " style="top:55.885850%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 6</b>
+						</p>
+						<p class="textItem " style="top:57.193817%;left:3.445378%;width:13.109244%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>20-12 19:30 Blauw-Wit - KZ/Hiltex</b>
+						</p>
+						<p class="textItem " style="top:57.193817%;left:19.831933%;width:4.369748%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>Blauw-Withal</b>
+						</p>
+						<p class="textItem " style="top:58.501784%;left:3.445378%;width:18.823529%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20-12 19:30 KVS/Maritiem - OVVO/De Kroon     Houtrust
+						</p>
+						<p class="textItem " style="top:59.690844%;left:3.445378%;width:19.663866%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20-12 19:30 Fortuna/My Collections - DVO       Fortuna-hal
+						</p>
+						<p class="textItem " style="top:60.998811%;left:3.445378%;width:13.445378%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20-12 20:00 Dalto/BNApp.nl - TOP (S)
+						</p>
+						<p class="textItem " style="top:60.998811%;left:19.831933%;width:3.613445%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hoenderdaal
+						</p>
+						<p class="textItem " style="top:62.187872%;left:3.445378%;width:19.747899%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20-12 20:00 LDODK/AH - PKC/SWKGroep       Kortezwaag
+						</p>
+						<p class="textItem " style="top:64.684899%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 7</b>
+						</p>
+						<p class="textItem " style="top:65.873960%;left:3.445378%;width:19.663866%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>10-01 20:00 KZ/Hiltex - KVS/Maritiem      De Sprong</b>
+						</p>
+						<p class="textItem " style="top:67.181926%;left:3.445378%;width:18.739496%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							10-01 15:30 PKC/SWKGr - Dalto/BNApp.nl        PKC-hal
+						</p>
+						<p class="textItem " style="top:68.489893%;left:3.445378%;width:18.487395%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							10-01 19:00 TOP (S) - Fortuna/My Collections    De Korf
+						</p>
+						<p class="textItem " style="top:69.678954%;left:3.445378%;width:10.924370%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							10-01 19:30 DVO - Blauw-Wit
+						</p>
+						<p class="textItem " style="top:69.678954%;left:19.663866%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:70.986920%;left:3.445378%;width:19.075630%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							10-01 20:00 OVVO/De Kroon - LDODK/AH      OVVO-hal
+						</p>
+						<p class="textItem " style="top:73.365042%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 8</b>
+						</p>
+						<p class="textItem " style="top:74.673008%;left:3.445378%;width:19.579832%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							17-01 19:30 Fortuna/My Coll. - PKC/SWKGr.      Fortuna-hal
+						</p>
+						<p class="textItem " style="top:75.980975%;left:3.445378%;width:20.000000%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							17-01 19:30 Blauw-Wit - KVS/Maritiem      Blauw-Withal
+						</p>
+						<p class="textItem " style="top:77.170036%;left:3.445378%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							17-01 20:00 Dalto/BNApp.nl - OVVO/De Kr.       Hoenderdaal
+						</p>
+						<p class="textItem " style="top:78.359096%;left:3.445378%;width:20.084034%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>18-01 16:00 LDODK/AH - KZ/Hiltex      Kortezwaag</b>
+						</p>
+						<p class="textItem " style="top:80.856124%;left:3.445378%;width:5.798319%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 9</b>
+						</p>
+						<p class="textItem " style="top:82.164090%;left:3.445378%;width:10.336134%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-01 20:30 DVO - TOP (S)
+						</p>
+						<p class="textItem " style="top:82.164090%;left:19.663866%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:83.353151%;left:3.445378%;width:19.663866%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>24-01 20:00 KZ/Hiltex - Dalto/BNApp.nl       De Sprong</b>
+						</p>
+						<p class="textItem " style="top:84.661118%;left:3.445378%;width:18.655462%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							24-01 15:30 PKC/SWKGroep - DVO      PKC-hal
+						</p>
+						<p class="textItem " style="top:85.969084%;left:3.445378%;width:18.739496%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							24-01 18:30 KVS/Maritiem - LDODK/AH      Houtrust
+						</p>
+						<p class="textItem " style="top:87.158145%;left:3.445378%;width:11.848739%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							24-01 19:00 TOP (S) - Blauw-Wit
+						</p>
+						<p class="textItem " style="top:87.158145%;left:19.663866%;width:2.268908%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De Korf
+						</p>
+						<p class="textItem " style="top:88.466112%;left:3.445378%;width:18.991597%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							24-01 20:00 OVVO/De Kr. - Fortuna/My Coll.     OVVO-hal
+						</p>
+						<p class="textItem " style="top:12.247325%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 10</b>
+						</p>
+						<p class="textItem " style="top:13.555291%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>31-01 20:00 KZ/Hiltex - Fortuna/My Coll.       De Sprong</b>
+						</p>
+						<p class="textItem " style="top:14.744352%;left:26.470588%;width:13.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							31-01 15:30 PKC/SWKGroep - TOP (S)
+						</p>
+						<p class="textItem " style="top:14.744352%;left:43.025210%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							PKC-hal
+						</p>
+						<p class="textItem " style="top:16.052319%;left:26.470588%;width:19.075630%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							31-01 19:30 KVS/Maritiem - Dalto/BNApp.nl        Houtrust
+						</p>
+						<p class="textItem " style="top:17.241379%;left:26.470588%;width:19.411765%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							31-01 20:00 OVVO/De Kroon - DVO        OVVO-hal
+						</p>
+						<p class="textItem " style="top:18.549346%;left:26.470588%;width:13.025210%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							01-02 16:00 LDODK/AH - Blauw-Wit
+						</p>
+						<p class="textItem " style="top:18.549346%;left:43.025210%;width:3.361345%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Kortezwaag
+						</p>
+						<p class="textItem " style="top:21.046373%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 11</b>
+						</p>
+						<p class="textItem " style="top:22.235434%;left:26.470588%;width:11.260504%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>04-02 20:30 DVO - KZ/Hiltex</b>
+						</p>
+						<p class="textItem " style="top:22.235434%;left:43.025210%;width:2.773109%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>DVO-hal</b>
+						</p>
+						<p class="textItem " style="top:23.543401%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							04-02 20:30 Fortuna/My Coll. - KVS/Maritiem       Fortuna-hal
+						</p>
+						<p class="textItem " style="top:24.732461%;left:26.470588%;width:20.336134%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							04-02 20:30 Blauw-Wit - PKC/SWKGroep        Blauw-Withal
+						</p>
+						<p class="textItem " style="top:26.040428%;left:26.470588%;width:18.823529%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							04-02 20:30 TOP (S) - OVVO/De Kroon        De Korf
+						</p>
+						<p class="textItem " style="top:27.229489%;left:26.470588%;width:20.252101%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							04-02 20:30 Dalto/BNApp.nl - LDODK/AH           Hoenderdaal
+						</p>
+						<p class="textItem " style="top:29.726516%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 12</b>
+						</p>
+						<p class="textItem " style="top:31.034483%;left:26.470588%;width:20.084034%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>07-02 20:00 KZ/Hiltex - TOP (S)                        De Sprong</b>
+						</p>
+						<p class="textItem " style="top:32.223543%;left:26.470588%;width:12.016807%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-02 19:30 KVS/Maritiem - DVO
+						</p>
+						<p class="textItem " style="top:32.223543%;left:43.025210%;width:2.521008%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Houtrust
+						</p>
+						<p class="textItem " style="top:33.531510%;left:26.470588%;width:1.848739%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-02
+						</p>
+						<p class="textItem " style="top:33.531510%;left:29.495798%;width:11.008403%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20:00 Blauw-Wit - Dalto/BNApp.nl
+						</p>
+						<p class="textItem " style="top:33.531510%;left:43.025210%;width:3.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Blauw-Withal
+						</p>
+						<p class="textItem " style="top:34.720571%;left:26.470588%;width:1.848739%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-02
+						</p>
+						<p class="textItem " style="top:34.720571%;left:29.495798%;width:11.428571%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							20:00 OVVO/De Kr. - PKC/SWKGr.
+						</p>
+						<p class="textItem " style="top:34.720571%;left:43.025210%;width:2.857143%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							OVVO-hal
+						</p>
+						<p class="textItem " style="top:36.028537%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							08-01 16:00 LDODK/AH - Fortuna/My Coll.        Kortezwaag
+						</p>
+						<p class="textItem " style="top:38.525565%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 13</b>
+						</p>
+						<p class="textItem " style="top:39.714625%;left:26.470588%;width:19.159664%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>14-02 15:30 PKC/SWKGroep - KZ/Hiltex        PKC-hal</b>
+						</p>
+						<p class="textItem " style="top:41.022592%;left:26.470588%;width:18.823529%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14-02 19:00 TOP (S) - KVS/Maritiem        De Korf
+						</p>
+						<p class="textItem " style="top:42.211653%;left:26.470588%;width:11.512605%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14-02 19:30 DVO - LDODK/AH
+						</p>
+						<p class="textItem " style="top:42.211653%;left:43.025210%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:43.519620%;left:26.470588%;width:19.831933%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14-02 19:30 Fortuna/My Coll. - Dalto/BNApp.       Fortuna-hal
+						</p>
+						<p class="textItem " style="top:44.708680%;left:26.470588%;width:19.411765%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14-02 20:15 OVVO/De Kroon - Blauw-Wit        OVVO-hal
+						</p>
+						<p class="textItem " style="top:47.205707%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 14</b>
+						</p>
+						<p class="textItem " style="top:48.513674%;left:26.470588%;width:20.000000%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>21-02 20:00 KZ/Hiltex - OVVO/De Kroon        De Sprong</b>
+						</p>
+						<p class="textItem " style="top:49.702735%;left:26.470588%;width:19.075630%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-02 19:30 KVS/Maritiem - PKC/SWKGroep      Houtrust
+						</p>
+						<p class="textItem " style="top:51.010702%;left:26.470588%;width:12.521008%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-02 20:00 Dalto/BNApp.nl - DVO
+						</p>
+						<p class="textItem " style="top:51.010702%;left:43.025210%;width:3.697479%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Hoenderdaal
+						</p>
+						<p class="textItem " style="top:52.199762%;left:26.470588%;width:14.285714%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-02 20:00 Blauw-Wit - Fortuna/My Coll.
+						</p>
+						<p class="textItem " style="top:52.199762%;left:43.025210%;width:3.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Blauw-Withal
+						</p>
+						<p class="textItem " style="top:53.507729%;left:26.470588%;width:12.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-02 20:00 LDODK/AH - TOP (S)
+						</p>
+						<p class="textItem " style="top:53.507729%;left:43.025210%;width:3.361345%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Kortezwaag
+						</p>
+						<p class="textItem " style="top:56.004756%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 15</b>
+						</p>
+						<p class="textItem " style="top:57.193817%;left:26.470588%;width:13.109244%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>28-02 20:00 KZ/Hiltex - Blauw-Wit</b>
+						</p>
+						<p class="textItem " style="top:57.193817%;left:43.025210%;width:3.445378%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>De Sprong</b>
+						</p>
+						<p class="textItem " style="top:58.501784%;left:26.470588%;width:18.991597%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							28-02 15:30 PKC/SWKGroep - LDODK/AH        PKC-hal
+						</p>
+						<p class="textItem " style="top:59.690844%;left:26.470588%;width:13.445378%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							28-02 19:00 TOP (S) - Dalto/BNApp.nl
+						</p>
+						<p class="textItem " style="top:59.690844%;left:43.025210%;width:2.268908%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De Korf
+						</p>
+						<p class="textItem " style="top:60.998811%;left:26.470588%;width:18.991597%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							28-02 19:30 DVO - Fortuna/My Collections        DVO-hal
+						</p>
+						<p class="textItem " style="top:62.187872%;left:26.470588%;width:19.411765%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							28-02 20:00 OVVO/De Kroon - KVS/Maritiem      OVVO-hal
+						</p>
+						<p class="textItem " style="top:64.684899%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 16</b>
+						</p>
+						<p class="textItem " style="top:65.992866%;left:26.470588%;width:19.411765%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>07-03 19:30 KVS/Maritiem - KZ/Hiltex        Houtrust</b>
+						</p>
+						<p class="textItem " style="top:67.181926%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-03 19:30 Fortuna/My Collections - TOP (S)      Fortuna-hal
+						</p>
+						<p class="textItem " style="top:68.489893%;left:26.470588%;width:20.168067%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-03 20:00 Dalto/BNApp.nl - PKC/SWKGroep   Hoenderdaal
+						</p>
+						<p class="textItem " style="top:69.678954%;left:26.470588%;width:11.344538%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-03 20:00 Blauw-Wit- DVO 1
+						</p>
+						<p class="textItem " style="top:69.678954%;left:43.025210%;width:3.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Blauw-Withal
+						</p>
+						<p class="textItem " style="top:70.986920%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							07-03 20:00 LDODK/AH - OVVO/De Kroon 1      Kortezwaag
+						</p>
+						<p class="textItem " style="top:73.483948%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 17</b>
+						</p>
+						<p class="textItem " style="top:74.673008%;left:26.470588%;width:20.000000%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>14-03 20:00 KZ/Hiltex - LDODK/AH        De Sprong</b>
+						</p>
+						<p class="textItem " style="top:75.980975%;left:26.470588%;width:19.327731%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14 -03 20:00 OVVO/De Kroon - Dalto/BNApp.nl   OVVO-hal
+						</p>
+						<p class="textItem " style="top:77.170036%;left:26.470588%;width:18.907563%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14 -03 20:00 PKC/SWKGr. - Fortuna/My Coll.       PKC-hal
+						</p>
+						<p class="textItem " style="top:78.478002%;left:26.470588%;width:13.613445%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14 -03 20:00 KVS/Maritiem - Blauw-Wit
+						</p>
+						<p class="textItem " style="top:78.478002%;left:43.025210%;width:2.521008%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Houtrust
+						</p>
+						<p class="textItem " style="top:79.667063%;left:26.470588%;width:10.504202%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							14 -03 20:00 TOP (S)  - DVO
+						</p>
+						<p class="textItem " style="top:79.667063%;left:43.025210%;width:2.268908%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							De Korf
+						</p>
+						<p class="textItem " style="top:82.164090%;left:26.470588%;width:6.218487%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>SPEELRONDE 18</b>
+						</p>
+						<p class="textItem " style="top:83.353151%;left:26.470588%;width:20.756303%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<b>21-03 20:00 Dalto/BNApp.nl - KZ/Hiltex        Hoenderdaal</b>
+						</p>
+						<p class="textItem " style="top:84.661118%;left:26.470588%;width:11.848739%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-03 20:00 Blauw-Wit - TOP (S)
+						</p>
+						<p class="textItem " style="top:84.661118%;left:43.025210%;width:3.781513%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Blauw-Withal
+						</p>
+						<p class="textItem " style="top:85.969084%;left:26.470588%;width:4.789916%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-03 20:00
+						</p>
+						<p class="textItem " style="top:85.969084%;left:32.521008%;width:6.806723%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO - PKC/SWKGroep
+						</p>
+						<p class="textItem " style="top:85.969084%;left:43.025210%;width:2.436975%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							DVO-hal
+						</p>
+						<p class="textItem " style="top:87.158145%;left:26.470588%;width:19.915966%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-03 20:00 LDODK/AH - KVS/Maritiem        Kortezwaag
+						</p>
+						<p class="textItem " style="top:88.466112%;left:26.470588%;width:19.747899%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							21-03 20:00 Fortuna/My Coll. - OVVO/De Kroon  Fortuna-hal
+						</p>
+						<p class="textItem " style="top:92.627824%;left:3.445378%;width:42.857143%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							&#8226; De Korfbal Challenge 2014: 27 t/m 30 december in Rotterdam   &#8226; De Korfballeague finale: 11 april 2015 in Ahoy - Rotterdam
+						</p>
+						<p class="textItem " style="top:8.323424%;left:3.445378%;width:24.621849%;height:2.378121%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Programma Korfbal league 2014 - 2015
+						</p>
+						<p class="textItem testString" style="top:84.423306%;left:83.109244%;width:10.588235%;height:0.713436%;font-size:0.245000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Als internationale onderneming bedrijven wij elke dag</b>
+						</p>
+						<p class="textItem " style="top:85.136742%;left:83.109244%;width:11.680672%;height:0.713436%;font-size:0.245000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>topsport. Innovatie, ontwikkeling en passie is nodig om aan</b>
+						</p>
+						<p class="textItem " style="top:85.850178%;left:83.109244%;width:10.924370%;height:0.713436%;font-size:0.245000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>de top te blijven en dat behoort tot onze dagelijks werk.</b>
+						</p>
+						<p class="textItem testString" style="top:87.395957%;left:83.109244%;width:11.596639%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							Wij zijn als Hiltex in staat geweest steeds weer de concurrentie
+						</p>
+						<p class="textItem " style="top:88.228300%;left:83.109244%;width:8.487395%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							met onze innovaties een stapje voor te blijven.
+						</p>
+						<p class="textItem " style="top:89.655172%;left:83.109244%;width:10.000000%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							Zo is het ook met topsport. Topsport kan alleen tot sta
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.655172%;left:93.109244%;width:1.848739%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;" title="">
+							nd komen
+						</a>
+						<p class="textItem " style="top:90.487515%;left:83.109244%;width:11.344538%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							als alle condities in een zelfde richting wijzen en dat een ieder
+						</p>
+						<p class="textItem " style="top:91.200951%;left:83.109244%;width:12.100840%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							bereid is daar aan medewerking te verlenen. De spelers, coaches,
+						</p>
+						<p class="textItem " style="top:91.914388%;left:83.109244%;width:12.184874%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							bestuur, vrijwilligers en sponsors hebben in dat geval allemaal een
+						</p>
+						<p class="textItem " style="top:92.746730%;left:83.109244%;width:1.764706%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							doel voor
+						</p>
+						<a class="linkTextItem  " href="mailto:sponsorcommissie@koogzaandijk.nl" target="_blank"  style="top:92.746730%;left:84.789916%;width:1.176471%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;" title="">
+							 ogen.
+						</a>
+						<p class="textItem " style="top:94.292509%;left:83.109244%;width:10.504202%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							KZ is een topsport vereniging. De enige op dit moment in
+						</p>
+						<p class="textItem " style="top:95.005945%;left:83.109244%;width:10.588235%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							de Zaanstreek. Hiltex is van mening dat de passie van KZ
+						</p>
+						<p class="textItem " style="top:95.719382%;left:83.109244%;width:11.344538%;height:0.713436%;font-size:0.245000em;color:#000000;font-family:Helvetica Neue;">
+							ondersteunt dient te worden om topsport mogelijk te houden.
+						</p>
+						<p class="textItem testString" style="top:98.810939%;left:86.050420%;width:6.806723%;height:0.951249%;font-size:0.294000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>&#8220;Voor dit jaar wensen wij KZ,</i></b>
+						</p>
+						<p class="textItem " style="top:81.331748%;left:76.974790%;width:5.294118%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>Hiltex is Nederlands&#8217; grootste</b>
+						</p>
+						<p class="textItem " style="top:82.164090%;left:77.226891%;width:5.126050%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>leverancier van onbrandbare</b>
+						</p>
+						<p class="textItem " style="top:82.877527%;left:76.806723%;width:5.546218%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>technische weefsels, waarmee</b>
+						</p>
+						<p class="textItem " style="top:83.709869%;left:78.403361%;width:3.949580%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>industri&#235;le installaties</b>
+						</p>
+						<p class="textItem " style="top:84.423306%;left:78.739496%;width:3.613445%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>beschermd worden.</b>
+						</p>
+						<p class="textItem " style="top:85.969084%;left:78.067227%;width:4.201681%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>We zijn in vele sectoren</b>
+						</p>
+						<p class="textItem " style="top:86.682521%;left:79.159664%;width:3.193277%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>actief. Zoals in de</b>
+						</p>
+						<p class="textItem " style="top:87.395957%;left:77.310924%;width:5.042017%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>scheepsbouw, petrochemie,</b>
+						</p>
+						<p class="textItem " style="top:88.228300%;left:78.151261%;width:4.117647%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>automotive, metaal- en</b>
+						</p>
+						<p class="textItem " style="top:88.941736%;left:78.571429%;width:3.781513%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>halfgeleiderindustrie.</b>
+						</p>
+						<p class="textItem " style="top:89.774078%;left:76.722689%;width:5.630252%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>Naast marktleider in Nederland</b>
+						</p>
+						<p class="textItem " style="top:90.487515%;left:77.058824%;width:5.210084%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>zijn we inmiddels uitgegroeid</b>
+						</p>
+						<p class="textItem " style="top:91.200951%;left:76.890756%;width:5.462185%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>tot toonaangevend leverancier</b>
+						</p>
+						<p class="textItem " style="top:92.033294%;left:77.899160%;width:4.369748%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>in meer dan 68 landen in</b>
+						</p>
+						<p class="textItem " style="top:92.746730%;left:77.815126%;width:4.537815%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>Europa, Amerika en Azi&#235;.</b>
+						</p>
+						<p class="textItem " style="top:93.460166%;left:76.974790%;width:5.378151%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>Een Zaans bedrijf met de hele</b>
+						</p>
+						<p class="textItem " style="top:94.292509%;left:78.151261%;width:4.201681%;height:0.713436%;font-size:0.222565em;color:#000000;font-family:Helvetica Neue;">
+							<b>wereld als marktplaats.</b>
+						</p>
+						<p class="textItem " style="top:80.975030%;left:83.025210%;width:12.016807%;height:2.378121%;font-size:0.833000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>De passie van KZ!</b>
+						</p>
+						<p class="textItem " style="top:80.142687%;left:83.109244%;width:4.705882%;height:1.307967%;font-size:0.441000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Hiltex steunt:</b>
+						</p>
+						<p class="textItem " style="top:88.109394%;left:92.605042%;width:1.176471%;height:0.832342%;font-size:0.251895em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Hiltex</b>
+						</p>
+						<p class="textItem " style="top:88.109394%;left:93.865546%;width:4.537815%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;">
+							Technische Weefsels bv
+						</p>
+						<p class="textItem " style="top:88.822830%;left:86.302521%;width:7.142857%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;">
+							Handelsweg 37   1525 RG   West Kno
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:88.822830%;left:93.361345%;width:3.277311%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;" title="">
+							llendam   The Ne
+						</a>
+						<p class="textItem " style="top:88.822830%;left:96.554622%;width:1.764706%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;">
+							therlands
+						</p>
+						<p class="textItem " style="top:89.536266%;left:85.378151%;width:0.336134%;height:0.832342%;font-size:0.251895em;color:#FD9307;font-family:Helvetica Neue;">
+							<b>t:</b>
+						</p>
+						<p class="textItem " style="top:89.536266%;left:85.714286%;width:3.949580%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;">
+							+31 (0) 75 687 10 90
+						</p>
+						<p class="textItem " style="top:89.536266%;left:90.000000%;width:0.336134%;height:0.832342%;font-size:0.251895em;color:#FD9307;font-family:Helvetica Neue;">
+							<b>f:</b>
+						</p>
+						<p class="textItem " style="top:89.536266%;left:90.336134%;width:2.773109%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;">
+							+31 (0) 75 687
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.536266%;left:93.109244%;width:1.176471%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;" title="">
+							 71 32
+						</a>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.536266%;left:94.621849%;width:0.420168%;height:0.832342%;font-size:0.251895em;color:#FD9307;font-family:Helvetica Neue;" title="">
+							<b>e:</b>
+						</a>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.536266%;left:95.126050%;width:3.277311%;height:0.713436%;font-size:0.251895em;color:#000000;font-family:Helvetica Neue;" title="">
+							sales@hiltex.com
+						</a>
+						<p class="textItem " style="top:58.977408%;left:83.277311%;width:13.277311%;height:0.951249%;font-size:0.308100em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Als internationale onderneming bedrijven wij elke dag</b>
+						</p>
+						<p class="textItem " style="top:59.928656%;left:83.277311%;width:14.705882%;height:0.951249%;font-size:0.308100em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>topsport. Innovatie, ontwikkeling en passie is nodig om aan</b>
+						</p>
+						<p class="textItem " style="top:60.879905%;left:83.277311%;width:13.781513%;height:0.951249%;font-size:0.308100em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>de top te blijven en dat behoort tot onze dagelijks werk.</b>
+						</p>
+						<p class="textItem " style="top:62.782402%;left:83.277311%;width:14.537815%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							Wij zijn als Hiltex in staat geweest steeds weer de concurrentie
+						</p>
+						<p class="textItem " style="top:63.733650%;left:83.277311%;width:10.672269%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							met onze innovaties een stapje voor te blijven.
+						</p>
+						<p class="textItem " style="top:65.636147%;left:83.277311%;width:14.873950%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							Zo is het ook met topsport. Topsport kan alleen tot stand komen
+						</p>
+						<p class="textItem " style="top:66.587396%;left:83.277311%;width:14.285714%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							als alle condities in een zelfde richting wijzen en dat een ieder
+						</p>
+						<p class="textItem " style="top:67.538644%;left:83.277311%;width:15.210084%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							bereid is daar aan medewerking te verlenen. De spelers, coaches,
+						</p>
+						<p class="textItem " style="top:68.489893%;left:83.277311%;width:15.294118%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							bestuur, vrijwilligers en sponsors hebben in dat geval allemaal een
+						</p>
+						<p class="textItem " style="top:69.441141%;left:83.277311%;width:3.613445%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							doel voor ogen.
+						</p>
+						<p class="textItem " style="top:71.343639%;left:83.277311%;width:13.277311%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							KZ is een topsport vereniging. De enige op dit moment in
+						</p>
+						<p class="textItem " style="top:72.294887%;left:83.277311%;width:13.277311%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							de Zaanstreek. Hiltex is van mening dat de passie van KZ
+						</p>
+						<p class="textItem " style="top:73.246136%;left:83.277311%;width:14.285714%;height:0.951249%;font-size:0.308100em;color:#000000;font-family:Helvetica Neue;">
+							ondersteunt dient te worden om topsport mogelijk te houden.
+						</p>
+						<p class="textItem " style="top:77.051130%;left:86.974790%;width:8.571429%;height:1.070155%;font-size:0.369720em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>&#8220;Voor dit jaar wensen wij KZ,</i></b>
+						</p>
+						<p class="textItem " style="top:78.240190%;left:87.815126%;width:8.235294%;height:1.070155%;font-size:0.369720em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>maar ook alle andere teams</i></b>
+						</p>
+						<p class="textItem " style="top:79.310345%;left:86.974790%;width:10.336134%;height:1.070155%;font-size:0.369720em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>een goede en faire competitie toe&#8221;</i></b>
+						</p>
+						<p class="textItem " style="top:55.172414%;left:75.630252%;width:6.638655%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>Hiltex is Nederlands&#8217; grootste</b>
+						</p>
+						<p class="textItem " style="top:56.123662%;left:75.798319%;width:6.470588%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>leverancier van onbrandbare</b>
+						</p>
+						<p class="textItem " style="top:57.193817%;left:75.294118%;width:6.974790%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>technische weefsels, waarmee</b>
+						</p>
+						<p class="textItem " style="top:58.145065%;left:77.310924%;width:4.957983%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>industri&#235;le installaties</b>
+						</p>
+						<p class="textItem " style="top:59.096314%;left:77.731092%;width:4.537815%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>beschermd worden.</b>
+						</p>
+						<p class="textItem " style="top:60.998811%;left:76.974790%;width:5.294118%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>We zijn in vele sectoren</b>
+						</p>
+						<p class="textItem " style="top:61.950059%;left:78.235294%;width:4.033613%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>actief. Zoals in de</b>
+						</p>
+						<p class="textItem " style="top:62.901308%;left:75.882353%;width:6.302521%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>scheepsbouw, petrochemie,</b>
+						</p>
+						<p class="textItem " style="top:63.852556%;left:77.058824%;width:5.210084%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>automotive, metaal- en</b>
+						</p>
+						<p class="textItem " style="top:64.803805%;left:77.478992%;width:4.789916%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>halfgeleiderindustrie.</b>
+						</p>
+						<p class="textItem " style="top:65.755054%;left:75.210084%;width:7.058824%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>Naast marktleider in Nederland</b>
+						</p>
+						<p class="textItem " style="top:66.706302%;left:75.714286%;width:6.554622%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>zijn we inmiddels uitgegroeid</b>
+						</p>
+						<p class="textItem " style="top:67.657551%;left:75.378151%;width:6.890756%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>tot toonaangevend leverancier</b>
+						</p>
+						<p class="textItem " style="top:68.608799%;left:76.722689%;width:5.546218%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>in meer dan 68 landen in</b>
+						</p>
+						<p class="textItem " style="top:69.560048%;left:76.638655%;width:5.630252%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>Europa, Amerika en Azi&#235;.</b>
+						</p>
+						<p class="textItem " style="top:70.511296%;left:75.546218%;width:6.722689%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>Een Zaans bedrijf met de hele</b>
+						</p>
+						<p class="textItem " style="top:71.462545%;left:76.974790%;width:5.294118%;height:0.832342%;font-size:0.279880em;color:#000000;font-family:Helvetica Neue;">
+							<b>wereld als marktplaats.</b>
+						</p>
+						<p class="textItem " style="top:54.696790%;left:83.193277%;width:15.126050%;height:2.972652%;font-size:1.047535em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>De passie van KZ!</b>
+						</p>
+						<p class="textItem " style="top:53.626635%;left:83.277311%;width:5.882353%;height:1.664685%;font-size:0.554575em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Hiltex steunt:</b>
+						</p>
+						<p class="textItem " style="top:87.395957%;left:91.092437%;width:1.092437%;height:0.713436%;font-size:0.233010em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Hiltex</b>
+						</p>
+						<p class="textItem " style="top:87.395957%;left:92.268908%;width:4.201681%;height:0.713436%;font-size:0.233010em;color:#000000;font-family:Helvetica Neue;">
+							Technische Weefsels bv
+						</p>
+						<p class="textItem " style="top:88.109394%;left:85.294118%;width:11.176471%;height:0.713436%;font-size:0.233010em;color:#000000;font-family:Helvetica Neue;">
+							Handelsweg 37   1525 RG   West Knollendam   Th Netherlands
+						</p>
+						<p class="textItem " style="top:88.703924%;left:84.453782%;width:0.252101%;height:0.713436%;font-size:0.233010em;color:#FD9307;font-family:Helvetica Neue;">
+							<b>t:</b>
+						</p>
+						<p class="textItem " style="top:88.822830%;left:84.789916%;width:3.613445%;height:0.713436%;font-size:0.233010em;color:#000000;font-family:Helvetica Neue;">
+							+31 (0) 75 687 10 90
+						</p>
+						<p class="textItem " style="top:88.703924%;left:88.739496%;width:0.252101%;height:0.713436%;font-size:0.233010em;color:#FD9307;font-family:Helvetica Neue;">
+							<b>f:</b>
+						</p>
+						<p class="textItem " style="top:88.822830%;left:89.075630%;width:3.613445%;height:0.713436%;font-size:0.233010em;color:#000000;font-family:Helvetica Neue;">
+							+31 (0) 75 687 71 32
+						</p>
+						<p class="textItem " style="top:88.703924%;left:92.941176%;width:0.336134%;height:0.713436%;font-size:0.233010em;color:#FD9307;font-family:Helvetica Neue;">
+							<b>e:</b>
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:88.822830%;left:93.445378%;width:3.025210%;height:0.713436%;font-size:0.233010em;color:#000000;font-family:Helvetica Neue;" title="">
+							sales@hiltex.com
+						</a>
+						<p class="textItem " style="top:60.523187%;left:82.436975%;width:12.268908%;height:0.832342%;font-size:0.285000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Als internationale onderneming bedrijven wij elke dag</b>
+						</p>
+						<p class="textItem " style="top:61.355529%;left:82.436975%;width:13.613445%;height:0.832342%;font-size:0.285000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>topsport. Innovatie, ontwikkeling en passie is nodig om aan</b>
+						</p>
+						<p class="textItem " style="top:62.306778%;left:82.436975%;width:12.773109%;height:0.832342%;font-size:0.285000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>de top te blijven en dat behoort tot onze dagelijks werk.</b>
+						</p>
+						<p class="textItem " style="top:64.090369%;left:82.436975%;width:13.445378%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							Wij zijn als Hiltex in staat geweest steeds weer de concurrentie
+						</p>
+						<p class="textItem " style="top:64.922711%;left:82.436975%;width:9.915966%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							met onze innovaties een stapje voor te blijven.
+						</p>
+						<p class="textItem " style="top:66.706302%;left:82.436975%;width:13.277311%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							Zo is het ook met opsport. Topsport kan alleen tot sta kom
+						</p>
+						<p class="textItem " style="top:67.538644%;left:82.436975%;width:7.563025%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							als alle condities in ee zelf richti
+						</p>
+						<p class="textItem " style="top:67.538644%;left:90.672269%;width:4.957983%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							wijzen  dat e n ieder
+						</p>
+						<p class="textItem " style="top:68.489893%;left:82.436975%;width:14.117647%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							bereid is daar aan medewerking te verlenen. De spelers, coaches,
+						</p>
+						<p class="textItem " style="top:69.322235%;left:82.436975%;width:14.117647%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							bestuur, vrijwilligers en sponsors hebben in dat geval allemaal een
+						</p>
+						<p class="textItem " style="top:70.154578%;left:82.436975%;width:3.361345%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							doel voor ogen.
+						</p>
+						<p class="textItem " style="top:71.938169%;left:82.436975%;width:12.268908%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							KZ is een topsport vereniging. De enige op dit moment in
+						</p>
+						<p class="textItem " style="top:72.889417%;left:82.436975%;width:12.352941%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							de Zaanstreek. Hiltex is van mening dat de passie van KZ
+						</p>
+						<p class="textItem " style="top:73.721760%;left:82.436975%;width:13.193277%;height:0.832342%;font-size:0.285000em;color:#000000;font-family:Helvetica Neue;">
+							ondersteunt dient te worden om topsport mogelijk te houden.
+						</p>
+						<p class="textItem " style="top:77.288942%;left:85.882353%;width:7.899160%;height:1.070155%;font-size:0.342000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>&#8220;Voor dit jaar wensen wij KZ,</i></b>
+						</p>
+						<p class="textItem " style="top:78.240190%;left:86.722689%;width:7.647059%;height:1.070155%;font-size:0.342000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>maar ook alle and re teams</i></b>
+						</p>
+						<p class="textItem " style="top:79.310345%;left:85.882353%;width:9.495798%;height:1.070155%;font-size:0.342000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b><i>een goede n faire competitie toe&#8221;</i></b>
+						</p>
+						<p class="textItem " style="top:56.956005%;left:75.378151%;width:6.218487%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>Hiltex is Nederlands&#8217; grootste</b>
+						</p>
+						<p class="textItem " style="top:57.907253%;left:75.630252%;width:5.966387%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>leverancier van onbrandbare</b>
+						</p>
+						<p class="textItem " style="top:58.739596%;left:75.126050%;width:6.386555%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>technische weefsels, waarmee</b>
+						</p>
+						<p class="textItem " style="top:59.690844%;left:76.974790%;width:4.537815%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>industri&#235;le installaties</b>
+						</p>
+						<p class="textItem " style="top:60.523187%;left:77.394958%;width:4.201681%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>beschermd worden.</b>
+						</p>
+						<p class="textItem " style="top:62.306778%;left:76.638655%;width:4.873950%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>We zijn in vele sectoren</b>
+						</p>
+						<p class="textItem " style="top:63.139120%;left:77.815126%;width:3.697479%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>actief. Zoals in de</b>
+						</p>
+						<p class="textItem " style="top:64.090369%;left:75.714286%;width:5.882353%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>scheepsbouw, petrochemie,</b>
+						</p>
+						<p class="textItem " style="top:64.922711%;left:76.722689%;width:4.789916%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>automotive, m taal- en</b>
+						</p>
+						<p class="textItem " style="top:65.873960%;left:77.142857%;width:4.369748%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>halfg leiderindustrie.</b>
+						</p>
+						<p class="textItem " style="top:66.706302%;left:75.042017%;width:6.470588%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>Naast marktleider in Nederland</b>
+						</p>
+						<p class="textItem " style="top:67.538644%;left:75.462185%;width:6.050420%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>zijn we inmiddels uitg groeid</b>
+						</p>
+						<p class="textItem " style="top:68.489893%;left:75.210084%;width:6.386555%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>tot toonaangevend leveranci r</b>
+						</p>
+						<p class="textItem " style="top:69.322235%;left:76.470588%;width:5.126050%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>in meer dan 68 landen in</b>
+						</p>
+						<p class="textItem " style="top:70.273484%;left:76.302521%;width:5.210084%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>Europa, Amerika en Azi&#235;.</b>
+						</p>
+						<p class="textItem " style="top:71.105826%;left:75.378151%;width:6.218487%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>Een Zaans bedrijf met de hele</b>
+						</p>
+						<p class="textItem " style="top:71.938169%;left:76.722689%;width:4.873950%;height:0.832342%;font-size:0.258900em;color:#000000;font-family:Helvetica Neue;">
+							<b>wereld als marktplaats.</b>
+						</p>
+						<p class="textItem " style="top:56.599287%;left:82.436975%;width:14.033613%;height:2.853746%;font-size:0.969000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>De passie van KZ!</b>
+						</p>
+						<p class="textItem " style="top:55.529132%;left:82.436975%;width:5.462185%;height:1.545779%;font-size:0.513000em;color:#0058A6;font-family:Helvetica Neue;">
+							<b>Hiltex steunt:</b>
+						</p>
+						<p class="textItem " style="top:78.834721%;left:77.058824%;width:5.042017%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Hiltex steunt:
+						</p>
+						<p class="textItem " style="top:78.121284%;left:82.352941%;width:11.008403%;height:2.378121%;font-size:0.800000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							De passie van KZ!
+						</p>
+						<p class="textItem testString" style="top:80.499405%;left:77.058824%;width:17.983193%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<i>&#8216;Wij wensen KZ, maar ook de andere teams een</i>
+						</p>
+						<p class="textItem " style="top:82.164090%;left:77.058824%;width:11.260504%;height:1.426873%;font-size:0.500000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							<i>goede en f ir competitie toe&#8217;</i>
+						</p>
+						<p class="textItem " style="top:87.277051%;left:81.932773%;width:1.848739%;height:1.189061%;font-size:0.400000em;color:#002E85;font-family:Akzidenz Grotesk BE;">
+							Hiltex
+						</p>
+						<p class="textItem " style="top:87.277051%;left:83.949580%;width:7.563025%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Technische Weefsels BV
+						</p>
+						<p class="textItem " style="top:88.466112%;left:81.932773%;width:11.344538%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							Handelsweg 37 1525 RG West Knollendam The Neth
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:88.466112%;left:93.193277%;width:1.596639%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;" title="">
+							erlands
+						</a>
+						<p class="textItem " style="top:89.655172%;left:81.932773%;width:0.504202%;height:1.189061%;font-size:0.400000em;color:#FDB704;font-family:Akzidenz Grotesk BE;">
+							<b>T:</b>
+						</p>
+						<p class="textItem " style="top:89.655172%;left:82.352941%;width:4.621849%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							+31 (0)75 687 10 90
+						</p>
+						<p class="textItem " style="top:89.655172%;left:87.310924%;width:0.504202%;height:1.189061%;font-size:0.400000em;color:#FDB704;font-family:Akzidenz Grotesk BE;">
+							<b>F:</b>
+						</p>
+						<p class="textItem " style="top:89.655172%;left:87.731092%;width:0.924370%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							+31
+						</p>
+						<p class="textItem " style="top:89.655172%;left:88.823529%;width:0.252101%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							<b>(</b>
+						</p>
+						<p class="textItem " style="top:89.655172%;left:88.991597%;width:3.361345%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;">
+							0)75 687 10 90
+						</p>
+						<p class="textItem " style="top:89.655172%;left:92.689076%;width:0.504202%;height:1.189061%;font-size:0.400000em;color:#FDB704;font-family:Akzidenz Grotesk BE;">
+							<b>E:</b>
+						</p>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.655172%;left:93.193277%;width:1.680672%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;" title="">
+							sales@
+						</a>
+						<a class="linkTextItem  " href="mailto:sales@hiltex.com" target="_blank"  style="top:89.655172%;left:94.873950%;width:2.268908%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Akzidenz Grotesk BE;" title="">
+							hiltex.com
+						</a>
+						<p class="textItem testString" style="top:73.008323%;left:53.025210%;width:3.361345%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>Lagedijk 158</b>
+						</p>
+						<p class="textItem " style="top:74.197384%;left:53.025210%;width:4.537815%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>1544 BL Zaandijk</b>
+						</p>
+						<p class="textItem " style="top:75.386445%;left:53.025210%;width:5.966387%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>Telefoon 075 6401730</b>
+						</p>
+						<a class="linkTextItem  " href="http://www.heijnis-schipper.nl/" target="_blank"  style="top:76.575505%;left:53.025210%;width:5.966387%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;" title="">
+							<b>www.heijnis-schipper.nl</b>
+						</a>
+						<a class="linkTextItem  " href="mailto:info@heijnis-schipper.nl" target="_blank"  style="top:77.645660%;left:53.025210%;width:5.966387%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;" title="">
+							<b>info@heijnis-schipper.nl</b>
+						</a>
+						<p class="textItem " style="top:78.834721%;left:53.025210%;width:5.546218%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>Volg ons op Facebook:</b>
+						</p>
+						<p class="textItem " style="top:80.023781%;left:53.025210%;width:5.966387%;height:1.070155%;font-size:0.350000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>heijnis.schipper.drukkerij</b>
+						</p>
+						<p class="textItem " style="top:74.316290%;left:60.420168%;width:12.268908%;height:1.664685%;font-size:0.550000em;color:#A70010;font-family:Bell Gothic Std;">
+							<b>Juist voor een App naar H&amp;S!</b>
+						</p>
+						<p class="textItem testString" style="top:76.813317%;left:63.025210%;width:7.058824%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Bell Gothic;">
+							Bij ons staat App voor
+						</p>
+						<p class="textItem " style="top:78.002378%;left:61.092437%;width:10.924370%;height:1.664685%;font-size:0.550000em;color:#A70010;font-family:Bell Gothic Std;">
+							<b>Absoluut Prachtig Product</b>
+						</p>
+						<p class="textItem " style="top:80.499405%;left:60.756303%;width:11.680672%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Bell Gothic;">
+							Neem eens een kijkje op onze website
+						</p>
+						<a class="linkTextItem  " href="http://www.heijnis-schipper.nl/" target="_blank"  style="top:81.688466%;left:61.848739%;width:9.495798%;height:1.664685%;font-size:0.550000em;color:#6D786D;font-family:Bell Gothic Std;" title="">
+							<b>www.heijnis-schipper.nl</b>
+						</a>
+						<p class="textItem " style="top:83.353151%;left:61.092437%;width:11.008403%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Bell Gothic;">
+							om de nieuwe app&#8217;s te bewonderen.
+						</p>
+						<p class="textItem " style="top:84.780024%;left:60.084034%;width:13.025210%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Bell Gothic;">
+							We hebben er 7 voor u op een rijtje gezet.
+						</p>
+						<p class="textItem " style="top:86.801427%;left:62.521008%;width:8.151261%;height:1.664685%;font-size:0.550000em;color:#6D786D;font-family:Bell Gothic Std;">
+							<b>U wilt ook een App?</b>
+						</p>
+						<p class="textItem " style="top:88.466112%;left:61.764706%;width:9.579832%;height:1.307967%;font-size:0.450000em;color:#000000;font-family:Bell Gothic;">
+							Neem dan contact met ons op!
+						</p>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

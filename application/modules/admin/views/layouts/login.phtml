@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo $this->applicationName; ?> | Admin</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--<link rel="shortcut icon" href="/assets/admin/image/favicon.ico">
+	<link rel="apple-touch-icon" href="/assets/admin/image/apple-touch-icon.png">-->
+	
+	<!-- CSS Styles -->
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/colors.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/css/jquery.tipsy.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic">
+	
+	<script src="/assets/admin/script/jquery/jquery-1.5.1.min.js"></script>
+	<script src="/assets/admin/script/libs/modernizr-1.7.min.js"></script>
+	<script type="text/javascript">
+
+		jQuery(document).ready(function() {
+
+			// Notification Close Button
+			jQuery('.close-notification').click(
+				function () {
+					jQuery(this).parent().fadeTo(350, 0, function () {jQuery(this).slideUp(600);});
+					return false;
+				}
+			);
+
+			// jQuery Tipsy
+			jQuery('[rel=tooltip], #main-nav span, .loader').tipsy({gravity:'s', fade:true}); // Tooltip Gravity Orientation: n | w | e | s
+
+			// IE7 doesn't support :disabled
+			jQuery('.ie7').find(':disabled').addClass('disabled');
+
+		});
+	
+	</script>
+</head>
+<body class="login">
+
+	<?php echo ((! is_null($this->feedback)) ? $this->message($this->feedback['type'], $this->feedback['message']) : ''); ?>
+
+	<section role="main">
+	
+		<a href="<?php echo $this->root_url; ?>" title="Back to homepage"></a>
+	
+		<!-- Login box -->
+		<article id="login-box">
+		
+			<div class="article-container">
+				
+				<?php echo $this->layout()->content; ?>
+							
+			</div>
+		
+		</article>
+		
+		<!-- /Login box -->
+		<ul class="login-links">
+			<!--<li><a href="/admin/login/lostpassword/"><?php echo $this->translate('Lost password?'); ?></a></li>-->
+			<li><a href="http://www.koogzaandijk.nl/"><?php echo $this->translate('Back to homepage'); ?></a></li>
+		</ul>
+		
+	</section>
+
+	<!-- JS Libs at the end for faster loading -->
+	<script src="/assets/admin/script/libs/selectivizr.js"></script>
+	<script src="/assets/admin/script/jquery/jquery.tipsy.js"></script>
+</body>
+</html>

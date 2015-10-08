@@ -1,0 +1,95 @@
+<header>
+	<h2><?php echo $this->translate('Tags'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add tag'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->tags) && is_array($this->tags) && count($this->tags) > 0) { 
+		?>
+				<table class="datatable">
+					<thead>
+						<tr>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="75"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+			<?php foreach($this->tags as $arrTag) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrTag['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrTag['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+			?>
+			
+					<tr>
+						<td><?php echo $arrTag['tag_id']; ?></td>
+						<td><a href="/admin/news/tagsedit/id/<?php echo $arrTag['category_id']; ?>"><strong><?php echo $arrTag['name']; ?></strong></a></td>
+						<td><span class="tag <?php echo (($arrTag['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrTag['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td>
+							<ul class="actions">
+								<li><a rel="tooltip" href="/admin/settings/tagsedit/id/<?php echo $arrTag['tag_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit tag'); ?>"><?php echo $this->translate('Edit tag'); ?></a></li>
+								<li><a rel="tooltip" href="/admin/settings/tagsdelete/id/<?php echo $arrTag['tag_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete tag'); ?>"><?php echo $this->translate('Delete tag'); ?></a></li>
+							</ul>
+						</td>
+					</tr>
+			
+			<?php } ?>
+				
+					</tbody>
+				</table>
+				
+			<?php
+			} else {
+				echo $this->translate('No tags to display').'.';
+			}
+
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+		
+		<form name="addTagForm" method="post" action="#tab1">
+		
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add tag'); ?>" /></dd>
+			</dl>
+		
+		</form>
+	
+	</div>
+
+</section>

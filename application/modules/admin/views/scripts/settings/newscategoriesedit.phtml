@@ -1,0 +1,196 @@
+<header>
+	<h2><?php echo $this->translate('Edit news category'); ?></h2>
+</header>
+<section>
+	<form name="editCategoryForm" method="post" action="">
+	
+		<dl>
+			<dt width="200"><label class="label" for="title"><?php echo $this->translate('Title'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="title" name="title" value="<?php echo $this->defaults['title']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Link'); ?></label></dt>
+			<dd>
+				<select class="small" id="foreign_table" name="foreign_table">
+					<option value="page"<?php echo (($this->defaults['foreign_table'] == 'page') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Page'); ?></option>
+					<option value="news"<?php echo (($this->defaults['foreign_table'] == 'news') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('News'); ?></option>
+					<option value="agenda"<?php echo (($this->defaults['foreign_table'] == 'agenda') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Agenda'); ?></option>
+					<option value="other"<?php echo (($this->defaults['foreign_table'] == 'other') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Other'); ?></option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<?php
+					
+					if(isset($this->pages) && is_array($this->pages) && count($this->pages) > 0) {
+						
+						echo '<select class="small" id="foreign_key_page" name="foreign_key_page"'.(($this->defaults['foreign_table'] == 'page') ? '' : ' style="display:none;"').'>';
+
+						foreach($this->pages as $strMenuType => $arrPages) {
+							
+							echo '<optgroup label="'.$strMenuType.'">';
+
+							foreach($arrPages as $intPageKey => $arrPage) {
+								
+								$strSelected = (($this->defaults['foreign_table'] == 'page' && $this->defaults['foreign_key'] == $arrPage['page_id']) ? ' selected="selected"' : '');
+
+								$strMenuType	= (($arrPage['menu'] == 1) ? '' : (($arrPage['menu'] == 2) ? '&nbsp;&nbsp;-&nbsp;&nbsp;' : '- '));
+								
+								$strHasSubPages	= ((isset($arrPage['hasSubPages']) && $arrPage['hasSubPages'] === true) ? 'hasSubPages' : '');
+								
+								echo '<option value="'.$arrPage['page_id'].'"'.$strSelected.'>'.$strMenuType.$arrPage['name'].'</option>';
+	
+							}
+							
+							echo '</optgroup>';
+							
+						}
+						
+						echo '</select>';
+						
+					}
+
+					if(! empty($this->news) && is_array($this->news)) {
+						
+						echo '<select class="small" name="foreign_key_news" id="foreign_key_news"'.(($this->defaults['foreign_table'] == 'news') ? '' : ' style="display:none;"').'>';
+													
+						foreach($this->news as $intNewsKey => $arrNews) {
+							$strSelected = (($this->defaults['foreign_table'] == 'news' && $this->defaults['foreign_key'] == $arrNews['news_id']) ? ' selected="selected"' : '');
+							echo '<option value="'.$arrNews['news_id'].'"'.$strSelected.'>'.stripslashes($arrNews['name']).'</option>';
+						}
+								
+						echo '</select>';
+
+					}
+					
+					if(! empty($this->agenda) && is_array($this->agenda)) {
+							
+						echo '<select class="small" name="foreign_key_agenda" id="foreign_key_agenda"'.(($this->defaults['foreign_table'] == 'agenda') ? '' : ' style="display:none;"').'>';
+					
+						foreach($this->agenda as $intAgendaKey => $arrAgenda) {
+							$strSelected = (($this->defaults['foreign_table'] == 'agenda' && $this->defaults['foreign_key'] == $arrAgenda['agenda_id']) ? ' selected="selected"' : '');
+							echo '<option value="'.$arrAgenda['agenda_id'].'"'.$strSelected.'>'.stripslashes($arrAgenda['name']).'</option>';
+						}
+							
+						echo '</select>';
+					
+					}
+
+				?>
+				
+				<input class="small" type="text" name="link" id="foreign_key_other_link" value="<?php echo ((! empty($this->defaults['link'])) ? $this->defaults['link'] : ''); ?>"<?php echo (($this->defaults['foreign_table'] == 'other') ? '' : ' style="display:none;"'); ?> />
+				<br />
+				<select class="small" name="link_target" id="foreign_key_other_link_target"<?php echo (($this->defaults['foreign_table'] == 'other') ? '' : ' style="display:none;"'); ?>>
+					<option value="_self"<?php echo (($this->defaults['link_target'] == '_self') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Same page'); ?></option>
+					<option value="_blank"<?php echo (($this->defaults['link_target'] == '_blank') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('New page'); ?></option>
+				</select>
+				
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt><label class="label" for="name"><?php echo $this->translate('Background color'); ?></label></dt>
+			<dd>
+				<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+				
+					<select name="color_background">
+					
+						<?php
+						
+							foreach($this->colors as $intColorKey => $arrColor) :
+
+								$strSelectedBackgroundColor	= ((isset($this->defaults['color_background']) && $arrColor['code'] == $this->defaults['color_background']) ? ' selected="selected"' : '');
+							
+								echo '<option value="'.$arrColor['code'].'"'.$strSelectedBackgroundColor.'>'.$arrColor['name'].'</option>';
+							
+					
+							endforeach;
+						
+						?>
+					
+					</select>
+				
+				
+				<?php endif; ?>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="name"><?php echo $this->translate('Text color'); ?></label></dt>
+			<dd>
+				<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+				
+					<select name="color_text">
+					
+						<?php
+						
+							foreach($this->colors as $intColorKey => $arrColor) :
+
+								$strSelectedTextColor	= ((isset($this->defaults['color_text']) && $arrColor['code'] == $this->defaults['color_text']) ? ' selected="selected"' : '');
+							
+								echo '<option value="'.$arrColor['code'].'"'.$strSelectedTextColor.'>'.$arrColor['name'].'</option>';
+							
+					
+							endforeach;
+						
+						?>
+					
+					</select>
+				
+				<?php endif; ?>
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd>
+				<select class="small" name="status">
+					<option value="1"<?php echo (($this->defaults['status'] == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+					<option value="0"<?php echo (($this->defaults['status'] == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2">&nbsp;</dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Update news category'); ?>" /></dd>
+		</dl>
+	
+	</form>
+</section>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+
+		var foreignTable = jQuery('#foreign_table').val();
+		if(foreignTable == 'other') {
+			jQuery('#foreign_key_' + foreignTable + '_link').css('display','block');
+			jQuery('#foreign_key_' + foreignTable + '_link_target').css('display','block');
+		} else {
+			jQuery('#foreign_key_' + foreignTable).css('display','block');
+		}
+		
+		jQuery('#foreign_table').change(function(){
+			jQuery('#foreign_key_page').css('display','none');
+			jQuery('#foreign_key_news').css('display','none');
+			jQuery('#foreign_key_agenda').css('display','none');
+			jQuery('#foreign_key_other_link').css('display','none');
+			jQuery('#foreign_key_other_link_target').css('display','none');
+
+			var foreignTable = jQuery(this).val();
+			if(foreignTable == 'other') {
+				jQuery('#foreign_key_' + foreignTable + '_link').css('display','block');
+				jQuery('#foreign_key_' + foreignTable + '_link_target').css('display','block');
+			} else {
+				jQuery('#foreign_key_' + foreignTable).css('display','block');
+			}
+			
+		});
+	});
+</script>

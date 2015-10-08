@@ -1,0 +1,26 @@
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType image/jpeg "access plus 3 months"
+	ExpiresByType image/pjpeg "access plus 3 months"
+	ExpiresByType image/gif "access plus 3 months"
+	ExpiresByType image/png "access plus 3 months"
+</IfModule>
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^koogzaandijk\.nl [NC]
+RewriteRule ^(.*)$ http://www.koogzaandijk.nl/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
+RewriteRule ^(.*\.(css))$	compress-css.php?file=$1
+RewriteRule ^(.*\.(js))$	compress-js.php?file=$1
+RewriteRule ^(.*\.(html))$	compress-html.php?file=$1
+
+FileETag MTime Size
+
+Options -Indexes

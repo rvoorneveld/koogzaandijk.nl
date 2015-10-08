@@ -1,0 +1,184 @@
+<?php
+	// Set Models
+	$objModelMatches		= new KZ_Models_Matches();
+
+	// Set Date Object
+	$objDate				= new Zend_Date();
+
+	// Set Current Week
+	$intWeek				= (int)$objDate->subWeek(1)->toString('w');
+
+//	if($intWeek == 1) {
+//		$intWeek = 52;
+//	} else {
+//		$intWeek--;
+//	}
+
+	// Set Current Year
+	$intYear		        = (int)$objDate->get(Zend_Date::YEAR_8601);
+
+	// Set Teams array
+	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_10_teams']));
+
+	// Get Matches for current week
+	$arrMatches 			= $objModelMatches->getMatches($intYear, $intWeek, $arrTeams);
+
+	// Get Matches for this week
+	$arrThisWeekMatches		= $objModelMatches->getMatches($intYear, $intWeek+1, $arrTeams, true, 50);
+
+	// Set Teams Showed array
+	$arrTeamsShowed			= array();
+
+	// Get Day of the week
+	$objDate    = new Zend_Date();
+	$intWeekDay = (int)$objDate->get(Zend_Date::WEEKDAY_DIGIT);
+
+	// Show New Results only from Wednesday
+	$booShowNewResultsOnly  = (($intWeekDay >= 3) ? true : false);
+
+	if(
+		(isset($arrThisWeekMatches) && is_array($arrThisWeekMatches) && count($arrThisWeekMatches) > 0)
+		||  (isset($arrMatches) && is_array($arrMatches) && count($arrMatches) > 0)
+
+	) {
+
+	// Dynamically fill match info on click
+	echo '<div id="match_info_results"></div>';
+
+	echo '<ol class="clubplugin results">';
+
+	if(isset($arrThisWeekMatches) && is_array($arrThisWeekMatches) && count($arrThisWeekMatches) > 0) {
+
+		echo 	'<li class="heading">
+						<span class="team_home_name">Thuis</span>
+						<span class="seperator"></span>
+						<span class="team_away_name">Uit</span>
+					</li>';
+
+		foreach($arrThisWeekMatches as $strTeam => $arrThisWeekMatchesByTeam) {
+
+			foreach($arrThisWeekMatchesByTeam as $intMatchKey => $arrThisWeekMatch) {
+
+				if(
+					! is_null($arrThisWeekMatch['team_home_score'])
+					&&  is_numeric($arrThisWeekMatch['team_home_score'])
+					&&  ! is_null($arrThisWeekMatch['team_away_score'])
+					&& 	is_numeric($arrThisWeekMatch['team_away_score'])
+				) {
+
+					$strTeamHomeName	= stripslashes($arrThisWeekMatch['team_home_name']);
+					if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
+						if(strstr($strTeamHomeName, '/')) {
+							$arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
+							$arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
+							$intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
+
+							$strTeamHomeName	= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
+						}
+					}
+
+					$strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
+
+					$strTeamAwayName	= stripslashes($arrThisWeekMatch['team_away_name']);
+					if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
+						if(strstr($strTeamAwayName, '/')) {
+							$arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
+							$arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
+							$intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+
+							$strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
+						}
+					}
+					$strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+
+					$arrTeamsShowed[] = ((! strstr($strTeamHomeName, 'KZ/Hiltex')) ? $strTeamAwayName : $strTeamHomeName);
+
+
+
+					echo '	<li class="widget" rel="'.$arrThisWeekMatch['match_id'].'">
+									<span class="team_home_name">
+										'.$strTeamHomeName.'
+										<span class="team_home_score">'.$arrThisWeekMatch['team_home_score'].'</span>
+									</span>
+									<span class="seperator">-</span>
+									<span class="team_away_name">
+										<span class="team_away_score">'.$arrThisWeekMatch['team_away_score'].'</span>
+										'.htmlentities($strTeamAwayName).'
+									</span>
+								</li>';
+
+				}
+
+			}
+
+		}
+
+	} else {
+		if($booShowNewResultsOnly === true ) {
+			echo $this->translate('Geen uitslagen bekend').'.<br />'.$this->translate('Nieuwe uitslagen aankomend weekend').'.';
+		}
+	}
+
+	if($booShowNewResultsOnly !== true ) {
+
+		if(isset($arrMatches) && is_array($arrMatches) && count($arrMatches) > 0) {
+
+			foreach($arrMatches as $strTeam => $arrMatchesByTeam) {
+
+				foreach($arrMatchesByTeam as $intMatchKey => $arrMatch) {
+
+					$strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
+					if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
+						if(strstr($strTeamHomeName, '/')) {
+							$arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
+							$arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
+							$intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
+
+							$strTeamHomeName	= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
+						}
+					}
+					$strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
+
+					$strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
+					if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
+						if(strstr($strTeamAwayName, '/')) {
+							$arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
+							$arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
+							$intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+
+							$strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
+						}
+					}
+					$strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+
+					$strCurrentTeam		= ((! strstr($strTeamHomeName, 'KZ/Hiltex')) ? $strTeamAwayName : $strTeamHomeName);
+
+					if(! in_array($strCurrentTeam, $arrTeamsShowed)) {
+
+						echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
+										<span class="team_home_name">
+											'.$strTeamHomeName.'
+											<span class="team_home_score">'.$arrMatch['team_home_score'].'</span>
+										</span>
+										<span class="seperator">-</span>
+										<span class="team_away_name">
+											<span class="team_away_score">'.$arrMatch['team_away_score'].'</span>
+											'.$strTeamAwayName.'
+										</span>
+									</li>';
+					}
+
+				}
+
+			}
+
+			echo '</ol>';
+
+		} else {
+
+			echo $this->translate('No results for week').' '.$intWeek;
+
+		}
+	}
+}
+?>

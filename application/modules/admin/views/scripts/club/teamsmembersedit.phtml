@@ -1,0 +1,52 @@
+<header>
+	<h2><?php echo $this->translate('Edit team member'); ?></h2>
+</header>
+<section>
+
+	<form name="editTeamMemberForm" method="post" action="">
+
+		<dl>
+			<dt><label class="label" for="team_role_id"><?php echo $this->translate('Role'); ?></label></dt>
+			<dd>
+				<?php
+
+					if(! empty($this->roles) && is_array($this->roles)) {
+						echo '<select name="team_role_id" id="team_role_id" class="small">';
+						foreach($this->roles as $arrRole) {
+							echo '<option value="'.$arrRole['team_role_id'].'"'.(($this->defaults['team_role_id'] == $arrRole['team_role_id']) ? ' selected="selected"' : '').'>'.ucfirst($this->translate($arrRole['name'])).'</option>';
+						}
+						echo '</select>';
+					}
+				?>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="gender"><?php echo $this->translate('Gender'); ?></label></dt>
+			<dd>
+				<select name="gender" id="gender" class="small">
+					<option value="m"<?php echo (($this->defaults['gender'] == 'm') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Male'); ?></option>
+					<option value="f"<?php echo (($this->defaults['gender'] == 'f') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Female'); ?></option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="firstname"><?php echo $this->translate('Firstname'); ?></label></dt>
+			<dd><input type="text" class="small" id="firstname" name="firstname" value="<?php echo $this->defaults['firstname']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="lastname"><?php echo $this->translate('Lastname'); ?></label></dt>
+			<dd><input type="text" class="small" id="lastname" name="lastname" value="<?php echo $this->defaults['lastname']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="link"><?php echo $this->translate('Link'); ?></label></dt>
+			<dd><input type="text" class="small" id="link" name="link" value="<?php echo $this->defaults['link']; ?>" /></dd>
+		</dl>
+
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save'); ?>" /></dd>
+		</dl>
+
+	</form>
+
+</section>

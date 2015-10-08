@@ -1,0 +1,5089 @@
+<?xml version='1.0' encoding='UTF-8'?><standings><standing>
+	<poule_id>46606</poule_id>
+<poule_name>WKL</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>30738</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A)]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>30756</team_id>
+	<team_name ><![CDATA[Dalto/BNApp.nl]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>31036</team_id>
+	<team_name ><![CDATA[DVO]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>31671</team_id>
+	<team_name ><![CDATA[Fortuna/MHIR]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>28372</team_id>
+	<team_name ><![CDATA[KZ/Hiltex]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>28622</team_id>
+	<team_name ><![CDATA[LDODK/AH Gorredijk]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>31315</team_id>
+	<team_name ><![CDATA[Nic./Alfa-college]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>31362</team_id>
+	<team_name ><![CDATA[OVVO/De Kroon]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>9</position>
+	<team_id>25856</team_id>
+	<team_name ><![CDATA[PKC/Hagero]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>10</position>
+	<team_id>24979</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46185</poule_id>
+<poule_name>EKA</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13107</team_id>
+	<team_name ><![CDATA[Unitas/Perspectief]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>17</goals_for>
+	<goals_against>14</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>12753</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A)]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>12872</team_id>
+	<team_name ><![CDATA[Fortuna/MHIR]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>12935</team_id>
+	<team_name ><![CDATA[KZ/Hiltex]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13095</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>12784</team_id>
+	<team_name ><![CDATA[Nic./Alfa-college]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>14</goals_for>
+	<goals_against>17</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46688</poule_id>
+<poule_name>RKL</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>25826</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>25853</team_id>
+	<team_name ><![CDATA[Dalto/BNApp.nl 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>25564</team_id>
+	<team_name ><![CDATA[DVO 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>29922</team_id>
+	<team_name ><![CDATA[Fortuna/MHIR 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>30143</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>30152</team_id>
+	<team_name ><![CDATA[LDODK/AH Gorredijk 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>25862</team_id>
+	<team_name ><![CDATA[Nic./Alfa-college 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>29881</team_id>
+	<team_name ><![CDATA[OVVO/De Kroon 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>9</position>
+	<team_id>25864</team_id>
+	<team_name ><![CDATA[PKC/Hagero 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>10</position>
+	<team_id>25303</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46208</poule_id>
+<poule_name>RHKA</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13568</team_id>
+	<team_name ><![CDATA[Nic./Alfa-college 3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>18</goals_for>
+	<goals_against>17</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13550</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>13354</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>13716</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13472</team_id>
+	<team_name ><![CDATA[Unitas/Perspectief 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>13473</team_id>
+	<team_name ><![CDATA[Wageningen 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13330</team_id>
+	<team_name ><![CDATA[HKV/Ons Eibernest 2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>17</goals_for>
+	<goals_against>18</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46209</poule_id>
+<poule_name>ROKA</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13358</team_id>
+	<team_name ><![CDATA[KVA 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>22</goals_for>
+	<goals_against>19</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13220</team_id>
+	<team_name ><![CDATA[BEP 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>11</goals_for>
+	<goals_against>9</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13162</team_id>
+	<team_name ><![CDATA[DOS Kampen/Veltman 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>14</goals_for>
+	<goals_against>13</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>19059</team_id>
+	<team_name ><![CDATA[DeetosSnel 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13470</team_id>
+	<team_name ><![CDATA[Tweemaal Zes 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>13646</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>14</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13361</team_id>
+	<team_name ><![CDATA[KVZ 2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>11</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>13561</team_id>
+	<team_name ><![CDATA[Dalto/BNApp.nl 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>19</goals_for>
+	<goals_against>22</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46694</poule_id>
+<poule_name>ROKD</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>29604</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27513</team_id>
+	<team_name ><![CDATA[KCC/Delta Logistiek 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>30031</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>32790</team_id>
+	<team_name ><![CDATA[Mid-Fryslân 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>25528</team_id>
+	<team_name ><![CDATA[Rohda 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>29802</team_id>
+	<team_name ><![CDATA[SKF 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>31763</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>30460</team_id>
+	<team_name ><![CDATA[ZKV (Za) 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46701</poule_id>
+<poule_name>R1G</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>27437</team_id>
+	<team_name ><![CDATA[BEP 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>31431</team_id>
+	<team_name ><![CDATA[Fortuna/MHIR 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>29823</team_id>
+	<team_name ><![CDATA[Groen Geel 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>30033</team_id>
+	<team_name ><![CDATA[KVA 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>31463</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>31084</team_id>
+	<team_name ><![CDATA[SCO 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>21172</team_id>
+	<team_name ><![CDATA[Wageningen 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46218</poule_id>
+<poule_name>R2J</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13544</team_id>
+	<team_name ><![CDATA[AWDTV/e-senzaz.com 3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>12</goals_for>
+	<goals_against>6</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13727</team_id>
+	<team_name ><![CDATA[Roda 3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>10</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13780</team_id>
+	<team_name ><![CDATA[BEP 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>18</goals_for>
+	<goals_against>17</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>13606</team_id>
+	<team_name ><![CDATA[Refleks 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13450</team_id>
+	<team_name ><![CDATA[Synergo 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>13847</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>17</goals_for>
+	<goals_against>18</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13596</team_id>
+	<team_name ><![CDATA[Phoenix 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>13</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>13728</team_id>
+	<team_name ><![CDATA[Rohda 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>12</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46716</poule_id>
+<poule_name>R2N</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>31132</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>29923</team_id>
+	<team_name ><![CDATA[Futura 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>25854</team_id>
+	<team_name ><![CDATA[KZ Danaïden 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>32382</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>25526</team_id>
+	<team_name ><![CDATA[Roda 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>30251</team_id>
+	<team_name ><![CDATA[Sporting Trigon 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>30459</team_id>
+	<team_name ><![CDATA[ZKC '31 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>30086</team_id>
+	<team_name ><![CDATA[ZKV (Za) 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46331</poule_id>
+<poule_name>R3N</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13438</team_id>
+	<team_name ><![CDATA[Sporting West 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>19</goals_for>
+	<goals_against>8</goals_against>
+	<difference>11</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13829</team_id>
+	<team_name ><![CDATA[Groen Geel 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>12</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13235</team_id>
+	<team_name ><![CDATA[Crescendo 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>13562</team_id>
+	<team_name ><![CDATA[KZ Danaïden 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>13983</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>13702</team_id>
+	<team_name ><![CDATA[Sporting Trigon 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13697</team_id>
+	<team_name ><![CDATA[ZKV (Za) 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>12</goals_for>
+	<goals_against>13</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>13849</team_id>
+	<team_name ><![CDATA[KVA 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>19</goals_against>
+	<difference>-11</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46674</poule_id>
+<poule_name>R4ZF</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>25817</team_id>
+	<team_name ><![CDATA[Aurora 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>37158</team_id>
+	<team_name ><![CDATA[AWDTV/e-senzaz.com 6]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>32751</team_id>
+	<team_name ><![CDATA[BEP 6]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>30016</team_id>
+	<team_name ><![CDATA[Furore 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>32881</team_id>
+	<team_name ><![CDATA[Groen Geel 6]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>32384</team_id>
+	<team_name ><![CDATA[KVA 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>7</position>
+	<team_id>32886</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 6]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>29748</team_id>
+	<team_name ><![CDATA[OKV 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46364</poule_id>
+<poule_name>R4ZF</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13778</team_id>
+	<team_name ><![CDATA[AWDTV/e-senzaz.com 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>4</goals_against>
+	<difference>9</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13525</team_id>
+	<team_name ><![CDATA[ADOS 3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>4</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13332</team_id>
+	<team_name ><![CDATA[Furore 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>4</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>13214</team_id>
+	<team_name ><![CDATA[Aurora 2]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>10</goals_for>
+	<goals_against>10</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13579</team_id>
+	<team_name ><![CDATA[OKV 3]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>10</goals_for>
+	<goals_against>10</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>13533</team_id>
+	<team_name ><![CDATA[Apollo (H) 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>7</position>
+	<team_id>14067</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 6]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>13288</team_id>
+	<team_name ><![CDATA[Purmer 2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>13</goals_against>
+	<difference>-9</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46786</poule_id>
+<poule_name>R5G</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13229</team_id>
+	<team_name ><![CDATA[Celeritas 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>17</goals_for>
+	<goals_against>7</goals_against>
+	<difference>10</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>23268</team_id>
+	<team_name ><![CDATA[Sporting West 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>12</goals_for>
+	<goals_against>7</goals_against>
+	<difference>5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13626</team_id>
+	<team_name ><![CDATA[Helios 3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>7</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>14042</team_id>
+	<team_name ><![CDATA[BEP 6]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>7</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13021</team_id>
+	<team_name ><![CDATA[Vogel]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>14122</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 7]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13742</team_id>
+	<team_name ><![CDATA[DKV Victoria 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>12</goals_against>
+	<difference>-5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>14093</team_id>
+	<team_name ><![CDATA[Rohda 6]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>17</goals_against>
+	<difference>-10</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46787</poule_id>
+<poule_name>R5H</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13417</team_id>
+	<team_name ><![CDATA[HBC 2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>5</goals_against>
+	<difference>5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>32982</team_id>
+	<team_name ><![CDATA[KVA 8]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>12</goals_for>
+	<goals_against>8</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>13770</team_id>
+	<team_name ><![CDATA[Apollo (H) 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>7</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>14153</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 8]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13838</team_id>
+	<team_name ><![CDATA[Furore 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>13600</team_id>
+	<team_name ><![CDATA[Purmer 3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>12</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>14005</team_id>
+	<team_name ><![CDATA[ZKV (Za) 5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-5</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46794</poule_id>
+<poule_name>R6E</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>14172</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 9]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>11</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13901</team_id>
+	<team_name ><![CDATA[Roda 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>8</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>22411</team_id>
+	<team_name ><![CDATA[Apollo (H) 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>13686</team_id>
+	<team_name ><![CDATA[HBC 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>13444</team_id>
+	<team_name ><![CDATA[Stormvogels (U) 2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>14043</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) 6]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>11</goals_for>
+	<goals_against>13</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13775</team_id>
+	<team_name ><![CDATA[Aurora 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46795</poule_id>
+<poule_name>R6F</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>13910</team_id>
+	<team_name ><![CDATA[DKV Victoria 5]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>19</goals_for>
+	<goals_against>4</goals_against>
+	<difference>15</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>13763</team_id>
+	<team_name ><![CDATA[ADOS 4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>11</goals_for>
+	<goals_against>5</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14061</team_id>
+	<team_name ><![CDATA[Groen Geel 6]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>4</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>14082</team_id>
+	<team_name ><![CDATA[ZKV (Za) 6]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>9</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>34947</team_id>
+	<team_name ><![CDATA[Aurora 5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>13144</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 10]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>11</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>13814</team_id>
+	<team_name ><![CDATA[Purmer 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>13833</team_id>
+	<team_name ><![CDATA[Helios 4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>19</goals_against>
+	<difference>-15</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47288</poule_id>
+<poule_name>R7G</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>29609</team_id>
+	<team_name ><![CDATA[Celeritas 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>32922</team_id>
+	<team_name ><![CDATA[DKV Victoria 7]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>32122</team_id>
+	<team_name ><![CDATA[Furore 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>25260</team_id>
+	<team_name ><![CDATA[KZ/Hiltex 10]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>32087</team_id>
+	<team_name ><![CDATA[OKV 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>41129</team_id>
+	<team_name ><![CDATA[Oosterkwartier 4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>32106</team_id>
+	<team_name ><![CDATA[Purmer 5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>30082</team_id>
+	<team_name ><![CDATA[WWSV 3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46745</poule_id>
+<poule_name>AHKA</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>31149</team_id>
+	<team_name ><![CDATA[DeetosSnel A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>29214</team_id>
+	<team_name ><![CDATA[DOS '46 A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>29221</team_id>
+	<team_name ><![CDATA[DSC A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>29229</team_id>
+	<team_name ><![CDATA[DVO A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>32475</team_id>
+	<team_name ><![CDATA[KCC/Delta Logistiek A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>28471</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>28484</team_id>
+	<team_name ><![CDATA[LDODK/AH Gorredijk A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>28521</team_id>
+	<team_name ><![CDATA[SKF A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46339</poule_id>
+<poule_name>AOKD</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>14229</team_id>
+	<team_name ><![CDATA[Antilopen A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>14235</team_id>
+	<team_name ><![CDATA[Avanti (P) A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14336</team_id>
+	<team_name ><![CDATA[Groen Geel A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>18397</team_id>
+	<team_name ><![CDATA[KOAG A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>14369</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>20361</team_id>
+	<team_name ><![CDATA[Nieuwerkerk/Trekvogels A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>14419</team_id>
+	<team_name ><![CDATA[Velocitas A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>14420</team_id>
+	<team_name ><![CDATA[VEO A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46200</poule_id>
+<poule_name>A1E</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>14507</team_id>
+	<team_name ><![CDATA[Rohda A1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>19</goals_for>
+	<goals_against>10</goals_against>
+	<difference>9</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>14230</team_id>
+	<team_name ><![CDATA[Apollo (H) A1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>6</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14240</team_id>
+	<team_name ><![CDATA[BEP A1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>8</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>14233</team_id>
+	<team_name ><![CDATA[Atlantis A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>14603</team_id>
+	<team_name ><![CDATA[Groen Geel A2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>14617</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>14502</team_id>
+	<team_name ><![CDATA[Roda A1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>14302</team_id>
+	<team_name ><![CDATA[Phoenix A1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>19</goals_against>
+	<difference>-9</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46758</poule_id>
+<poule_name>A2H</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>29419</team_id>
+	<team_name ><![CDATA[Crescendo A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>35661</team_id>
+	<team_name ><![CDATA[Furore A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>28480</team_id>
+	<team_name ><![CDATA[KVA A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>25592</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>29448</team_id>
+	<team_name ><![CDATA[OKV A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>32443</team_id>
+	<team_name ><![CDATA[Refleks A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>28787</team_id>
+	<team_name ><![CDATA[ZKC '31 A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>28788</team_id>
+	<team_name ><![CDATA[ZKV (Za) A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46813</poule_id>
+<poule_name>A3G</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>14557</team_id>
+	<team_name ><![CDATA[BEP A2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>14705</team_id>
+	<team_name ><![CDATA[Groen Geel A3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>22379</team_id>
+	<team_name ><![CDATA[Helios A1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>14708</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46828</poule_id>
+<poule_name>A5Z</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>14251</team_id>
+	<team_name ><![CDATA[Celeritas A1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>6</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>14645</team_id>
+	<team_name ><![CDATA[ZKV (Za) A2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>5</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>33010</team_id>
+	<team_name ><![CDATA[Helios A2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>14745</team_id>
+	<team_name ><![CDATA[KZ/Hiltex A4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>14587</team_id>
+	<team_name ><![CDATA[Phoenix A2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>14469</team_id>
+	<team_name ><![CDATA[Stormvogels (U) A1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>14742</team_id>
+	<team_name ><![CDATA[Groen Geel A4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46202</poule_id>
+<poule_name>BHKB</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>14986</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>13</goals_for>
+	<goals_against>7</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15077</team_id>
+	<team_name ><![CDATA[ZKV (Za) B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>7</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14861</team_id>
+	<team_name ><![CDATA[Dalto/BNApp.nl B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>14797</team_id>
+	<team_name ><![CDATA[DVO B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>14947</team_id>
+	<team_name ><![CDATA[Groen Geel B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>15107</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>14991</team_id>
+	<team_name ><![CDATA[KVS/Maritiem B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>15129</team_id>
+	<team_name ><![CDATA[Rohda B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>13</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46564</poule_id>
+<poule_name>BHKB</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>27311</team_id>
+	<team_name ><![CDATA[Groen Geel B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27182</team_id>
+	<team_name ><![CDATA[KCC/Delta Logistiek B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>27591</team_id>
+	<team_name ><![CDATA[KVS/Maritiem B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>27586</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>27606</team_id>
+	<team_name ><![CDATA[De Meervogels B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>28203</team_id>
+	<team_name ><![CDATA[Rohda B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>28181</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>27920</team_id>
+	<team_name ><![CDATA[ZKV (Za) B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46558</poule_id>
+<poule_name>B1D</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>26435</team_id>
+	<team_name ><![CDATA[EKVA B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27297</team_id>
+	<team_name ><![CDATA[Fiducia B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>30206</team_id>
+	<team_name ><![CDATA[Groen Geel B2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>27590</team_id>
+	<team_name ><![CDATA[KVA B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>30227</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>27608</team_id>
+	<team_name ><![CDATA[MIA B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>27870</team_id>
+	<team_name ><![CDATA[Spirit (Vo) B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>27919</team_id>
+	<team_name ><![CDATA[ZKC '31 B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46513</poule_id>
+<poule_name>B2M</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>15250</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>12</goals_for>
+	<goals_against>3</goals_against>
+	<difference>9</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>14894</team_id>
+	<team_name ><![CDATA[OKV B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>7</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14964</team_id>
+	<team_name ><![CDATA[Furore B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>15183</team_id>
+	<team_name ><![CDATA[BEP B2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>12</goals_against>
+	<difference>-9</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46829</poule_id>
+<poule_name>B3A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>22494</team_id>
+	<team_name ><![CDATA[DTS (E) B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>15</goals_for>
+	<goals_against>1</goals_against>
+	<difference>14</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>2</position>
+	<team_id>15347</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>4</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14831</team_id>
+	<team_name ><![CDATA[Apollo (H) B1]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>5</goals_for>
+	<goals_against>5</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>15124</team_id>
+	<team_name ><![CDATA[Roda B1]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>5</goals_for>
+	<goals_against>5</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>14820</team_id>
+	<team_name ><![CDATA[ADOS B1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>15074</team_id>
+	<team_name ><![CDATA[Zaandam Zuid B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>15209</team_id>
+	<team_name ><![CDATA[OKV B2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>15</goals_against>
+	<difference>-14</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>48757</poule_id>
+<poule_name>B4D</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>22476</team_id>
+	<team_name ><![CDATA[KVA B3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>5</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15179</team_id>
+	<team_name ><![CDATA[Aurora B2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>4</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14791</team_id>
+	<team_name ><![CDATA[DSO (A) B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>5</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>33026</team_id>
+	<team_name ><![CDATA[Furore B2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>15390</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>14956</team_id>
+	<team_name ><![CDATA[Helios B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>33023</team_id>
+	<team_name ><![CDATA[Haarlem B2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46842</poule_id>
+<poule_name>B5A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>33022</team_id>
+	<team_name ><![CDATA[WWSV B1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>2</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15168</team_id>
+	<team_name ><![CDATA[ADOS B2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>2</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>14917</team_id>
+	<team_name ><![CDATA[Purmer B1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>4</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>35004</team_id>
+	<team_name ><![CDATA[KZ/Hiltex B5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46581</poule_id>
+<poule_name>CHKC</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>32372</team_id>
+	<team_name ><![CDATA[BEP C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>32663</team_id>
+	<team_name ><![CDATA[Groen Geel C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>32666</team_id>
+	<team_name ><![CDATA[Die Haghe C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>32476</team_id>
+	<team_name ><![CDATA[KCC/Delta Logistiek C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>32832</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>28492</team_id>
+	<team_name ><![CDATA[Nieuwerkerk C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>29351</team_id>
+	<team_name ><![CDATA[Telstar C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>29194</team_id>
+	<team_name ><![CDATA[ZKV (Za) C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46346</poule_id>
+<poule_name>CHKC</poule_name>
+<serie></serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>15468</team_id>
+	<team_name ><![CDATA[Achilles (Hg) C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15599</team_id>
+	<team_name ><![CDATA[Groen Geel C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>15643</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>19191</team_id>
+	<team_name ><![CDATA[Nieuwerkerk C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>19247</team_id>
+	<team_name ><![CDATA[PKC/Hagero C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>15769</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>15741</team_id>
+	<team_name ><![CDATA[ZKC '31 C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>15742</team_id>
+	<team_name ><![CDATA[ZKV (Za) C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46594</poule_id>
+<poule_name>C2F</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>29538</team_id>
+	<team_name ><![CDATA[BEP C2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>29514</team_id>
+	<team_name ><![CDATA[EKVA C2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>29706</team_id>
+	<team_name ><![CDATA[Groen Geel C2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>32665</team_id>
+	<team_name ><![CDATA[Haarlem C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>32826</team_id>
+	<team_name ><![CDATA[KIOS (N) C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>29721</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>29381</team_id>
+	<team_name ><![CDATA[Rohda C1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46463</poule_id>
+<poule_name>C2J</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>22892</team_id>
+	<team_name ><![CDATA[Sporting West C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>2</goals_against>
+	<difference>7</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>22838</team_id>
+	<team_name ><![CDATA[AWDTV/e-senzaz.com C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>1</goals_against>
+	<difference>7</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>15850</team_id>
+	<team_name ><![CDATA[BEP C2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-7</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>15917</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-7</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46856</poule_id>
+<poule_name>C4A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>15571</team_id>
+	<team_name ><![CDATA[Purmer C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>5</goals_against>
+	<difference>5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15424</team_id>
+	<team_name ><![CDATA[DKV (IJ) C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>3</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>16033</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>3</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>15956</team_id>
+	<team_name ><![CDATA[ZKV (Za) C2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>16028</team_id>
+	<team_name ><![CDATA[Groen Geel C3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>4</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>15609</team_id>
+	<team_name ><![CDATA[Helios C1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>7</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>15920</team_id>
+	<team_name ><![CDATA[KVA C2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-5</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46866</poule_id>
+<poule_name>C5B</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>15442</team_id>
+	<team_name ><![CDATA[DTS (E) C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>17</goals_for>
+	<goals_against>0</goals_against>
+	<difference>17</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>2</position>
+	<team_id>16082</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C4]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>3</goals_for>
+	<goals_against>3</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>15736</team_id>
+	<team_name ><![CDATA[WWSV C1]]></team_name>
+	<played>1</played>
+	<points>1</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>1</draw>
+	<goals_for>3</goals_for>
+	<goals_against>3</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>40879</team_id>
+	<team_name ><![CDATA[ZKC '31 C4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>17</goals_against>
+	<difference>-17</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46872</poule_id>
+<poule_name>C5H</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>34999</team_id>
+	<team_name ><![CDATA[ZKV (Za) C3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>3</goals_against>
+	<difference>5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>15737</team_id>
+	<team_name ><![CDATA[Zaandam Zuid C1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>0</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>33038</team_id>
+	<team_name ><![CDATA[Swift (A) C2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>2</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>16108</team_id>
+	<team_name ><![CDATA[KZ/Hiltex C5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-5</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46490</poule_id>
+<poule_name>DHKF</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>16346</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>2</goals_against>
+	<difference>5</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>16442</team_id>
+	<team_name ><![CDATA[ZKV (Za) D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>6</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>16127</team_id>
+	<team_name ><![CDATA[DKV Victoria D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>16308</team_id>
+	<team_name ><![CDATA[Groen Geel D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>7</goals_against>
+	<difference>-5</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46602</poule_id>
+<poule_name>DHKC</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>28015</team_id>
+	<team_name ><![CDATA[Avanti (P) D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27720</team_id>
+	<team_name ><![CDATA[DKV Victoria D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>24598</team_id>
+	<team_name ><![CDATA[Fortuna/MHIR D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>24617</team_id>
+	<team_name ><![CDATA[Groen Geel D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>24655</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>25442</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>25203</team_id>
+	<team_name ><![CDATA[ZKV (Za) D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46878</poule_id>
+<poule_name>D1A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>16199</team_id>
+	<team_name ><![CDATA[BEP D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>2</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>16268</team_id>
+	<team_name ><![CDATA[OVVO/De Kroon D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>2</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>16293</team_id>
+	<team_name ><![CDATA[Fiducia D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>16353</team_id>
+	<team_name ><![CDATA[KVA D1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>16617</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>16160</team_id>
+	<team_name ><![CDATA[EKVA D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>16441</team_id>
+	<team_name ><![CDATA[ZKC '31 D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46883</poule_id>
+<poule_name>D2A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>16740</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>10</goals_for>
+	<goals_against>2</goals_against>
+	<difference>8</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>16325</team_id>
+	<team_name ><![CDATA[Furore D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>0</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>16183</team_id>
+	<team_name ><![CDATA[Apollo (H) D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>16683</team_id>
+	<team_name ><![CDATA[Roda D2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>10</goals_against>
+	<difference>-8</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46901</poule_id>
+<poule_name>D3F</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>16788</team_id>
+	<team_name ><![CDATA[BEP D4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>5</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>36512</team_id>
+	<team_name ><![CDATA[DKV Victoria D2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>7</goals_for>
+	<goals_against>3</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>16187</team_id>
+	<team_name ><![CDATA[Asonia D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>4</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>16798</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>16574</team_id>
+	<team_name ><![CDATA[OKV D2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>5</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>16796</team_id>
+	<team_name ><![CDATA[Groen Geel D4]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>16656</team_id>
+	<team_name ><![CDATA[ZKC '31 D2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>7</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46898</poule_id>
+<poule_name>D3C</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>38817</team_id>
+	<team_name ><![CDATA[Furore D3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>1</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>16210</team_id>
+	<team_name ><![CDATA[Celeritas D1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>1</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>16823</team_id>
+	<team_name ><![CDATA[KZ/Hiltex D5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>3</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>16140</team_id>
+	<team_name ><![CDATA[DSO (A) D1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>4</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46923</poule_id>
+<poule_name>E8-2A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>16924</team_id>
+	<team_name ><![CDATA[BEP E1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>2</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>20258</team_id>
+	<team_name ><![CDATA[ZKC '31 E1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>5</goals_for>
+	<goals_against>1</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>17071</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>16921</team_id>
+	<team_name ><![CDATA[AWDTV/e-senzaz.com E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>5</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47380</poule_id>
+<poule_name>E8-2A</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>28577</team_id>
+	<team_name ><![CDATA[Haarlem E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>28254</team_id>
+	<team_name ><![CDATA[KZ Danaïden E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>3</position>
+	<team_id>28840</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>25128</team_id>
+	<team_name ><![CDATA[Madjoe E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>25405</team_id>
+	<team_name ><![CDATA[OKV E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>30899</team_id>
+	<team_name ><![CDATA[Rapid E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>26525</team_id>
+	<team_name ><![CDATA[ZKC '31 E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>25411</team_id>
+	<team_name ><![CDATA[ZKV (Za) E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47384</poule_id>
+<poule_name>E8-3A</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>25959</team_id>
+	<team_name ><![CDATA[BEP E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>28595</team_id>
+	<team_name ><![CDATA[Furore E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>26214</team_id>
+	<team_name ><![CDATA[Groen Geel E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>26236</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>21097</team_id>
+	<team_name ><![CDATA[OKV E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>21046</team_id>
+	<team_name ><![CDATA[Purmer E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>25662</team_id>
+	<team_name ><![CDATA[Roda E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>21064</team_id>
+	<team_name ><![CDATA[Sporting West E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46930</poule_id>
+<poule_name>E8-3A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="TRUE">
+	<position>1</position>
+	<team_id>17340</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>4</goals_for>
+	<goals_against>0</goals_against>
+	<difference>4</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>17317</team_id>
+	<team_name ><![CDATA[Groen Geel E2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>0</goals_against>
+	<difference>2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>17273</team_id>
+	<team_name ><![CDATA[BEP E2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>2</goals_against>
+	<difference>-2</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>21845</team_id>
+	<team_name ><![CDATA[Purmer E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>4</goals_against>
+	<difference>-4</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47385</poule_id>
+<poule_name>E8-3B</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>21053</team_id>
+	<team_name ><![CDATA[ADOS E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27987</team_id>
+	<team_name ><![CDATA[Asonia E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>32570</team_id>
+	<team_name ><![CDATA[Celeritas E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>26818</team_id>
+	<team_name ><![CDATA[Groen Geel E3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>5</position>
+	<team_id>26823</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>25429</team_id>
+	<team_name ><![CDATA[Swift (A) E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>21054</team_id>
+	<team_name ><![CDATA[Zaandam Zuid E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>8</position>
+	<team_id>26528</team_id>
+	<team_name ><![CDATA[ZKV (Za) E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>48760</poule_id>
+<poule_name>E8-3C</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>17335</team_id>
+	<team_name ><![CDATA[KIOS (N) E2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>15</goals_for>
+	<goals_against>0</goals_against>
+	<difference>15</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>17487</team_id>
+	<team_name ><![CDATA[Groen Geel E4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>1</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>17050</team_id>
+	<team_name ><![CDATA[Furore E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>17471</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl E3]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>17379</team_id>
+	<team_name ><![CDATA[ZKV (Za) E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>17448</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E3]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>2</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>23823</team_id>
+	<team_name ><![CDATA[Celeritas E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>15</goals_against>
+	<difference>-15</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47392</poule_id>
+<poule_name>E4-1A</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>16909</team_id>
+	<team_name ><![CDATA[Apollo (H) E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>27991</team_id>
+	<team_name ><![CDATA[Atlantis E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>16927</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>25118</team_id>
+	<team_name ><![CDATA[Haarlem E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>25435</team_id>
+	<team_name ><![CDATA[Helios E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>6</position>
+	<team_id>32163</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E4]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>7</position>
+	<team_id>36975</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl E5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>47393</poule_id>
+<poule_name>E4-1B</poule_name>
+<serie></serie>
+<sport>Zaal</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>25957</team_id>
+	<team_name ><![CDATA[Atlantis E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>21057</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>27626</team_id>
+	<team_name ><![CDATA[ESDO E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>30901</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>5</position>
+	<team_id>21049</team_id>
+	<team_name ><![CDATA[SDO/VerzuimVitaal E2]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>6</position>
+	<team_id>25416</team_id>
+	<team_name ><![CDATA[De Vinken E1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46944</poule_id>
+<poule_name>E4-2A</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>33141</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) E2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>8</goals_for>
+	<goals_against>1</goals_against>
+	<difference>7</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>2</position>
+	<team_id>18832</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E4]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>2</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>20272</team_id>
+	<team_name ><![CDATA[Helios E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>3</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>33154</team_id>
+	<team_name ><![CDATA[Apollo (H) E1]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>8</goals_against>
+	<difference>-7</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46947</poule_id>
+<poule_name>E4-2D</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>23827</team_id>
+	<team_name ><![CDATA[OKV E3]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>2</goals_for>
+	<goals_against>1</goals_against>
+	<difference>1</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>2</position>
+	<team_id>40916</team_id>
+	<team_name ><![CDATA[Blauw-Wit (A) E5]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>39096</team_id>
+	<team_name ><![CDATA[TOP/Wereldtickets.nl E6]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>4</position>
+	<team_id>18839</team_id>
+	<team_name ><![CDATA[KZ/Hiltex E5]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>1</goals_for>
+	<goals_against>2</goals_against>
+	<difference>-1</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>48715</poule_id>
+<poule_name>F2D</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>17602</team_id>
+	<team_name ><![CDATA[OKV F1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>9</goals_for>
+	<goals_against>0</goals_against>
+	<difference>9</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>2</position>
+	<team_id>17658</team_id>
+	<team_name ><![CDATA[KZ/Hiltex F1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>21798</team_id>
+	<team_name ><![CDATA[ZKC '31 F1]]></team_name>
+	<played>0</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>0</goals_against>
+	<difference>0</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>17765</team_id>
+	<team_name ><![CDATA[BEP F2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>9</goals_against>
+	<difference>-9</difference>
+	<penalties>0</penalties>
+</line></lines></standing><standing>
+	<poule_id>46980</poule_id>
+<poule_name>F3D</poule_name>
+<serie>NAJAAR</serie>
+<sport>Veld</sport>
+<lines>
+	<line clubteam="FALSE">
+	<position>1</position>
+	<team_id>17553</team_id>
+	<team_name ><![CDATA[ADOS F1]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>6</goals_for>
+	<goals_against>0</goals_against>
+	<difference>6</difference>
+	<penalties>0</penalties>
+</line><line clubteam="TRUE">
+	<position>2</position>
+	<team_id>17792</team_id>
+	<team_name ><![CDATA[KZ/Hiltex F2]]></team_name>
+	<played>1</played>
+	<points>2</points>
+	<won>1</won>
+	<lost>0</lost>
+	<draw>0</draw>
+	<goals_for>3</goals_for>
+	<goals_against>0</goals_against>
+	<difference>3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>3</position>
+	<team_id>21797</team_id>
+	<team_name ><![CDATA[ZKV (Za) F2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>3</goals_against>
+	<difference>-3</difference>
+	<penalties>0</penalties>
+</line><line clubteam="FALSE">
+	<position>4</position>
+	<team_id>17787</team_id>
+	<team_name ><![CDATA[Groen Geel F2]]></team_name>
+	<played>1</played>
+	<points>0</points>
+	<won>0</won>
+	<lost>1</lost>
+	<draw>0</draw>
+	<goals_for>0</goals_for>
+	<goals_against>6</goals_against>
+	<difference>-6</difference>
+	<penalties>0</penalties>
+</line></lines></standing></standings>

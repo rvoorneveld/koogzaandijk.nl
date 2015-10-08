@@ -1,0 +1,99 @@
+<header>
+	<h2><?php echo $this->translate('Delete agenda item'); ?></h2>
+</header>
+
+<section>
+
+	<form name="deleteAgendaForm" method="post" action="">
+
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->name; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('News'); ?></label></dt>
+			<dd class="text"><?php echo (($this->news_name == '') ? '-' : $this->news_name); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Location'); ?></label></dt>
+			<dd class="text"><?php echo $this->location; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Start date'); ?></label></dt>
+			<dd class="text"><?php echo $this->date_start; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('End date'); ?></label></dt>
+			<dd class="text"><?php echo $this->date_end; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Start time'); ?></label></dt>
+			<dd class="text"><?php echo (($this->time_start == '') ? '-' : $this->time_start); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('End time'); ?></label></dt>
+			<dd class="text"><?php echo (($this->time_end == '') ? '-' : $this->time_end); ?></dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('SEO title'); ?></label></dt>
+			<dd class="text"><?php echo ((isset($this->seo_title) && ! empty($this->seo_title)) ? $this->seo_title : '-'); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('SEO description'); ?></label></dt>
+			<dd class="text"><?php echo ((isset($this->seo_description) && ! empty($this->seo_description)) ? $this->seo_description : '-'); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('SEO keywords'); ?></label></dt>
+			<dd class="text"><?php echo ((isset($this->seo_keywords) && ! empty($this->seo_keywords)) ? $this->seo_keywords : '-'); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->status == 1) ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		
+		<?php if(isset($this->agendaContent) && is_array($this->agendaContent) && count($this->agendaContent) > 0) : ?>
+			
+			<dl>
+				<dt height="15" colspan="2"></dt>
+			</dl>
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd class="text">
+					<div class="notification attention">
+						<p>
+							<strong><?php echo $this->translate('Attention'); ?></strong>
+							<?php echo $this->translate('Attached agenda content will also be deleted'); ?>
+						</p>
+					</div>
+					
+				</dd>
+			</dl>
+			
+		
+		<?php endif; ?>
+		
+		
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd class="text">&raquo; <?php echo $this->translate('Are you sure you want to delete this agenda item'); ?>?</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Yes'); ?>" style="margin-right: 15px;" />
+				<a href="/admin/agenda/index/" title="<?php echo $this->translate('No, go back to overview'); ?>"><?php echo $this->translate('No, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

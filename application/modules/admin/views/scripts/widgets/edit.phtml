@@ -1,0 +1,95 @@
+<header>
+	<h2><?php echo $this->translate('Edit widget'); ?></h2>
+</header>
+
+<section>
+
+	<form name="addWidgetsForm" method="post" action="#tab1">
+
+		<dl>
+			<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="size"><?php echo $this->translate('Size'); ?></label></dt>
+			<dd>
+				<select class="tiny" name="size">
+					<option value="small"<?php echo (($this->size == 'small') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Small'); ?></option>
+					<option value="large"<?php echo (($this->size == 'large') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Large'); ?></option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="name"><?php echo $this->translate('Background color'); ?></label></dt>
+			<dd>
+				<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+				
+					<select name="color_background">
+					
+						<?php
+						
+							foreach($this->colors as $intColorKey => $arrColor) :
+
+								$strSelectedBackgroundColor	= ((isset($this->color_background) && $arrColor['code'] == $this->color_background) ? ' selected="selected"' : '');
+							
+								echo '<option value="'.$arrColor['code'].'"'.$strSelectedBackgroundColor.'>'.$arrColor['name'].'</option>';
+							
+					
+							endforeach;
+						
+						?>
+					
+					</select>
+				
+				
+				<?php endif; ?>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="name"><?php echo $this->translate('Text color'); ?></label></dt>
+			<dd>
+				<?php if(isset($this->colors) && is_array($this->colors)) : ?>
+				
+					<select name="color_text">
+					
+						<?php
+						
+							foreach($this->colors as $intColorKey => $arrColor) :
+
+								$strSelectedTextColor	= ((isset($this->color_text) && $arrColor['code'] == $this->color_text) ? ' selected="selected"' : '');
+							
+								echo '<option value="'.$arrColor['code'].'"'.$strSelectedTextColor.'>'.$arrColor['name'].'</option>';
+							
+					
+							endforeach;
+						
+						?>
+					
+					</select>
+				
+				<?php endif; ?>
+			</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd>
+				<select class="small" name="status">
+					<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+					<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save widget'); ?>" />
+				<a href="/admin/widgets/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	
+	</form>
+
+</section>

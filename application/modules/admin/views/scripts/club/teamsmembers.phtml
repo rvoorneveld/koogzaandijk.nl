@@ -1,0 +1,103 @@
+<header>
+	<h2><?php echo $this->translate('Team members'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add member'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		<?php
+			if(! empty($this->members) && is_array($this->members)) {
+
+				echo '  <table>
+							<thead>
+								<tr>
+									<th width="60">'.$this->translate('ID').'</th>
+									<th>'.$this->translate('Gender').'</th>
+									<th>'.$this->translate('Name').'</th>
+									<th>'.$this->translate('Role').'</th>
+									<th width="100">'.$this->translate('Options').'</th>
+								</tr>
+							</thead>
+							<tbody>';
+
+					foreach($this->members as $arrMember) {
+
+						echo '  <tr>
+									<td>'.$arrMember['team_member_id'].'</td>
+									<td>'.$this->translate((($arrMember['gender'] == 'm') ? 'Male' : 'Female')).'</td>
+									<td>'.$arrMember['firstname'].' '.$arrMember['lastname'].'</td>
+									<td>'.ucfirst($this->translate($arrMember['role'])).'</td>
+									<td>
+										<ul class="actions">
+											<li><a rel="tooltip" href="/admin/club/teamsmembersedit/id/'.$arrMember['team_member_id'].'/" class="edit" original-title="'.$this->translate('Edit User').'">'.$this->translate('Edit User').'</a></li>
+											<li><a rel="tooltip" href="/admin/club/teamsmembersdelete/id/'.$arrMember['team_member_id'].'/" class="delete" original-title="'.$this->translate('Delete User').'">'.$this->translate('Delete User').'</a></li>
+										</ul>
+									</td>
+								</tr>';
+
+				}
+
+				echo '      </tbody>
+						</table>';
+
+			}
+
+		?>
+	</div>
+
+	<div id="tab1" class="tab">
+
+		<form name="addPagesForm" method="post" action="#tab1">
+
+			<dl>
+				<dt><label class="label" for="team_role_id"><?php echo $this->translate('Role'); ?></label></dt>
+				<dd>
+					<?php
+
+						if(! empty($this->roles) && is_array($this->roles)) {
+							echo '<select name="team_role_id" id="team_role_id" class="small">';
+							foreach($this->roles as $arrRole) {
+								echo '<option value="'.$arrRole['team_role_id'].'"'.(($this->defaults['team_role_id'] == $arrRole['team_role_id']) ? ' selected="selected"' : '').'>'.ucfirst($this->translate($arrRole['name'])).'</option>';
+							}
+							echo '</select>';
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="gender"><?php echo $this->translate('Gender'); ?></label></dt>
+				<dd>
+					<select name="gender" id="gender" class="small">
+						<option value="m"<?php echo (($this->defaults['gender'] == 'm') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Male'); ?></option>
+						<option value="f"<?php echo (($this->defaults['gender'] == 'f') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Female'); ?></option>
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="firstname"><?php echo $this->translate('Firstname'); ?></label></dt>
+				<dd><input type="text" class="small" id="firstname" name="firstname" value="<?php echo $this->defaults['firstname']; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="lastname"><?php echo $this->translate('Lastname'); ?></label></dt>
+				<dd><input type="text" class="small" id="lastname" name="lastname" value="<?php echo $this->defaults['lastname']; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="link"><?php echo $this->translate('Link'); ?></label></dt>
+				<dd><input type="text" class="small" id="link" name="link" value="<?php echo $this->defaults['link']; ?>" /></dd>
+			</dl>
+
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add page'); ?>" /></dd>
+			</dl>
+
+		</form>
+
+	</div>
+
+</section>

@@ -1,0 +1,290 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		var type = jQuery('#content_type_id').val();
+
+		if(type == 0) {
+			jQuery('.layoutPreview').css('display', 'none');
+		} else {
+			jQuery('.layoutPreview').css('display', 'block');
+			jQuery('.layoutPreview').attr('href', '/assets/admin/image/layout/type' + type + '.jpg');
+			jQuery('.layoutPreview img').attr('src', '/assets/admin/image/layout/thumb_type' + type + '.jpg');
+		}
+		
+		jQuery('.content_type').hide();
+		jQuery('#content_'+type).toggle();
+		jQuery('#activeContentType').val(type);
+
+		jQuery('#content_type_id').change(function(){
+
+			var type = jQuery(this).val();
+
+			if(type == 0) {
+				jQuery('.layoutPreview').css('display', 'none');
+			} else {
+				jQuery('.layoutPreview').css('display', 'block');
+				jQuery('.layoutPreview').attr('href', '/assets/admin/image/layout/type' + type + '.jpg');
+				jQuery('.layoutPreview img').attr('src', '/assets/admin/image/layout/thumb_type' + type + '.jpg');
+			}
+			
+			jQuery('.content_type').hide();
+			jQuery('#content_'+type).toggle();
+			jQuery('#activeContentType').val(type);
+
+		});
+
+		jQuery('table.sortable').sortable({
+			helper: fixHelper,
+			items: 'tr.sortable',
+			cancel: 'tr.unsortable',
+			update: function(event, ui) {
+
+		  		jQuery(this).children().each(function() {
+
+					var pIDs	= new Array();
+					var	i		= 0;
+					jQuery(this).children('tr').each(function(){
+
+						var pID 	= jQuery(this).attr('rel');
+						
+						if(pID != ''){
+							pIDs[i]	= pID;
+							i++;
+						}
+
+
+					});
+
+					// Make ajax call
+					$.ajax({
+						url			: '/admin/agenda/sortcontent',
+					  	dataType	: 'html',
+					  	data		: {
+							rank	: pIDs 
+						},
+					  	success		: function(data) {
+							//alert(data);
+					  	}
+
+					});
+
+		  		});
+
+			}
+
+		});
+
+		jQuery("a.layoutPreview").fancybox({
+			width: '50%',
+			height: '100%',
+			showNavArrows: false
+		});
+		
+	});
+
+	// Sortable tables
+	var fixHelper = function(e, ui) {
+	    ui.children().each(function() {
+	        $(this).width($(this).width());
+	    });
+	    return ui;
+	};
+
+</script>
+<header>
+	<h2><?php echo $this->translate('Content for agenda').' '.$this->agenda['name']; ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#tab1"><?php echo $this->translate('Add content'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+
+	<div id="tab0" class="tab default-tab">
+		
+		<?php
+			if(isset($this->agenda_content) && is_array($this->agenda_content) && count($this->agenda_content) > 0) {
+		?>
+				
+				<table class="sortable">
+					<thead>
+						<tr class="unsortable">
+							<th width="25"></th>
+							<th width="50"><?php echo $this->translate('ID'); ?></th>
+							<th width="*"><?php echo $this->translate('Name'); ?></th>
+							<th width="125"><?php echo $this->translate('Layout'); ?></th>
+							<th width="125"><?php echo $this->translate('Status'); ?></th>
+							<th width="150"><?php echo $this->translate('Created'); ?></th>
+							<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+							<th width="150"><?php echo $this->translate('Modified by'); ?></th>
+							<th width="100"><?php echo $this->translate('Options'); ?></th>
+						</tr>
+					</thead>
+					<tbody>
+				
+			<?php
+				foreach($this->agenda_content as $intAgendaContentKey => $arrAgendaContent) {
+					
+					// Format Created Date
+					$strCreatedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['created'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Format Modified Date
+					$strModifiedDate 	= KZ_View_Helper_Date::format($arrAgendaContent['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
+					
+					// Set Agenda Content Type
+					$strAgendaType	= ((isset($this->contentTypes[$arrAgendaContent['content_type_id']]['name']) && ! empty($this->contentTypes[$arrAgendaContent['content_type_id']]['name'])) ? $this->contentTypes[$arrAgendaContent['content_type_id']]['name'] : '-');
+					
+			?>	
+				<tr class="sortable" rel="content_<?php echo $arrAgendaContent['agenda_content_id']; ?>">
+					<td><img class="noBorder" src="/assets/admin/image/jquery/sort_both.png" style="cursor: move;" /></td>
+					<td><?php echo $arrAgendaContent['agenda_content_id']; ?></td>
+					<td><a href="/admin/agenda/contentedit/id/<?php echo $arrAgendaContent['agenda_content_id']; ?>"><strong><?php echo $arrAgendaContent['name']; ?></strong></a></td>
+					<td><?php echo $strAgendaType; ?></td>
+					<td><span class="tag <?php echo (($arrAgendaContent['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrAgendaContent['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+					<td><?php echo $strCreatedDate;?></td>
+					<td><?php echo $strModifiedDate;?></td>
+					<td><?php echo ((isset($this->users[$arrAgendaContent['user_id']]['name']) && ! empty($this->users[$arrAgendaContent['user_id']]['name'])) ? $this->users[$arrAgendaContent['user_id']]['name'] : '-');?></td>
+					<td>
+						<ul class="actions">
+							<li><a rel="tooltip" href="/admin/agenda/contentbackup/id/<?php echo $arrAgendaContent['agenda_content_id']; ?>/agenda_id/<?php echo $arrAgendaContent['agenda_id']; ?>/" class="backup" class="content" original-title="<?php echo $this->translate('Show content backups'); ?>"><?php echo $this->translate('Show backups'); ?></a></li>
+							<li><a rel="tooltip" href="/admin/agenda/contentedit/id/<?php echo $arrAgendaContent['agenda_content_id']; ?>/" class="edit" class="content" original-title="<?php echo $this->translate('Edit content'); ?>"><?php echo $this->translate('Edit content'); ?></a></li>
+							<li><a rel="tooltip" href="/admin/agenda/contentdelete/id/<?php echo $arrAgendaContent['agenda_content_id']; ?>/" class="delete" class="content" original-title="<?php echo $this->translate('Delete content'); ?>"><?php echo $this->translate('Delete content'); ?></a></li>
+						</ul>
+					</td>
+				</tr>	
+			<?php	
+				}
+			?>
+				</tbody>
+			</table>
+		<?php
+			} else {
+				echo $this->translate('No content to display').'.';
+			}
+		?>
+	</div>
+	
+	<div id="tab1" class="tab">
+	
+		<form name="addAgendaContentForm" method="post" action="#tab1">
+			<dl>
+				<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+				<dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo stripslashes($this->agenda['name']); ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="content_type_id"><?php echo $this->translate('Layout'); ?></label></dt>
+				<dd>
+					<?php
+						if(isset($this->contentTypes) && is_array(($this->contentTypes))) {
+								
+							echo '<select class="small" name="content_type_id" id="content_type_id"><option value="0">'.$this->translate('Choose').'</option>';
+							
+							foreach($this->contentTypes as $intContentTypeKey => $arrContentType) {
+									
+								if($arrContentType['status'] == 1) {
+										
+									$strSelected	= (($arrContentType['content_type_id'] == $this->content_type_id) ? ' selected="selected"' : '');
+									
+									echo '<option value="'.$arrContentType['content_type_id'].'" '.$strSelected.'>'.$this->translate($arrContentType['name']).'</option>';
+										
+								}
+								
+							}
+
+							echo '</select>';
+							
+						}
+					?>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+				<dd>
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</dd>
+			</dl>
+			
+		
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><a class="layoutPreview" style="display: none;" href="" title=""><img src="" alt="" title=""></a></dd>
+			</dl>
+			
+			
+			<div id="content_1" class="content_type">
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Title and text'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt width="200"><label class="label" for="content_1_title"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd width="*"><input type="text" class="small" id="content_1_title" name="content_1_title" value="<?php echo stripslashes($this->agenda['name']); ?>" /></dd>
+				</dl>
+				<dl>
+					<dt><label for="content_1_text"><?php echo $this->translate('Text'); ?></label></dt>
+					<dd><textarea name="content_1_text" rows="5" cols="40" class="tinymce" style="width: 80%; height: 450px"><?php echo stripslashes($this->content_1_text); ?></textarea></dd>
+				</dl>
+	
+			</div>
+			
+			<div id="content_2" class="content_type">
+				
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Title, image and text'); ?></label></dd>	
+				</dl>
+				<dl>
+					<dt width="200"><label class="label" for="content_2_title"><?php echo $this->translate('Title'); ?></label></dt>
+					<dd width="*"><input type="text" class="small" id="content_2_title" name="content_2_title" value="<?php echo stripslashes($this->agenda['name']); ?>" /></dd>
+				</dl>
+				<dl>
+					<dt><label class="label" for="content_2_image"><?php echo $this->translate('Image'); ?></label></dt>
+					<dd><input type="text" class="small" id="content_2_image" name="content_2_image" value="<?php echo $this->content_2_image; ?>" /> <a class="button" href="javascript:mcImageManager.open('addAgendaContentForm','content_2_image');"><?php echo $this->translate('Select image'); ?></a></dd>
+				</dl>
+				<dl>
+					<dt><label for="content_2_text"><?php echo $this->translate('Text'); ?></label></dt>
+					<dd><textarea name="content_2_text" rows="5" cols="40" class="tinymce" style="width: 80%; height: 450px"><?php echo stripslashes($this->content_2_text); ?></textarea></dd>
+				</dl>
+				
+	
+			</div>		
+			
+			<div id="content_3" class="content_type">
+	
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd><label><?php echo $this->translate('Video'); ?></label></dd>	
+				</dl>
+				
+				<dl>
+					<dt width="200"><label class="label" for="content_3_video"><?php echo $this->translate('Video'); ?></label></dt>
+					<dd width="*"><input type="text" class="small" id="content_3_video" name="content_3_video" value="<?php echo $this->content_3_video; ?>" /> </dd>
+				</dl>
+				
+			</div>				
+
+			<dl>
+				<dt>&nbsp;</dt>
+				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add agenda content'); ?>" /></dd>
+			</dl>
+			
+			<input type="hidden" id="activeContentType" name="activeContentType" value="">
+			
+		</form>
+
+	</div>
+
+</section>
+<script language="JavaScript">
+
+<?php if (isset($this->editorInit)) print $this->editorInit; ?>
+
+</script>

@@ -1,0 +1,350 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.5, minimum-scale=0.5, user-scalable=yes, maximum-scale=2.0, target-densitydpi=device-dpi" />
+
+    <title>KZ Magazine</title>
+
+    <meta charset="utf-8">
+
+    <meta name="robots" content="all"/>
+
+	<link href="./styles/style.css" type="text/css" rel="stylesheet" />
+	<link href="./styles/mobile.css" type="text/css" rel="stylesheet" />
+	
+    <script type="text/javascript">
+        CURRENT_PAGE = "24";
+        MAIN_PAGE     = "index.html";
+        FILES_FOLDER  = "files";
+
+    </script>
+	
+	
+	<script src="./javascript/init.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+	    STATIC_FOLDER = ".";
+	    DYNAMIC_FOLDER = "./..";
+
+	    PUBLICATION_NAME = "KZ Magazine";
+
+	    CURRENT_VERSION = "2.6.18";
+
+	    LANGS = ['en','de','es','fi','fr','it','ja','no','pl','pt','ru','sv','zh','nl'];
+	    PUBLICATION_TYPE = "magazine";
+
+
+	var main = function () {
+
+		loadScript('./javascript/localizator.js',function(){});
+
+	    if (document.domain.indexOf('publ.com') != -1 || document.domain.indexOf('cld.bz') != -1 || document.domain.indexOf('cld.mobi') != -1 || document.domain.indexOf('cld.local') != -1) {
+			var staticServer = window.location.protocol === 'https:' ? 'https://d2ayihadozxfln.cloudfront.net' : ('http://static.' + window.location.hostname)
+			var url = staticServer + "/publication/" + CURRENT_VERSION + "/basic/cloud.js";
+			loadScript(url,function(){});
+		}
+
+	}
+
+	if (!!window.addEventListener) {
+		window.addEventListener('load', main);
+	} else {
+		window.attachEvent('onload', main);
+	}
+
+	function loadScript(url, callback){
+		var head = document.getElementsByTagName("head")[0];
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url;
+		head.appendChild(script);
+		if (script.readyState){
+			script.onreadystatechange = function(){
+				if (script.readyState == "loaded" ||
+						script.readyState == "complete"){
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		} else {
+			script.onload = function(){
+				callback();
+			};
+		}
+	}
+</script>
+
+
+    <style type="text/css">
+        .areaLinkItem:hover
+        {
+            	
+	background: transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3FC7FF,endColorstr=#3FC7FF);
+	zoom:1;
+	
+	background:rgb(63,199,255);
+	background:rgba(63,199,255, 0.5);
+	
+
+        }
+
+
+    </style>
+</head>
+<body style="font-size: 20px">
+	<div class="infoPopUp" id="infoPopUp" ></div>
+	<div class="popUp" id="popUp">
+		<a id="closeButton" class="closeButtonPopUp" href="#"></a>
+		<table class="popUpTable">
+			<tbody>
+				<tr>
+					<td>
+						<img alt="Cover" src="./../flash/pages/page0001_s.jpg" class="popUpCover" />
+					</td>
+					<td>
+						<h4 id="popupTitle">&nbsp;</h4>
+						<p id="popupText"></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="toolbar">
+		<ul class="zoomContainer" id="zoomContainer">
+			<li>
+				<a class="zoomInButton" id="zoomIn" href="#">
+					<img src="styles/zoomIn.png" alt="Zoom In" />
+				</a>
+			</li>
+			<li>
+				<a class="zoomOutButton" id="zoomOut" href="#">
+					<img src="styles/zoomOut.png" alt="Zoom Out" />
+				</a>
+			</li>
+		</ul>
+
+		
+		
+		<div class="toolbarButtons">
+
+				<ul class="downloadButton toolbarLink">
+					<li class="iconLi">
+						<img class="iconToolbar" src="styles/save.png" alt="Downloads" />
+                        <img class="iconToolbar mobile" src="styles/save-mobile.png" alt="Downloads" />
+					</li>
+						<li id="downloadPdf" class="downloadSubMenu">
+							<a id="downloadPdfLink" href="./../common/downloads/publication.pdf" target="_blank">Скачать PDF</a>
+						</li>
+																			</ul>
+		</div>
+
+		
+		
+
+			<a id="pagePrevArrow" class="toLeftButton toolbarLink internalLink" href="./page-22-23.html"><img class="iconToolbar" src="styles/previous.png" alt="Previous Page" /></a>
+        
+		<span class="pager"><span id="pageLabel"></span>&nbsp;24 / 24</span>
+
+
+		<ul class="sharingContainer">
+			<li>
+				<a class="facebookShare" id="facebookShare" href="#" target="_blank">
+                    <img src="styles/facebook_32.png" alt="Share on Facebook" />
+					<span id="facebookShareText" class="shareTitleMenu"></span>
+				</a>
+			</li>
+			<li>
+                <a class="twitterShare" id="twitterShare" href="#" target="_blank">
+                    <img src="styles/twitter_32.png" alt="Tweet" />
+                    <span id="twitterShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="linkedinShare" id="linkedinShare" href="#" target="_blank">
+                    <img src="styles/linkedin_32.png" alt="Share on LinkedIn" />
+                    <span id="linkedinShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="tumblrShare" id="tumblrShare" href="#" target="_blank">
+                    <img src="styles/tumblr_32.png" alt="Share on Tumblr" />
+                    <span id="tumblrShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="googleShare" id="googleShare" href="#" target="_blank">
+                    <img src="styles/google_32.png" alt="Share on Google+" />
+                    <span id="googleShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="mailShare" id="mailShare" href="#" target="_blank">
+                    <img src="styles/email_32.png" alt="E-mail" />
+                    <span id="mailShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+			<li>
+                <a class="vkShare" id="vkShare" href="#" target="_blank">
+                    <img src="styles/vk_32.png" alt="Share on VK" />
+                    <span id="vkShareText" class="shareTitleMenu"></span>
+                </a>
+			</li>
+		</ul>
+
+
+		<div class="verContainer" id="verContainer">
+			<!--<a class="versions toolbarLink" href="#" id="flash">Flash version</a>-->
+			<!--<a class="versions toolbarLink" href="#" id="mobile">Mobile version</a>-->
+			<span class="basicInfoTitle">Basic version</span>
+			<a id="infoButton" class="toolbarLink info" href="#"><img class="iconInfo" src="styles/info.png" alt="Information" /></a>
+
+		</div>
+	</div>
+
+	<div class="mainFrame" id="mainFrame">
+		<a class="mobileMenuButton" id="mobileMenuButton">
+			<img src="styles/mobile-menu.png" alt="Show Menu" />
+		</a>
+
+		<div class="mobileNav">
+					<a class="toLeftButton toolbarLink internalLink" href="./page-22-23.html"><img class="iconToolbar" src="styles/prev-mob.png" alt="Previous Page" /></a>
+			<span class="pager">24 / 24</span>
+		</div>
+
+		<div id="pageContainer" class="pageContainer" style="width: 595px; height: 841px; margin: 40px 0 0 -297px; background-color:#FFFFFF;">
+			<img alt="Page Background" src="./../common/page-substrates/page0013.jpg" style="width: 100%; height: 100%;">
+
+
+						<p class="textItem testString" style="top:95.838288%;left:5.714286%;width:1.848739%;height:1.545779%;font-size:0.500000em;color:#002E85;font-family:Rockwell;">
+							<b>24</b>
+						</p>
+						<p class="textItem " style="top:95.838288%;left:7.899160%;width:1.176471%;height:1.545779%;font-size:0.500000em;color:#FDB704;font-family:Rockwell;">
+							<b>|</b>
+						</p>
+						<p class="textItem testString" style="top:96.076100%;left:9.411765%;width:10.756303%;height:1.189061%;font-size:0.400000em;color:#000000;font-family:Signa Ext Caps;">
+							kz magazine
+						</p>
+						<p class="textItem testString" style="top:92.390012%;left:4.033613%;width:8.739496%;height:4.637337%;font-size:1.604310em;color:#FC7709;font-family:Swiss721BT;">
+							<b>TOP</b>
+						</p>
+						<p class="textItem " style="top:96.195006%;left:4.033613%;width:8.571429%;height:2.615933%;font-size:0.882170em;color:#FFFFFF;font-family:Swiss721BT;">
+							<b>merken</b>
+						</p>
+						<p class="textItem testString" style="top:34.363853%;left:8.571429%;width:53.277311%;height:2.021403%;font-size:0.700000em;color:#000000;font-family:Swiss721BT;">
+							All4Fysioheeft een zeer breedenuitgebreidassortiment
+						</p>
+						<p class="textItem " style="top:36.979786%;left:8.571429%;width:53.277311%;height:2.021403%;font-size:0.700000em;color:#000000;font-family:Swiss721BT;">
+							aan sportbraces. In onze overzichtelijke webshop vindt
+						</p>
+						<p class="textItem " style="top:39.595719%;left:8.571429%;width:27.731092%;height:2.021403%;font-size:0.700000em;color:#000000;font-family:Swiss721BT;">
+							u altijd een geschikte brace.
+						</p>
+						<p class="textItem " style="top:86.444709%;left:11.596639%;width:5.714286%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							BRACES
+						</p>
+						<p class="textItem " style="top:86.444709%;left:84.537815%;width:4.033613%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							ZIT- &amp;
+						</p>
+						<p class="textItem " style="top:87.871581%;left:82.016807%;width:9.075630%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							LIGCOMFORT
+						</p>
+						<p class="textItem " style="top:86.444709%;left:22.521008%;width:7.731092%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							PROTECTIE
+						</p>
+						<p class="textItem " style="top:86.444709%;left:35.798319%;width:6.050420%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							KLEDING
+						</p>
+						<p class="textItem " style="top:86.325803%;left:60.000000%;width:5.042017%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							OEFEN-
+						</p>
+						<p class="textItem " style="top:87.871581%;left:58.487395%;width:7.899160%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							MATERIAAL
+						</p>
+						<p class="textItem " style="top:86.325803%;left:47.731092%;width:5.882353%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							MEETIN-
+						</p>
+						<p class="textItem " style="top:87.871581%;left:45.714286%;width:9.579832%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							STRUMENTEN
+						</p>
+						<p class="textItem " style="top:86.325803%;left:69.915966%;width:8.571429%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							VERBRUIKS-
+						</p>
+						<p class="textItem " style="top:87.871581%;left:70.252101%;width:7.899160%;height:1.545779%;font-size:0.514200em;color:#000000;font-family:Swiss721BT;">
+							MATERIAAL
+						</p>
+						<p class="textItem " style="top:74.435196%;left:9.243697%;width:17.815126%;height:3.210464%;font-size:1.114720em;color:#000000;font-family:Swiss721BT;">
+							Ook groot in:
+						</p>
+						<p class="textItem " style="top:28.775268%;left:8.067227%;width:42.016807%;height:4.637337%;font-size:1.623340em;color:#000000;font-family:Swiss721BT;">
+							Grote online collectie
+						</p>
+						<p class="textItem " style="top:21.997622%;left:7.731092%;width:54.621849%;height:7.847800%;font-size:2.739935em;color:#0A9FB8;font-family:Swiss721BT;">
+							<b>BRACE NODIG?</b>
+						</p>
+						<p class="textItem " style="top:45.541023%;left:47.394958%;width:21.008403%;height:1.664685%;font-size:0.550733em;color:#000000;font-family:Swiss721BT;">
+							Tijdelijk op al onze producten:
+						</p>
+						<p class="textItem " style="top:46.730083%;left:52.941176%;width:10.588235%;height:3.329370%;font-size:1.140842em;color:#FFFFFF;font-family:Swiss721BT;">
+							<b>GRATIS</b>
+						</p>
+						<p class="textItem " style="top:49.583829%;left:48.571429%;width:19.831933%;height:3.329370%;font-size:1.140842em;color:#FFFFFF;font-family:Swiss721BT;">
+							<b>VERZENDING!</b>
+						</p>
+						<p class="textItem " style="top:73.008323%;left:59.495798%;width:32.436975%;height:4.994055%;font-size:1.724355em;color:#FC7709;font-family:Swiss721BT;">
+							<b>ALL4FYSIO.NL</b>
+						</p>
+						<p class="textItem " style="top:45.659929%;left:10.924370%;width:24.537815%;height:2.853746%;font-size:1.000000em;color:#0A9FB8;font-family:Swiss721BT;">
+							<b>ONZE VOORDELEN</b>
+						</p>
+						<p class="textItem " style="top:48.632580%;left:10.924370%;width:29.411765%;height:2.378121%;font-size:0.800000em;color:#000000;font-family:Swiss721BT;">
+							&#8226; Uitgebreid assortiment
+						</p>
+						<p class="textItem " style="top:51.248514%;left:10.924370%;width:21.176471%;height:2.378121%;font-size:0.800000em;color:#000000;font-family:Swiss721BT;">
+							&#8226; Scherpe prijzen
+						</p>
+						<p class="textItem " style="top:53.864447%;left:10.924370%;width:20.000000%;height:2.378121%;font-size:0.800000em;color:#000000;font-family:Swiss721BT;">
+							&#8226; Snelle levering
+						</p>
+						<p class="textItem " style="top:56.480380%;left:10.924370%;width:29.579832%;height:2.378121%;font-size:0.800000em;color:#000000;font-family:Swiss721BT;">
+							&#8226; Niet goed? Geld terug!
+						</p>
+						<p class="textItem " style="top:59.096314%;left:10.924370%;width:21.008403%;height:2.378121%;font-size:0.800000em;color:#000000;font-family:Swiss721BT;">
+							&#8226; Advies op maat
+						</p>
+		</div>
+
+		<div class="footer">
+					<a style="color:#383838;" class="footerNavLink internalLink" href="./page-1.html">1</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-2-3.html">2-3</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-4-5.html">4-5</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-6-7.html">6-7</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-8-9.html">8-9</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-10-11.html">10-11</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-12-13.html">12-13</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-14-15.html">14-15</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-16-17.html">16-17</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-18-19.html">18-19</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-20-21.html">20-21</a>
+					<a style="color:#383838;" class="footerNavLink internalLink " href="./page-22-23.html">22-23</a>
+					<a style="color:#383838;" class="footerNavLink internalLink currPage" href="./page-24.html">24</a>
+
+				<a style="color:#383838;" class="footerLink" href="./flipbook.html" target="_blank">
+					<span id="poweredBy"></span>&nbsp;FlippingBook
+				</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		if (typeof BASIC_PAGE === 'undefined' && typeof BasicPage !== 'undefined' ){
+			BASIC_PAGE = new BasicPage();
+		}
+    </script>
+</body>
+</html>
+
+
+

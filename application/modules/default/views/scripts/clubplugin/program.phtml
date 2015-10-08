@@ -1,0 +1,139 @@
+<div id="nextpage" class="zapp full-mobile">
+	<div class="col left">
+		<div class="inner">
+		
+			<div class="table infobox">
+				<ul class="row">
+					<li class="cell large bg_kz_yellow color_kz_blue schedule">
+						<h3 class="color_kz_blue">
+							Programma week <?php echo $this->week; ?>
+							<a class="font_icons left program<?php echo (($this->week_previous === false) ? ' disabled' : ''); ?>" aria-hidden="true" href="/programma/<?php echo $this->week_previous; ?>/<?php echo $this->year_previous; ?>/" title="vorige week">&#xe003;</a>
+							<a class="font_icons right program<?php echo (($this->week_next === false) ? ' disabled' : ''); ?>" aria-hidden="true" href="/programma/<?php echo $this->week_next; ?>/<?php echo $this->year_next; ?>/" title="volgende week">&#xe002;</a>
+						</h3>
+						<?php
+						
+							$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
+							$booDesktopView	= $objResponsive->isDesktop();
+							$booTabletView	= $objResponsive->isTablet();
+							$booMobileView	= $objResponsive->isMobile();
+						
+							if(isset($this->matches) && is_array($this->matches) && count($this->matches) > 0) {
+								
+								// Dynamically fill match info on click
+								echo '<div id="match_info_program"></div>';
+								
+								if($booMobileView === true) {
+									echo '<ol class="clubplugin program">
+										<li class="heading">
+											<span class="time">Aanv</span>
+											<span class="time_departure">Ver</span>
+											<span class="team_home_name">Thuis</span>
+											<span class="seperator"></span>
+											<span class="team_away_name">Uit</span>
+										</li>';
+								} else {
+									echo '<ol class="clubplugin program">
+										<li class="heading">
+											<span class="time">Aanvang</span>
+											<span class="time_departure">Verzamelen</span>
+											<span class="team_home_name">Thuis</span>
+											<span class="seperator"></span>
+											<span class="team_away_name">Uit</span>
+										</li>';
+								}
+								
+								foreach($this->matches as $strTeam => $arrMatchesByTeam) {
+									
+									foreach($arrMatchesByTeam as $intMatchKey => $arrMatch) {
+									
+										$strDay		= KZ_View_Helper_Date::format($arrMatch['date'], 'EE');
+										$strDate	= KZ_View_Helper_Date::format($arrMatch['date'], 'dd.MM');
+										
+										$strTimeRow	=	$this->translate($strDay).' '.$strDate.'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u').'<br>
+														<a href="http://competitie.knkv.nl/competitie/accommodatie/'.$arrMatch['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a>';
+										
+										$strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
+										$strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
+
+										if($booMobileView === true) {
+											
+											if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
+												if(strstr($strTeamHomeName, '/')) {
+													$arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
+													$arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
+													$intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
+											
+													$strTeamHomeName	= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
+												}
+											}
+											$strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
+											
+											
+											if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
+												if(strstr($strTeamAwayName, '/')) {
+													$arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
+													$arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
+													$intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+											
+													$strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
+												}
+											}
+											$strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+										
+											// Set Time Row
+											$strTimeRow	= 	$strDate.'<br />'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time']);
+										}
+										
+										echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
+													<span class="time">'.$strTimeRow.'</span>
+													<span class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</span>
+													<span class="team_home_name">'.$strTeamHomeName.'</span>
+													<span class="seperator">-</span>
+													<span class="team_away_name">'.$strTeamAwayName.'</span>
+												</li>';
+											
+									}
+									
+								}
+								
+								echo '</ol>';
+								
+							} else {
+								
+								echo $this->translate('No program for week').' '.$this->week;
+								
+							}
+						?>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<div class="col right">
+
+		<div class="item news bg_kz_lightgrey">
+			<?php
+			
+				if(isset($this->latest) && ! empty($this->latest)) :
+					
+					echo '<h2>'.$this->translate('Laatste nieuws').'</h2><ol>';
+					
+					foreach($this->latest as $arrLatest) :
+					
+							echo '	<li>
+										<span class="bullet" title="'.stripslashes($arrLatest['category']).'" style="background: '.$arrLatest['category_color'].';"></span>
+										<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.KZ_View_Helper_Date::format($arrLatest['date'], 'dd MMM yyyy').'</a></span>
+										<a href="'.ROOT_URL.'/nieuws/'.KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])).'" title="'.stripslashes($arrLatest['name']).'">'.stripslashes($arrLatest['name']).'</a>
+									</li>';
+
+					endforeach;
+					
+					echo '</ol>';
+					
+				endif;
+			
+			?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,98 @@
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('.headerDropdown').change(function(){
+			var year	= jQuery('.headerDropdown.year').val();
+			var week	= jQuery('.headerDropdown.week').val();
+			document.location.href = '/admin/matches/index/year/'+year+'/week/'+week+'/';
+		});
+	});
+</script>
+<header>
+	<select class="headerDropdown year" name="year">
+		<?php
+			foreach($this->years as $arrYear) :
+				echo '<option value="'.$arrYear['year'].'"'.(($this->year == $arrYear['year']) ? ' selected="selected"' : '').'>'.$arrYear['year'].'</option>';
+			endforeach;
+		?>
+	</select>
+	
+	<select class="headerDropdown week" name="week">
+		<?php
+			foreach($this->weeks as $arrWeek) :
+				echo '<option value="'.$arrWeek['week'].'"'.(($this->week == $arrWeek['week']) ? ' selected="selected"' : '').'>'.$arrWeek['week'].'</option>';
+			endforeach;
+		?>
+	</select>
+
+	<h2>
+		<?php echo $this->translate('Matches'); ?> &nbsp;
+	</h2>
+</header>
+<section>
+	<table class="ajax_datatable">
+		<thead>
+			<tr>
+				<th width="50"><?php echo $this->translate('ID'); ?></th>
+				<th width="100"><?php echo $this->translate('KNKV ID'); ?></th>
+				<th width="*"><?php echo $this->translate('Game'); ?></th>
+				<th width="100"><?php echo $this->translate('Result'); ?></th>
+				<th width="75"><?php echo $this->translate('Week'); ?></th>
+				<th width="75"><?php echo $this->translate('Date'); ?></th>
+				<th width="125"><?php echo $this->translate('Options'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+</section>
+<script type="text/javascript">
+jQuery(document).ready( function(){ 
+	jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+	    var _that = this;
+	  
+	    this.each(function (i) {
+	        $.fn.dataTableExt.iApiIndex = i;
+	        var $this = this;
+	        var anControl = $('input', _that.fnSettings().aanFeatures.f);
+	        anControl.unbind('keyup').bind('keypress', function (e) {
+	            if (e.which == 13) {
+	                $.fn.dataTableExt.iApiIndex = i;
+	                _that.fnFilter(anControl.val());
+	            }
+	        });
+	        return this;
+	    });
+	    return this;
+	};
+	
+	jQuery('.ajax_datatable').dataTable( {
+		"bProcessing"		: true,
+		"bServerSide"		: true,
+		"bStateSave"		: true,
+		'iDisplayLength'	: 100,
+		'sPaginationType'	: "full_numbers",
+		"sAjaxSource"		: "/admin/matches/generatematchestable/year/<?php echo $this->year; ?>/week/<?php echo $this->week; ?>/",
+		"fnServerData": function ( sSource, aoData, fnCallback ) {
+						$.ajax( {
+							"dataType": 'json', 
+							"type": "POST", 
+							"url": sSource, 
+							"data": aoData, 
+							"success": fnCallback
+						});
+		},
+        "aoColumns": [null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      {"bSortable" : false, "bSearchable": false}
+                      ],
+		'aaSorting'			: [[ 0, "desc" ]]
+		}).fnFilterOnReturn();
+
+});
+							
+</script>

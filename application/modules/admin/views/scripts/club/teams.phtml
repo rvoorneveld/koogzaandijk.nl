@@ -1,0 +1,69 @@
+<header>
+	<h2><?php echo $this->translate('Teams'); ?></h2>
+</header>
+<section>
+		<table class="ajax_datatable">
+			<thead>
+				<tr>
+					<th width="50"><?php echo $this->translate('ID'); ?></th>
+					<th width="*"><?php echo $this->translate('Name'); ?></th>
+					<th width="100"><?php echo $this->translate('Category'); ?></th>
+					<th width="100"><?php echo $this->translate('Sport'); ?></th>
+					<th width="100"><?php echo $this->translate('Season'); ?></th>
+					<th width="125"><?php echo $this->translate('Options'); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+		
+</section>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+		    var _that = this;
+		  
+		    this.each(function (i) {
+		        $.fn.dataTableExt.iApiIndex = i;
+		        var $this = this;
+		        var anControl = $('input', _that.fnSettings().aanFeatures.f);
+		        anControl.unbind('keyup').bind('keypress', function (e) {
+		            if (e.which == 13) {
+		                $.fn.dataTableExt.iApiIndex = i;
+		                _that.fnFilter(anControl.val());
+		            }
+		        });
+		        return this;
+		    });
+		    return this;
+		};
+		
+		jQuery('.ajax_datatable').dataTable( {
+			"bProcessing"		: true,
+			"bServerSide"		: true,
+			"bStateSave"		: true,
+			'iDisplayLength'	: 25,
+			'sPaginationType'	: "full_numbers",
+			"sAjaxSource"		: "/admin/club/generateteamstable/",
+			"fnServerData": function ( sSource, aoData, fnCallback ) {
+							$.ajax( {
+								"dataType": 'json', 
+								"type": "POST", 
+								"url": sSource, 
+								"data": aoData, 
+								"success": fnCallback
+							});
+			},
+	        "aoColumns": [null,
+	                      null,
+	                      null,
+	                      null,
+	                      null,
+	                      {"bSortable" : false, "bSearchable": false}
+	                      ],
+			'aaSorting'			: [[ 2, "desc" ]]
+			}).fnFilterOnReturn();
+	});
+</script>

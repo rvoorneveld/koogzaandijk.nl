@@ -1,0 +1,121 @@
+<header>
+	<h2><?php echo $this->translate('Edit Member'); ?></h2>
+</header>
+<section>
+
+	<form name="editTeamMemberForm" method="post" action="">
+
+		<dl>
+			<dt><label class="label" for="gender"><?php echo $this->translate('Gender'); ?></label></dt>
+			<dd>
+				<select name="gender" id="gender" class="small">
+					<option value="m"<?php echo (($this->defaults['gender'] == 'm') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Male'); ?></option>
+					<option value="f"<?php echo (($this->defaults['gender'] == 'f') ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Female'); ?></option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="firstname"><?php echo $this->translate('Firstname'); ?></label></dt>
+			<dd><input type="text" class="small" id="firstname" name="firstname" value="<?php echo $this->defaults['firstname']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="insertion"><?php echo $this->translate('Insertion'); ?></label></dt>
+			<dd><input type="text" class="tiny" id="insertion" name="insertion" value="<?php echo $this->defaults['insertion']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="lastname"><?php echo $this->translate('Lastname'); ?></label></dt>
+			<dd><input type="text" class="small" id="lastname" name="lastname" value="<?php echo $this->defaults['lastname']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="email"><?php echo $this->translate('Email'); ?></label></dt>
+			<dd><input type="text" class="small" id="email" name="email" value="<?php echo $this->defaults['email']; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="password"><?php echo $this->translate('Password'); ?></label></dt>
+			<dd>
+				<input type="text" class="small" id="password" name="password" value="" />
+				<?php echo (($this->defaults['password'] == '') ? '' : '<p>'.$this->translate('Leave blank for current password').'</p>'); ?>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt><label class="label" for="invited"><?php echo $this->translate('Invite by email'); ?></label></dt>
+			<dd>
+				<select name="invited" id="invited" class="small">
+					<option value="1"<?php echo (($this->invited == 1) ? '' : ' selected="selected"'); ?>><?php echo $this->translate('Invite by email'); ?></option>
+					<option value="0"<?php echo (($this->invited == 1) ? ' selected="selected"' : ''); ?>><?php echo $this->translate('Do not invite by email'); ?></option>
+				</select>
+				<?php echo (($this->invited == 1) ? '<p><strong>'.$this->translate('You already invited this member').'. '.$this->translate('Invited on').': '.$this->invited_date.'</strong></p>' : ''); ?>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Playing'); ?></label></dt>
+			<dd width="*">
+				<div id="tagsContainer">
+					<?php
+					if(isset($this->teams) && is_array(($this->teams))) {
+
+						foreach($this->teams as $intTeamID => $arrTeam) {
+
+							$strStatus 			= ((isset($this->teams_playing) && is_array($this->teams_playing) && in_array($intTeamID, $this->teams_playing)) ? ' checked="checked"' : '');
+							$strColor 			= ((isset($this->teams_playing) && is_array($this->teams_playing) && in_array($intTeamID, $this->teams_playing)) ? 'green' : 'red');
+
+							echo '	<a class="button '.$strColor.' small" rel="team-playing-'.$arrTeam['id'].'">'.$arrTeam['name'].' '.$arrTeam['sport'].'</a>
+									  		<input type="checkbox" name="team-playing-'.$arrTeam['id'].'" id="team-playing-'.$arrTeam['id'].'" value="'.$arrTeam['id'].'" style="display: none;" '.$strStatus.' />';
+						}
+
+					}
+					?>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Coaching'); ?></label></dt>
+			<dd width="*">
+				<div id="tagsContainer">
+					<?php
+					if(isset($this->teams) && is_array(($this->teams))) {
+
+						foreach($this->teams as $intTeamID => $arrTeam) {
+
+							$strStatus 			= ((isset($this->teams_coaching) && is_array($this->teams_coaching) && in_array($intTeamID, $this->teams_coaching)) ? ' checked="checked"' : '');
+							$strColor 			= ((isset($this->teams_coaching) && is_array($this->teams_coaching) && in_array($intTeamID, $this->teams_coaching)) ? 'green' : 'red');
+
+							echo '	<a class="button '.$strColor.' small" rel="team-coaching-'.$arrTeam['id'].'">'.$arrTeam['name'].' '.$arrTeam['sport'].'</a>
+									  		<input type="checkbox" name="team-coaching-'.$arrTeam['id'].'" id="team-coaching-'.$arrTeam['id'].'" value="'.$arrTeam['id'].'" style="display: none;" '.$strStatus.' />';
+						}
+
+					}
+					?>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save'); ?>" /></dd>
+		</dl>
+
+	</form>
+
+</section>
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('a.button').click(function(){
+
+			var rel 		= jQuery(this).attr('rel');
+			var buttonClass = jQuery(this).attr('class');
+
+			jQuery('#'+rel).attr('checked', ((jQuery('#'+rel).attr('checked') == 'checked') ? false : true));
+			jQuery(this).removeClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'red' : 'green'));
+			jQuery(this).addClass(((jQuery('#'+rel).attr('checked') == 'checked') ? 'green' : 'red'));
+
+		});
+
+	});
+
+</script>

@@ -1,0 +1,59 @@
+<header>
+	<h2><?php echo $this->translate('Delete content for widget').' '.$this->name; ?></h2>
+</header>
+
+<section>
+
+	<form name="deleteWidgetContentForm" method="post" action="">
+		<dl>
+			<dt width="200"><label class="label"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*" class="text"><?php echo $this->name; ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Type'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate($this->contentTypes[$this->content_type_id]['name']); ?></dd>
+		</dl>
+		<dl>
+			<dt><label class="label"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd class="text"><?php echo $this->translate((($this->status == 1) ? 'Active' : 'Inactive')); ?></dd>
+		</dl>
+		
+		<?php
+		
+			if(isset($this->data) && is_array($this->data) && count($this->data) > 0) {
+				foreach($this->data as $strDataKey => $strDataValue) {
+					
+					$arrDataKey 		= explode('_', $strDataKey);
+					$intTotalDataKeys	= count($arrDataKey);
+					
+					echo '	<dl>
+								<dt><label class="label">'.$this->translate(ucfirst($arrDataKey[($intTotalDataKeys-1)])).'</label></dt>
+								<dd class="text"><p>'.$strDataValue.'</p></dd>
+							</dl>';
+
+				}								
+			}
+
+		?>
+		
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd class="text">&raquo; <?php echo $this->translate('Are you sure you want to delete this widget content'); ?>?</dd>
+		</dl>
+		<dl>
+			<dt height="15" colspan="2"></dt>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Yes'); ?>" />
+				<a href="/admin/widgets/content/id/<?php echo $this->widget_content['widget_id']; ?>" title="<?php echo $this->translate('No, go back to overview'); ?>"><?php echo $this->translate('No, go back to overview'); ?></a>
+			</dd>
+		</dl>
+		
+	</form>
+
+</section>

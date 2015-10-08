@@ -1,0 +1,735 @@
+<?xml version='1.0' encoding='UTF-8'?><weeks><week>
+	<number>7</number>
+	<start>11</start>
+	<end>17 feb 2013</end>
+	<matches>
+		<match>
+	<class>Wereldtickets Korfbal League</class>
+	<away_score>27</away_score>
+	<away_team_id>31144</away_team_id>
+	<away_team_name clubteam="FALSE">DeetosSnel/Volhuis 1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12465</game_id>
+	<home_score>36</home_score>
+	<home_team_id>30738</home_team_id>
+	<home_team_name clubteam="FALSEa">Blauw-Wit (A) 1</home_team_name>
+	<match_officials>J H Hoeksma (Scheidsrechter)<br />R Kleinhuis (Assistent)</match_officials>
+	<poule_name>WKL</poule_name>
+	<time>20:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Wereldtickets Korfbal League</class>
+	<away_score>19</away_score>
+	<away_team_id>31036</away_team_id>
+	<away_team_name clubteam="FALSE">DVO 1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12466</game_id>
+	<home_score>25</home_score>
+	<home_team_id>28622</home_team_id>
+	<home_team_name clubteam="FALSEa">LDODK/AH Gorredijk 1</home_team_name>
+	<match_officials>H E J van Meerten (Scheidsrechter)<br />E Hom (Assistent)</match_officials>
+	<poule_name>WKL</poule_name>
+	<time>20:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Wereldtickets Korfbal League</class>
+	<away_score>32</away_score>
+	<away_team_id>25856</away_team_id>
+	<away_team_name clubteam="FALSE">PKC/Hagero 1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12462</game_id>
+	<home_score>24</home_score>
+	<home_team_id>30756</home_team_id>
+	<home_team_name clubteam="FALSEa">Dalto 1</home_team_name>
+	<match_officials>M Luttik (Scheidsrechter)<br />J Kok (Assistent)</match_officials>
+	<poule_name>WKL</poule_name>
+	<time>20:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Wereldtickets Korfbal League</class>
+	<away_score>20</away_score>
+	<away_team_id>28372</away_team_id>
+	<away_team_name clubteam="TRUE">KZ/Hiltex 1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12463</game_id>
+	<home_score>19</home_score>
+	<home_team_id>31671</home_team_id>
+	<home_team_name clubteam="FALSE">Fortuna/MHIR 1</home_team_name>
+	<match_officials>R J Buis (Scheidsrechter)<br />A.H.R. Meijer (Assistent)</match_officials>
+	<poule_name>WKL</poule_name>
+	<time>19:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Wereldtickets Korfbal League</class>
+	<away_score>26</away_score>
+	<away_team_id>31315</away_team_id>
+	<away_team_name clubteam="FALSE">Nic./Alfa-college 1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12464</game_id>
+	<home_score>29</home_score>
+	<home_team_id>24979</home_team_id>
+	<home_team_name clubteam="FALSEa">TOP/Wereldtickets.nl 1</home_team_name>
+	<match_officials>M v.d. Lucht (Scheidsrechter)<br />A Alexander (Assistent)</match_officials>
+	<poule_name>WKL</poule_name>
+	<time>19:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve Korfbal League</class>
+	<away_score>22</away_score>
+	<away_team_id>31145</away_team_id>
+	<away_team_name clubteam="FALSE">DeetosSnel/Volhuis 2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>14865</game_id>
+	<home_score>35</home_score>
+	<home_team_id>25826</home_team_id>
+	<home_team_name clubteam="FALSEa">Blauw-Wit (A) 2</home_team_name>
+	<match_officials>P Kuyer (Scheidsrechter)<br />R Nederend (Assistent)</match_officials>
+	<poule_name>RKL</poule_name>
+	<time>18:30</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve Korfbal League</class>
+	<away_score>28</away_score>
+	<away_team_id>25864</away_team_id>
+	<away_team_name clubteam="FALSE">PKC/Hagero 2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>14862</game_id>
+	<home_score>26</home_score>
+	<home_team_id>25853</home_team_id>
+	<home_team_name clubteam="FALSEa">Dalto 2</home_team_name>
+	<match_officials>M de Visser (Scheidsrechter)<br />A Wildschut (Assistent)</match_officials>
+	<poule_name>RKL</poule_name>
+	<time>18:15</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve Korfbal League</class>
+	<away_score>21</away_score>
+	<away_team_id>25564</away_team_id>
+	<away_team_name clubteam="FALSE">DVO 2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>14866</game_id>
+	<home_score>21</home_score>
+	<home_team_id>29881</home_team_id>
+	<home_team_name clubteam="FALSEa">OVVO/De Kroon 2</home_team_name>
+	<match_officials>R de Nekker (Scheidsrechter)<br />J Smits (Assistent)</match_officials>
+	<poule_name>RKL</poule_name>
+	<time>16:35</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve Korfbal League</class>
+	<away_score>21</away_score>
+	<away_team_id>25862</away_team_id>
+	<away_team_name clubteam="FALSE">Nic./Alfa-college 2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>14864</game_id>
+	<home_score>33</home_score>
+	<home_team_id>25276</home_team_id>
+	<home_team_name clubteam="FALSEa">DOS '46 2</home_team_name>
+	<match_officials>J W Ulkeman (Scheidsrechter)<br />R. Slettenhaar (Assistent)</match_officials>
+	<poule_name>RKL</poule_name>
+	<time>15:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve Korfbal League</class>
+	<away_score>23</away_score>
+	<away_team_id>30143</away_team_id>
+	<away_team_name clubteam="TRUE">KZ/Hiltex 2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>14863</game_id>
+	<home_score>20</home_score>
+	<home_team_id>30149</home_team_id>
+	<home_team_name clubteam="FALSE">KVS 2</home_team_name>
+	<match_officials>S. Post (Scheidsrechter)<br />W. van Lonkhuyzen (Assistent)</match_officials>
+	<poule_name>RKL</poule_name>
+	<time>14:35</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve 5e klasse</class>
+	<away_score>24</away_score>
+	<away_team_id>32881</away_team_id>
+	<away_team_name clubteam="FALSE">Groen Geel 6</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>5012</game_id>
+	<home_score>7</home_score>
+	<home_team_id>32944</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex 7</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>R5F</poule_name>
+	<time>13:45</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve 6e klasse</class>
+	<away_score>13</away_score>
+	<away_team_id>31742</away_team_id>
+	<away_team_name clubteam="FALSE">HBC 4</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>5077</game_id>
+	<home_score>7</home_score>
+	<home_team_id>36414</home_team_id>
+	<home_team_name clubteam="FALSEa">Furore 6</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>R6F</poule_name>
+	<time>17:00</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve 6e klasse</class>
+	<away_score>11</away_score>
+	<away_team_id>32752</away_team_id>
+	<away_team_name clubteam="FALSE">Blauw-Wit (A) 6</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>4740</game_id>
+	<home_score>15</home_score>
+	<home_team_id>32726</home_team_id>
+	<home_team_name clubteam="FALSEa">Triaz 5</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>R6F</poule_name>
+	<time>11:30</time>
+	<year>2012</year>
+</match><match>
+	<class>Reserve 7e klasse</class>
+	<away_score>13</away_score>
+	<away_team_id>29046</away_team_id>
+	<away_team_name clubteam="FALSE">Groen Geel 8</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>3923</game_id>
+	<home_score>12</home_score>
+	<home_team_id>25260</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex 10</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>R7G</poule_name>
+	<time>11:15</time>
+	<year>2012</year>
+</match><match>
+	<class>A-jeugd hoofdklasse</class>
+	<away_score>17</away_score>
+	<away_team_id>28471</away_team_id>
+	<away_team_name clubteam="TRUE">KZ/Hiltex A1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>20293</game_id>
+	<home_score>20</home_score>
+	<home_team_id>32475</home_team_id>
+	<home_team_name clubteam="FALSE">KCC/Delta Logistiek A1</home_team_name>
+	<match_officials>D de Bruijn (Scheidsrechter)<br />G Verhagen (Assistent)</match_officials>
+	<poule_name>AHKB</poule_name>
+	<time>16:40</time>
+	<year>2012</year>
+</match><match>
+	<class>A-jeugd 1e klasse</class>
+	<away_score>14</away_score>
+	<away_team_id>29257</away_team_id>
+	<away_team_name clubteam="FALSE">Apollo (H) A1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>20987</game_id>
+	<home_score>9</home_score>
+	<home_team_id>25359</home_team_id>
+	<home_team_name clubteam="FALSEa">OVVO/De Kroon A2</home_team_name>
+	<match_officials>J Peters (Scheidsrechter)</match_officials>
+	<poule_name>A1C</poule_name>
+	<time>15:15</time>
+	<year>2012</year>
+</match><match>
+	<class>A-jeugd 2e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>35661</away_team_id>
+	<away_team_name clubteam="FALSE">Furore A1</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>20362</game_id>
+	<home_score>7</home_score>
+	<home_team_id>25921</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex A3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>A2N</poule_name>
+	<time>15:00</time>
+	<year>2012</year>
+</match><match>
+	<class>A-jeugd 2e klasse</class>
+	<away_score>9</away_score>
+	<away_team_id>32432</away_team_id>
+	<away_team_name clubteam="FALSE">Phoenix A1</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>20690</game_id>
+	<home_score>16</home_score>
+	<home_team_id>25578</home_team_id>
+	<home_team_name clubteam="FALSEa">Groen Geel A2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>A2N</poule_name>
+	<time>11:30</time>
+	<year>2012</year>
+</match><match>
+	<class>A-jeugd 3e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>33226</away_team_id>
+	<away_team_name clubteam="FALSE">Helios A2</away_team_name>
+	<date>2013-02-17</date>
+	<game_id>5523</game_id>
+	<home_score>8</home_score>
+	<home_team_id>25099</home_team_id>
+	<home_team_name clubteam="FALSEa">BEP A2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>A3E (zondag)</poule_name>
+	<time>11:15</time>
+	<year>2012</year>
+</match><match>
+	<class>B-jeugd hoofdklasse</class>
+	<away_score>13</away_score>
+	<away_team_id>28918</away_team_id>
+	<away_team_name clubteam="FALSE">Fortuna/MHIR B1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>21517</game_id>
+	<home_score>12</home_score>
+	<home_team_id>27586</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex B1</home_team_name>
+	<match_officials>P. van den Bergh (Scheidsrechter)</match_officials>
+	<poule_name>BHKB</poule_name>
+	<time>13:30</time>
+	<year>2012</year>
+</match><match>
+	<class>B-jeugd hoofdklasse</class>
+	<away_score>12</away_score>
+	<away_team_id>26999</away_team_id>
+	<away_team_name clubteam="FALSE">Dindoa B1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>22133</game_id>
+	<home_score>12</home_score>
+	<home_team_id>27311</home_team_id>
+	<home_team_name clubteam="FALSEa">Groen Geel B1</home_team_name>
+	<match_officials>M Wijkstra (Scheidsrechter)</match_officials>
+	<poule_name>BHKB</poule_name>
+	<time>12:00</time>
+	<year>2012</year>
+</match><match>
+	<class>B-jeugd 3e klasse</class>
+	<away_score>17</away_score>
+	<away_team_id>27925</away_team_id>
+	<away_team_name clubteam="FALSE">Sporting West B1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>6124</game_id>
+	<home_score>7</home_score>
+	<home_team_id>30180</home_team_id>
+	<home_team_name clubteam="FALSEa">OKV B2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>B3A</poule_name>
+	<time>15:00</time>
+	<year>2012</year>
+</match><match>
+	<class>B-jeugd 4e klasse</class>
+	<away_score>6</away_score>
+	<away_team_id>26751</away_team_id>
+	<away_team_name clubteam="FALSE">Apollo (H) B2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>6524</game_id>
+	<home_score>4</home_score>
+	<home_team_id>30836</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex B4</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>B4A</poule_name>
+	<time>17:30</time>
+	<year>2012</year>
+</match><match>
+	<class>B-jeugd 4e klasse</class>
+	<away_score>12</away_score>
+	<away_team_id>27033</away_team_id>
+	<away_team_name clubteam="FALSE">Oosterkwartier B1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>6280</game_id>
+	<home_score>8</home_score>
+	<home_team_id>35721</home_team_id>
+	<home_team_name clubteam="FALSEa">Haarlem B2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>B4A</poule_name>
+	<time>13:00</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd hoofdklasse</class>
+	<away_score>6</away_score>
+	<away_team_id>32372</away_team_id>
+	<away_team_name clubteam="FALSE">BEP C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>24661</game_id>
+	<home_score>7</home_score>
+	<home_team_id>32841</home_team_id>
+	<home_team_name clubteam="FALSEa">KVS C1</home_team_name>
+	<match_officials>M Bommelé (Scheidsrechter)</match_officials>
+	<poule_name>CHKB</poule_name>
+	<time>17:15</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 3e klasse</class>
+	<away_score>4</away_score>
+	<away_team_id>32358</away_team_id>
+	<away_team_name clubteam="FALSE">Apollo (H) C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>9480</game_id>
+	<home_score>8</home_score>
+	<home_team_id>27157</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex C3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C3B</poule_name>
+	<time>16:30</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 3e klasse</class>
+	<away_score>16</away_score>
+	<away_team_id>32035</away_team_id>
+	<away_team_name clubteam="FALSE">OKV C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>7387</game_id>
+	<home_score>7</home_score>
+	<home_team_id>29957</home_team_id>
+	<home_team_name clubteam="FALSEa">ZKV (Za) C2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C3B</poule_name>
+	<time>11:30</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 4e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>28989</away_team_id>
+	<away_team_name clubteam="FALSE">BEP C3</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12328</game_id>
+	<home_score>2</home_score>
+	<home_team_id>27176</home_team_id>
+	<home_team_name clubteam="FALSEa">Haarlem C2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C4A</poule_name>
+	<time>16:10</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 4e klasse</class>
+	<away_score>3</away_score>
+	<away_team_id>32317</away_team_id>
+	<away_team_name clubteam="FALSE">DTS (E) C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>7220</game_id>
+	<home_score>7</home_score>
+	<home_team_id>29680</home_team_id>
+	<home_team_name clubteam="FALSEa">OKV C2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C4A</poule_name>
+	<time>14:00</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 4e klasse</class>
+	<away_score>3</away_score>
+	<away_team_id>29343</away_team_id>
+	<away_team_name clubteam="FALSE">Stormvogels (U) C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11690</game_id>
+	<home_score>9</home_score>
+	<home_team_id>29956</home_team_id>
+	<home_team_name clubteam="FALSEa">ZKC '31 C2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C4A</poule_name>
+	<time>11:00</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 5e klasse</class>
+	<away_score>2</away_score>
+	<away_team_id>27466</away_team_id>
+	<away_team_name clubteam="TRUE">KZ/Hiltex C5</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11704</game_id>
+	<home_score>10</home_score>
+	<home_team_id>37222</home_team_id>
+	<home_team_name clubteam="FALSE">Aurora C3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C5A</poule_name>
+	<time>15:50</time>
+	<year>2012</year>
+</match><match>
+	<class>C-jeugd 5e klasse</class>
+	<away_score>8</away_score>
+	<away_team_id>32862</away_team_id>
+	<away_team_name clubteam="FALSE">MIK C1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>7541</game_id>
+	<home_score>0</home_score>
+	<home_team_id>20995</home_team_id>
+	<home_team_name clubteam="FALSEa">ZKV (Za) C3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>C5A</poule_name>
+	<time>10:30</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 2e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>27773</away_team_id>
+	<away_team_name clubteam="FALSE">ADOS D1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>7954</game_id>
+	<home_score>5</home_score>
+	<home_team_id>26296</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex D2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D2A</poule_name>
+	<time>15:30</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 2e klasse</class>
+	<away_score>4</away_score>
+	<away_team_id>39384</away_team_id>
+	<away_team_name clubteam="FALSE">Sporting West D1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12271</game_id>
+	<home_score>5</home_score>
+	<home_team_id>26015</home_team_id>
+	<home_team_name clubteam="FALSEa">BEP D2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D2A</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 2e klasse</class>
+	<away_score>7</away_score>
+	<away_team_id>24634</away_team_id>
+	<away_team_name clubteam="FALSE">Furore D1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>8022</game_id>
+	<home_score>9</home_score>
+	<home_team_id>28872</home_team_id>
+	<home_team_name clubteam="FALSEa">Oosterkwartier D1</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D2B</poule_name>
+	<time>16:00</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 3e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>31921</away_team_id>
+	<away_team_name clubteam="FALSE">Oranje Nassau (A) D1  (BM)</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11768</game_id>
+	<home_score>6</home_score>
+	<home_team_id>26293</home_team_id>
+	<home_team_name clubteam="FALSEa">KIOS (N) D2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D3B</poule_name>
+	<time>14:00</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 3e klasse</class>
+	<away_score>8</away_score>
+	<away_team_id>36964</away_team_id>
+	<away_team_name clubteam="FALSE">DKV Victoria D3</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>10445</game_id>
+	<home_score>11</home_score>
+	<home_team_id>26851</home_team_id>
+	<home_team_name clubteam="FALSEa">Groen Geel D3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D3B</poule_name>
+	<time>11:00</time>
+	<year>2012</year>
+</match><match>
+	<class>D-jeugd 3e klasse</class>
+	<away_score>5</away_score>
+	<away_team_id>27739</away_team_id>
+	<away_team_name clubteam="FALSE">DSO (A) D1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11524</game_id>
+	<home_score>7</home_score>
+	<home_team_id>26038</home_team_id>
+	<home_team_name clubteam="FALSEa">OKV D2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>D3H</poule_name>
+	<time>12:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E8-jeugd 2e klasse</class>
+	<away_score>2</away_score>
+	<away_team_id>25411</away_team_id>
+	<away_team_name clubteam="FALSE">ZKV (Za) E1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>8471</game_id>
+	<home_score>2</home_score>
+	<home_team_id>28296</home_team_id>
+	<home_team_name clubteam="FALSEa">Oosterkwartier E1 (BM)</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E8-2A</poule_name>
+	<time>15:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E8-jeugd 2e klasse</class>
+	<away_score>6</away_score>
+	<away_team_id>26214</away_team_id>
+	<away_team_name clubteam="FALSE">Groen Geel E2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>8320</game_id>
+	<home_score>7</home_score>
+	<home_team_id>26236</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex E2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E8-2A</poule_name>
+	<time>11:45</time>
+	<year>2012</year>
+</match><match>
+	<class>E8-jeugd 3e klasse</class>
+	<away_score>8</away_score>
+	<away_team_id>25405</away_team_id>
+	<away_team_name clubteam="FALSE">OKV E1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>9285</game_id>
+	<home_score>0</home_score>
+	<home_team_id>26823</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex E3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E8-3A</poule_name>
+	<time>10:55</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 1e klasse</class>
+	<away_score>4</away_score>
+	<away_team_id>21050</away_team_id>
+	<away_team_name clubteam="FALSE">Kleine Sluis E1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>10847</game_id>
+	<home_score>11</home_score>
+	<home_team_id>32163</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex E5</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-1C</poule_name>
+	<time>09:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 2e klasse</class>
+	<away_score>11</away_score>
+	<away_team_id>40214</away_team_id>
+	<away_team_name clubteam="FALSE">Blauw-Wit (A) E4</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12278</game_id>
+	<home_score>4</home_score>
+	<home_team_id>39390</home_team_id>
+	<home_team_name clubteam="FALSEa">TOP/Wereldtickets.nl E7</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-2A</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 2e klasse</class>
+	<away_score>10</away_score>
+	<away_team_id>21052</away_team_id>
+	<away_team_name clubteam="FALSE">DTS (E) E1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11022</game_id>
+	<home_score>6</home_score>
+	<home_team_id>30901</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex E4</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-2A</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 2e klasse</class>
+	<away_score>9</away_score>
+	<away_team_id>33502</away_team_id>
+	<away_team_name clubteam="FALSE">ADOS E2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>10925</game_id>
+	<home_score>5</home_score>
+	<home_team_id>32574</home_team_id>
+	<home_team_name clubteam="FALSEa">OKV E3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-2A</poule_name>
+	<time>09:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 3e klasse</class>
+	<away_score>10</away_score>
+	<away_team_id>33510</away_team_id>
+	<away_team_name clubteam="FALSE">DTS (E) E2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>12327</game_id>
+	<home_score>3</home_score>
+	<home_team_id>32575</home_team_id>
+	<home_team_name clubteam="FALSEa">Haarlem E3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-3A</poule_name>
+	<time>10:30</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 3e klasse</class>
+	<away_score>6</away_score>
+	<away_team_id>40379</away_team_id>
+	<away_team_name clubteam="FALSE">ESDO E4</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11082</game_id>
+	<home_score>1</home_score>
+	<home_team_id>38736</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex E7</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-3A</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>E4-jeugd 3e klasse</class>
+	<away_score>0</away_score>
+	<away_team_id>26527</away_team_id>
+	<away_team_name clubteam="FALSE">ZKC '31 E2</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>11822</game_id>
+	<home_score>10</home_score>
+	<home_team_id>25659</home_team_id>
+	<home_team_name clubteam="FALSEa">VZOD E1</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>E4-3B</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>F-jeugd 1e klasse</class>
+	<away_score>10</away_score>
+	<away_team_id>26275</away_team_id>
+	<away_team_name clubteam="FALSE">KIOS (N) F1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>8881</game_id>
+	<home_score>4</home_score>
+	<home_team_id>26277</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex F2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>F1B</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>F-jeugd 2e klasse</class>
+	<away_score>3</away_score>
+	<away_team_id>27340</away_team_id>
+	<away_team_name clubteam="FALSE">DKV Victoria F1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>9773</game_id>
+	<home_score>1</home_score>
+	<home_team_id>25304</home_team_id>
+	<home_team_name clubteam="FALSEa">Groen Geel F2</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>F2A</poule_name>
+	<time>10:00</time>
+	<year>2012</year>
+</match><match>
+	<class>F-jeugd 3e klasse</class>
+	<away_score>0</away_score>
+	<away_team_id>27674</away_team_id>
+	<away_team_name clubteam="FALSE">Purmer F1</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>10221</game_id>
+	<home_score>0</home_score>
+	<home_team_id>27666</home_team_id>
+	<home_team_name clubteam="FALSEa">Oosterkwartier F1</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>F3E Scoren!</poule_name>
+	<time>14:00</time>
+	<year>2012</year>
+</match><match>
+	<class>F-jeugd 3e klasse</class>
+	<away_score>1</away_score>
+	<away_team_id>40401</away_team_id>
+	<away_team_name clubteam="FALSE">Blauw-Wit (A) F4</away_team_name>
+	<date>2013-02-16</date>
+	<game_id>10858</game_id>
+	<home_score>11</home_score>
+	<home_team_id>26095</home_team_id>
+	<home_team_name clubteam="TRUE">KZ/Hiltex F3</home_team_name>
+	<match_officials></match_officials>
+	<poule_name>F3E Scoren!</poule_name>
+	<time>09:00</time>
+	<year>2012</year>
+</match>	</matches>
+</week></weeks>

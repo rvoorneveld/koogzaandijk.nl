@@ -1,0 +1,95 @@
+<header>
+	<h2><?php echo $this->translate('Translations'); ?></h2>
+	<nav>
+		<ul class="tab-switch">
+			<li><a href="#overview" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li><a href="#missing" ><?php echo $this->translate('Missing'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+	
+	<div id="overview" class="tab default-tab">
+		<?php if(isset($this->translation) && !empty($this->translation)) { ?>
+        	
+	        <table class="datatable">
+				<thead>
+					<tr>
+						<th width="60"><?php echo $this->translate('ID', 'admin'); ?></th>
+						<th width="100"><?php echo $this->translate('Language', 'admin'); ?></th>
+						<th width="*"><?php echo $this->translate('Key', 'admin'); ?></th>
+						<th><?php echo $this->translate('Translation', 'admin'); ?></th>
+						<th><?php echo $this->translate('Options', 'admin'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				<?php  foreach($this->translation as $key => $arrTranslations) : ?>
+						
+						<tr>
+							<td><?php echo $arrTranslations['translation_id']; ?></td>
+							<td><strong><?php echo $arrTranslations['language']; ?></strong></td>
+							<td><?php echo $arrTranslations['keycode']; ?></td>
+							<td><?php echo $arrTranslations['translation']; ?></td>
+							<td>
+								<ul class="actions">
+									<li><a rel="tooltip" href="/admin/translations/edit/id/<?php echo $arrTranslations['translation_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit Translation'); ?>"><?php echo $this->translate('Edit Translation'); ?></a></li>
+								</ul>
+							</td>
+						</tr>
+					
+				<?php endforeach; ?>
+					
+				</tbody>
+			</table>
+	        
+		<?php } else {
+	       
+			echo $this->translate('No Translations found');
+	        
+		} ?>
+    </div>
+	
+	<div id="missing" class="tab">
+		<?php if(isset($this->missingtranslation) && !empty($this->missingtranslation)) { ?>
+        	
+	        <table class="datatable">
+				<thead>
+					<tr>
+						<th width="60"><?php echo $this->translate('ID', 'admin'); ?></th>
+						<th width="100"><?php echo $this->translate('Language', 'admin'); ?></th>
+						<th width="*"><?php echo $this->translate('Key', 'admin'); ?></th>
+						<th><?php echo $this->translate('Translation', 'admin'); ?></th>
+						<th><?php echo $this->translate('Options', 'admin'); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				<?php  foreach($this->missingtranslation as $key => $arrMissingTranslations) : ?>
+						
+						<tr>
+							<td><?php echo $arrMissingTranslations['translation_id']; ?></td>
+							<td><strong><?php echo $arrMissingTranslations['language']; ?></strong></td>
+							<td><?php echo $arrMissingTranslations['keycode']; ?></td>
+							<td><?php echo $arrMissingTranslations['translation']; ?></td>
+							<td>
+								<ul class="actions">
+									<li><a rel="tooltip" href="/admin/translations/edit/id/<?php echo $arrMissingTranslations['translation_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit Translation'); ?>"><?php echo $this->translate('Edit Translation'); ?></a></li>
+								</ul>
+							</td>
+						</tr>
+					
+				<?php endforeach; ?>
+					
+				</tbody>
+			</table>
+	        
+		<?php } else {
+	       
+			echo $this->translate('No Missing Translations');
+	        
+		} ?>
+    </div>
+   
+</section>

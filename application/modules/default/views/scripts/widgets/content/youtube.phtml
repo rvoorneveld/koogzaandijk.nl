@@ -1,0 +1,32 @@
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	jQuery(".video").click(function() {
+		jQuery.fancybox({
+			'padding'			: 0,
+			'autoScale'			: false,
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none',
+			'title'				: this.title,
+			'width'				: 640,
+			'height'			: 385,
+			'href'				: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+			'type'				: 'swf',
+			'swf'				: {
+				'wmode'				: 'transparent',
+				'allowfullscreen'	: 'true'
+			}
+		});
+
+		return false;
+	});
+
+
+
+});
+</script>
+<div id="widget-slider" class="flexslider color_kz_grey">
+	<ul class="slides">
+		<?php echo KZ_View_Helper_Youtube::youtube($this->data['content_14_youtube']); ?>
+	</ul>
+</div>

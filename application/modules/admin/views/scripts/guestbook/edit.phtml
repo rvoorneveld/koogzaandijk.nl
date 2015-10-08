@@ -1,0 +1,40 @@
+<header>
+	<h2><?php echo $this->translate('Edit entry'); ?></h2>
+</header>
+
+<section>
+
+	<form name="EditGuestbookEntryForm" action="" method="post">
+		<dl>
+			<dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+			<dd width="*"><input class="small" type="text" id="name" name="name" value="<?php echo $this->name; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="email"><?php echo $this->translate('Email'); ?></label></dt>
+			<dd><input class="small" type="text" name="email" id="email" value="<?php echo $this->email; ?>" /></dd>
+		</dl>
+		<dl>
+			<dt><label class="label" for="message"><?php echo $this->translate('Message'); ?></label></dt>
+			<dd class="text"><textarea class="large" name="message" rows="5" cols="40" style="width: 80%; height: 450px"><?php echo $this->message; ?></textarea></dd>
+			
+			
+		</dl>
+		<dl>
+			<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+			<dd>
+				<select class="small" id="status" name="status">
+					<option value="y"<?php echo (($this->status == 'y') ? ' selected="selected"' : ''); ?>>Active</option>
+					<option value="n"<?php echo (($this->status == 'y') ? '' : 'selected="selected"'); ?>>Inactive</option>
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>
+				<input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save'); ?>" style="margin-right: 15px;" />
+				<a href="/admin/guestbook/" title="<?php echo $this->translate('Or, go back to overview'); ?>"><?php echo $this->translate('Or, go back to overview'); ?></a>
+			</dd>
+		</dl>
+	</form>
+
+</section>
