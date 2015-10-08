@@ -13,7 +13,7 @@ class KZ_Controller_Editor {
 	 * 
 	 * @return	str $strEditor
 	 */
-	public function setEditor($strClass) {
+	public static function setEditor($strClass) {
 		
 		$strEditor = 'tinyMCE.init({
 						    mode 				: "specific_textareas",
