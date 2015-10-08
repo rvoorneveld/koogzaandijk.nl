@@ -70,4 +70,9 @@ class KZ_View_Helper_Date extends Zend_View_Helper_Abstract
 	{
 		return '2015-08-01';
 	}
+
+    public function date()
+    {
+        return $this;
+    }
 }
