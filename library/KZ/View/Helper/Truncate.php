@@ -3,7 +3,7 @@
 class KZ_View_Helper_Truncate extends Zend_View_Helper_Abstract
 {
 
-	public function truncate($input, $numwords, $padding = "", $strLink = false)
+	public static function truncate($input, $numwords, $padding = "", $strLink = false)
 	{ 
 		$arrTotalWords		= count(explode(' ', $input));
 		$intNumberOfWords 	= $numwords;
@@ -23,7 +23,7 @@ class KZ_View_Helper_Truncate extends Zend_View_Helper_Abstract
 		return $output;
 	}
 	
-	public function restoreTags($input)
+	public static function restoreTags($input)
 	{
 		$opened = array(); // loop through opened and closed tags in order 
 	
