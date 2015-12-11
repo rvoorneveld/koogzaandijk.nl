@@ -297,12 +297,8 @@ body{
 	.profiles__avatar
 	{
 		width: 75px;
-		width: 75px;
+		height: 75px;
 		border-radius: 50%;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -o-border-radius: 50%;
-        -khtml-border-radius: 50%;
         vertical-align: middle;
 	}
 	.media
@@ -332,10 +328,6 @@ body{
 			width: 75px;
 			height:75px;
 			border-radius: 50%;
-			-moz-border-radius: 50%;
-			-webkit-border-radius: 50%;
-			-o-border-radius: 50%;
-			-khtml-border-radius: 50%;
 			vertical-align: middle;
 		}
 	}
@@ -1279,6 +1271,7 @@ html[xmlns] .slides
 
 				}
 			}
+
 			/***
 			/GENERAL TABLE STYLING
 			***/
@@ -3181,4 +3174,49 @@ table.default{
 	img.vrienden-van {
 		margin-bottom:10px;
 	}
+}
+
+.team {
+	td {
+		vertical-align: middle;
+	}
+}
+
+.flag {
+	display: table;
+	width: 100%;
+}
+
+.flag__image,
+.flag__body {
+	display: table-cell;
+	vertical-align: middle;
+
+	.flag--top & {
+		vertical-align: top;
+	}
+
+	.flag--bottom & {
+		vertical-align: bottom;
+	}
+
+}
+
+.flag__image {
+	padding-right: 10px;
+
+	> img {
+		display: block;
+		max-width: none;
+	}
+
+	.flag--rev & {
+		padding-right: 0;
+		padding-left: 10px;
+	}
+
+}
+
+.flag__body {
+	width: 100%;
 }
