@@ -269,7 +269,8 @@ class Admin_ClubController extends KZ_Controller_Action
 			'gender'        => 'm',
 			'firstname'     => '',
 			'lastname'      => '',
-			'link'          => ''
+			'link'          => '',
+			'image'         => ''
 		);
 
 		// Set Models
@@ -296,13 +297,14 @@ class Admin_ClubController extends KZ_Controller_Action
 			} else {
 
 				// Set Team Member Array
-				$arrMemberData      = array(
+				$arrMemberData = array(
 					'team_id'       => $arrTeamInfo['name'],
 					'team_role_id'  => $arrDefaults['team_role_id'],
 					'gender'        => $arrDefaults['gender'],
 					'firstname'     => $arrDefaults['firstname'],
 					'lastname'      => $arrDefaults['lastname'],
-					'link'          => $arrDefaults['link']
+					'link'          => $arrDefaults['link'],
+					'image'         => str_replace(ROOT_URL,'',$arrDefaults['image'])
 				);
 
 				// Add Team member
@@ -369,12 +371,13 @@ class Admin_ClubController extends KZ_Controller_Action
 			} else {
 
 				// Set Team Member Array
-				$arrMemberData      = array(
+				$arrMemberData = array(
 					'team_role_id'  => $arrDefaults['team_role_id'],
 					'gender'        => $arrDefaults['gender'],
 					'firstname'     => $arrDefaults['firstname'],
 					'lastname'      => $arrDefaults['lastname'],
-					'link'          => $arrDefaults['link']
+					'link'          => $arrDefaults['link'],
+					'image'         => str_replace(ROOT_URL,'',$arrDefaults['image'])
 				);
 
 				// Save Team member

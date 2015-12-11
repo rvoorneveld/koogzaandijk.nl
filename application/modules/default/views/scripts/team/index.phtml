@@ -57,12 +57,16 @@
 							for($intCount = 0; $intCount < $intMostPlayers; $intCount++) {
 
 								// Set Names
-								$strMaleName    = ((! empty($arrData['player']['m'][$intCount]) && is_array($arrData['player']['m'][$intCount])) ? $arrData['player']['m'][$intCount]['firstname'].' '.$arrData['player']['m'][$intCount]['lastname'] : '');
-								$strFemaleName  = ((! empty($arrData['player']['f'][$intCount]) && is_array($arrData['player']['f'][$intCount])) ? $arrData['player']['f'][$intCount]['firstname'].' '.$arrData['player']['f'][$intCount]['lastname'] : '');
+								$strMaleName        = ((! empty($arrData['player']['m'][$intCount]) && is_array($arrData['player']['m'][$intCount])) ? $arrData['player']['m'][$intCount]['firstname'].' '.$arrData['player']['m'][$intCount]['lastname'] : '');
+								$strFemaleName      = ((! empty($arrData['player']['f'][$intCount]) && is_array($arrData['player']['f'][$intCount])) ? $arrData['player']['f'][$intCount]['firstname'].' '.$arrData['player']['f'][$intCount]['lastname'] : '');
 
 								// Set Default Links
-								$strMaleLink    = $strMaleName;
-								$strFemaleLink  = $strFemaleName;
+								$strMaleLink        = $strMaleName;
+								$strFemaleLink      = $strFemaleName;
+
+								// Set Default Images
+								$strMaleImage       = '<div class="media__img"><img class="profiles__avatar" src="/assets/default/image/temp_test/placeholder.jpg" alt="" title="" /></div>';
+								$strFemaleImage     = '<div class="media__img"><img class="profiles__avatar" src="/assets/default/image/temp_test/placeholder.jpg" alt="" title="" /></div>';
 
 								// Set Male Link
 								if(! empty($arrData['player']['m'][$intCount]['link'])) {
@@ -74,9 +78,19 @@
 									$strFemaleLink  = '<a href="'.$arrData['player']['f'][$intCount]['link'].'" title="'.$strFemaleName.'" target="_blank">'.$strFemaleName.'</a>';
 								}
 
+								// Set Male Image
+								if(! empty($arrData['player']['m'][$intCount]['image'])) {
+									$strMaleImage   = '<div class="media__img"><img class="profiles__avatar" src="'.$arrData['player']['m'][$intCount]['image'].'" alt="Pasfoto van '.$strMaleName.'" title="'.$strMaleName.'" /></div>';
+								}
+
+								// Set Female Image
+								if(! empty($arrData['player']['f'][$intCount]['image'])) {
+									$strFemaleImage = '<div class="media__img"><img class="profiles__avatar" src="'.$arrData['player']['f'][$intCount]['image'].'" alt="Pasfoto van '.$strMaleName.'" title="'.$strFemaleName.'" /></div>';
+								}
+
 								echo '  <tr>
-											<td>'.$strMaleLink.'</td>
-											<td>'.$strFemaleLink.'</td>
+											<td>'.$strMaleImage.$strMaleLink.'</td>
+											<td>'.$strFemaleImage.$strFemaleLink.'</td>
 										</tr>';
 
 							}

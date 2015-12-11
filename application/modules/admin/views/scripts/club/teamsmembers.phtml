@@ -17,6 +17,7 @@
 							<thead>
 								<tr>
 									<th width="60">'.$this->translate('ID').'</th>
+									<th>'.$this->translate('Image').'</th>
 									<th>'.$this->translate('Gender').'</th>
 									<th>'.$this->translate('Name').'</th>
 									<th>'.$this->translate('Role').'</th>
@@ -29,6 +30,7 @@
 
 						echo '  <tr>
 									<td>'.$arrMember['team_member_id'].'</td>
+									<td>'.((! empty($arrMember['image'])) ? '<img src="'.$arrMember['image'].'" alt="" title="" style="height:50px;" />' : '').'</td>
 									<td>'.$this->translate((($arrMember['gender'] == 'm') ? 'Male' : 'Female')).'</td>
 									<td>'.$arrMember['firstname'].' '.$arrMember['lastname'].'</td>
 									<td>'.ucfirst($this->translate($arrMember['role'])).'</td>
@@ -52,7 +54,7 @@
 
 	<div id="tab1" class="tab">
 
-		<form name="addPagesForm" method="post" action="#tab1">
+		<form name="addTeamMemberForm" method="post" action="#tab1">
 
 			<dl>
 				<dt><label class="label" for="team_role_id"><?php echo $this->translate('Role'); ?></label></dt>
@@ -89,6 +91,13 @@
 			<dl>
 				<dt><label class="label" for="link"><?php echo $this->translate('Link'); ?></label></dt>
 				<dd><input type="text" class="small" id="link" name="link" value="<?php echo $this->defaults['link']; ?>" /></dd>
+			</dl>
+			<dl>
+				<dt><label class="label" for="image"><?php echo $this->translate('Image'); ?></label></dt>
+				<dd>
+					<input type="text" class="small" id="image" name="image" value="<?php echo $this->defaults['image']; ?>" />
+					<a class="button" href="javascript:mcImageManager.open('addTeamMemberForm','image','','',{path : '../../../../../upload', remember_last_path : true});"><?php echo $this->translate('Select image'); ?></a>
+				</dd>
 			</dl>
 
 			<dl>

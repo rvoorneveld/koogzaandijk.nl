@@ -41,6 +41,13 @@
 			<dt><label class="label" for="link"><?php echo $this->translate('Link'); ?></label></dt>
 			<dd><input type="text" class="small" id="link" name="link" value="<?php echo $this->defaults['link']; ?>" /></dd>
 		</dl>
+		<dl>
+			<dt><label class="label" for="image"><?php echo $this->translate('Image'); ?></label></dt>
+			<dd>
+				<input type="text" class="small" id="image" name="image" value="<?php echo $this->defaults['image']; ?>" />
+				<a class="button" href="javascript:mcImageManager.open('editTeamMemberForm','image','','',{path : '../../../../../upload', remember_last_path : true});"><?php echo $this->translate('Select image'); ?></a>
+			</dd>
+		</dl>
 
 		<dl>
 			<dt>&nbsp;</dt>
