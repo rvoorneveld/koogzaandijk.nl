@@ -9,6 +9,15 @@
 			
 			<?php
 
+				// Set Male and Female Html
+				$strProfileHtml   = '	<div class="flag">
+											<div class="flag__image"><img class="profiles__avatar" src="{image}" alt="Pasfoto van {name}" title="{name}" /></div>
+											<div class="flag__body">{name}</div>
+										</div>';
+
+				// Set Default Images
+				$strMaleImage = $strFemaleImage = $strSupervisorImage = '/assets/default/image/temp_test/placeholder.jpg';
+
 				$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
 				$booDesktopView	= $objResponsive->isDesktop();
 				$booTabletView	= $objResponsive->isTablet();
@@ -64,10 +73,6 @@
 								$strMaleLink        = $strMaleName;
 								$strFemaleLink      = $strFemaleName;
 
-								// Set Default Images
-								$strMaleImage       = '<div class="media__img"><img class="profiles__avatar" src="/assets/default/image/temp_test/placeholder.jpg" alt="" title="" /></div>';
-								$strFemaleImage     = '<div class="media__img"><img class="profiles__avatar" src="/assets/default/image/temp_test/placeholder.jpg" alt="" title="" /></div>';
-
 								// Set Male Link
 								if(! empty($arrData['player']['m'][$intCount]['link'])) {
 									$strMaleLink    = '<a href="'.$arrData['player']['m'][$intCount]['link'].'" title="'.$strMaleName.'" target="_blank">'.$strMaleName.'</a>';
@@ -80,17 +85,21 @@
 
 								// Set Male Image
 								if(! empty($arrData['player']['m'][$intCount]['image'])) {
-									$strMaleImage   = '<div class="media__img"><img class="profiles__avatar" src="'.$arrData['player']['m'][$intCount]['image'].'" alt="Pasfoto van '.$strMaleName.'" title="'.$strMaleName.'" /></div>';
+									$strMaleImage   = $arrData['player']['m'][$intCount]['image'];
 								}
 
 								// Set Female Image
 								if(! empty($arrData['player']['f'][$intCount]['image'])) {
-									$strFemaleImage = '<div class="media__img"><img class="profiles__avatar" src="'.$arrData['player']['f'][$intCount]['image'].'" alt="Pasfoto van '.$strMaleName.'" title="'.$strFemaleName.'" /></div>';
+									$strFemaleImage = $arrData['player']['f'][$intCount]['image'];
 								}
 
 								echo '  <tr>
-											<td>'.$strMaleImage.$strMaleLink.'</td>
-											<td>'.$strFemaleImage.$strFemaleLink.'</td>
+											<td>
+												'.str_replace(array('{image}','{name}'),array($strMaleImage,$strMaleName),$strProfileHtml).'
+											</td>
+											<td>
+												'.str_replace(array('{image}','{name}'),array($strFemaleImage,$strFemaleName),$strProfileHtml).'
+											</td>
 										</tr>';
 
 							}
@@ -106,8 +115,8 @@
 								echo '  <h2>'.$this->translate('Staf').'</h2>
 										<table class="default clubplugin team">
 											<tr>
-												<th width="50%">'.$this->translate('Role').'</th>
-												<th width="50%">'.$this->translate('Name').'</th>
+												<th width="30%">'.$this->translate('Role').'</th>
+												<th width="70%">'.$this->translate('Name').'</th>
 											</tr>';
 
 								foreach($arrTeamSupervisors as $strSupervisorType => $arrSupervisorsByType) {
@@ -127,9 +136,14 @@
 												$strSupervisorLink  = '<a href="'.$arrTeamSupervisor['link'].'" title="'.$strSupervisorName.'" target="_blank">'.$strSupervisorName.'</a>';
 											}
 
+											// Set Supervisor Image
+											if(! empty($arrTeamSupervisor['image'])) {
+												$strSupervisorImage = $arrTeamSupervisor['image'];
+											}
+
 											echo '  <tr>
 														<td>'.ucfirst($this->translate($strSupervisorType)).'</td>
-														<td>'.$strSupervisorLink.'</td>
+														<td>'.str_replace(array('{image}','{name}'),array($strSupervisorImage,$strSupervisorName),$strProfileHtml).'</td>
 													</tr>';
 
 										}
