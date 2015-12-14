@@ -47,9 +47,6 @@
 							}
 
 
-							// Set Default Images
-							$strMaleImage = $strFemaleImage = $strSupervisorImage = '/assets/default/image/temp_test/placeholder.jpg';
-
 							echo '  <h2>'.$this->translate('Spelers').'</h2>
 									<table class="default clubplugin team">
 										<tr>
@@ -83,6 +80,9 @@
 								if(! empty($arrData['player']['f'][$intCount]['link'])) {
 									$strFemaleLink  = '<a href="'.$arrData['player']['f'][$intCount]['link'].'" title="'.$strFemaleName.'" target="_blank">'.$strFemaleName.'</a>';
 								}
+
+								// Set Default Images
+								$strMaleImage = $strFemaleImage = '/assets/default/image/temp_test/placeholder.jpg';
 
 								// Set Male Image
 								if(! empty($arrData['player']['m'][$intCount]['image'])) {
@@ -136,6 +136,9 @@
 											if(! empty($arrTeamSupervisor['link'])) {
 												$strSupervisorLink  = '<a href="'.$arrTeamSupervisor['link'].'" title="'.$strSupervisorName.'" target="_blank">'.$strSupervisorName.'</a>';
 											}
+
+											// Set Default Supervisor image
+											$strSupervisorImage = '/assets/default/image/temp_test/placeholder.jpg';
 
 											// Set Supervisor Image
 											if(! empty($arrTeamSupervisor['image'])) {
