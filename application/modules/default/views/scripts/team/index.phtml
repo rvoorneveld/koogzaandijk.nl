@@ -15,9 +15,6 @@
 											<div class="flag__body">{name}</div>
 										</div>';
 
-				// Set Default Images
-				$strMaleImage = $strFemaleImage = $strSupervisorImage = '/assets/default/image/temp_test/placeholder.jpg';
-
 				$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
 				$booDesktopView	= $objResponsive->isDesktop();
 				$booTabletView	= $objResponsive->isTablet();
@@ -48,6 +45,10 @@
 								$strMales   = 'Jongens';
 								$strFemales = 'Meiden';
 							}
+
+
+							// Set Default Images
+							$strMaleImage = $strFemaleImage = $strSupervisorImage = '/assets/default/image/temp_test/placeholder.jpg';
 
 							echo '  <h2>'.$this->translate('Spelers').'</h2>
 									<table class="default clubplugin team">
