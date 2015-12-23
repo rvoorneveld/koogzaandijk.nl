@@ -12,7 +12,7 @@
 				// Set Male and Female Html
 				$strProfileHtml   = '	<div class="flag">
 											<div class="flag__image"><img class="profiles__avatar" src="{image}" alt="Pasfoto van {name}" title="{name}" /></div>
-											<div class="flag__body">{name}</div>
+											<div class="flag__body">{link}</div>
 										</div>';
 
 				$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
@@ -96,10 +96,10 @@
 
 								echo '  <tr>
 											<td>
-												'.str_replace(array('{image}','{name}'),array($strMaleImage,$strMaleName),$strProfileHtml).'
+												'.str_replace(array('{image}','{link}'),array($strMaleImage,$strMaleLink),$strProfileHtml).'
 											</td>
 											<td>
-												'.str_replace(array('{image}','{name}'),array($strFemaleImage,$strFemaleName),$strProfileHtml).'
+												'.str_replace(array('{image}','{link}'),array($strFemaleImage,$strFemaleLink),$strProfileHtml).'
 											</td>
 										</tr>';
 
@@ -147,7 +147,7 @@
 
 											echo '  <tr>
 														<td>'.ucfirst($this->translate($strSupervisorType)).'</td>
-														<td>'.str_replace(array('{image}','{name}'),array($strSupervisorImage,$strSupervisorName),$strProfileHtml).'</td>
+														<td>'.str_replace(array('{image}','{link}'),array($strSupervisorImage,$strSupervisorLink),$strProfileHtml).'</td>
 													</tr>';
 
 										}
