@@ -6,12 +6,12 @@
 <div id="nextpage" class="zapp">
 	<div class="col full">
 		<div class="inner">
-			
+
 			<?php
 
 				// Set Male and Female Html
 				$strProfileHtml   = '	<div class="flag">
-											<div class="flag__image"><img class="profiles__avatar" src="{image}" alt="Pasfoto van {name}" title="{name}" /></div>
+											<div class="flag__image"><span class="profiles__avatar profiles__avatar--background" style="background-image:url({image});"></span></div>
 											<div class="flag__body">{link}</div>
 										</div>';
 
@@ -21,19 +21,19 @@
 				$booMobileView	= $objResponsive->isMobile();
 
 				if(isset($this->data) && is_array($this->data) && count($this->data) > 0) {
-					
+
 					echo '<div id="tabs"><ul>';
-					
+
 					foreach($this->data as $strSportType => $arrData) {
-						
+
 						echo '<li><a href="#tabs-'.strtolower(str_replace(' ', '', $strSportType)).'">'.$strSportType.'</a></li>';
-						
+
 					}
-					
+
 					echo '</ul>';
-					
+
 					foreach($this->data as $strSportType => $arrData) {
-					
+
 						echo '  <div id="tabs-'.strtolower(str_replace(' ', '', $strSportType)).'">';
 
 						if($strSportType == 'Team') {
@@ -250,7 +250,7 @@
 						}
 
 						if(isset($arrData['standings']) && is_array($arrData['standings']) && count($arrData['standings']) > 0) {
-							
+
 							echo '<br /><h2>'.$this->translate('Stand').'</h2>
 								<table class="clubplugin standings">
 									<tr class="heading">
@@ -258,9 +258,9 @@
 										<th class="clubname">'.$this->translate('Team').'</th>
 										<th class="gespeeld">'.$this->translate((($booDesktopView === true) ? 'Gespeeld' : (($booTabletView === true) ? 'GES' : 'G'))).'</th>
 										<th class="punten">'.$this->translate((($booDesktopView === true) ? 'Punten' : (($booTabletView === true) ? 'PUN' : 'P'))).'</th>';
-							
+
 							if($booMobileView !== true) {
-							
+
 							echo '		<th class="winst">'.$this->translate((($booDesktopView === true) ? 'Winst' : (($booTabletView === true) ? 'WIN' : 'W'))).'</th>
 										<th class="verlies">'.$this->translate((($booDesktopView === true) ? 'Verlies' : (($booTabletView === true) ? 'VER' : 'V'))).'</th>
 										<th class="gelijk">'.$this->translate((($booDesktopView === true) ? 'Gelijk' : (($booTabletView === true) ? 'GEL' : 'G'))).'</th>
@@ -270,7 +270,7 @@
 										<th class="mindering">'.$this->translate((($booDesktopView === true) ? 'Mindering' : (($booTabletView === true) ? 'MIN' : 'M'))).'</th>
 									</tr>';
 							}
-							
+
 							foreach($arrData['standings'] as $intStandingsKey => $arrStanding) {
 								$strTeamName 	= $arrStanding['team_name'];
 								if($booMobileView === true) {
@@ -282,13 +282,13 @@
 										}
 									}
 								}
-								
+
 								echo '	<tr>
 											<td class="position">'.$arrStanding['position'].'</td>
 											<td class="clubname">'.(($arrStanding['clubteam'] == 1) ? '<strong>'.$strTeamName.'</strong>' : $strTeamName).'</td>
 											<td>'.$arrStanding['played'].'</td>
 											<td>'.$arrStanding['points'].'</td>';
-								
+
 								if($booMobileView !== true) {
 									echo '	<td>'.$arrStanding['won'].'</td>
 											<td>'.$arrStanding['lost'].'</td>
@@ -299,20 +299,20 @@
 											<td>'.$arrStanding['penalties'].'</td>
 										</tr>';
 								}
-												
+
 							}
-							
+
 							echo '</table>';
-								
+
 						}
-						
-						
+
+
 						echo '</div>';
-					
+
 					}
-					
+
 					echo '</div>';
-					
+
 				}
 			?>
 		</div>
