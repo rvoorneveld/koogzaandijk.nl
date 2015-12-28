@@ -76,7 +76,7 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 					$strPoule				    = (string)$arrMatch->poule_name;
 					$strClass				    = (string)$arrMatch->class;
 					$strTime				    = (string)$arrMatch->time;
-					$intYear				    = (int)$arrDate[0];
+					$intYear				    = (int)$arrMatch->year;
 					$intSeason				    = (int)$arrMatch->year;
 
 					// Set Unique Matches ID
