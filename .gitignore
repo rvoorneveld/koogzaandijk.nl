@@ -103,3 +103,10 @@ temp/
 # Legacy ZF1
 demos/
 extras/documentation
+
+
+
+### PROJECT SPECIFIC
+public/upload
+public/cronjobs
+public/magazines
