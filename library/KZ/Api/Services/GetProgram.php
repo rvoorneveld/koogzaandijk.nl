@@ -32,6 +32,8 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 
 		$strLoadedXml		    = $this->_loadXml($booLoadCached, $arrConfig);
 
+		mail('rick@mediaconcepts.nl','KZ/Hiltex - XML - Program', var_export($strLoadedXml,true));
+
 		// Load XML string and parse
 		$objXml = simplexml_load_string($strLoadedXml);
 
