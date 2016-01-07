@@ -27,7 +27,7 @@ class KZ_Api_Services_GetResults extends KZ_Api_Services
 
 		$strLoadedXml		= $this->_loadXml($booLoadCached, $arrConfig);
 
-		mail('rick@mediaconcepts.nl','KZ/Hiltex - XML - Results', var_export($strLoadedXml,true));
+		mail('development@hoteliers.com','KZ/Hiltex - XML - Results', var_export($strLoadedXml,true));
 
 		// Load XML string and parse
 		$objXml 			= simplexml_load_string($strLoadedXml);
