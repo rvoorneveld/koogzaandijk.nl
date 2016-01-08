@@ -32,8 +32,6 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 
 		$strLoadedXml		    = $this->_loadXml($booLoadCached, $arrConfig);
 
-		mail('development@hoteliers.com','KZ/Hiltex - XML - Program', var_export($strLoadedXml,true));
-
 		// Load XML string and parse
 		$objXml = simplexml_load_string($strLoadedXml);
 
@@ -78,8 +76,7 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 					$strPoule				    = (string)$arrMatch->poule_name;
 					$strClass				    = (string)$arrMatch->class;
 					$strTime				    = (string)$arrMatch->time;
-					$intYear				    = (int)$arrMatch->year;
-					$intSeason				    = (int)$arrMatch->year;
+					$intYear				    = (int)$arrMatch->date[0];
 
 					// Set Unique Matches ID
 					$intUniqueMatchesID         = $intMatchID.$intHomeTeamID.$intAwayTeamID;
@@ -158,9 +155,9 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 
 				}
 
-			}
+		}
 
-			// Check for changes, if so send e-mail
+		// Check for changes, if so send e-mail
 //            if(!empty($arrChangedData) && is_array($arrChangedData)) {
 //
 //                // Set the Mail Model
