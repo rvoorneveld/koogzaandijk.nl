@@ -65,7 +65,7 @@ class TeamController extends KZ_Controller_Action
 							
 							// Get Standings for Poule
 							$arrPouleStandings	= $objModelStandings->getStandingsByPoule($strPouleName, $strSportType);
-	
+
 							$arrMatchData[$strSportType] = array(
 								'matches'		=> $arrPouleMatches,
 								'standings'		=> $arrPouleStandings

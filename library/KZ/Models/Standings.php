@@ -15,7 +15,7 @@ class KZ_Models_Standings extends KZ_Controller_Table
 	{
 		$strQuery = $this->select()
 					->where('poule_name = ?', $strPouleName)
-					->where('type LIKE(?)', ucfirst($strSportType).' Week')
+					->where('type LIKE(?)', ucfirst($strSportType))
 					->order('position');
 		return $this->returnData($strQuery);
 	}
