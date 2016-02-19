@@ -14,7 +14,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		// Put config in registry
 		Zend_Registry::set('Zend_Config', $this->objConfig);
 	}
-	
+
+	protected function _initCache()
+	{
+		// Bootstrap Zend_Cachemanager before other resources to avoid caching to wrong paths
+		$this->bootstrap('cachemanager');
+	}
+
 	protected function _initSessions()
 	{
 		ini_set('session.cache_expire', (60 * 8));
@@ -87,17 +93,30 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		
 		// Set Models
 		$objModelTranslations	= new KZ_Models_Translations();
+
+		$fncGetTranslationArray = function() use($objModelTranslations,$strLanguage) {
+			return $objModelTranslations->getTranslation($strLanguage);
+		};
+
+		if (($objCache = Zend_Translate::getCache()) instanceof Zend_Cache_Core) {
+			$strKey = $objModelTranslations::getCacheKey($strLanguage);
+			if (($arrAvailableTranslations = $objCache->load($strKey)) === false) {
+				$objCache->save($arrAvailableTranslations = $fncGetTranslationArray(),$strKey);
+			}
+		} else {
+			$arrAvailableTranslations = $fncGetTranslationArray();
+		}
 		
 		// Translate
 		$objTranslate	= new Zend_Translate(array(
 			'adapter'	=> 'array',
-			'content'	=> array_merge(array('default' => 'default'), $objModelTranslations->getTranslation($strLanguage)),
+			'content'	=> array_merge(array('default' => 'default'), $arrAvailableTranslations),
 			'locale' 	=> $strLanguage
 		));
 		
 		// Place Zend_Translation in registry
 		Zend_Registry::set('Zend_Translate', $objTranslate);	
-		Zend_Registry::set('KZ_Translate', $objModelTranslations->getTranslation($strLanguage));	
+		Zend_Registry::set('KZ_Translate', $arrAvailableTranslations);
 	}
 	
 	protected function _initCaching() {}

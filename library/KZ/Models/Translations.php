@@ -40,10 +40,18 @@ class KZ_Models_Translations extends KZ_Controller_Table
 	
 	public function checkMissingTranslation($strKey, $strLanguage)
 	{
+		// Set Adapter
+		$objAdapter = $this->getAdapter();
+
+		// Set Keycode Where clause
+		$strWhereKeycode = "keycode = {$objAdapter->quote($strKey)} "
+			. "OR keycode = {$objAdapter->quote(htmlentities($strKey))} "
+			. "OR keycode = {$objAdapter->quote(htmlentities($strKey,ENT_NOQUOTES))}";
+
 		$strQuery		= $this->select(true)
 								->columns(array('keycode','translation'))
 								->where('language = ?', strtolower($strLanguage))
-								->where('keycode = ?', $strKey)
+								->where($strWhereKeycode)
 								->where('status = ?', 'missing');
 		
 		return $this->returnData($strQuery, 'array', 'fetchRow');
@@ -82,4 +90,10 @@ class KZ_Models_Translations extends KZ_Controller_Table
 		
 		return $this->update($arrUpdateData, "translation_id = '".$intTranslationID."'");	
 	}
+
+	public static function getCacheKey($strLanguage)
+	{
+		return strtolower("translations_{$strLanguage}");
+	}
+
 }
