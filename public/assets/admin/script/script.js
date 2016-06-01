@@ -312,3 +312,256 @@ $(function () {
 	});
 	
 });
+
+// Create a new Folder at Images or Files
+function createNewFolder(folderaction) {
+	// Get the Folder name
+	var getFolderName = jQuery('#createFolder').find('input#foldername').val();
+
+	if (getFolderName != '') {
+		// Add folder name to the url
+		folderaction += 'foldername/' + getFolderName + '/';
+
+		// Create the Folder, if exists error will be returned
+		jQuery.get(folderaction,function(returnData) {
+			// If all OK reload the Page, else alert the error
+			if (returnData == 1) {
+				window.location.reload();
+				return true;
+			} else {
+				alert(returnData);
+				return false;
+			}
+		});
+	}
+}
+
+// Get the Selected Folder Content
+function getFolderContent(obj,controller,type,parent) {
+	var foldername = jQuery(obj).html();
+
+	if (typeof(type) == 'undefined') {
+		type = 'images';
+	}
+
+	if (typeof(controller) == 'undefined') {
+		controller = 'library';
+	}
+	// Close all other folder
+	jQuery('div.folders li').each(function() {
+		var folderClass = jQuery(this).find('span').attr('class');
+
+		if ((typeof(folderClass) != 'undefined') && (folderClass.indexOf('icon-folder') != -1)) {
+			jQuery(this).find('span').attr('class','icon-folder-close');
+		}
+	});
+
+	// Set the Selected folder with a new class
+	jQuery(obj).parent().children('span').attr('class','icon-folder-open');
+
+	// Remove the up icon
+	jQuery('div.folders li.default_dir').find('span').removeAttr('class');
+
+	// Get the Files and set them to the files div
+	var getfolder = ((foldername == '..') ? '' : foldername);
+
+	if (typeof(parent) != 'undefined') {
+		// Get the Parent folder of the sub
+		getfolder = parent + '|' + getfolder;
+	}
+
+	// Set the Up icon
+	var fileurl = '/admin/' + controller + '/' + type + '/';
+	var currentUrl = '';
+	if (getfolder != '') {
+		fileurl += 'folder/' + getfolder + '/';
+		currentUrl += getfolder.replace(/\|/g,'/');
+		jQuery('div.folders li.default_dir').find('span').attr('class','up_folder');
+	}
+
+	// Get the Files
+	jQuery('body').addClass("loading");
+	jQuery.get(fileurl,function(returnData) {
+		jQuery('div.files').html(returnData);
+	}).complete(function() {
+		jQuery('body').removeClass("loading");
+	})
+	;
+
+	// Add the Foldername to the current_folder url
+	jQuery('div.current_folder span.url').html(currentUrl);
+	jQuery('div#createFolder').find('.modalurl').html(currentUrl);
+}
+
+// Show the SubFolder(s)
+function showSubFolder(obj) {
+	var iconClass = ((jQuery(obj).attr('class') == 'icon-minus') ? 'icon-plus' : 'icon-minus');
+	jQuery(obj).attr('class',iconClass);
+
+	jQuery(obj).parent().children('ul').each(function() {
+		var currentClass = jQuery(this).attr('class');
+		if (currentClass.indexOf('hidden') != -1) {
+			jQuery(this).removeClass('hidden');
+		} else {
+			jQuery(this).addClass('hidden');
+		}
+	});
+}
+
+// Set the Active Folder
+function setActiveFolder(obj,current_location) {
+	// Check if we need to show (sub) sub folders
+	if (current_location != '') {
+
+		// Set the Folder to the Selected Folder text
+		jQuery('div.current_folder span.url').html(current_location);
+
+		// Create the Current Folder array
+		var arrCurrentFolder = current_location.split('/');
+
+		// Set the Defaults
+		var folder = '';
+		var subfolder = '';
+		var subsubfolder = '';
+
+		// Check if we have sub and/or subsub folders
+		if (arrCurrentFolder.length == 1) {
+			folder = arrCurrentFolder[0];
+		} else if (arrCurrentFolder.length == 2) {
+			folder = arrCurrentFolder[0];
+			subfolder = arrCurrentFolder[1];
+		} else if (arrCurrentFolder.length == 3) {
+			folder = arrCurrentFolder[0];
+			subfolder = arrCurrentFolder[1];
+			subsubfolder = arrCurrentFolder[2];
+		}
+
+		// Loop over the Folder and (sub)sub folders
+		jQuery(obj).children('ul').children('li').each(function() {
+			var liclass = jQuery(this).attr('class');
+
+			// Check if the Class is not the Default Directory
+			if (liclass != 'default_dir') {
+
+				// Check if Folder has Sub or SubSub Folders
+				if (jQuery(this).children('ul').length > 0) {
+
+					// Set the Folder Object
+					var folderobj = jQuery(this).children('ul');
+
+					// Get the Foldername of the parent
+					var foldername = folderobj.parent().children('a').html();
+
+					// Only set the Correct Folder to the Open state
+					if ((foldername == folder) && (folder != '')) {
+
+						// Change the Icon of the folder parent to Minus
+						var iconClass = ((folderobj.parent().children('p').attr('class') == 'icon-minus') ? 'icon-plus' : 'icon-minus');
+						folderobj.parent().children('p').attr('class',iconClass);
+
+						// Set the Folder icon to Open
+						var iconFolderClass = ((folderobj.parent().children('span').attr('class') == 'icon-folder-close') ? 'icon-folder-open' : 'icon-folder');
+						folderobj.parent().find('span').attr('class',iconFolderClass);
+
+						// Show the SubFolders
+						folderobj.parent().find('ul').removeClass('hidden');
+
+						// Show the SubFolder if Selected and available
+						if ((folderobj.children('li').children('ul').length > 0)) {
+
+							// Show the SubFolders
+							folderobj.removeClass('hidden');
+
+							// Set the SubFolder Object
+							var subfolderobj = folderobj.children('li').children('ul');
+
+							if ((subfolderobj.attr('class').indexOf('hidden') != -1) && (subfolder != '')) {
+
+								// Change the Icon of the folder parent to Minus
+								var iconClass = ((subfolderobj.parent().children('p').attr('class') == 'icon-minus') ? 'icon-plus' : 'icon-minus');
+								subfolderobj.parent().children('p').attr('class',iconClass);
+
+								// Set the Folder icon to Open
+								var iconFolderClass = ((subfolderobj.parent().children('span').attr('class') == 'icon-folder-close') ? 'icon-folder-open' : 'icon-folder-close');
+								subfolderobj.parent().children('span').attr('class',iconFolderClass);
+
+								// Show the SubSubFolders
+								subfolderobj.removeClass('hidden');
+
+								if ((subfolderobj.children('li').length > 0)) {
+									var subsubfolders = subfolderobj.children('li');
+
+									for (var i = 0; i < subsubfolders.length; i++) {
+										var subsubfoldername = jQuery(subsubfolders[i]).children('a').html();
+										if (subsubfolder != '' && subsubfoldername == subsubfolder) {
+											// Set the Folder icon to Open
+											var iconFolderClass = ((jQuery(subsubfolders[i]).children('span').attr('class') == 'icon-folder-close') ? 'icon-folder-open' : 'icon-folder-close');
+											jQuery(subsubfolders[i]).children('span').attr('class',iconFolderClass);
+										}
+									}
+								}
+							}
+						}
+					}
+				} else {
+					// No SubFolder found
+
+					// Get the FolderName of Folders with NO Subs
+					var foldername = jQuery(this).children('a').html();
+
+					// Set the Folder icon to Open, only if foldernames are the same
+					if ((folder == foldername) && (folder != '')) {
+						var iconFolderClass = ((jQuery(this).children('span').attr('class') == 'icon-folder-close') ? 'icon-folder-open' : 'icon-folder-close');
+						jQuery(this).children('span').attr('class',iconFolderClass);
+					}
+				}
+			}
+		});
+	}
+}
+
+// Set the Remove Image
+function confirmRemoveItem(obj,msg,type) {
+	if (typeof(type) == 'undefined') {
+		type = 'image';
+	}
+
+	var deleteUrl = '/admin/tools/removefromserver/';
+	if (type == 'image') {
+		var documenturl = jQuery(obj).parent().parent().find('a.thumbnail').attr('rel');
+		var data = {image: encodeURI(documenturl)}
+	} else {
+		var documenturl = jQuery(obj).parent().parent().find('a.file').attr('rel');
+		var data = {file: encodeURI(documenturl)}
+	}
+
+	if (confirm(msg)) {
+		if (typeof(documenturl) != 'undefined' && documenturl != '') {
+			var deleteUrl = '/admin/tools/removefromserver/';
+			jQuery.post(deleteUrl,data).success(function() {
+				jQuery(obj).parent().parent().remove();
+			})
+		}
+		return true;
+	} else {
+		return false;
+	}
+}
+
+// Remove the Selected folder
+function removeFolder(obj, foldertype, msg, folder) {
+	if(confirm(msg)) {
+		if(typeof(folder) != 'undefined' && folder != '') {
+			var deleteUrl   = '/admin/tools/removefolder/';
+			jQuery.post(deleteUrl, {
+				folder: folder,
+				type: foldertype
+			}).success( function() 	{
+				jQuery(obj).parent().remove();
+			})
+		}
+		return true;
+	} else {
+		return false;
+	}
+}

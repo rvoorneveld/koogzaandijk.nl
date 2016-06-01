@@ -1,0 +1,151 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		jQuery('#width_height').change(function() {
+			if($('#width_height').attr('checked')) {
+				jQuery('#width').removeAttr('disabled');
+				jQuery('#height').removeAttr('disabled');
+			} else {
+				jQuery('#width').attr('disabled', 'true');
+				jQuery('#height').attr('disabled', 'true');
+			}
+		});
+
+	});
+
+</script>
+<header>
+	<h2><?php echo $this->translate('Galleries'); ?></h2>
+	<nav>
+		<ul class="data-header-actions tabs">
+			<li class="demoTabs active"><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li class="demoTabs"><a href="#tab1"><?php echo $this->translate('Add Gallery'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+
+<section class="tab-content">
+	<div id="tab0" class="tab-pane active">
+		<?php
+		if(isset($this->galleries) && is_array($this->galleries) && count($this->galleries) > 0) {
+			?>
+			<table class="datatable table table-striped table-bordered table-hover">
+				<thead>
+				<tr>
+					<th width="50"><?php echo $this->translate('ID'); ?></th>
+					<th width="*"><?php echo $this->translate('Name'); ?></th>
+					<th width="*"><?php echo $this->translate('Type'); ?></th>
+					<th width="125"><?php echo $this->translate('Fixed width'); ?></th>
+					<th width="125"><?php echo $this->translate('Fixed height'); ?></th>
+					<th width="125"><?php echo $this->translate('Status'); ?></th>
+					<th width="150"><?php echo $this->translate('Created'); ?></th>
+					<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+					<th width="75"><?php echo $this->translate('Options'); ?></th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php foreach($this->galleries as $arrGalleries) {
+
+					// Format Created Date
+					$strCreatedDate 	= Stroomrotterdam_View_Helper_Date::format($arrGalleries['created'], 'dd-MM-YYYY HH:mm:ss');
+
+					// Format Modified Date
+					$strModifiedDate 	= Stroomrotterdam_View_Helper_Date::format($arrGalleries['lastmodified'], 'dd-MM-YYYY HH:mm:ss');
+					?>
+
+					<tr>
+						<td><?php echo $arrGalleries['gallery_id']; ?></td>
+						<td><a href="/admin/library/galleriesimages/id/<?php echo $arrGalleries['gallery_id']; ?>"><strong><?php echo $arrGalleries['name']; ?></strong></a></td>
+						<td><?php echo $arrGalleries['type_id']; ?></td>
+						<td><?php echo (($arrGalleries['width'] == '0') ? '-' : $arrGalleries['width']); ?></td>
+						<td><?php echo (($arrGalleries['height'] == '0') ? '-' : $arrGalleries['height']); ?></td>
+						<td><span class="label <?php echo (($arrGalleries['status'] == 1) ? 'label-success' : 'label-important'); ?>"><?php echo (($arrGalleries['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td class="toolbar">
+							<a rel="tooltip" href="/admin/library/galleriesimages/id/<?php echo $arrGalleries['gallery_id']; ?>/" class="content" original-title="<?php echo $this->translate('Add Images'); ?>"><span class="fam-picture-add"></span></a>
+							<a rel="tooltip" href="/admin/library/galleriesedit/id/<?php echo $arrGalleries['gallery_id']; ?>/" class="edit" original-title="<?php echo $this->translate('Edit gallery'); ?>"><span class="fam-page-white-edit"></span></a>
+							<a rel="tooltip" href="/admin/library/galleriesdelete/id/<?php echo $arrGalleries['gallery_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete'); ?>"><span class="fam-delete"></span></a>
+						</td>
+					</tr>
+
+				<?php } ?>
+
+				</tbody>
+			</table>
+
+			<?php
+		} else {
+			echo $this->translate('No galleries to display').'.';
+		}
+
+		?>
+	</div>
+	<div id="tab1" class="tab-pane">
+		<form class="form-horizontal" name="addGalleryForm" method="post" action="#tab1">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="name"><?php echo $this->translate('Name'); ?></label>
+					<div class="controls"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="type"><?php echo $this->translate('Type'); ?></label>
+					<div class="controls">
+						<select name="type_id">
+							<?php foreach($this->galleriesTypes as $intKeyType => $strType) {?>
+								<option id="title" value="<?php echo $strType['gallery_type_id']; ?>"><?php echo $strType['name']; ?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="status"><?php echo $this->translate('Status'); ?></label>
+					<div class="controls">
+						<select class="small" name="status">
+							<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+							<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="width_height"><?php echo $this->translate('Fixed max height & width'); ?></label>
+					<div class="controls"><input type="checkbox" class="checkbox" id="width_height" name="width_height" value="<?php echo $this->width_height; ?>" /></div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="width"><?php echo $this->translate('Fixed Width'); ?></label>
+					<div class="controls"><input type="text" class="extrasmall"  disabled="" id="width" name="width" value="<?php echo $this->width; ?>" /> px</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="height"><?php echo $this->translate('Fixed Height'); ?></label>
+					<div class="controls"><input type="text" class="extrasmall" disabled="" id="height" name="height" value="<?php echo $this->height; ?>" /> px</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-alt btn-large btn-info"><?php echo $this->translate('Add gallery'); ?></button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
+
+<!-- jQuery DataTable -->
+<script src="/assets/admin/js/plugins/dataTables/jquery.datatables.min.js"></script>
+<script>
+	/* Table #example */
+	jQuery(document).ready(function() {
+		jQuery('.datatable').dataTable({
+			'iDisplayLength'	: 100,
+			'aaSorting'			: [[ 1, "asc" ]],
+			"aoColumns": [null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				{ "bSortable": false }
+			]
+		});
+	});
+</script>

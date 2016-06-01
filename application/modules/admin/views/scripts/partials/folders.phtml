@@ -1,0 +1,77 @@
+<h3><?php echo $this->translate('Folders', 'admin'); ?></h3>
+<?php if( !empty($this->directories) && count($this->directories) > 0 ) { ?>
+<ul>
+	<li class="default_dir">
+		<span></span>
+		<a href="javascript:void(0);" onclick="javascript:getFolderContent(this, 'library', '<?php echo $this->type; ?>');">..</a>
+	</li>
+	<?php
+	foreach($this->directories as $intKey => $strFolderName) {
+		if(is_array($strFolderName) && !empty($strFolderName)) {
+			echo '
+						<li>
+							<p class="icon-plus" onclick="javascript:showSubFolder(this);"></p>';
+		} else {
+			echo '
+						<li class="no-sub">
+							<p>&nbsp;</p>';
+		}
+
+		echo '
+						<span class="icon-folder-close"></span>
+						<a class="foldername" href="javascript:void(0);" onclick="javascript:getFolderContent(this, \'library\', \''.$this->type.'\');">'.$intKey.'</a>
+						<a class="removefolder" href="javascript:void(0);" onclick="javascript:removeFolder(this, \''.$this->type.'\', \''.$this->translate("Are you sure you want to delete this folder? This will also remove any files and subfolders", 'admin').'\', \''.$intKey.'\');">
+							<p class="icon-trash"></p>
+						</a>';
+
+		if(is_array($strFolderName) && !empty($strFolderName)) {
+			echo '<ul class="hidden sub">';
+
+			foreach($strFolderName as $intSubKey => $strSubFolderName) {
+
+				if(is_array($strSubFolderName) && !empty($strSubFolderName)) {
+					echo '
+								<li>
+									<p class="icon-plus" onclick="javascript:showSubFolder(this);"></p>';
+				} else {
+					echo '
+								<li class="no-sub">
+									<p>&nbsp;</p>';
+				}
+
+				echo '
+									<span class="icon-folder-close"></span>
+									<a href="javascript:void(0);" onclick="javascript:getFolderContent(this, \'library\', \''.$this->type.'\', \''.$intKey.'\');">'.$intSubKey.'</a>
+									<a class="removefolder" href="javascript:void(0);" onclick="javascript:removeFolder(this, \''.$this->type.'\', \''.$this->translate("Are you sure you want to delete this folder? This will also remove any files and subfolders", 'admin').'\', \''.$intKey.'/'.$intSubKey.'\');">
+										<p class="icon-trash"></p>
+									</a>';
+
+
+				if(is_array($strSubFolderName) && !empty($strSubFolderName)) {
+					echo '<ul class="hidden subsub">';
+
+					foreach($strSubFolderName as $intSubSubKey => $strSubSubFolderName) {
+						echo '
+											<li>
+												<span class="icon-folder-close"></span>
+												<a href="javascript:void(0);" onclick="javascript:getFolderContent(this, \'library\', \''.$this->type.'\', \''.$intKey.'|'.$intSubKey.'\');">'.$intSubSubKey.'</a>
+												<a class="removefolder" href="javascript:void(0);" onclick="javascript:removeFolder(this, \''.$this->type.'\', \''.$intKey.'|'.$intSubSubKey.'\');">
+													<p class="icon-trash"></p>
+												</a>
+											</li>';
+					}
+
+					echo '</ul>';
+				}
+				echo '</li>';
+			}
+
+			echo '</ul>';
+		}
+
+		echo '</li>';
+	}
+
+	echo '</ul>';
+	}
+	?>

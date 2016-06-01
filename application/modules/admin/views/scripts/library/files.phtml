@@ -1,19 +1,102 @@
-<script language="javascript" type="text/javascript" src="/assets/admin/script/tiny_mce/plugins/filemanager/js/mcfilemanager.js"></script>
 <header>
-    <h2><?php echo $this->translate('Files'); ?></h2>
+    <h2><?php echo $this->translate('Files','admin'); ?></h2>
 </header>
 <section>
-    <iframe id="libraryFrame" src="/assets/admin/script/tiny_mce/plugins/filemanager/pages/fm/index.html" style="width: 100%; height: 100%; min-height: 500px;"></iframe>
+    <div class="entry">
+        <div class="current_folder left">
+            <h4 class="entry-header">
+                <span><?php echo $this->translate('Selected folder','admin'); ?>:&nbsp;/upload/files/<span class="url"><?php echo $this->currentfolder; ?></span></span>
+            </h4>
+        </div>
+        <div class="folder_actions right">
+            <span class="icon-hdd"></span><a data-toggle="modal" href="#createFolder"><?php echo $this->translate('Create folder','admin'); ?></a>
+            <span class="icon-upload"></span><a data-toggle="modal" href="#uploadFile"><?php echo $this->translate('Upload','admin'); ?></a>
+        </div>
+    </div>
+
+    <div class="folders">
+        <?php echo $this->partial('partials/folders.phtml',[
+            'type' => 'files',
+            'directories' => $this->directories,
+        ]); ?>
+    </div>
+
+    <div class="files">
+        <?php echo $this->partial('partials/folderfiles.phtml',[
+            'files' => $this->files,
+            'filelocation' => $this->filelocation,
+        ]); ?>
+    </div>
 </section>
-<script language="javascript" type="text/javascript">
-    jQuery(document).ready(function(){
 
-        mcFileManager.browse({
-            target_frame:'#libraryFrame'
-        });
+<div class="modal fade hide" id="createFolder">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h3><?php echo $this->translate('Create a new Folder','admin'); ?></h3>
+    </div>
+    <div class="modal-body">
+        <p><?php echo $this->translate('The new folder will be created in','admin'); ?>: /upload/files/<span class="modalurl"><?php echo $this->currentfolder; ?></span></p>
 
-        jQuery("#libraryFrame").parent()[0].style.height = (jQuery("#libraryFrame")[0].scrollHeight + 150).toString() + "px";
-        jQuery("#libraryFrame").css('height', (jQuery("#libraryFrame")[0].scrollHeight + 150).toString() + "px");
+        <label><?php echo $this->translate('Foldername','admin'); ?></label>
+        <input type="text" class="input-xlarge" id="foldername" value="" />
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:;" onclick="return createNewFolder('<?php echo $this->url(['lang' => $this->getParam('lang'),'controller' => 'library','action' => 'createfolder','type' => 'folder',],false,true); ?>/');" class="btn btn-primary"><?php echo $this->translate('Create','admin'); ?></a>
+        <a href="#" class="btn" data-dismiss="modal"><?php echo $this->translate('Close','admin'); ?></a>
+    </div>
+</div>
 
+<div class="modal fade hide" id="uploadFile">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h3><?php echo $this->translate('Upload a new file', 'admin'); ?></h3>
+    </div>
+    <div class="modal-body">
+        <div class="plupload"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/admin/js/plugins/plUpload/plupload.full.js"></script>
+<script type="text/javascript" src="/assets/admin/js/plugins/plUpload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready( function() {
+        // Set the Active folder based on the Image Upload Session
+        setActiveFolder('.folders','<?php echo $this->currentfolder; ?>');
+
+        var $plupload = jQuery('.plupload');
+        if ($plupload.length > 0) {
+            // Upload image with ajax call
+            $plupload.pluploadQueue({
+                runtimes: 'html5,gears,flash,silverlight,browserplus',
+                url: '<?php echo $this->url(['lang' => $this->getParam('lang'), 'controller' => 'library','action' => 'filesupload',],false,true); ?>/',
+                max_file_size: '<?php echo $this->maxupload; ?>',
+                unique_names: true,
+                // redirect mod
+                preinit: attachCallbacks,
+                filters: [{title: "Documents",extensions: "doc,docx,pdf,xls,xlsx,ppt",},],
+                flash_swf_url: '/modules/admin/js/plugins/plUpload/plupload.flash.swf',
+                silverlight_xap_url: '/modules/admin/js/plugins/plUpload/plupload.silverlight.xap'
+            });
+            jQuery('.plupload_header').remove();
+            jQuery('.plupload_progress_container').addClass('progress').addClass('progress-striped');
+            jQuery('.plupload_progress_bar').addClass('bar');
+            jQuery('.plupload_button').each(function(e) {
+                var $this = jQuery(this);
+                if ($this.hasClass('plupload_add')) {
+                    $this.attr('class','btn btn-primary btn-alt pl_add btn-small');
+                } else {
+                    $this.attr('class','btn btn-success btn-alt pl_start btn-small');
+                }
+            });
+        }
     });
+
+    // added redirect function after uploaded
+    function attachCallbacks(Uploader) {
+        Uploader.bind('FileUploaded', function(Up,File,Response) {
+            if( (Uploader.total.uploaded+1) === Uploader.files.length) {
+                window.location.reload();
+            }
+        });
+    }
 </script>

@@ -1,0 +1,74 @@
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+		var booChecked = jQuery('#width_height').attr('checked');
+
+		if(jQuery('#width_height').attr('checked')) {
+			jQuery('#width').removeAttr('disabled');
+			jQuery('#height').removeAttr('disabled');
+		}
+
+		jQuery('#width_height').change(function() {
+			if($('#width_height').attr('checked')) {
+				jQuery('#width').removeAttr('disabled');
+				jQuery('#height').removeAttr('disabled');
+			} else {
+				jQuery('#width').attr('disabled', 'true');
+				jQuery('#height').attr('disabled', 'true');
+			}
+		});
+
+	});
+
+</script>
+<header>
+	<h2><?php echo $this->translate('Edit gallery')?></h2>
+</header>
+<section>
+	<form class="form-horizontal" name="editGalleryForm" method="post" action="#tab1">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="name"><?php echo $this->translate('Name'); ?></label>
+				<div class="controls"><input type="text" class="small" id="name" name="name" value="<?php echo $this->name; ?>" /></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="type"><?php echo $this->translate('Type'); ?></label>
+				<div class="controls">
+					<select name="type_id">
+						<?php
+						foreach($this->gallerytypes as $intKeyType => $arrGalleryTypeValues) {
+							$strSelected		= ((isset($this->type) && $this->type == $arrGalleryTypeValues['gallery_type_id']) ? ' selected="selected"' : '' );
+							?>
+							<option id="title" value="<?php echo $arrGalleryTypeValues['gallery_type_id']; ?>"<?php echo $strSelected; ?>><?php echo $arrGalleryTypeValues['name']; ?></option>
+						<?php } ?>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="status"><?php echo $this->translate('Status'); ?></label>
+				<div class="controls">
+					<select class="small" name="status">
+						<option value="1"<?php echo (($this->status == 1) ? ' selected="selected"' : ''); ?>>Active</option>
+						<option value="0"<?php echo (($this->status == 1) ? '' : 'selected="selected"'); ?>>Inactive</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="width_height"><?php echo $this->translate('Fixed max height & width'); ?></label>
+				<div class="controls"><input type="checkbox" class="checkbox" id="width_height" name="width_height" value="<?php echo $this->width_height; ?>" <?php echo $this->booFixed;?> /></div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="width"><?php echo $this->translate('Fixed Width'); ?></label>
+				<div class="controls"><input type="text" class="extrasmall"  disabled="" id="width" name="width" value="<?php echo $this->width; ?>" /> px</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="height"><?php echo $this->translate('Fixed Height'); ?></label>
+				<div class="controls"><input type="text" class="extrasmall" disabled="" id="height" name="height" value="<?php echo $this->height; ?>" /> px</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-alt btn-large btn-info"><?php echo $this->translate('Edit gallery'); ?></button>
+			</div>
+		</fieldset>
+	</form>
+</section>

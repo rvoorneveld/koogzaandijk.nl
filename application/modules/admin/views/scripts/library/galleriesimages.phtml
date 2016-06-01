@@ -1,0 +1,242 @@
+<header>
+	<h2><?php echo $this->translate('Galleries images'); ?> for <?php echo $this->gallery['name'];?></h2>
+	<nav>
+		<ul class="data-header-actions tabs">
+			<li class="demoTabs active"><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+			<li class="demoTabs"><a href="#tab1"><?php echo $this->translate('Add Image'); ?></a></li>
+		</ul>
+	</nav>
+</header>
+<?php if(isset($this->languages) && is_array($this->languages) && count($this->languages) > 1) : ?>
+	<div class="languages">
+		<?php
+		foreach($this->languages as $intLanguageKey => $arrLanguage) :
+
+			$strClass = (($arrLanguage['language'] == $this->language) ? 'btn-success' : '');
+			?>
+
+			<a class="btn <?php echo $strClass; ?>" href="/admin/library/galleriesimages/id/<?php echo $this->galleryID; ?>/language/<?php echo $arrLanguage['language']; ?>"><?php echo $arrLanguage['name'] ?></a>
+		<?php endforeach; ?>
+	</div>
+<?php endif; ?>
+<section class="tab-content">
+	<div id="tab0" class="tab-pane active">
+		<?php
+		if(isset($this->images) && is_array($this->images) && count($this->images) > 0) {
+			?>
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+				<tr>
+					<th width="50"><?php echo $this->translate('ID'); ?></th>
+					<th width="50"><?php echo $this->translate('Image'); ?></th>
+					<th width="*"><?php echo $this->translate('Name'); ?></th>
+					<?php if(isset($this->arrAttributes) && is_array($this->arrAttributes) && $this->arrAttributes > 0) : ?>
+
+						<?php foreach($this->arrAttributes as $intAttributeKey => $strAttribute) : ?>
+							<?php if(! empty($strAttribute)) : ?>
+								<th width="*"><?php echo $this->translate($strAttribute); ?></th>
+							<?php endif; ?>
+						<?php endforeach; ?>
+
+					<?php endif; ?>
+					<th width="125"><?php echo $this->translate('Status'); ?></th>
+					<th width="150"><?php echo $this->translate('Created'); ?></th>
+					<th width="150"><?php echo $this->translate('Lastmodified'); ?></th>
+					<th width="75"><?php echo $this->translate('Options'); ?></th>
+				</tr>
+				</thead>
+				<tbody class="sorted_table">
+				<?php foreach($this->images as $arrImage) {
+					// Format Created Date
+					$strCreatedDate 	= Stroomrotterdam_View_Helper_Date::format($arrImage['created'], 'dd-MM-YYYY HH:mm:ss');
+
+					// Format Modified Date
+					$strModifiedDate 	= Stroomrotterdam_View_Helper_Date::format($arrImage['lastmodified'], 'dd-MM-YYYY HH:mm:ss');
+					?>
+
+					<tr id="<?php echo $arrImage['image_id']; ?>">
+						<td style="cursor:pointer"><?php echo $arrImage['image_id']; ?></td>
+						<td>
+							<a href="/upload/images/<?php echo $arrImage['image_url']; ?>" target="_blank">
+								<img src="/upload/images/<?php echo $arrImage['image_url']; ?>" alt="<?php echo $arrImage['name']; ?>" class="noheight" width="50px" height="50px" />
+							</a>
+						</td>
+						<td class="edit">
+							<strong><b rel="name" id="<?php echo $arrImage['image_id']; ?>"><?php echo $arrImage['name']; ?></b></strong>
+							<div class="edit_input" style="display:none;">
+								<input type="text" name="name" id="name" value="<?php echo $arrImage['name']; ?>" rel="<?php echo $arrImage['image_id']; ?>" >
+							</div>
+						</td>
+						<?php if(isset($this->arrAttributes) && is_array($this->arrAttributes) && $this->arrAttributes > 0) : ?>
+							<?php foreach($this->arrAttributes as $intAttributeKey => $strAttribute) : ?>
+								<?php if(! empty($strAttribute)) : ?>
+									<td width="*" class="edit"><b rel="<?php echo $strAttribute; ?>" id="<?php echo $arrImage['image_id']; ?>"><?php echo $arrImage[$strAttribute]; ?></b>
+										<div class="edit_input" style="display:none;">
+											<input type="text" name="<?php echo $strAttribute; ?>" id="<?php echo $strAttribute; ?>" value="<?php echo $arrImage[$strAttribute]; ?>" rel="<?php echo $arrImage['image_id']; ?>" >
+										</div>
+									</td>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+						<td><span class="label <?php echo (($arrImage['status'] == 1) ? 'label-success' : 'label-important'); ?>"><?php echo (($arrImage['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
+						<td><?php echo $strCreatedDate;?></td>
+						<td><?php echo $strModifiedDate;?></td>
+						<td class="toolbar">
+							<?php
+							// Check if we need to show the Crop Option 
+							if($this->gallery['width'] > 0 && $this->gallery['height'] > 0 ) {
+								list($strImageWidth, $strImageHeight)	= getimagesize(SERVER_URL.'/upload/images/'.$arrImage['image_url']);
+								if($strImageWidth > $this->gallery['width'] || $strImageHeight > $this->gallery['height']) {
+									echo '<a rel="tooltip" href="/admin/library/galleriesimagecrop/imageid/'.$arrImage['image_id'].'/gallery_id/'.$arrImage['gallery_id'].'/" alt="'.$this->translate('Crop image').'" class="crop" original-title="'.$this->translate('Crop image').'"><span class="fam-error"></span></a>';
+								}
+
+							}
+							?>
+
+							<a rel="tooltip" href="/admin/library/galleriesimagesdelete/id/<?php echo $arrImage['image_id']; ?>/gallery_id/<?php echo $arrImage['gallery_id']; ?>/" class="delete" original-title="<?php echo $this->translate('Delete image'); ?>"><span class="fam-delete"></span></a>
+						</td>
+					</tr>
+
+				<?php } ?>
+
+				</tbody>
+			</table>
+
+			<?php
+		} else {
+			echo $this->translate('No images to display').'.';
+		}
+
+		?>
+	</div>
+	<div id="tab1" class="tab-pane">
+		<form class="form-horizontal" name="addGalleryImage"  method="post" action="#tab1">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="galleryImage"><?php echo $this->translate('Image'); ?></label>
+					<div class="controls"><div class="plupload"></div></div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
+
+<script src="/assets/admin/js/libs/jquery.sortable.min.js"></script>
+<script src="/assets/admin/js/plugins/plUpload/plupload.full.js"></script>
+<script src="/assets/admin/js/plugins/plUpload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script>
+	jQuery(document).ready(function() {
+
+		jQuery('.sorted_table').sortable({
+			containerSelector	: 'tbody',
+			itemSelector		: 'tr',
+			placeholder			: '<tr class="placeholder"/>',
+			onDrop				: function (item, container, _super) {
+				jQuery(item).removeClass("dragged").attr("style","");
+				jQuery("body").removeClass("dragging");
+				var results		= jQuery('.sorted_table').sortable("serialize").get().join('\n');
+				var images		= 'imageorder='+results;
+				var galleryID	= '<?php echo $this->galleryID; ?>';
+				var url			= '/admin/library/galleriesimages/id/'+galleryID+'/'
+				jQuery.ajax({
+					'type' 		: 'POST',
+					'url' 		: url,
+					'data'		: images,
+					'success'	: function(returnData) {
+
+					}
+				});
+			},
+			serialize: function (parent, children, isContainer) {
+				return isContainer ? children.join() : parent.attr('id');
+			}
+		});
+		//edit input content with ajax call
+		jQuery('td.edit').click(function() {
+
+			var objInputTD = jQuery(this);
+
+			var objAttributeLink = jQuery(this).find('b');
+			objAttributeLink.css('display', 'none');
+
+			var objInputDiv 	=  objInputTD.find('.edit_input');
+			objInputDiv.css('display', 'block');
+
+			var strInputName 	= objAttributeLink.attr('rel');
+
+			var objInput		= objInputTD.find('.edit_input input');
+
+			objInput.focus();
+
+			objInput.change(function () {
+
+				var strNewInput		= jQuery(this).val();
+				var intImageID		= jQuery(this).attr('rel');
+
+				jQuery.ajax({
+					type: 'POST',
+					url: '/admin/tools/updateimageinput',
+					dataType: 'json',
+					data: {input: strInputName, strNewInput: strNewInput, intImageID: intImageID, language: '<?php echo $this->language; ?>'}}).done(function(data) {
+
+					if(jQuery('body #message').length > 0) {
+						jQuery('#message').html('<p><strong>'+data['message']+'</strong></p>');
+					} else {
+
+						jQuery('body').prepend('<div id="message" class="alert alert-'+data['type']+' fade in" style="display: none;"><p><strong>'+data['message']+'</strong></p></div>');
+					}
+					jQuery('#message').fadeIn('slow',function(){jQuery(this).delay('4000').fadeOut('slow');});
+
+					objAttributeLink.text(strNewInput);
+
+
+				});
+
+				objAttributeLink.css('display', 'block');
+				objInputDiv.css('display', 'none');
+
+			});
+
+		});
+
+		// Upload image with ajax call
+		$('.plupload').pluploadQueue({
+			runtimes 		: 'html5,flash',
+			url 			: '/admin/tools/uploadimage/gallery/<?php echo $this->galleryID; ?>/',
+			max_file_size 	: '5mb',
+			unique_names 	: true,
+
+			// redirect mod
+			preinit: attachCallbacks,
+
+			filters : [
+				{title : "Image files", extensions : "jpg,gif,png"},
+				{title : "Zip files", extensions : "zip"}
+			],
+			flash_swf_url : '/assets/admin/js/plugins/plUpload/plupload.flash.swf',
+			silverlight_xap_url : '/assets/admin/js/plugins/plUpload/plupload.silverlight.xap'
+		});
+
+		$(".plupload_header").remove();
+		$(".plupload_progress_container").addClass("progress").addClass('progress-striped');
+		$(".plupload_progress_bar").addClass("bar");
+		$(".plupload_button").each(function(e){
+			if($(this).hasClass("plupload_add")){
+				$(this).attr("class", 'btn btn-primary btn-alt pl_add btn-small');
+			} else {
+				$(this).attr("class", 'btn btn-success btn-alt pl_start btn-small');
+			}
+		});
+
+
+	});
+
+	// added redirect function after uploaded
+	function attachCallbacks(Uploader) {
+		Uploader.bind('FileUploaded', function(Up, File, Response) {
+			if( (Uploader.total.uploaded + 1) == Uploader.files.length) {
+				window.location.reload();
+			}
+		})
+	}
+</script>

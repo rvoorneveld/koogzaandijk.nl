@@ -1,0 +1,56 @@
+<header>
+	<h2><?php echo $this->translate('Resize or Crop Image'); ?></h2>
+</header>
+
+<form class="form-horizontal" name="addGalleryForm" method="post" action="">
+	<fieldset>
+
+		<input type="hidden" id="start_pos_x" name="x" />
+		<input type="hidden" id="start_pos_y" name="y" />
+		<input type="hidden" id="new_width" name="w" />
+		<input type="hidden" id="new_height" name="h" />
+
+		<p><?php echo $this->translate('When you click on Resize Image the image with be resized to the Gallery\'s width and height'); ?>
+		<div class="control-group">
+			<input type="submit" value="Crop & Save Image" onclick="return checkCoords();" class="btn btn-large btn-inverse" />
+			<?php echo $this->translate('or'); ?>
+			<input type="submit" name="resize" value="Resize Image" class="btn btn-large btn-inverse" />
+		</div>
+
+		<div class="control-group">
+			<img src="<?php echo $this->image; ?>" id="cropbox" />
+		</div>
+
+	</fieldset>
+</form>
+
+
+
+<script src="/assets/admin/js/plugins/crop/jquery.crop.min.js"></script>
+<script type="text/javascript">
+	function checkCoords() {
+		if (jQuery('#new_width').val() != '' && parseInt(jQuery('#new_width').val())) {
+			return true;
+		}
+
+		alert('Please select a crop region then press submit.');
+		return false;
+	};
+
+	jQuery(document).ready(function() {
+		jQuery('#cropbox').Jcrop({
+			aspectRatio		: 0,
+			maxSize			: [<?php echo $this->gallery['width']; ?>, <?php echo $this->gallery['height']; ?>],
+			onChange		: updateCoords
+		});
+
+		function updateCoords(c) {
+			jQuery('#start_pos_x').val(c.x);
+			jQuery('#start_pos_y').val(c.y);
+			jQuery('#new_width').val(c.w);
+			jQuery('#new_height').val(c.h);
+		};
+
+
+	});
+</script>

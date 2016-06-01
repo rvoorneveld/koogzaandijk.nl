@@ -1,0 +1,47 @@
+<?php
+// Get User Session
+$sesUserData		    = new Zend_Session_Namespace('Websitebuilder_Admin');
+
+// Set a temp fix for Document Root
+$strFileLocation        = str_replace('/domains/'.$sesUserData->user['domainModule'].'/', $sesUserData->user['domainUrl'].'/', $this->filelocation);
+
+// Set Translations
+$strViewDocumentTranslation = $this->translate('Click to view the Document', 'admin');
+$strDeleteFileTranslation = $this->translate('Are you sure you want to delete this file?', 'admin');
+
+if( !empty($this->files) && count($this->files) > 0 ) {
+	$intFileCount			= 0;
+	?>
+
+	<ul class="thumbnails">
+
+		<?php
+		foreach($this->files as $intFileKey => $arrFileData) {
+			$strIconClass		= 'icon-'.strtolower($arrFileData['extension']);
+			if($intFileCount > 0 && ($intFileCount % 6) == 0) {
+				echo '</ul><ul class="thumbnails">';
+			}
+			?>
+			<li>
+				<a class="file" title="<?php echo $strViewDocumentTranslation; ?>" alt="<?php echo $strViewDocumentTranslation; ?>" href="<?php echo $strFileLocation.'/'.$arrFileData['name']; ?>" rel="<?php echo $this->filelocation.'/'.$arrFileData['name']; ?>" target="_blank">
+					<span class="icons <?php echo $strIconClass; ?>"></span>
+					<span class="filename"><?php echo $arrFileData['name']; ?></span>
+				</a>
+
+				<div class="actions">
+					<a rel="tooltip" href="javascript:;" alt="Delete File" onclick="confirmRemoveItem(this, '<?php echo $strDeleteFileTranslation; ?>', 'file')" title="Delete file" class="">
+						<span class="icon-trash"></span>
+					</a>
+				</div>
+			</li>
+
+			<?php
+			$intFileCount++;
+		}
+		?>
+
+	</ul>
+
+	<?php
+}
+?>

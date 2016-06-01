@@ -1,0 +1,36 @@
+<?php
+
+// Set a temp fix for Document Root
+$strImageLocation       = $this->imageslocation;
+$strThumbsLocation      = $this->thumblocation;
+
+// Set Translations
+$strConfirmDeleteTranslation = $this->translate('Are you sure you want to delete this image? This may effect a Image Gallery','admin');
+$strEnlargeTranslation = $this->translate('Click to Enlarge', 'admin');
+
+if(! empty($this->images) && is_array($this->images)) { ?>
+	<ul class="thumbnails">
+		<?php foreach($this->images as $intFileKey => $arrFileData) { ?>
+			<li>
+				<a class="thumbnail fancybox" href="<?php echo $strImageLocation.$arrFileData['name']; ?>" rel="<?php echo $this->imageslocation.$arrFileData['name']; ?>" title="<?php echo $strEnlargeTranslation; ?>" >
+					<img alt="<?php echo $arrFileData['name']; ?>" title="<?php echo $arrFileData['name']; ?>" src="<?php echo $strThumbsLocation.$arrFileData['name'].'?t='.time(); ?>"/>
+				</a>
+				<div class="actions">
+					<a rel="tooltip" href="javascript:void(0);" alt="Remove image" onclick="confirmRemoveItem(this, '<?php echo $strConfirmDeleteTranslation ?>')" title="Delete image" class="">
+						<span class="icon-trash"></span>
+					</a>
+				</div>
+				<div class="magnify"></div>
+				<div class="magnify-icon hidden">
+					<span class="awe-zoom-in"></span>
+				</div>
+			</li>
+			<?php
+		}
+		?>
+
+	</ul>
+
+	<?php
+}
+?>

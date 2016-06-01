@@ -1,18 +1,146 @@
-<header>
-	<h2><?php echo $this->translate('Images'); ?></h2>
-</header>
-<section>
-	<iframe id="libraryFrame" src="/assets/admin/script/tiny_mce/plugins/imagemanager/pages/im/index.html" style="width: 100%; height: 100%; min-height: 500px;"></iframe>
-</section>
-<script language="javascript" type="text/javascript">
-    jQuery(document).ready(function(){
+<?php
 
-        mcImageManager.browse({
-            target_frame:'#libraryFrame'
+$intNoImagesAtOnce = 5;
+$strUploadSize = $this->maxupload;
+$strPostSize = $this->maxpost;
+
+?><header>
+    <h2><?php echo $this->translate('Images','admin'); ?></h2>
+</header>
+
+<section>
+    <div class="alert alert-info fade in">
+        <strong><?php echo $this->translate('Image uploading','admin'); ?></strong><br />
+        <?php echo $this->translate('All images larger than 1600px width, will automatically be resized to max 1600px width by ratio.<br/>All images larger than 700KB, will automatically be resized to max 700KB.','admin'); ?><br />
+        <?php echo $this->translate('After uploading an image, it might take a minute before the image is visible. This is because the image needs to sync in with our servers.','admin'); ?>
+    </div>
+
+    <div class="entry">
+        <div class="current_folder left">
+            <h4 class="entry-header">
+                <span><?php echo $this->translate('Selected folder', 'admin'); ?>:&nbsp;/upload/<span class="url"><?php echo $this->currentfolder; ?></span></span>
+            </h4>
+        </div>
+
+        <div class="folder_actions right">
+        <?php if ($this->createfolder === true): ?>
+            <span class="icon-hdd"></span>
+            <a data-toggle="modal" href="#createFolder"><?php echo $this->translate('Create folder','admin'); ?></a>
+        <?php endif; ?>
+
+            <span class="icon-upload"></span>
+            <a data-toggle="modal" href="#uploadFile"><?php echo $this->translate('Upload','admin'); ?></a>
+        </div>
+    </div>
+
+    <div class="folders">
+        <?php echo $this->partial('partials/folders.phtml',[
+            'type' => 'images',
+            'directories' => $this->directories,
+        ]); ?>
+    </div>
+
+    <div class="files">
+        <?php echo $this->partial('partials/folderimages.phtml',[
+            'images' => $this->images,
+            'imageslocation' => $this->imageslocation,
+            'thumblocation' => $this->thumblocation,
+        ]); ?>
+    </div>
+</section>
+
+<div class="modal fade hide" id="createFolder">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h3><?php echo $this->translate('Create a new Folder','admin'); ?></h3>
+    </div>
+    <div class="modal-body">
+        <p><?php echo $this->translate('The new folder will be created in','admin'); ?>: /upload/<span class="modalurl"><?php echo $this->currentfolder; ?></span></p>
+
+        <label><?php echo $this->translate('Foldername','admin'); ?></label>
+        <input type="text" class="input-xlarge" id="foldername" value="" />
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:;" onclick="return createNewFolder('<?php echo $this->url(['lang' => $this->getParam('lang'),'controller' => 'library','action' => 'createfolder','type' => 'image',],false,true); ?>/');" class="btn btn-primary"><?php echo $this->translate('Create','admin'); ?></a>
+        <a href="#" class="btn" data-dismiss="modal"><?php echo $this->translate('Close','admin'); ?></a>
+    </div>
+</div>
+
+<div class="modal fade hide" id="uploadFile">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h3><?php echo $this->translate('Upload new file(s)','admin'); ?></h3>
+        <p><?php echo $this->translate('You can upload a maximum of','admin').' '.strtoupper($strUploadSize).' '.$this->translate('per picture and','admin').' '.strtoupper($strPostSize).' '.$this->translate('per upload.','admin'); ?></p>
+        <p><?php echo $this->translate('All images larger than 1600px width, will automatically be resized to max 1600px width by ratio.<br/>All images larger than 700KB, will automatically be resized to max 700KB.','admin'); ?></p>
+        <p><?php echo $this->translate('After uploading an image, it might take a minute before the image is visible. This is because the image needs to sync in with our servers.','admin'); ?></p>
+    </div>
+    <div class="modal-body">
+        <div class="plupload"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/assets/admin/script/libs/plUpload/plupload.full.js"></script>
+<script type="text/javascript" src="/assets/admin/script/libs/plUpload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready( function() {
+        jQuery('.fancybox').fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none',
+            nextEffect	: 'none'
         });
 
-        jQuery("#libraryFrame").parent()[0].style.height = (jQuery("#libraryFrame")[0].scrollHeight + 150).toString() + "px";
-        jQuery("#libraryFrame").css('height', (jQuery("#libraryFrame")[0].scrollHeight + 150).toString() + "px");
+        // Set the Active folder based on the Image Upload Session
+        setActiveFolder('.folders', '<?php echo $this->currentfolder; ?>');
+        var maxqueuesize = <?php echo substr($this->maxpost, 0, -1) * 1024 * 1024; ?>,
+            $plupload = jQuery('.plupload');
 
+        if($plupload.length > 0 ) {
+            // Upload image with ajax call
+            $plupload.pluploadQueue({
+                runtimes: 'html5,gears,flash,silverlight,browserplus',
+                url: '<?php echo $this->url(['lang' => $this->getParam('lang'), 'controller' => 'library','action' => 'imagesupload',],false,true); ?>/',
+                max_file_size: '<?php echo $this->maxupload; ?>',
+                unique_names: true,
+                preinit: attachCallbacks,
+                init: {
+                    QueueChanged: function(up) {
+                        $pluploadButtons = jQuery('.plupload_buttons');
+                        if(up.total.size > maxqueuesize) {
+                            $pluploadButtons.hide();
+                            alert("Total size of all files exceeds max queue size capacity!\nPlease remove some files.");
+                        } else {
+                            $pluploadButtons.show();
+                        }
+                    },
+                },
+                filters: [
+                    {title: "Image files",extensions: "jpg,jpeg,gif,png",},
+                    {title: "Zip files",extensions: "zip",},
+                ],
+                flash_swf_url: '/modules/admin/script/libs/plUpload/plupload.flash.swf',
+                silverlight_xap_url: '/modules/admin/script/libs/plUpload/plupload.silverlight.xap',
+            });
+            jQuery('.plupload_header').remove();
+            jQuery('.plupload_progress_container').addClass('progress').addClass('progress-striped');
+            jQuery('.plupload_progress_bar').addClass('bar');
+            jQuery('.plupload_button').each(function(e){
+                var $this = jQuery(this);
+                if($this.hasClass('plupload_add')){
+                    $this.attr('class','btn btn-primary btn-alt pl_add btn-small');
+                } else {
+                    $this.attr('class','btn btn-success btn-alt pl_start btn-small');
+                }
+            });
+        }
     });
+
+    // added redirect function after uploaded
+    function attachCallbacks(Uploader) {
+        Uploader.bind('FileUploaded',function(Up,File,Response) {
+            if( (Uploader.total.uploaded+1) === Uploader.files.length) {
+                window.location.reload();
+            }
+        });
+    }
 </script>
