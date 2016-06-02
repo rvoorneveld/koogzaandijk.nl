@@ -222,13 +222,13 @@ class Admin_LibraryController extends KZ_Controller_Action {
 			mkdir(SERVER_URL.$this->strUploadDir);
 		}
 
-		$strStartLocation = SERVER_URL.$this->strUploadDir.'/files';
+		$strStartLocation = SERVER_URL.$this->strUploadDir;
 		if (!is_dir($strStartLocation)) {
 			mkdir($strStartLocation);
 		}
 
 		$sesFilesUpload->startlocation = $strStartLocation;
-		$strFileLocation = $this->strUploadDir.'/files';
+		$strFileLocation = $this->strUploadDir;
 		$arrAllowedExtensions = ['doc','docx','pdf','xls','xlsx'];
 
 		if ($this->_request->isXmlHttpRequest()) {

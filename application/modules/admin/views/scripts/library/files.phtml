@@ -5,7 +5,7 @@
     <div class="entry">
         <div class="current_folder left">
             <h4 class="entry-header">
-                <span><?php echo $this->translate('Selected folder','admin'); ?>:&nbsp;/upload/files/<span class="url"><?php echo $this->currentfolder; ?></span></span>
+                <span><?php echo $this->translate('Selected folder','admin'); ?>:&nbsp;/upload/<span class="url"><?php echo $this->currentfolder; ?></span></span>
             </h4>
         </div>
         <div class="folder_actions right">
@@ -35,7 +35,7 @@
         <h3><?php echo $this->translate('Create a new Folder','admin'); ?></h3>
     </div>
     <div class="modal-body">
-        <p><?php echo $this->translate('The new folder will be created in','admin'); ?>: /upload/files/<span class="modalurl"><?php echo $this->currentfolder; ?></span></p>
+        <p><?php echo $this->translate('The new folder will be created in','admin'); ?>: /upload/<span class="modalurl"><?php echo $this->currentfolder; ?></span></p>
 
         <label><?php echo $this->translate('Foldername','admin'); ?></label>
         <input type="text" class="input-xlarge" id="foldername" value="" />
@@ -56,8 +56,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/assets/admin/js/plugins/plUpload/plupload.full.js"></script>
-<script type="text/javascript" src="/assets/admin/js/plugins/plUpload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+<script type="text/javascript" src="/assets/admin/script/libs/plUpload/plupload.full.js"></script>
+<script type="text/javascript" src="/assets/admin/script/libs/plUpload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
 <script type="text/javascript">
     jQuery(document).ready( function() {
         // Set the Active folder based on the Image Upload Session
