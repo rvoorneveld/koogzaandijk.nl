@@ -15,9 +15,11 @@ if(! empty($this->images) && is_array($this->images)) { ?>
 				<a class="thumbnail" href="<?php echo ROOT_URL.$strImageLocation.$arrFileData['name']; ?>" target="_blank" title="<?php echo $strEnlargeTranslation; ?>" >
 					<img alt="<?php echo $arrFileData['name']; ?>" title="<?php echo $arrFileData['name']; ?>" src="<?php echo $strThumbsLocation.$arrFileData['name'].'?t='.time(); ?>"/>
 				</a>
-				<ul class="actions">
-					<li><a rel="tooltip" href="javascript:void(0);" alt="Remove image" onclick="confirmRemoveItem(this, '<?php echo $strConfirmDeleteTranslation ?>')" title="Delete image" class="delete"></a></li>
-				</ul>
+				<div class="actions">
+					<a rel="tooltip" href="javascript:void(0);" alt="Remove image" onclick="confirmRemoveItem(this, '<?php echo $strConfirmDeleteTranslation ?>')" title="Delete image">
+						<p class="icon-trash"></p>
+					</a>
+				</div>
 			</li>
 			<?php
 		}
