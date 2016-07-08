@@ -299,7 +299,7 @@ div.magnify-icon span {
 .fancybox-close,
 .fancybox-prev span,
 .fancybox-next span {
-	background-image: url('../../img/plugins/fancybox/fancybox_sprite.png');
+	background-image: url('../../image/fancybox/fancybox_sprite.png');
 }
 #fancybox-loading {
 	position: fixed;
@@ -461,7 +461,7 @@ div.magnify-icon span {
 	.fancybox-close,
 	.fancybox-prev span,
 	.fancybox-next span {
-		background-image: url('../../img/plugins/fancybox/fancybox_sprite@2x.png');
+		background-image: url('../../image/plugins/fancybox/fancybox_sprite@2x.png');
 		background-size: 44px 152px;
 		/*The size of the normal image, half the size of the hi-res image*/
 	}
