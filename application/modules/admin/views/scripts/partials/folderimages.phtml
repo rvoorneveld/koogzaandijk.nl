@@ -12,7 +12,7 @@ if(! empty($this->images) && is_array($this->images)) { ?>
 	<ul class="thumbnails">
 		<?php foreach($this->images as $intFileKey => $arrFileData) { ?>
 			<li>
-				<a class="thumbnail" href="<?php echo ROOT_URL.$strImageLocation.$arrFileData['name']; ?>" target="_blank" title="<?php echo $strEnlargeTranslation; ?>" >
+				<a class="thumbnail" href="<?php echo ROOT_URL.$strImageLocation.$arrFileData['name']; ?>" target="_blank" title="<?php echo $strEnlargeTranslation; ?>" rel="<?php echo $strThumbsLocation.$arrFileData['name']; ?>">
 					<img alt="<?php echo $arrFileData['name']; ?>" title="<?php echo $arrFileData['name']; ?>" src="<?php echo $strThumbsLocation.$arrFileData['name'].'?t='.time(); ?>"/>
 				</a>
 				<div class="actions">

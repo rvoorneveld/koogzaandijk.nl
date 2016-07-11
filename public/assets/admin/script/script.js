@@ -526,7 +526,6 @@ function confirmRemoveItem(obj,msg,type) {
 		type = 'image';
 	}
 
-	var deleteUrl = '/admin/tools/removefromserver/';
 	if (type == 'image') {
 		var documenturl = jQuery(obj).parent().parent().find('a.thumbnail').attr('rel');
 		var data = {image: encodeURI(documenturl)}
@@ -537,7 +536,7 @@ function confirmRemoveItem(obj,msg,type) {
 
 	if (confirm(msg)) {
 		if (typeof(documenturl) != 'undefined' && documenturl != '') {
-			var deleteUrl = '/admin/tools/removefromserver/';
+			var deleteUrl = '/tools/removefromserver/';
 			jQuery.post(deleteUrl,data).success(function() {
 				jQuery(obj).parent().parent().remove();
 			})
@@ -552,7 +551,7 @@ function confirmRemoveItem(obj,msg,type) {
 function removeFolder(obj, foldertype, msg, folder) {
 	if(confirm(msg)) {
 		if(typeof(folder) != 'undefined' && folder != '') {
-			var deleteUrl   = '/admin/tools/removefolder/';
+			var deleteUrl   = '/tools/removefolder/';
 			jQuery.post(deleteUrl, {
 				folder: folder,
 				type: foldertype

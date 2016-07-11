@@ -1,7 +1,9 @@
 <?php
 class Toolscontroller extends KZ_Controller_Action
 {
-	
+	const UPLOAD_DIR 	= '/upload/';
+
+
 	public function newsfilterAction()
 	{
 		// Disable layout and view 
@@ -853,6 +855,84 @@ class Toolscontroller extends KZ_Controller_Action
 		$objModelProfile->updateProfile($intMemberID, array('auto_login' => $intAutoLogin));
 
 		echo $intUpdateID;
+	}
+
+	public function removefromserverAction()
+	{
+		// Disable the layout and the render file
+		$this->_helper->layout()->disableLayout();
+		$this->getHelper('viewRenderer')->setNoRender();
+
+		// Check if we have a image or file selected
+		$strImage = $this->_getParam('image');
+		$strFile = $this->_getParam('file');
+
+		// Only remove if file is in Post Data
+		if (!is_null($strImage) && $strImage != '') {
+
+			// Set the File Location
+			$strImageFile = $_SERVER['DOCUMENT_ROOT'].$strImage;
+
+			// Check if file exists, if so remove it
+			if (file_exists($strImageFile)) {
+				unlink($strImageFile);
+			}
+
+			// Set the Thumbnail location
+			$strThumbFile = str_replace('/thumbs/','/upload/', $strImageFile);
+
+			// Check if thumb file exists, if so remove it
+			if (file_exists($strThumbFile)) {
+				unlink($strThumbFile);
+			}
+		}
+
+		// Only remove if file is in Post Data
+		if (!is_null($strFile) && $strFile != '') {
+
+			// Set the File Location
+			$strFile = realpath(SERVER_URL.'/'.$strFile);
+
+			// Check if file exists, if so remove it
+			if (file_exists($strFile)) {
+				unlink($strFile);
+			}
+		}
+	}
+
+	public function removefolderAction()
+	{
+		// Disable the layout and the render file
+		$this->_helper->layout()->disableLayout();
+		$this->getHelper('viewRenderer')->setNoRender();
+
+		// Check if we have a folder and foldertype selected
+		$strFolder = $this->_getParam('folder');
+		$strFolderType = $this->_getParam('type');
+
+		// Only remove if file is in Post Data
+		if (!is_null($strFolder) && $strFolder != '' && $strFolderType != '' && !is_null($strFolderType)) {
+			// Set the Folder to Remove
+			$strCorrectedFolder = str_replace('|','/',$strFolder);
+
+			// Set the File Location
+			$strFullFolderLocation = $_SERVER['DOCUMENT_ROOT'].self::UPLOAD_DIR.$strCorrectedFolder.'/';
+
+			// Set the Model
+			$objModelLibrary = new KZ_Models_Library();
+
+			// Remove the Folder and it content
+			if (is_dir($strFullFolderLocation)) {
+				$objModelLibrary->removeFolder($strFullFolderLocation);
+			}
+
+			// Set the Thumbnail location
+			$strThumbFolder = str_replace('/upload/','/thumbs/',$strFullFolderLocation);
+			// Remove the Thumbnail Folder and it content
+			if (is_dir($strThumbFolder)) {
+				$objModelLibrary->removeFolder($strThumbFolder);
+			}
+		}
 	}
 
 }
