@@ -13,7 +13,7 @@ if(! empty($this->images) && is_array($this->images)) { ?>
 		<?php foreach($this->images as $intFileKey => $arrFileData) { ?>
 			<li>
 				<a class="thumbnail" href="<?php echo ROOT_URL.$strImageLocation.$arrFileData['name']; ?>" target="_blank" title="<?php echo $strEnlargeTranslation; ?>" rel="<?php echo $strThumbsLocation.$arrFileData['name']; ?>">
-					<img alt="<?php echo $arrFileData['name']; ?>" title="<?php echo $arrFileData['name']; ?>" src="<?php echo $strThumbsLocation.$arrFileData['name'].'?t='.time(); ?>"/>
+					<img class="noBorder" alt="<?php echo $arrFileData['name']; ?>" title="<?php echo $arrFileData['name']; ?>" src="<?php echo $strThumbsLocation.$arrFileData['name'].'?t='.time(); ?>"/>
 				</a>
 				<div class="actions">
 					<a rel="tooltip" href="javascript:void(0);" alt="Remove image" onclick="confirmRemoveItem(this, '<?php echo $strConfirmDeleteTranslation ?>')" title="Delete image">
