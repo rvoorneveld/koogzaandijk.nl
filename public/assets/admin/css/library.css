@@ -139,7 +139,7 @@ div.folders ul.sub {
 }
 div.folders ul.sub a {
 	display: block;
-	width: 185px;
+	width: 175px;
 	float: left;
 }
 div.folders ul.subsub {
@@ -166,12 +166,11 @@ div.files ul li {
 	list-style: none;
 	float: left;
 	margin: 10px;
+	padding: 0;
 }
 div.files ul li img {
-	max-width: 150px;
-	max-height: 100px;
-	min-width: 150px;
-	min-height: 100px;
+	max-height: 100%;
+	padding: 0;
 }
 div.files ul li img:hover {
 	cursor: -webkit-zoom-in;
@@ -206,6 +205,11 @@ div.files ul li span.filename {
 }
 .thumbnails .thumbnail {
 	border: none;
+	height: 120px;
+	width: 140px;
+	display: table-cell;
+	padding: 5px!important;
+	vertical-align: middle;
 }
 div.magnify {
 	height: 150px;
