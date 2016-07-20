@@ -124,7 +124,7 @@ div.folders ul li span {
 	float: left;
 }
 div.folders ul li span.up_folder {
-	background-image: url('../../img/icons/up.png');
+	background-image: url('../img/icons/up.png');
 }
 div.folders ul li a {
 	display: block;
@@ -303,7 +303,7 @@ div.magnify-icon span {
 .fancybox-close,
 .fancybox-prev span,
 .fancybox-next span {
-	background-image: url('../../image/fancybox/fancybox_sprite.png');
+	background-image: url('../img/plugins/fancybox/fancybox_sprite.png');
 }
 #fancybox-loading {
 	position: fixed;
@@ -319,7 +319,7 @@ div.magnify-icon span {
 #fancybox-loading div {
 	width: 44px;
 	height: 44px;
-	background: url('../../img/plugins/fancybox/fancybox_loading.gif') center center no-repeat;
+	background: url('../img/plugins/fancybox/fancybox_loading.gif') center center no-repeat;
 }
 .fancybox-close {
 	position: absolute;
@@ -337,7 +337,7 @@ div.magnify-icon span {
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('../../img/plugins/fancybox/blank.gif');
+	background: transparent url('../img/plugins/fancybox/blank.gif');
 	/* helps IE */
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	z-index: 8040;
@@ -396,7 +396,7 @@ div.magnify-icon span {
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('../../img/plugins/fancybox/fancybox_overlay.png');
+	background: url('../img/plugins/fancybox/fancybox_overlay.png');
 }
 .fancybox-overlay-fixed {
 	position: fixed;
@@ -465,19 +465,19 @@ div.magnify-icon span {
 	.fancybox-close,
 	.fancybox-prev span,
 	.fancybox-next span {
-		background-image: url('../../image/plugins/fancybox/fancybox_sprite@2x.png');
+		background-image: url('../img/plugins/fancybox/fancybox_sprite@2x.png');
 		background-size: 44px 152px;
 		/*The size of the normal image, half the size of the hi-res image*/
 	}
 	#fancybox-loading div {
-		background-image: url('../../img/plugins/fancybox/fancybox_loading@2x.gif');
+		background-image: url('../img/plugins/fancybox/fancybox_loading@2x.gif');
 		background-size: 24px 24px;
 		/*The size of the normal image, half the size of the hi-res image*/
 	}
 }
 /* ICONS */
 .icons {
-	background-image: url('../../img/icons-sprite.png');
+	background-image: url('../img/icons-sprite.png');
 	height: 75px;
 	width: 95px;
 	margin: 0 0 0 5px;
