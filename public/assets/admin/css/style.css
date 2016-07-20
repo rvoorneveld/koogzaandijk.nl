@@ -461,6 +461,7 @@ article footer {
 	clear:both;
 	display:block;
 	overflow:hidden;
+	padding-top: 10px;
 }
 
 /*  Content Layout :: Main Content :: Sidetabs */
