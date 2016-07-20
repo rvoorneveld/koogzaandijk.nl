@@ -5,7 +5,7 @@ class KZ_Models_Library extends KZ_Controller_Table
 
 	public function getFolders($outerDir)
 	{
-		$arrExcludeDir			= array('.', '..', '.svn');
+		$arrExcludeDir			= array('.', '..', '.svn','mcith');
 		$arrScannedDirs			= @scandir( $outerDir );
 		if($arrScannedDirs !== false) {
 			$arrReadDirs 		= array_diff( $arrScannedDirs, $arrExcludeDir);
