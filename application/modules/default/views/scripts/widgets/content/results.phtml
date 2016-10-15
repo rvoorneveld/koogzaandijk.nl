@@ -34,7 +34,7 @@
 	$intWeekDay = (int)$objDate->get(Zend_Date::WEEKDAY_DIGIT);
 
 	// Show New Results only from Wednesday
-	$booShowNewResultsOnly  = (($intWeekDay >= 3) ? true : false);
+	$booShowNewResultsOnly  = (($intWeekDay == 0 || $intWeekDay >= 3) ? true : false);
 
 	if(
 		(isset($arrThisWeekMatches) && is_array($arrThisWeekMatches) && count($arrThisWeekMatches) > 0)
