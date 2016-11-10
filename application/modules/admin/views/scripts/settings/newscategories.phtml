@@ -15,13 +15,13 @@
 		<?php
 			if(isset($this->news_categories) && is_array($this->news_categories) && count($this->news_categories) > 0) { 
 		?>
-				<table class="datatable">
+				<table class="datatable sortable">
 					<thead>
-						<tr>
+						<tr class="unsortable">
+							<th width="25"></th>
 							<th width="50"><?php echo $this->translate('ID'); ?></th>
 							<th width="75"><?php echo $this->translate('Type'); ?></th>
 							<th width="*"><?php echo $this->translate('Title'); ?></th>
-							<th width="*"><?php echo $this->translate('Link'); ?></th>
 							<th width="125"><?php echo $this->translate('Style'); ?></th>
 							<th width="125"><?php echo $this->translate('Status'); ?></th>
 							<th width="150"><?php echo $this->translate('Created'); ?></th>
@@ -39,11 +39,11 @@
 					$strModifiedDate 	= $this->date()->format($arrCategory['lastmodified'], 'dd-MM-yyyy HH:mm:ss');
 			?>
 			
-					<tr>
+					<tr class="sortable" rel="<?php echo $arrCategory['news_category_id']; ?>">
+						<td><img class="noBorder" src="/assets/admin/image/jquery/sort_both.png" style="cursor: move;" /></td>
 						<td><?php echo $arrCategory['news_category_id']; ?></td>
 						<td><?php echo ucfirst($arrCategory['foreign_table']); ?></td>
 						<td><a href="/admin/settings/newscategoriesedit/id/<?php echo $arrCategory['news_category_id']; ?>"><strong><?php echo $arrCategory['title']; ?></strong></a></td>
-						<td><a href="<?php echo ROOT_URL.$arrCategory['link'].'/'; ?>" target="_blank"><?php echo $arrCategory['link'].'/'; ?></a></td>
 						<td><span class="tag" style="background-color: <?php echo str_replace('_kz_', '', $arrCategory['color_background']); ?>;"><span style="color: <?php echo str_replace('_kz_', '', $arrCategory['color_text']); ?>;"><?php echo  str_replace('_kz_', '', $arrCategory['color_text']); ?></span></span></td>
 						<td><span class="tag <?php echo (($arrCategory['status'] == 1) ? 'green' : 'red'); ?>"><?php echo (($arrCategory['status'] == 1) ? 'active' : 'inactive'); ?></span></td>
 						<td><?php echo $strCreatedDate;?></td>
@@ -271,6 +271,47 @@
 <script type="text/javascript">
 	jQuery(document).ready(function(){
 
+		jQuery('table.sortable').sortable({
+			helper: fixHelper,
+			items: 'tr.sortable',
+			cancel: 'tr.unsortable',
+			update: function(event, ui) {
+
+				jQuery(this).children().each(function() {
+
+					var pIDs	= new Array();
+					var	i		= 0;
+					jQuery(this).children('tr').each(function(){
+
+						var pID 	= jQuery(this).attr('rel');
+
+						if(pID != ''){
+							pIDs[i]	= pID;
+							i++;
+						}
+
+
+					});
+
+					// Make ajax call
+					$.ajax({
+						url			: '/admin/settings/newscategoriessort',
+						dataType	: 'html',
+						data		: {
+							rank	: pIDs
+						},
+						success		: function(data) {
+							//alert(data);
+						}
+
+					});
+
+				});
+
+			}
+
+		});
+
 		var foreignTable = jQuery('#foreign_table').val();
 		if(foreignTable == 'other') {
 			jQuery('#foreign_key_' + foreignTable + '_link').css('display','block');
@@ -296,4 +337,13 @@
 			
 		});
 	});
+
+	// Sortable tables
+	var fixHelper = function(e, ui) {
+		ui.children().each(function() {
+			$(this).width($(this).width());
+		});
+		return ui;
+	};
+
 </script>
