@@ -663,6 +663,38 @@ class Admin_SettingsController extends KZ_Controller_Action
 		$this->view->defaults			= $arrDefaults;
 		$this->view->news_categories	= $arrNewsCategories;
 	}
+
+	public function newscategoriessortAction()
+    {
+        // Disable layout and view
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+
+        // Set All Params
+        $arrParams		= $this->_getAllParams();
+
+        // Check if Ranks where given
+        if(! empty($arrParams['rank']) && is_array($arrParams['rank'])) {
+
+            // Set News Categories Model
+            $objModelNewsCategories = new KZ_Models_News();
+
+            // Loop Through Ranks
+            foreach($arrParams['rank'] as $intKey => $intNewsCategoryId) {
+
+                // Set The Correct Rank
+                $intRank = $intKey+1;
+
+                // Insert The Data
+                $objModelNewsCategories->updateNewsCategory($intNewsCategoryId,['rank' => $intRank]);
+
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 	
 	public function newscategorieseditAction()
 	{
