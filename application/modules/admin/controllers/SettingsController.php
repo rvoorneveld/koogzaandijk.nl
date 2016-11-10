@@ -642,6 +642,12 @@ class Admin_SettingsController extends KZ_Controller_Action
 				unset($arrPostParams['foreign_key_news']);
 				unset($arrPostParams['foreign_key_agenda']);
 				unset($arrPostParams['foreign_key_other']);
+
+                // Get highest Rank
+                $intHighestRank = $objModelNews->getLastNewsCategoriesRank();
+
+                // Add Rank to Post Params
+                $arrPostParams['rank'] = $intHighestRank+1;
 				
 				$intInsertID	= $objModelNews->addNewsCategory($arrPostParams);
 				
