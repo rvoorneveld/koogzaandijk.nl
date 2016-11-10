@@ -143,7 +143,27 @@ class KZ_Models_News extends KZ_Controller_Table
 		return 0;
 		
 	}
-	
+
+    public function getLastNewsCategoriesRank()
+    {
+        $strQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('news_category', array('MAX(rank) as lastRank'));
+
+        $arrData = $this->returnData($strQuery, 'array','fetchRow');
+
+        if(isset($arrData) && is_array($arrData)) {
+
+            if(isset($arrData['lastRank']) && is_numeric($arrData['lastRank'])) {
+                return $arrData['lastRank'];
+            }
+
+        }
+
+        return 0;
+
+    }
+
 	/**
 	 * Get News Types
 	 * @param boolean $strReturnAssoc
