@@ -20,7 +20,8 @@ class KZ_Models_Matches extends KZ_Controller_Table
 	public function getMatchByID($intMatchID)
 	{
 		$strQuery = $this->select()
-					->where('match_id = ?', $intMatchID);
+					->where('match_id = ?', $intMatchID)
+                    ->order('matches_id DESC');
 
 		return $this->returnData($strQuery, 'array', 'fetchRow');
 	}
