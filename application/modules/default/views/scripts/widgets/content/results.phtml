@@ -20,10 +20,10 @@
 	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_10_teams']));
 
 	// Get Matches for current week
-	$arrMatches 			= $objModelMatches->getMatches($intCurrentWeekYear, $intCurrentWeekWeekNumber, $arrTeams);
+	$arrMatches 			= $objModelMatches->getMatches($intLastWeekYear,$intLastWeekWeekNumber, $arrTeams);
 
 	// Get Matches for this week
-	$arrThisWeekMatches		= $objModelMatches->getMatches($intLastWeekYear, $intLastWeekWeekNumber, $arrTeams, true, 50);
+	$arrThisWeekMatches		= $objModelMatches->getMatches($intCurrentWeekYear, $intCurrentWeekWeekNumber , $arrTeams, true, 50);
 
 	// Set Teams Showed array
 	$arrTeamsShowed			= array();
