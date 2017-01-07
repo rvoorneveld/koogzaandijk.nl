@@ -2,29 +2,28 @@
 	// Set Models
 	$objModelMatches		= new KZ_Models_Matches();
 
-	// Set Date Object
-	$objDate				= new Zend_Date();
+	// Set Current Date Object for current year and week
+	$objCurrentDate = new Zend_Date();
 
-	// Set Current Week
-	$intWeek				= (int)$objDate->subWeek(1)->toString('w');
+	// Set Current Week and Year
+    $intCurrentWeekWeekNumber = (int)$objCurrentDate->toString('w');
+    $intCurrentWeekYear = (int)$objCurrentDate->toString('yyyy');
 
-//	if($intWeek == 1) {
-//		$intWeek = 52;
-//	} else {
-//		$intWeek--;
-//	}
+    // Set Previous Week Date Object for last weeks number and year
+    $objLastWeekDate = new Zend_Date();
+    $objLastWeekDate->subWeek(1);
 
-	// Set Current Year
-	$intYear		        = (int)$objDate->get(Zend_Date::YEAR_8601);
+    $intLastWeekWeekNumber = (int)$objLastWeekDate->toString('w');
+    $intLastWeekYear = (int)$objLastWeekDate->toString('yyyy');
 
 	// Set Teams array
 	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_10_teams']));
 
 	// Get Matches for current week
-	$arrMatches 			= $objModelMatches->getMatches($intYear, $intWeek, $arrTeams);
+	$arrMatches 			= $objModelMatches->getMatches($intCurrentWeekYear, $intCurrentWeekWeekNumber, $arrTeams);
 
 	// Get Matches for this week
-	$arrThisWeekMatches		= $objModelMatches->getMatches($intYear, $intWeek+1, $arrTeams, true, 50);
+	$arrThisWeekMatches		= $objModelMatches->getMatches($intLastWeekYear, $intLastWeekWeekNumber, $arrTeams, true, 50);
 
 	// Set Teams Showed array
 	$arrTeamsShowed			= array();
