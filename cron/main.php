@@ -81,12 +81,6 @@
 		// Set Villatrips API Key
 		$strApiKey			= $objConfig->cron->api->key;
 		
-		// Set Email BCC arrray
-		$arrBCC 			= $objConfig->mailings->bcc->toArray();
-		
-		// Set Webmaster Email address
-		$strWebmasterEmail	= $arrBCC[0];
-		
 		// Loop through cronjobs
 		foreach($arrCronjobs as $intCronjobKey => $arrCronjob) {
 			switch($arrCronjob['type']) 
@@ -109,17 +103,10 @@
 					curl_setopt($ch,CURLOPT_POSTFIELDS, $strXml);
 		   			
 		   			// Execute the Curl
-		    		$strOutput 	= curl_exec($ch);
+		    		curl_exec($ch);
 		 
 		    		// Close the Curl
 		    		curl_close($ch);
-		 
-//		    		// Mail to webmaster
-//		    		$objMail = new Zend_Mail('UTF-8');
-//					$objMail->setBodyHtml('XML: '.$strXml.'<br />Result: '.$strOutput);
-//					$objMail->addTo($strWebmasterEmail, 'Webmaster');
-//					$objMail->setSubject('KZ/Hiltex Cron - '.$arrCronjob['name'].' - '.APPLICATION_ENV);
-//					$objMail->send();
 
 				break;
 			}
