@@ -48,10 +48,7 @@
 									</li>
 									<li class="captcha">
 										<label for="captcha">*Verificatiecode:</label>
-										<?php echo $this->captcha->render($this, null) ?>
-										<label for="captcha">Vul de bovenstaande verificatiecode in:</label>
-										<input type="text" id="captcha" name="captcha" data-validate="validate(required)" />
-										<input type="hidden" name="cid" value="<?php echo $this->captcha->getId(); ?>">
+                                        <div class="g-recaptcha" data-sitekey="<?php echo $this->google_recaptcha_sitekey; ?>"></div>
 									</li>
 									<li>
 										<a class="button_guestbook_leavemessage">Plaats mijn bericht</a>

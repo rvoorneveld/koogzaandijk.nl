@@ -3,11 +3,16 @@ class GastenboekController extends KZ_Controller_Action
 {
 	public $latestnews;
 	public $objConfig;
+
+	public $strGoogleSiteKey;
+	public $strGooglePrivateKey;
 	
 	public function init()
 	{
 		// Get Config
 		$this->objConfig		    = Zend_Registry::get('Zend_Config');
+
+
 		
 		// Set Max Related items
 		$intMaxItems				= (int)$this->objConfig->news->maxRelated * 2;
@@ -19,6 +24,10 @@ class GastenboekController extends KZ_Controller_Action
 		$arrLatestNews				= $objModelNews->getLatestNews($intMaxItems);
 		
 		$this->latestnews			= $arrLatestNews;
+
+		// Set Google Recaptcha
+        $this->strGoogleSiteKey     = $this->objConfig->google->recaptcha->sitekey;
+        $this->strGooglePrivateKey  = $this->objConfig->google->recaptcha->privatekey;
 
 	}
 	
@@ -55,6 +64,7 @@ class GastenboekController extends KZ_Controller_Action
 
 		// Check if we need to activate the Entry
 		$strActiveParams			= $this->_getParam('act');
+
 		if(!is_null($strActiveParams)) {
 			// Get the Data
 			$arrActivateData		= json_decode(base64_decode($strActiveParams), true);
@@ -74,69 +84,64 @@ class GastenboekController extends KZ_Controller_Action
 
 			// Get all POST data
 			$arrPostParams			= $this->_getAllParams();
-			$booSuccess				= false;
 
-			// Set Post Variables
-			$strName                    = $arrPostParams['guestbook_name'];
-			$strEmail                   = $arrPostParams['guestbook_email'];
-			$strMessage                 = $arrPostParams['guestbook_message'];
+			if(! empty($arrPostParams['g-recaptcha-response'])) {
 
-			if(isset($arrPostParams['guestbook_email']) && $arrPostParams['guestbook_email'] != '') {
-				// Check for a correct Captcha
-				if (isset($arrPostParams['cid'])) {
+                $arrResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$this->strGooglePrivateKey."&response=".$arrPostParams['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
 
-					// Check for forbidden words in guestbook message
-					if(stripos($arrPostParams['guestbook_message'],'viagra') === false) {
+                if(! empty($arrResponse) && is_array($arrResponse) && isset($arrResponse['success']) && $arrResponse['success'] === true) {
 
-						$strCaptchaID 		= trim($arrPostParams['cid']);
-						$objCaptchaSession	= new Zend_Session_Namespace('Zend_Form_Captcha_'.$strCaptchaID);
+                    $booSuccess				    = false;
 
-						if ($arrPostParams['captcha'] == $objCaptchaSession->word) {
+                    // Set Post Variables
+                    $strName                    = $arrPostParams['guestbook_name'];
+                    $strEmail                   = $arrPostParams['guestbook_email'];
+                    $strMessage                 = $arrPostParams['guestbook_message'];
 
-							// Set the Model
-							$objModelGuestbook			= new KZ_Models_Guestbook();
+                    if(isset($arrPostParams['guestbook_email']) && $arrPostParams['guestbook_email'] != '') {
 
-							// Set today as post day
-							$objCurrentDate				= new Zend_Date();
+                        // Set the Model
+                        $objModelGuestbook			= new KZ_Models_Guestbook();
 
-							$arrEntryData['guestbook_name']				= $arrPostParams['guestbook_name'];
-							$arrEntryData['guestbook_email']			= $arrPostParams['guestbook_email'];
-							$arrEntryData['guestbook_message']			= stripslashes($arrPostParams['guestbook_message']);
-							$arrEntryData['guestbook_entry_date']		= $objCurrentDate->toString('yyyy-MM-dd H:mm:ss');
+                        // Set today as post day
+                        $objCurrentDate				= new Zend_Date();
 
-							// Set Entry Active by default
-							$arrEntryData['guestbook_entry_verified']	= 'y';
+                        $arrEntryData['guestbook_name']				= $arrPostParams['guestbook_name'];
+                        $arrEntryData['guestbook_email']			= $arrPostParams['guestbook_email'];
+                        $arrEntryData['guestbook_message']			= stripslashes($arrPostParams['guestbook_message']);
+                        $arrEntryData['guestbook_entry_date']		= $objCurrentDate->toString('yyyy-MM-dd H:mm:ss');
 
-							// Set Customer IP
-							$arrEntryData['guestbook_ip']	            = $_SERVER['REMOTE_ADDR'];
-							$arrEntryData['guestbook_server_ip']        = $_SERVER['SERVER_ADDR'];
+                        // Set Entry Active by default
+                        $arrEntryData['guestbook_entry_verified']	= 'y';
 
-							$intGuestbookEntryID		= $objModelGuestbook->insertGuestbookData($arrEntryData);
-							if(is_numeric($intGuestbookEntryID) && $intGuestbookEntryID !== false) {
+                        // Set Customer IP
+                        $arrEntryData['guestbook_ip']	            = $_SERVER['REMOTE_ADDR'];
+                        $arrEntryData['guestbook_server_ip']        = $_SERVER['SERVER_ADDR'];
 
-								// Send the Verification E-mail
-								//$arrEntryData['ID']		= $intGuestbookEntryID;
-								//KZ_Models_Mail::sendMail('guestbook_verification', 'nl', $arrEntryData);
+                        $intGuestbookEntryID		= $objModelGuestbook->insertGuestbookData($arrEntryData);
+                        if(is_numeric($intGuestbookEntryID) && $intGuestbookEntryID !== false) {
 
-								// Set the Booleans
-								$booIsSend			= true;
-								$booSuccess			= true;
-							}
-						} else {
-							$strError = 'U heeft de verificatiecode niet correct overgenomen.';
-						}
+                            // Send the Verification E-mail
+                            //$arrEntryData['ID']		= $intGuestbookEntryID;
+                            //KZ_Models_Mail::sendMail('guestbook_verification', 'nl', $arrEntryData);
 
-					} else {
-						$strError = 'U kunt dit bericht niet publiceren.';
-					}
+                            // Set the Booleans
+                            $booIsSend			= true;
+                            $booSuccess			= true;
+                        }
 
-				} else {
-					$strError = 'Er is iets mis met de verificatiecode. Neem contact op met de webmaster.';
-				}
+                    } else {
+                        $strError = 'U heeft uw e-mail adres niet ingevuld';
+                    }
 
-			} else {
-				$strError = 'U heeft uw e-mail adres niet ingevuld';
-			}
+                } else {
+                    $strError = 'U bent niet door de robots verificatie check gekomen. 002';
+                }
+
+            } else {
+                $strError = 'U bent niet door de robots verificatie check gekomen. 001';
+            }
+
 		} 
 		
 		// Check if we had a post or is first time
@@ -149,24 +154,11 @@ class GastenboekController extends KZ_Controller_Action
 		// parse errors to view
 		$this->view->showerror	    = $strError;
 
-		
-		// Set the Captcha
-		$captcha = new Zend_Captcha_Image();
-		$captcha->setImgDir(APPLICATION_PATH . '/../public/assets/default/image/captcha/');
-		$captcha->setImgUrl($this->view->baseUrl('/assets/default/image/captcha/'));
-		$captcha->setFont(APPLICATION_PATH . '/../public/assets/default/font/rockwellstd-bold-webfont.ttf');
-		$captcha->setWordlen(6);
-		$captcha->setFontSize(28);
-		$captcha->setLineNoiseLevel(8);
-		$captcha->setWidth(220);
-		$captcha->setHeight(80);
-		$captcha->generate();
-		$this->view->captcha = $captcha;
-
 		// Parse Variables to View
 		$this->view->guestbook_name     = $strName;
 		$this->view->guestbook_email    = $strEmail;
 		$this->view->guestbook_message  = $strMessage;
+        $this->view->google_recaptcha_sitekey = $this->strGoogleSiteKey;
 
 	}
 }
