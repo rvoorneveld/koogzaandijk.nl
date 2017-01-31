@@ -13,21 +13,16 @@ defined($strKey = 'APPLICATION_ENV') || define($strKey,getenv($strKey) ?: 'produ
 defined($strKey = 'ROOT_URL') || define($strKey,'http://'.$_SERVER['HTTP_HOST']);
 
 defined($strKey = 'SERVER_URL') || define($strKey, realpath($_SERVER['DOCUMENT_ROOT']));
-    
+
+defined($strKey = 'VENDOR_PATH') || define($strKey,APPLICATION_PATH.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'vendor');
+
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
     get_include_path(),
 )));
 
-/** Zend_Application */
-require_once 'Zend/Application.php';
-
 // Create application, bootstrap, and run
-$application = new Zend_Application(
-    APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
-);
-
-$application->bootstrap()
-            ->run();
+(new Zend_Application(APPLICATION_ENV,APPLICATION_PATH.'/configs/application.ini'))
+    ->bootstrap()
+    ->run();
