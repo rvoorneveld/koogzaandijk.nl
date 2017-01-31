@@ -16,6 +16,8 @@ defined($strKey = 'SERVER_URL') || define($strKey, realpath($_SERVER['DOCUMENT_R
 
 defined($strKey = 'VENDOR_PATH') || define($strKey,APPLICATION_PATH.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'vendor');
 
+require_once VENDOR_PATH.DIRECTORY_SEPARATOR.'autoload.php';
+
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
