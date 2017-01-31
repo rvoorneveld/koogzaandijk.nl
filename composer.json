@@ -1,5 +1,6 @@
 {
     "require": {
+        "mobiledetect/mobiledetectlib": "^2.8",
         "zendframework/zendframework1": "^1.12"
     }
 }
