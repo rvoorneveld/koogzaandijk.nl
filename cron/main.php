@@ -7,26 +7,23 @@
 	ini_set('memory_limit', 		'512M');
 
 	// Define path to application directory
-	defined('APPLICATION_PATH')
-	    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+	defined($strKey = 'APPLICATION_PATH') || define($strKey, realpath(dirname(__FILE__) . '/../application'));
 	    
 	// Define application environment
-	defined('APPLICATION_ENV')
-		|| define('APPLICATION_ENV', ((preg_match('/mediaconcepts.nl/i', APPLICATION_PATH)) ? 'preview' : 'production'));
-	    
-    
-	// Ensure library/ is on include_path
-	set_include_path(implode(PATH_SEPARATOR, array(
-	    realpath(APPLICATION_PATH . '/../library'),
-	    get_include_path(),
-	)));
+	defined($strKey = 'APPLICATION_ENV') || define($strKey,(preg_match('/mediaconcepts.nl/i', APPLICATION_PATH) ? 'preview' : 'production'));
 
-	// Load Zend Autoloader file
-	require_once 'Zend/Loader/Autoloader.php';
-	
+    defined($strKey = 'VENDOR_PATH') || define($strKey,APPLICATION_PATH.'/../vendor',true);
+
+    require_once VENDOR_PATH.DIRECTORY_SEPARATOR.'autoload.php';
+
+	// Ensure library/ is on include_path
+    set_include_path(implode(PATH_SEPARATOR,[
+        realpath(APPLICATION_PATH.'/../library'),
+        get_include_path(),
+    ]));
+
 	// Load Zend Framework and KZ/Hiltex Libraries
-    $objAutoloader 		= Zend_Loader_Autoloader::getInstance();
-    $objAutoloader->registerNamespace('KZ_');
+    Zend_Loader_Autoloader::getInstance()->registerNamespace('KZ_');
 	
 	// Get Config
 	$objConfig 			= new Zend_Config_Ini(APPLICATION_PATH.'/configs/application.ini', APPLICATION_ENV);

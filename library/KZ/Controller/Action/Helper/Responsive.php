@@ -7,7 +7,6 @@ class KZ_Controller_Action_Helper_Responsive
 	
 	public function __construct()
 	{
-		require_once(APPLICATION_PATH . '/../library/Responsive/Mobile_Detect.php');
 		$this->browser_detect 	= new Mobile_Detect();
 	}
 	

@@ -1,12 +1,11 @@
 <?php
-	
-	set_include_path(implode(PATH_SEPARATOR, array(
-            realpath(realpath(dirname(__FILE__)) . '/../../library'),
-            get_include_path(),
-     )));
 
-    require_once 'Zend/Db.php';
-	require_once 'Zend/Db/Adapter/Pdo/Mysql.php';
+    set_include_path(implode(PATH_SEPARATOR,[
+        realpath(realpath(dirname(__FILE__)).'/../../library'),
+        get_include_path(),
+    ]));
+
+    require_once __DIR__.'/../../vendor/autoload.php';
 
 	// Pdo mysql
 	/*$arrDatabasePreview	= array(
