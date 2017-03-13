@@ -148,8 +148,11 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 		endif;
 		
 		if(isset($this->agenda) && is_array($this->agenda) && count($this->agenda) > 0) :
-			
+
 			echo '	<li class="cell small bg_kz_lightyellow agenda">
+	
+                        <iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>	
+	
 						<h2>'.$this->translate('Agenda').'</h2>
 						<ol>';
 		
@@ -231,8 +234,6 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 						</div>';
 			
 			endforeach;
-
-            echo '<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>';
 
 			echo '</li>';
 			
