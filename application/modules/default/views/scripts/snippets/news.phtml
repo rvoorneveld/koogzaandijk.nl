@@ -97,8 +97,7 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 		
 		if(isset($this->news) && is_array($this->news) && count($this->news) > 0) :
 			
-			echo '	<li class="cell large bg_kz_lightgrey news">
-	                    <iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>';
+			echo '	<li class="cell large bg_kz_lightgrey news">';
 
 				// Set Categories Dropdown
 				if(isset($this->categories) && is_array($this->categories) && count($this->categories) > 0) : 
@@ -152,7 +151,7 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 
 			echo '	<li class="cell small bg_kz_lightyellow agenda">
 	
-                        <iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>	
+                        <!--<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>-->
 	
 						<h2>'.$this->translate('Agenda').'</h2>
 						<ol>';
@@ -216,8 +215,6 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 		if(! empty($this->news_categories) && is_array($this->news_categories)) :
 
 			echo '<li class="cell small arrows">
-
-                     <iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca48f6b3f5" id="i_587ca48f6b3f5"></iframe>
                        
 					<div class="clubkit">
 						<a target="_blank" href="http://www.korfbalgoals.nl/" title="Korfbalgoals"><img class="korfbalgoals" src="/assets/default/image/layout/korfbalgoals.png" alt="Korfbalgoals" title="Korfbalgoals" /></a>
@@ -235,6 +232,8 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 						</div>';
 			
 			endforeach;
+
+			echo '<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="http://www.sponsorportaal.nl/banner/?id=587ca48f6b3f5" id="i_587ca48f6b3f5"></iframe>';
 
 			echo '</li>';
 			
