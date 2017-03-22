@@ -1,5 +1,6 @@
 {
     "require": {
+        "google/apiclient": "~2.0@RC",
         "mobiledetect/mobiledetectlib": "^2.8",
         "zendframework/zendframework1": "^1.12"
     }
