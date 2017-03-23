@@ -64,7 +64,7 @@ class PageController extends KZ_Controller_Action
 		$intStatus				= 1;
 		
 		$arrPageContent			= $objModelPages->getPageContent($arrPage['page_id'], $intStatus);
-		
+
 		$this->view->page				= $arrPage;
 		$this->view->content 			= $arrPageContent;
 		$this->view->latest				= $arrLatestNews;

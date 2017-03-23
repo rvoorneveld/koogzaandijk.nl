@@ -1,16 +1,46 @@
-<?php
-	// Set Unserialized Data arary
-	$arrData = unserialize($this->content['data']);
-	
-	$arrTeams = explode(',', $arrData['content_13_teams']);
-	asort($arrTeams);
-?>
 <h4><?php echo $this->content['name']; ?></h4>
-<ol class="teams zapp">
-
 <?php
-	foreach($arrTeams as $intTeamKey => $strTeam) {
-		echo '<li><a href="/team/'.$strTeam.'/">KZ/Hiltex '.$strTeam.'</a></li>';	
-	}
+
+    // Check for Teams
+    if(! empty($this->content['data'])) {
+        if($this->content['content_type_id'] == 13) {
+            $arrPageContentItem = unserialize($this->content['data']);
+            if (isset($arrPageContentItem['content_13_teams'])) {
+
+                // Set Team Category
+                $strTeamCategory = strtolower($arrPageContentItem['content_13_teams']);
+
+                // Get Teams By Category
+                $objModelTeams = new KZ_Models_Teams();
+
+                $strTeamsMethod = 'getTeamsByCategory';
+                if ($strTeamCategory == 'topsport') {
+                    $strTeamsMethod = 'getTopTeams';
+                }
+
+                $arrTeams = $objModelTeams->$strTeamsMethod($strTeamCategory);
+            }
+        }
+    }
+
+    if(! empty($arrTeams) && is_array($arrTeams)) {
+        $strAbove9Html = '';
+        echo '<ol class="teams zapp">';
+        foreach($arrTeams as $arrTeam) {
+
+            $strTeamRow = '<li><a href="/team/'.$arrTeam['name'].'/">KZ/Hiltex '.$arrTeam['name'].'</a></li>';
+
+            if($arrTeam['name'] > 9) {
+                // Show 10 and above at the end
+                $strAbove9Html .= $strTeamRow;
+                continue;
+            }
+
+            echo $strTeamRow;
+
+
+        }
+        echo $strAbove9Html;
+        echo '</ol>';
+    }
 ?>
-</ol>

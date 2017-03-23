@@ -288,27 +288,25 @@
 					<dd><label><?php echo $this->translate('Teams'); ?></label></dd>	
 				</dl>
 				
-				<dl>
-					<dt width="200"><label class="label"><?php echo $this->translate('Teams'); ?></label></dt>
-					<dd width="*">
-						<div id="tagsContainer">
-						<?php
-							if(isset($this->teams) && is_array(($this->teams))) {
-								
-								foreach($this->teams as $intTeamKey => $arrTeam) {
-									
-									$strStatus 			= ((isset($this->content_13_teams) && is_array($this->content_13_teams) && in_array($arrTeam['name'], $this->content_13_teams)) ? ' checked="checked"' : '');
-									$strColor 			= ((isset($this->content_13_teams) && is_array($this->content_13_teams) && in_array($arrTeam['name'], $this->content_13_teams)) ? 'green' : 'red');
-									
-									echo '	<a class="button '.$strColor.' small" rel="team-'.str_replace('KZ/Hiltex ', '',$arrTeam['name']).'">'.$arrTeam['name'].'</a>
-									  		<input type="checkbox" name="team-'.str_replace('KZ/Hiltex ', '',$arrTeam['name']).'" id="team-'.str_replace('KZ/Hiltex ', '',$arrTeam['name']).'" value="'.$arrTeam['name'].'" style="display: none;" '.$strStatus.' />';
-								}
-								
-							}
-						?>
-					</div>				
-					</dd>
-				</dl>
+                <dl>
+                    <dt width="200"><label class="label"><?php echo $this->translate('Teams'); ?></label></dt>
+                    <dd width="*">
+                        <div id="tagsContainer">
+                            <?php
+                            if(isset($this->team_categories) && is_array(($this->team_categories))) {
+                                foreach($this->team_categories as $arrTeamCategory) {
+
+                                    $strStatus 			= ((isset($this->content_13_teams) && is_array($this->content_13_teams) && in_array($arrTeamCategory['category'], $this->content_13_teams)) ? ' checked="checked"' : '');
+                                    $strColor 			= ((isset($this->content_13_teams) && is_array($this->content_13_teams) && in_array($arrTeamCategory['category'], $this->content_13_teams)) ? 'green' : 'red');
+
+                                    echo '	<a class="button '.$strColor.' small" rel="team-'.$arrTeamCategory['category'].'">'.$arrTeamCategory['category'].'</a>
+									  	<input type="checkbox" name="team-'.$arrTeamCategory['category'].'" id="team-'.$arrTeamCategory['category'].'" value="'.$arrTeamCategory['category'].'" style="display: none;" '.$strStatus.' />';
+                                }
+                            }
+                            ?>
+                        </div>
+                    </dd>
+                </dl>
 	
 			</div>			
 

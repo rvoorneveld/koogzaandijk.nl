@@ -4,6 +4,7 @@ class KZ_Models_Teams extends KZ_Controller_Table
 	
 	protected $_name	= 'teams';
 	protected $_primary	= 'teams_id';
+	public $topteams = ['1','2','3','A1','B1','C1','D1'];
 	
 	public function addTeam($arrData)
 	{
@@ -35,15 +36,40 @@ class KZ_Models_Teams extends KZ_Controller_Table
 
 		return $this->returnData($strQuery,'array','fetchRow');
 	}
+
+    public function getTeamsByCategory($strCategory) {
+	    $strQuery = $this->select()
+                    ->distinct(true)
+                    ->from('teams',['name'])
+                    ->where('category = ?',$strCategory)
+                    ->order('name');
+	    return $this->returnData($strQuery);
+    }
+
+    public function getTopTeams() {
+	    $strQuery = $this->select()
+                    ->distinct(true)
+                    ->from('teams',['name'])
+                    ->where('name IN(?)',$this->topteams)
+                    ->order('name');
+	    return $this->returnData($strQuery);
+    }
 	
-	public function getDistinctTeams()
+	public function getDistinctCategories($booReturnTopsportAsCategory)
 	{
 		$strQuery = $this->select()
 					->distinct(true)
-					->from($this->_name, array('name'))
-					->order(array('category', 'name'));
+					->from($this->_name, array('category'))
+					->order('category')
+                    ->group('category');
 					
-		return $this->returnData($strQuery);
+		$arrData = $this->returnData($strQuery);
+
+		if($booReturnTopsportAsCategory === true) {
+		    array_push($arrData,['category' => 'Topsport']);
+        }
+
+		return $arrData;
 	}
 
 	public function getDistinctTeamsByTeamIDs($arrTeamIDs)

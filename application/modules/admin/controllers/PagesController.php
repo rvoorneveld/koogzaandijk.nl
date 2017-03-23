@@ -517,8 +517,9 @@ class Admin_PagesController extends KZ_Controller_Action
     	// Get Page by ID
     	$arrPage					= $objModelPage->getPageByID($arrParams['id']);
     	
-    	// Get All Teams
-    	$arrTeams					= $objModelTeams->getDistinctTeams();
+        // Get Categories
+        $booReturnTopsportAsCategory = true;
+        $arrTeamCategories = $objModelTeams->getDistinctCategories($booReturnTopsportAsCategory);
     	
 		// Check if category was found
     	if(! isset($arrPage) || ! is_array($arrPage) || count($arrPage) == 0) {
@@ -759,7 +760,7 @@ class Admin_PagesController extends KZ_Controller_Action
     	$this->view->page				= $arrPage;
     	$this->view->pages_content		= $arrPageContent;
     	$this->view->contentTypes 		= $arrContentTypes;
-    	$this->view->teams				= $arrTeams;
+    	$this->view->team_categories    = $arrTeamCategories;
     	
     	$this->view->content_type_id 	= $intContentTypeID;
     	$this->view->name 				= $strName;
@@ -802,8 +803,9 @@ class Admin_PagesController extends KZ_Controller_Action
     	// Get Content Types
     	$arrContentTypes			= $objModelContentType->getContentTypes('pages','content_type_id');
     	
-    	// Get Teams
-    	$arrTeams					= $objModelTeams->getDistinctTeams();
+    	// Get Categories
+        $booReturnTopsportAsCategory = true;
+    	$arrTeamCategories = $objModelTeams->getDistinctCategories($booReturnTopsportAsCategory);
     	
     	// Set Default Variables
     	$intContentTypeID 			= $arrPageContent['content_type_id'];
@@ -1068,7 +1070,7 @@ class Admin_PagesController extends KZ_Controller_Action
     	// Parse Data to View
     	$this->view->page_content		= $arrPageContent;
     	$this->view->contentTypes 		= $arrContentTypes;
-    	$this->view->teams				= $arrTeams;
+    	$this->view->team_categories	= $arrTeamCategories;
     	
     	$this->view->content_type_id 	= $intContentTypeID;
     	$this->view->name 				= $strName;

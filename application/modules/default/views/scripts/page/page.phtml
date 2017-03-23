@@ -8,7 +8,11 @@
 				
 					foreach($this->content as $intContentKey => $arrContent) :
 
-						echo $this->partial($arrContent['template'], array('content' => $arrContent, 'title' => $this->page['name']));
+						echo $this->partial($arrContent['template'],[
+						    'content' => $arrContent,
+                            'title' => $this->page['name'],
+                            'teams' => ((isset($this->teams)) ? $this->teams : false)
+                        ]);
 					
 					endforeach;
 				
