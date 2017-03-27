@@ -1,33 +1,36 @@
-<header>
-	<h2><?php echo $this->translate('Teams'); ?></h2>
-</header>
-<section>
-		<table class="default">
-			<thead>
-				<tr>
-					<th width="50"><?php echo $this->translate('ID'); ?></th>
-					<th width="*"><?php echo $this->translate('Name'); ?></th>
-					<th width="100"><?php echo $this->translate('Category'); ?></th>
-					<th width="100"><?php echo $this->translate('Sport'); ?></th>
-					<th width="100"><?php echo $this->translate('Season'); ?></th>
-					<th width="125"><?php echo $this->translate('Options'); ?></th>
-				</tr>
-			</thead>
-			<tbody>
 
-            <?php
-                if(! empty($this->teams) && is_array($this->teams)) {
-                    foreach($this->teams as $arrTeam) {
+<?php
+    if(! empty($this->teams) && is_array($this->teams)) {
+        foreach($this->teams as $intKey => $arrTeam) {
 
-                        echo '<ul class="js-connected" style="float:left; width: 15%; border: 1px solid lightgrey;">';
-                        echo '    <li class="title js-unsortable">KZ/Hiltex '.$arrTeam['name'].' '.$arrTeam['sport'].'</li>';
-                        echo '</ul>';
+            $clearFix = ((in_array($intKey,[4,8,12,16,20,24])) ? ' clearfix' : '');
 
-                    }
+            echo '  <article class="quarter-block'.$clearFix.'">
+                        <div class="article_container">
+                            <header>
+                                <h2>KZ/Hiltex '.$arrTeam['name'].' '.$arrTeam['sport'].'</h2>    
+                            </header>
+                            <section>
+                                <ul class="contacts">';
+
+            if(! empty($arrTeam['members']) && is_array($arrTeam['members'])) {
+                foreach($arrTeam['members'] as $arrMember) {
+                    echo '          <li>
+                                        <img src="'.((! empty($arrMember['image'])) ? $arrMember['image'] : '/assets/admin/image/sample_user.png').'" alt="'.$arrMember['firstname'].' '.$arrMember['lastname'].'">
+                                        <a class="contacts-user" href="/admin/club/teamsmembersedit/id/'.$arrMember['team_member_id'].'">'.$arrMember['firstname'].' '.$arrMember['lastname'].'</a>
+                                        <ul>
+                                            <li><a class="button-link" href="/admin/club/teamsmembersedit/id/'.$arrMember['team_member_id'].'">Edit</a></li>
+                                            <li><a class="button-link" href="/admin/club/teamsmembersdelete/id/'.$arrMember['team_member_id'].'">Delete</a></li>
+                                        </ul>
+                                    </li>';
                 }
-            ?>
+            }
 
-			</tbody>
-		</table>
-		
-</section>
+            echo '              </ul>
+                            </section>
+                        </div>
+                    </article>';
+
+        }
+    }
+?>

@@ -7,9 +7,21 @@ class Admin_ClubController extends KZ_Controller_Action
         $objModelTeams = new KZ_Models_Teams();
         $objTeams = $objModelTeams->getTeamsForTable();
 
+        $objModelMembers = new KZ_Models_Members();
+
         $arrTeams = [];
         if(! is_null($objTeams)) {
             $arrTeams = $objTeams->toArray();
+
+            if(! empty($arrTeams) && is_array($arrTeams)) {
+            	foreach($arrTeams as $intTeamKey => $arrTeam) {
+
+            		$arrTeamMembers = $objModelTeams->getTeamMembers($arrTeam['name']);
+            		$arrTeams[$intTeamKey]['members'] = $arrTeamMembers;
+
+	            }
+            }
+
         }
 
         $this->view->teams = $arrTeams;
