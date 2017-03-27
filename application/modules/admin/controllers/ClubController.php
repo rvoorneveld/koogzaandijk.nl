@@ -4,7 +4,15 @@ class Admin_ClubController extends KZ_Controller_Action
 	
 	public function teamsAction()
 	{
+        $objModelTeams = new KZ_Models_Teams();
+        $objTeams = $objModelTeams->getTeamsForTable();
 
+        $arrTeams = [];
+        if(! is_null($objTeams)) {
+            $arrTeams = $objTeams->toArray();
+        }
+
+        $this->view->teams = $arrTeams;
 	}
 	
 	public function membersAction()

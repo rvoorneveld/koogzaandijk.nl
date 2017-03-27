@@ -2,7 +2,7 @@
 	<h2><?php echo $this->translate('Teams'); ?></h2>
 </header>
 <section>
-		<table class="ajax_datatable">
+		<table class="default">
 			<thead>
 				<tr>
 					<th width="50"><?php echo $this->translate('ID'); ?></th>
@@ -15,55 +15,19 @@
 			</thead>
 			<tbody>
 
+            <?php
+                if(! empty($this->teams) && is_array($this->teams)) {
+                    foreach($this->teams as $arrTeam) {
+
+                        echo '<ul class="js-connected" style="float:left; width: 15%; border: 1px solid lightgrey;">';
+                        echo '    <li class="title js-unsortable">KZ/Hiltex '.$arrTeam['name'].' '.$arrTeam['sport'].'</li>';
+                        echo '</ul>';
+
+                    }
+                }
+            ?>
+
 			</tbody>
 		</table>
 		
 </section>
-
-<script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
-		    var _that = this;
-		  
-		    this.each(function (i) {
-		        $.fn.dataTableExt.iApiIndex = i;
-		        var $this = this;
-		        var anControl = $('input', _that.fnSettings().aanFeatures.f);
-		        anControl.unbind('keyup').bind('keypress', function (e) {
-		            if (e.which == 13) {
-		                $.fn.dataTableExt.iApiIndex = i;
-		                _that.fnFilter(anControl.val());
-		            }
-		        });
-		        return this;
-		    });
-		    return this;
-		};
-		
-		jQuery('.ajax_datatable').dataTable( {
-			"bProcessing"		: true,
-			"bServerSide"		: true,
-			"bStateSave"		: true,
-			'iDisplayLength'	: 25,
-			'sPaginationType'	: "full_numbers",
-			"sAjaxSource"		: "/admin/club/generateteamstable/",
-			"fnServerData": function ( sSource, aoData, fnCallback ) {
-							$.ajax( {
-								"dataType": 'json', 
-								"type": "POST", 
-								"url": sSource, 
-								"data": aoData, 
-								"success": fnCallback
-							});
-			},
-	        "aoColumns": [null,
-	                      null,
-	                      null,
-	                      null,
-	                      null,
-	                      {"bSortable" : false, "bSearchable": false}
-	                      ],
-			'aaSorting'			: [[ 2, "desc" ]]
-			}).fnFilterOnReturn();
-	});
-</script>
