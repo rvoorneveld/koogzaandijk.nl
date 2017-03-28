@@ -126,6 +126,11 @@
 				</select>
 			</dd>
 		</dl>
+
+        <dl>
+            <dt><label class="label" for="date"><?php echo $this->translate('Activate at'); ?></label></dt>
+            <dd><input type="text" class="medium js-datetimepicker" id="activate_at" name="activate_at" value="<?php echo $this->activate_at; ?>" /></dd>
+        </dl>
 			
 		<dl>
 			<dt height="15" colspan="2"></dt>
@@ -229,7 +234,13 @@
 	</form>
 
 </section>
-<script language="JavaScript">
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+        jQuery('.js-datetimepicker').datetimepicker({
+            format: 'd-m-Y H:i:s'
+        });
+    });
 
 	<?php if (isset($this->editorInit)) print $this->editorInit; ?>
 

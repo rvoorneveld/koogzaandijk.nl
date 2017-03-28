@@ -2,7 +2,7 @@
 class KZ_Controller_Session extends Zend_Db_Table_Abstract
 {
 	
-	public function getActiveUser()
+	public static function getActiveUser()
 	{
 		
 		// Get the Current User group level

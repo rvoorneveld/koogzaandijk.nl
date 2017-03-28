@@ -10,7 +10,7 @@ class KZ_View_Helper_Date extends Zend_View_Helper_Abstract
 	 * 
 	 * @return string $strFormattedDate
 	 */
-	public function format($strDate, $strFormat, $booReturnObject = false)
+	public static function format($strDate, $strFormat, $booReturnObject = false)
 	{
 		// Check if date exists
 		if(is_null($strDate)) {

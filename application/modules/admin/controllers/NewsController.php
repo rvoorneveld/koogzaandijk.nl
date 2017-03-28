@@ -72,6 +72,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$strImage					= '';
 		$strDate					= $objDate->toString('dd-MM-YYYY');
 		$intTime					= $objDate->toString('h');
+        $strActivateAt              = '';
 		$strSeoTitle				= '';
 		$strSeoKeywords				= '';
 		$strSeoDescription			= '';
@@ -93,6 +94,7 @@ class Admin_NewsController extends KZ_Controller_Action
 			$strImage				= $arrPostParams['image'];
 			$strDate				= $arrPostParams['date'];
 			$intTime				= $arrPostParams['time'];
+			$strActivateAt          = $arrPostParams['activate_at'];
 			$strSeoTitle			= $arrPostParams['seo_title'];
 			$strSeoKeywords			= $arrPostParams['seo_keywords'];
 			$strSeoDescription		= $arrPostParams['seo_description'];
@@ -134,6 +136,7 @@ class Admin_NewsController extends KZ_Controller_Action
                         'image' 			=> str_replace(ROOT_URL.'/upload/', '', $strImage),
                         'date'				=> $this->view->date()->format($strDate, 'YYYY-MM-dd'),
                         'time'				=> $intTime,
+                        'activate_at'       => ((! empty($arrPostParams['activate_at'])) ? (new KZ_View_Helper_Date())->format($arrPostParams['activate_at'],'yyyy-MM-dd HH:mm:ss') : NULL),
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
                         'seo_keywords'		=> $strSeoKeywords,
@@ -186,6 +189,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->image				= $strImage;
 		$this->view->date				= $strDate;
 		$this->view->time				= $intTime;
+        $this->view->activate_at        = $strActivateAt;
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
@@ -280,6 +284,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$strImage					= $arrNews['image'];
 		$strDate					= $arrNews['date'];
 		$intTime					= $arrNews['time'];
+		$strActivateAt              = $arrNews['activate_at'];
 		$strSeoTitle				= $arrNews['seo_title'];
 		$strSeoKeywords				= $arrNews['seo_keywords'];
 		$strSeoDescription			= $arrNews['seo_description'];
@@ -304,6 +309,7 @@ class Admin_NewsController extends KZ_Controller_Action
 			$strImage				= $arrPostParams['image'];
 			$strDate				= $arrPostParams['date'];
 			$intTime				= $arrPostParams['time'];
+            $strActivateAt          = ((! empty($arrPostParams['activate_at'])) ? (new KZ_View_Helper_Date())->format($arrPostParams['activate_at'],'yyyy-MM-dd HH:mm:ss') : NULL);
 			$strSeoTitle			= $arrPostParams['seo_title'];
 			$strSeoKeywords			= $arrPostParams['seo_keywords'];
 			$strSeoDescription		= $arrPostParams['seo_description'];
@@ -351,6 +357,7 @@ class Admin_NewsController extends KZ_Controller_Action
                         'image' 			=> str_replace(ROOT_URL.'/upload/', '', $strImage),
                         'date'				=> $this->view->date()->format($strDate, 'YYYY-MM-dd'),
                         'time'				=> $intTime,
+                        'activate_at'       => $strActivateAt,
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
                         'seo_keywords'		=> $strSeoKeywords,
@@ -402,6 +409,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->image				= $strImage;
 		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
+		$this->view->activate_at        = $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss');
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
@@ -459,6 +467,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$strImage					= $arrNews['image'];
 		$strDate					= $arrNews['date'];
 		$intTime					= $arrNews['time'];
+		$strActivateAt              = $arrNews['activate_at'];
 		$strSeoTitle				= $arrNews['seo_title'];
 		$strSeoKeywords				= $arrNews['seo_keywords'];
 		$strSeoDescription			= $arrNews['seo_description'];
@@ -498,6 +507,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->image				= $strImage;
 		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
+        $this->view->activate_at        = $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss');
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
