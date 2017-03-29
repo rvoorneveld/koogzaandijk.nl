@@ -1,7 +1,15 @@
 <?php
 class KZ_Controller_Table extends Zend_Db_Table_Abstract
 {
-	public function returnData($strQuery, $strReturnType = 'array', $strFetchType = 'fetchAll')
+    public $current_datetime;
+    public function __construct($config = array())
+    {
+        $objDate = new Zend_Date();
+        $this->current_datetime = $objDate->toString('yyyy-MM-dd HH:mm:ss');
+        parent::__construct($config);
+    }
+
+    public function returnData($strQuery, $strReturnType = 'array', $strFetchType = 'fetchAll')
 	{
 		
 		// Check if Query string is not empty

@@ -4,8 +4,13 @@ class KZ_Models_News extends KZ_Controller_Table
 	
 	protected $_name 	= 'news';
 	protected $_primary = 'news_id';
-	
-	/**
+
+	public function __construct($config = array())
+    {
+        parent::__construct($config);
+    }
+
+    /**
 	 * 
 	 * Get All Newss
 	 * @return 	array 	$arrData
@@ -39,14 +44,16 @@ class KZ_Models_News extends KZ_Controller_Table
 		}
 		
 		if($intStatus !== false) {
-			$strQuery->where('news.status = ?', $intStatus);
+			$strQuery->where('news.status = ?', $intStatus)
+            ->where(' ( news.activate_at < ?',$this->current_datetime)
+            ->orWhere('news.activate_at IS NULL )');
 		}
 		
 		if($intYear !== false && is_numeric($intYear) && strlen($intYear) == 4) {
 			$strQuery->where('news.date >= ?', $intYear.'-01-01')
 				->where('news.date <= ?', $intYear.'-12-31');
 		}
-		
+
 		if($intLimit !== false) {
 			$strQuery->limit($intLimit);
 		}
@@ -70,6 +77,8 @@ class KZ_Models_News extends KZ_Controller_Table
 					->joinLeft('category', 'category.category_id = news.category_id', array('name AS category_name', 'color AS category_color'))
 					->where('(news.status = ?', 1)
 					->where('news_content.status = ?)', 1)
+                    ->where(' ( news.activate_at < ?',$this->current_datetime)
+                    ->orWhere('news.activate_at IS NULL )')
 					->where("(news.name LIKE ?", '%'.$strKeywords.'%')
 					->orWhere("news.name LIKE ?", $strKeywords.'%')
 					->orWhere("news.name LIKE ?", '%'.$strKeywords)
@@ -294,9 +303,11 @@ class KZ_Models_News extends KZ_Controller_Table
 					->from('news', '*')
 					->joinLeft('category', 'category.category_id = news.category_id', array('category.name as category', 'category.color as category_color'))
 					->where('news.status = ?', 1)
+                    ->where(' ( news.activate_at < ?',$this->current_datetime)
+		            ->orWhere('news.activate_at IS NULL )')
 					->order('news.date DESC')
 					->limit($intLimit);
-					
+
 		return $this->returnData($strQuery);
 		
 	}
