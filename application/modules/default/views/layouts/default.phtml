@@ -210,11 +210,11 @@
 			// SIDEBAR OFFCANVAS
 			jQuery().offcanvas();
 
-//			// Login Profiles
-//			jQuery('.openProfiles').click(function(){
-//				jQuery('.l-wrapper--profiles').show();
-//				jQuery(this).hide();
-//			});
+			// Login Profiles
+			jQuery('.openProfiles').click(function(){
+				jQuery('.l-wrapper--profiles').show();
+				jQuery(this).hide();
+			});
 			
 		});
 
@@ -233,7 +233,7 @@
 </head>
 <body>
 	<div id="full-container">
-		<?php //echo $this->profiles(); ?>
+		<?php echo $this->profiles(); ?>
 		<div class="menu-container" style="display: none;">
 			<?php echo $this->navigator(1); ?>
 		</div>
@@ -260,7 +260,7 @@
 						<ul id="suggestions"></ul>
 					</li>
 				</ul>
-				<?php //echo $this->profiles('button'); ?>
+				<?php echo $this->profiles('button'); ?>
 			</header>
 			<div class="menu-container-oncanvas">
 				<?php echo $this->navigator(1); ?>
