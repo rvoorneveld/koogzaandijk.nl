@@ -409,7 +409,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->image				= $strImage;
 		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
-		$this->view->activate_at        = $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss');
+		$this->view->activate_at        = ((! is_null($strActivateAt)) ? $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss') : $strActivateAt);
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
@@ -507,7 +507,7 @@ class Admin_NewsController extends KZ_Controller_Action
 		$this->view->image				= $strImage;
 		$this->view->date				= $this->view->date()->format($strDate, 'dd-MM-YYYY');
 		$this->view->time				= $intTime;
-        $this->view->activate_at        = $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss');
+        $this->view->activate_at        = ((! is_null($strActivateAt)) ? $this->view->date()->format($strActivateAt, 'dd-MM-yyyy HH:mm:ss') : '');
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
