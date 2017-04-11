@@ -103,39 +103,24 @@ class KZ_Models_Matches extends KZ_Controller_Table
 			$strQuery->where('( team_home_clubteam = ?', 1);
 			$strQuery->orWhere(' team_away_clubteam = ? )', 1);
 		}
+
+		$strQuery->order(['date ASC']);
 		
 		if($intLimit !== false && is_numeric($intLimit)) {
 			$strQuery->limit($intLimit);
 		}
 		
-		$arrData = $this->returnData($strQuery);
-		
-		if(isset($arrData) && is_array($arrData) && count($arrData) > 0) {
-			
-			$arrAssoc	        = array();
-			$arrAssocSeniors    = array();
-			
-			foreach($arrData as $intMatchKey => $arrMatch) {
-				
-				$strTeam				= trim(str_replace('KZ/Hiltex','',((strstr($arrMatch['team_home_name'], 'KZ/Hiltex')) ? $arrMatch['team_home_name'] : $arrMatch['team_away_name'])));
+		$arrData =  $this->returnData($strQuery);
 
-				if(is_numeric($strTeam)) {
-					$arrAssocSeniors[$strTeam][]    = $arrMatch;
-				} else {
-					$arrAssoc[$strTeam][]	        = $arrMatch;
-				}
-
-			}
-
-			ksort($arrAssocSeniors);
-			ksort($arrAssoc);
-
-			return array_merge($arrAssocSeniors, $arrAssoc);
-
-		}
-		
-		return array();
-		
+        if(isset($arrData) && is_array($arrData) && count($arrData) > 0) {
+            $arrReturnData = [];
+            foreach($arrData as $arrDataRow) {
+                $intTimeForOrdering = (int)str_replace('-','',$arrDataRow['date']).(int)str_replace(':','',$arrDataRow['time']);
+                $arrReturnData[$intTimeForOrdering] = $arrDataRow;
+            }
+            ksort($arrReturnData);
+            return $arrReturnData;
+        }
 	}
 	
 	public function getDistinct($strColumn = 'year')
