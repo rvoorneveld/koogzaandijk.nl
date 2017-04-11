@@ -12,11 +12,17 @@
 	$intYear		        = (int)$objDate->get(Zend_Date::YEAR_8601);
 	
 	// Set Teams array
-	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_9_teams']));
-	
+	//$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_9_teams']));
+
+	// Do not load team specific data, load all teams by default and order by date
+	$arrTeams = false;
+
+	// Set Limit to 10 on homepage
+	$intLimit = 10;
+
 	// Get Matches for current week
-	$arrMatches 			= $objModelMatches->getMatches($intYear, $intWeek, $arrTeams, true, 50);
-	
+	$arrMatches = $objModelMatches->getMatches($intYear, $intWeek, $arrTeams, true, $intLimit);
+
 	if(isset($arrMatches) && is_array($arrMatches) && count($arrMatches) > 0) {
 		
 		// Dynamically fill match info on click
