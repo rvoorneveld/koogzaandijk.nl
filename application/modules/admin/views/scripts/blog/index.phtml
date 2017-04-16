@@ -1,2 +1,114 @@
-<?php
-var_dump($this->blog);
+<header>
+    <h2><?php echo $this->translate('Blog'); ?></h2>
+    <nav>
+        <ul class="tab-switch">
+            <li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+            <li><a href="#tab1"><?php echo $this->translate('Add blog item'); ?></a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+
+    <div id="tab0" class="tab default-tab">
+        <table class="ajax_datatable">
+            <thead>
+                <tr>
+                    <th width="50"><?php echo $this->translate('ID'); ?></th>
+                    <th width="150"><?php echo $this->translate('Name'); ?></th>
+                    <th width="*"><?php echo $this->translate('Title'); ?></th>
+                    <th width="100"><?php echo $this->translate('Status'); ?></th>
+                    <th width="150"><?php echo $this->translate('Created'); ?></th>
+                    <th width="125"><?php echo $this->translate('Options'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab1" class="tab">
+
+        <form name="addBlogForm" method="post" action="#tab1">
+            <dl>
+                <dt width="200"><label class="label" for="title"><?php echo $this->translate('Title'); ?></label></dt>
+                <dd width="*"><input type="text" class="small" id="title" name="title" value="<?php echo $this->defaults['title']; ?>" /></dd>
+            </dl>
+            <dl>
+                <dt><label class="label" for="content"><?php echo $this->translate('Message'); ?></label></dt>
+                <dd><textarea id="content" name="content" rows="5" cols="40" class="tinymce" style="width: 80%; height: 450px"><?php echo stripslashes($this->defaults['content']); ?></textarea></dd>
+            </dl>
+            <dl>
+                <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+                <dd>
+                    <?php
+                        if(! empty($this->states) && is_array($this->states)) {
+                            echo '<select name="status" id="status">';
+                            foreach($this->states as $intStatusCode => $strStatus) {
+                                echo '<option value="'.$intStatusCode.'"'.(($this->defaults['status'] == $intStatusCode) ? ' selected="selected"' : '').'>'.$this->translate($strStatus).'</option>';
+                            }
+                            echo '</select>';
+                        }
+                    ?>
+            </dl>
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add blog item'); ?>" /></dd>
+            </dl>
+
+        </form>
+
+    </div>
+
+</section>
+<script type="text/javascript">
+    <?php if (isset($this->editorInit)) print $this->editorInit; ?>
+
+    jQuery(document).ready(function(){
+        jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+            var _that = this;
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var $this = this;
+                var anControl = $('input', _that.fnSettings().aanFeatures.f);
+                anControl.unbind('keyup').bind('keypress', function (e) {
+                    if (e.which == 13) {
+                        $.fn.dataTableExt.iApiIndex = i;
+                        _that.fnFilter(anControl.val());
+                    }
+                });
+                return this;
+            });
+            return this;
+        };
+
+        jQuery('.ajax_datatable').dataTable( {
+            "bProcessing"		: true,
+            "bServerSide"		: true,
+            "bStateSave"		: true,
+            'iDisplayLength'	: 25,
+            'sPaginationType'	: "full_numbers",
+            "sAjaxSource"		: "/admin/blog/generateitemsdatatable/",
+            "fnServerData": function ( sSource, aoData, fnCallback ) {
+                $.ajax( {
+                    "dataType": 'json',
+                    "type": "POST",
+                    "url": sSource,
+                    "data": aoData,
+                    "success": fnCallback
+                });
+            },
+            "aoColumns": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {"bSortable" : false, "bSearchable": false}
+            ],
+            'aaSorting'			: [[ 4, "desc" ]]
+        }).fnFilterOnReturn();
+    });
+</script>

@@ -1,0 +1,39 @@
+<header>
+    <h2><?php echo $this->translate('Edit blog item'); ?></h2>
+</header>
+
+<section>
+
+    <form name="updateBlogForm" method="post" action="">
+        <dl>
+            <dt width="200"><label class="label" for="title"><?php echo $this->translate('Title'); ?></label></dt>
+            <dd width="*"><input type="text" class="small" id="title" name="title" value="<?php echo $this->defaults['title']; ?>" /></dd>
+        </dl>
+        <dl>
+            <dt><label class="label" for="content"><?php echo $this->translate('Message'); ?></label></dt>
+            <dd><textarea id="content" name="content" rows="5" cols="40" class="tinymce" style="width: 80%; height: 450px"><?php echo stripslashes($this->defaults['content']); ?></textarea></dd>
+        </dl>
+        <dl>
+            <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+            <dd>
+                <?php
+                if(! empty($this->states) && is_array($this->states)) {
+                    echo '<select name="status" id="status">';
+                    foreach($this->states as $intStatusCode => $strStatus) {
+                        echo '<option value="'.$intStatusCode.'"'.(($this->defaults['status'] == $intStatusCode) ? ' selected="selected"' : '').'>'.$this->translate($strStatus).'</option>';
+                    }
+                    echo '</select>';
+                }
+                ?>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Update blog item'); ?>" /></dd>
+        </dl>
+
+    </form>
+
+</section>
+<script type="text/javascript">
+    <?php if (isset($this->editorInit)) print $this->editorInit; ?>
+</script>

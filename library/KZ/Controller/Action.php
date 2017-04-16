@@ -2,6 +2,10 @@
 
 class KZ_Controller_Action extends Zend_Controller_Action
 {
+
+    const STATE_ACTIVE = 20;
+    const STATE_INACTIVE = 10;
+
 	private $objConfig;
 	private $strModuleName;
 	private $strControllerName;
