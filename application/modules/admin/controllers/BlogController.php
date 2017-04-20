@@ -22,7 +22,7 @@ class Admin_BlogController extends KZ_Controller_Action
 
         // Set Defaults
         $arrDefaults = [
-            'blog_id' => 1,
+            'blogger_id' => 1,
             'title' => '',
             'content' => '',
             'status' => KZ_Controller_Action::STATE_INACTIVE
@@ -50,7 +50,7 @@ class Admin_BlogController extends KZ_Controller_Action
                  * @todo make blog dynamic
                  */
                 $arrBlogItemData = [
-                    'blog_id' => 1,
+                    'blogger_id' => 1,
                     'title' => $arrDefaults['title'],
                     'content' => htmlentities($arrDefaults['content']),
                     'status' => $arrDefaults['status']

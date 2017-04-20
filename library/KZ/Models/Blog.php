@@ -14,7 +14,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
 		$strQuery = $this->select()
 					->setIntegrityCheck(false)
 					->from('blog_item')
-					->joinLeft('blog','blog_item.blog_id = blog.id',['name']);
+					->joinLeft('blog','blog_item.blogger_id = blog.id',['name']);
 		return $this->returnData($strQuery);
 	}
 
@@ -28,7 +28,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
         $strQuery = $this->select()
             ->setIntegrityCheck(false)
             ->from('blog_item')
-            ->join('blog','blog.id = blog_item.blog_id',['id AS blogId','name','url'])
+            ->join('blog','blog.id = blog_item.blogger_id',['id AS blogId','name','url'])
             ->where('blog_item.id = ?',$id);
         return $this->returnData($strQuery,'array','fetchRow');
     }
@@ -50,7 +50,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
         $strQuery 		= $this->select()
             ->setIntegrityCheck(false)
             ->from('blog_item', array('*'))
-            ->join('blog','blog.id = blog_item.blog_id',['name','url']);
+            ->join('blog','blog.id = blog_item.blogger_id',['name','url']);
 
         if(!is_null($strSearchData)) {
             $strQuery->where($strSearchData);
