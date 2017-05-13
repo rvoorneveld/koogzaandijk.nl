@@ -3,13 +3,9 @@ class KZ_View_Helper_Facebook extends Zend_View_Helper_Abstract
 {
 	
 	public function facebook($strFacebookFeed)
-    {
-
-		$s = curl_init();
-        curl_setopt($s,CURLOPT_URL,$strFacebookFeed);
-        $strFacebookContentJson = curl_exec($s);
-
-        $objFacebookContent     = json_decode($strFacebookContentJson);
+	{
+		$strFacebookContentJson = file_get_contents($strFacebookFeed);
+		$objFacebookContent     = json_decode($strFacebookContentJson);
 
 		if(isset($objFacebookContent) && is_object($objFacebookContent)) {
 			
