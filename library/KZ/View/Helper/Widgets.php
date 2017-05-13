@@ -98,7 +98,7 @@ class KZ_View_Helper_Widgets extends Zend_View_Helper_Abstract
 									
 										// Set Widget Row top
 										if(in_array($intCount, $arrOpenInfoboxes)) {
-											echo '<div class="table infobox">';
+							 				echo '<div class="table infobox">';
 										}
 										
 										echo $this->view->partial('/widgets/widget.phtml', array(

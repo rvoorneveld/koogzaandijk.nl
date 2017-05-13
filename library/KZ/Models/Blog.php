@@ -16,7 +16,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
 		$strQuery = $this->select()
 					->setIntegrityCheck(false)
 					->from('blog_item')
-					->joinLeft('blog','blog_item.blogger_id = blog.id',['name']);
+					->joinLeft('blog_blogger','blog_item.blogger_id = blog_blogger.id',['name']);
 		return $this->returnData($strQuery);
 	}
 
@@ -30,8 +30,18 @@ class KZ_Models_Blog extends KZ_Controller_Table
         $strQuery = $this->select()
             ->setIntegrityCheck(false)
             ->from('blog_item')
-            ->join('blog','blog.id = blog_item.blogger_id',['id AS blogId','name','url'])
+            ->join('blog_blogger','blog_blogger.id = blog_item.blogger_id',['id AS blogId','name','slug'])
             ->where('blog_item.id = ?',$id);
+        return $this->returnData($strQuery,'array','fetchRow');
+    }
+
+    public function getBlogItemBySlug($slug)
+    {
+        $strQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('blog_item')
+            ->join('blog_blogger','blog_blogger.id = blog_item.blogger_id',['id AS blogId','name','slug'])
+            ->where('blog_item.id = ?',$slug);
         return $this->returnData($strQuery,'array','fetchRow');
     }
 
@@ -51,7 +61,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
         $strQuery 		= $this->select()
             ->setIntegrityCheck(false)
             ->from('blog_item', array('*'))
-            ->join('blog','blog.id = blog_item.blogger_id',['name','url']);
+            ->join('blog_blogger','blog_blogger.id = blog_item.blogger_id',['name','slug']);
 
         if(!is_null($strSearchData)) {
             $strQuery->where($strSearchData);
@@ -119,6 +129,21 @@ class KZ_Models_Blog extends KZ_Controller_Table
             ->setIntegrityCheck(false)
             ->from('blog_blogger')
             ->where('id = ?',$id);
+        return $this->returnData($strQuery,'array','fetchRow');
+    }
+
+    /**
+     * Function for getting blogger by url slug
+     *
+     * @param $slug
+     * @return array|bool|null|stdClass|Zend_Db_Table_Row_Abstract|Zend_Db_Table_Rowset_Abstract
+     */
+    public function getBloggerBySlug($slug)
+    {
+        $strQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('blog_blogger')
+            ->where('slug = ?',$slug);
         return $this->returnData($strQuery,'array','fetchRow');
     }
 
