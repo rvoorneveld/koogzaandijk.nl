@@ -13,7 +13,18 @@ class BlogController extends KZ_Controller_Action
         $this->item = $this->objModelBlog->getBlogItemBySlug($this->_getParam('item'));
 
         // Check if Data was found
-        self::check([$this->blogger,$this->item]);
+        $booBlogger = self::check($this->blogger);
+        $booBlogItem = self::check($this->item);
+
+        if($booBlogger === true  && $booBlogItem !== true) {
+        	// Blog items overview for single blogger
+	        $this->singlebloggerAction();
+        }
+
+        if($booBlogger === false && $booBlogItem === false) {
+			// Bloggers overview
+			$this->bloggersAction();
+        }
 
         $this->view->assign([
             'blogger' => $this->blogger,
@@ -24,13 +35,24 @@ class BlogController extends KZ_Controller_Action
 
     public function indexAction(){}
 
+    private function singlebloggerAction()
+    {
+    	var_dump($this->blogger);
+    	exit;
+    }
+
+    private function bloggersAction()
+    {
+    	echo 'show bloggers';
+    	exit;
+    }
+
     private function check($arrData)
     {
-        foreach($arrData as $arrDataItem) {
-            if(empty($arrDataItem) || ! is_array($arrDataItem)) {
-                $this->_redirect(ROOT_URL, array('code'=>301));
-            }
+        if(empty($arrData) || ! is_array($arrData)) {
+            return false;
         }
+        return true;
     }
 
     private function excludeCurrentBlogItem($items,$id)

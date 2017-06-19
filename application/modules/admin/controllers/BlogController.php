@@ -15,6 +15,9 @@ class Admin_BlogController extends KZ_Controller_Action
             KZ_Controller_Action::STATE_INACTIVE => 'Inactive',
             KZ_Controller_Action::STATE_ACTIVE => 'Active',
         ];
+
+        // Parse Editor to View
+		$this->view->editorInit = KZ_Controller_Editor::setEditor('tinymce');
 	}
 
 
