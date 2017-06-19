@@ -76,10 +76,17 @@ class KZ_Controller_Action extends Zend_Controller_Action
 
 		// Check development
 		if($this->strApplicationEnv == 'development') {
-			
-			// Set mail smtp
-			$objTransport = new Zend_Mail_Transport_Smtp('smtp.zakelijkmail.nl');
-			Zend_Mail::setDefaultTransport($objTransport);
+
+            $options = array(
+                'auth'     => 'CRAMMD5',
+                'username' => 'e86e627d406489',
+                'password' => '98e61393e25a07',
+                'port' => 2525
+            );
+
+            $mailTransport = new Zend_Mail_Transport_Smtp('smtp.mailtrap.io', $options);
+            Zend_Mail::setDefaultTransport($mailTransport);
+
 		}
 	
 	}

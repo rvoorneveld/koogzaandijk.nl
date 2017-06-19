@@ -129,6 +129,10 @@ class KZ_View_Helper_Breadcrumb extends Zend_View
 				}
 				
 			}
+
+            if(in_array($strController, array('blog'))) {
+                $strBreadcrumbContent	.= '<a href="/blog/" title="Blog">Blog</a>';
+            }
 			
 			if(in_array($strAction, array('results'))) {
 				$strBreadcrumbContent	.= '<a href="/uitslagen/" title="Uitslagen">Uitslagen</a>';

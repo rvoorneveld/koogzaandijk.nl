@@ -1,16 +1,42 @@
 <div id="nextpage" class="zapp">
     <div class="col left">
         <div class="inner">
-
-          <?php var_dump($this->blogger); ?>
-            <?php var_dump($this->item); ?>
-
+            <h2><?php echo $this->item['title']; ?></h2>
+            <div><?php echo $this->date()->format($this->item['created'], 'dd MMM yyyy'); ?></div>
+            <?php echo $this->item['content']; ?>
         </div>
     </div>
     <div class="col right">
 
+        <div class="item news">
+            <div class="media zapp">
+                <div class="media__img">
+                    <img class="profiles__avatar" src="<?php echo $this->blogger['photo']; ?>" title="<?php echo $this->blogger['name']; ?>" alt="<?php echo $this->blogger['name']; ?>">
+                </div>
+                <div class="media__body media__body--loggedin">
+                    <ul>
+                        <li><?php echo $this->blogger['name']; ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="item news bg_kz_lightgrey">
-            Blog archive
+            <h2>Laatste blogs</h2>
+            <?php
+                if(! empty($this->recent) && is_array($this->recent)) {
+                    echo '<ul>';
+                    foreach($this->recent as $arrRecent) {
+                        echo '<li>
+                                <span class="date newstag">'.$this->date()->format($arrRecent['created'], 'dd MMM yyyy').'</span>
+                                <a href="/blog/'.$this->blogger['slug'].'/'.$arrRecent['slug'].'/" title="">'.$arrRecent['title'].'</a>
+                              </li>';
+                    }
+                    echo '</ul>';
+                } else {
+                    echo 'Er zijn nog geen blog berichten van '.$this->blogger['name'].'.';
+                }
+            ?>
         </div>
     </div>
 </div>

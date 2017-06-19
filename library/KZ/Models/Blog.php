@@ -41,7 +41,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
             ->setIntegrityCheck(false)
             ->from('blog_item')
             ->join('blog_blogger','blog_blogger.id = blog_item.blogger_id',['id AS blogId','name','slug'])
-            ->where('blog_item.id = ?',$slug);
+            ->where('blog_item.slug = ?',$slug);
         return $this->returnData($strQuery,'array','fetchRow');
     }
 
@@ -145,6 +145,18 @@ class KZ_Models_Blog extends KZ_Controller_Table
             ->from('blog_blogger')
             ->where('slug = ?',$slug);
         return $this->returnData($strQuery,'array','fetchRow');
+    }
+
+    public function getBloggerItems($intBloggerId,$intTotalItems = 10)
+    {
+        $strQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('blog_item')
+            ->joinLeft('blog_blogger','blog_blogger.id = blog_item.blogger_id',[])
+            ->where('blog_blogger.id = ?',$intBloggerId)
+            ->order('blog_item.created DESC')
+            ->limit($intTotalItems);
+        return $this->returnData($strQuery);
     }
 
     /**
