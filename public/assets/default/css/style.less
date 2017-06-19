@@ -229,6 +229,10 @@ body{
 {
 	border-spacing: 5px;
 	margin-left: -5px;
+	.cell {
+		border-right:0!important;
+		margin-right:@half-spacing-unit;
+	}
 	.cell:hover,
 	.cell:focus
 	{
@@ -3280,4 +3284,11 @@ table.default{
 		font-family: sans-serif;
 		color: @kz_blue;
 	}
+}
+
+.table--profiles__widget .profiles__profile {
+	width:100%;
+	min-width:100%;
+	max-width:100%;
+	margin-bottom: @half-spacing-unit;
 }

@@ -18,14 +18,15 @@ class BlogController extends KZ_Controller_Action
 
         if($booBlogger === true  && $booBlogItem !== true) {
         	// Blog items overview for single blogger
-	        $this->singlebloggerAction();
+            $this->forward('singleblogger');
         }
 
         if($booBlogger === false && $booBlogItem === false) {
-			// Bloggers overview
-			$this->bloggersAction();
+			$this->forward('bloggers');
         }
+    }
 
+    public function indexAction(){
         $this->view->assign([
             'blogger' => $this->blogger,
             'item' => $this->item,
@@ -33,18 +34,19 @@ class BlogController extends KZ_Controller_Action
         ]);
     }
 
-    public function indexAction(){}
-
-    private function singlebloggerAction()
+    public function singlebloggerAction()
     {
-    	var_dump($this->blogger);
-    	exit;
+        $this->view->assign([
+            'items' => $this->objModelBlog->getBloggerItems($this->blogger['id']),
+            'blogger' => $this->blogger,
+        ]);
     }
 
-    private function bloggersAction()
+    public function bloggersAction()
     {
-    	echo 'show bloggers';
-    	exit;
+        $this->view->assign([
+            'bloggers' => $this->objModelBlog->getBloggers(),
+        ]);
     }
 
     private function check($arrData)

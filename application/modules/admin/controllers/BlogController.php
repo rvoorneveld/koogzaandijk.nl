@@ -3,9 +3,11 @@ class Admin_BlogController extends KZ_Controller_Action
 {
 	public $objModelBlog;
 	public $objTranslate;
+	public $user;
 
 	public function init()
-	{
+    {
+
 	    $this->view->format = new KZ_View_Helper_Format();
 		$this->objModelBlog = new KZ_Models_Blog();
 		$this->objTranslate = new KZ_View_Helper_Translate();

@@ -29,6 +29,22 @@
 				</select>
 			</dd>
 		</dl>
+
+        <dl class="js-select-blogger" style="display:none;">
+            <dt><label for="blogger_id"><?php echo $this->translate('Attach as Blogger'); ?></label></dt>
+            <dd>
+                <select class="small" name="blogger_id" id="blogger_id">
+                    <?php
+                    if(isset($this->bloggers) && is_array($this->bloggers)) {
+                        foreach($this->bloggers as $arrBlogger) {
+                            echo '<option value="'.$arrBlogger['blogger_id'].'">'.$arrBlogger['name'].'</option>';
+                        }
+                    }
+                    ?>
+                </select>
+            </dd>
+        </dl>
+
 		<dl>
 			<dt><label for="city"><?php echo $this->translate('UserActive'); ?></label></dt>
 		</dl>
@@ -72,3 +88,15 @@
 		</dl>
 	</fieldset>
 </form>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.js-select-usergroup').change(function(){
+            jQuery('.js-select-blogger').hide();
+            if(jQuery(this).val() == 4) {
+                jQuery('.js-select-blogger').show();
+            }
+        });
+        jQuery();
+    });
+</script>

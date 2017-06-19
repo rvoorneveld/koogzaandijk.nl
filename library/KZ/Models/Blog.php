@@ -52,8 +52,16 @@ class KZ_Models_Blog extends KZ_Controller_Table
      */
     public function getBlogItemsForTable($booReturnTotal = false, $arrLimitData = null, $strSearchData = null, $arrOrderData = null)
     {
+        // Get The User
+        $objNamespace = new Zend_Session_Namespace('KZ_Admin');
+        $this->user = $objNamespace->user;
+        $intBloggerID = $this->user['blogger_id'];
+
         if($booReturnTotal === true) {
-            $strQuery 		= $this->select('COUNT(id) AS total');
+            $strQuery = $this->select('COUNT(id) AS total');
+            if(! empty($intBloggerID) && ! is_null($intBloggerID)) {
+                $strQuery->where('id = ?',$intBloggerID);
+            }
             $objData 	= $this->fetchAll($strQuery);
             return count($objData);
         }
@@ -65,6 +73,10 @@ class KZ_Models_Blog extends KZ_Controller_Table
 
         if(!is_null($strSearchData)) {
             $strQuery->where($strSearchData);
+        }
+
+        if(! empty($intBloggerID) && ! is_null($intBloggerID)) {
+            $strQuery->where('blog_blogger.id = ?',$intBloggerID);
         }
 
         // Set the Limit when isset
@@ -197,6 +209,20 @@ class KZ_Models_Blog extends KZ_Controller_Table
 
         $objData = $this->fetchAll($strQuery);
         return $objData;
+    }
+
+    public function getBloggers($intMaxReturn = false)
+    {
+        $strQuery = $this->select();
+
+        if($intMaxReturn !== false && is_numeric($intMaxReturn)) {
+            $strQuery->order(new Zend_Db_Expr('RAND()'))
+                    ->limit($intMaxReturn);
+        } else {
+            $strQuery->order('name');
+        }
+
+        return $this->returnData($strQuery);
     }
 
     /**

@@ -733,6 +733,26 @@ class Admin_WidgetsController extends KZ_Controller_Action
 	    				
 	    			}
 
+                    // Blog
+                    if($intActiveContentType == 15) {
+
+                        // Add content data to array
+                        $arrWidgetData['data']= '';
+
+                        // Add Widget Content
+                        $intInsertID 		= $objModelWidget->addWidgetContent($arrWidgetData);
+
+                        // Check if Widget Content was succesfully updated
+                        if(isset($intInsertID) && is_numeric($intInsertID)) {
+                            $strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully added content')));
+                            $this->_redirect('/admin/widgets/content/id/'.$arrWidget['widget_id'].'/feedback/'.$strFeedback.'/#tab0');
+                        } else {
+                            // Return feedback
+                            $this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to add the content');
+                        }
+
+                    }
+
 	    		}
     		
     		}
