@@ -1,23 +1,34 @@
 <?php
     $objModelBlog = new KZ_Models_Blog();
-    $arrBloggers = $objModelBlog->getBloggers(2);
+    $arrBloggersItems = $objModelBlog->getBloggers(2);
 
-    if(! empty($arrBloggers) && is_array($arrBloggers)) {
+    if(! empty($arrBloggersItems) && is_array($arrBloggersItems)) {
         echo '<div class="table--profiles table--profiles__widget">
                 <ol class="profiles zapp">';
-        foreach($arrBloggers as $arrBlogger) {
+        foreach($arrBloggersItems as $arrDataRow) {
+
+            // Get Latest Blog Items
+            $arrBlogItems = $objModelBlog->getBlogItemsByBlogger($arrDataRow['id'],2);
+
             echo '  <li class="profiles__profile">
                         <div class="media zapp">
                             <div class="media__img">
-                                <a href="/blog/'.$arrBlogger['slug'].'/">
-                                    <img class="profiles__avatar" src="'.$arrBlogger['photo'].'">
+                                <a href="/blog/'.$arrDataRow['slug'].'/">
+                                    <img class="profiles__avatar" src="'.$arrDataRow['photo'].'">
                                 </a>
                             </div>
                             <div class="media__body media__body--profiles">
-                                <a href="/blog/'.$arrBlogger['slug'].'/">'.$arrBlogger['name'].'</a><br />
-                                bericht 1<br />
-                                bericht 2
-                            </div>
+                                <a href="/blog/'.$arrDataRow['slug'].'/">'.$arrDataRow['name'].'</a><br />';
+
+            if(! empty($arrBlogItems) && is_array($arrBlogItems)) {
+                echo '<ol>';
+                foreach($arrBlogItems as $arrBlogItem) {
+                    echo '<li><a class="date" href="/blog/'.$arrDataRow['slug'].'/'.$arrBlogItem['slug'].'"><span class="blog-date blog-date__color-yellow">'.$this->date()->format($arrBlogItem['created'], 'dd MMM').'</span> '.$arrBlogItem['title'].'</a>';
+                }
+                echo '</ol>';
+            }
+
+            echo            '</div>
                         </div>
                     </li>';
         }

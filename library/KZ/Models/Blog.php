@@ -45,6 +45,40 @@ class KZ_Models_Blog extends KZ_Controller_Table
         return $this->returnData($strQuery,'array','fetchRow');
     }
 
+    public function getBlogItemsByBlogger($id,$max = false)
+    {
+        $strQuery = $this->select()
+                    ->setIntegrityCheck(false)
+                    ->from('blog_item')
+                    ->where('blog_item.blogger_id = ?',$id);
+
+        if($max !== false && is_numeric($max)) {
+            $strQuery->limit($max);
+        }
+
+        $strQuery->order('created DESC');
+
+        return $this->returnData($strQuery);
+    }
+
+    public function getBlogItemIdsByBloggerId($id)
+    {
+        $strQuery = $this->select()
+                    ->from('blog_item',['id'])
+                    ->setIntegrityCheck(false)
+                    ->where('id = ?',$id);
+        $arrData = $this->returnData($strQuery);
+
+        if(! empty($arrData) && is_array($arrData)) {
+            $arrReturn = [];
+            foreach($arrData as $arrRow) {
+                array_push($arrReturn,$arrRow['id']);
+            }
+            return $arrReturn;
+        }
+        return [];
+    }
+
     /**
      * Get Blog item for the Datatable
      *

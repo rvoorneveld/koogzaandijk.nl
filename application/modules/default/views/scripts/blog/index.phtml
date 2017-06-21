@@ -1,8 +1,8 @@
-<div id="nextpage" class="zapp blog">
+<div id="nextpage" class="zapp">
     <div class="col left">
         <div class="inner">
             <h2><?php echo html_entity_decode($this->item['title']); ?></h2>
-            <span class="blog-date"><?php echo $this->date()->format($this->item['created'], 'dd MMM yyyy'); ?></span>
+            <span class="blog-date blog-date__color-blue"><?php echo $this->date()->format($this->item['created'], 'dd MMM yyyy'); ?></span>
             <?php echo html_entity_decode($this->item['content']); ?>
         </div>
     </div>
@@ -43,6 +43,116 @@
                     echo 'Er zijn nog geen blog berichten van '.$this->blogger['name'].'.';
                 }
             ?>
+        </div>
+    </div>
+    <div class="col full soft-top">
+        <div class="inner">
+            <div class="table infobox">
+                <ul class="row">
+                    <li class="cell large bg_kz_blue color_kz_white schedule zapp">
+                        <h3 class="color_kz_white left">Reacties</h3>
+                        <ol class="guestbook">
+                            <li>
+                                <ul>
+                                    <li class="color_kz_yellow poster">
+                                        <span class="image">
+                                            <div class="media zapp">
+                                                <div class="media__img">
+                                                    <img class="profiles__avatar" src="/upload/blogger/rick-voorneveld.jpg">
+                                                </div>
+                                                <div class="media__body media__body--profiles">
+                                                    <span class="name">Schrijf jouw reactie</span>
+                                                    <span class="date"><?php echo date('d M'); ?></span>
+                                                    <form class="form-standard" method="post" action="">
+                                                        <ol>
+                                                            <li><textarea class="fill"></textarea></li>
+                                                            <li><input type="submit" value="Plaats reactie" /></li>
+                                                        </ol>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li class="color_kz_yellow poster">
+                                        <span class="image soft-bottom">
+                                            <div class="media zapp">
+                                                <div class="media__img">
+                                                    <img class="profiles__avatar" src="/upload/blogger/lisa-van-tongeren.jpg">
+                                                </div>
+                                                <div class="media__body media__body--profiles">
+                                                    <span class="name">Lisa van Tongeren</span>
+                                                    <span class="date">25 Jan</span>
+                                                </div>
+                                                <span class="blog-reaction-content soft-top">test bericht van Lisa van Tongeren</span>
+                                            </div>
+                                        </span>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li class="color_kz_yellow poster">
+                                        <span class="image">
+                                            <div class="media zapp">
+                                                <div class="media__img">
+                                                    <img class="profiles__avatar" src="/upload/blogger/rick-voorneveld.jpg">
+                                                </div>
+                                                <div class="media__body media__body--profiles">
+                                                    <span class="name">Rick Voorneveld</span>
+                                                    <span class="date">25 Jan.</span>
+                                                </div>
+                                                <span class="blog-reaction-content soft-top">test bericht van Rick Voorneveld</span>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li class="color_kz_yellow poster">
+                                        <span class="image">
+                                            <div class="media zapp">
+                                                <div class="media__img">
+                                                    <img class="profiles__avatar" src="/upload/blogger/piet-hein-havik.jpg">
+                                                </div>
+                                                <div class="media__body media__body--profiles">
+                                                    <span class="name">Piet Hein Havik</span>
+                                                    <span class="date">24 Feb.</span>
+                                                </div>
+                                                <span class="blog-reaction-content soft-top">test bericht van Piet Hein Havik</span>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li class="color_kz_yellow poster">
+                                        <span class="image">
+                                            <div class="media zapp">
+                                                <div class="media__img">
+                                                    <img class="profiles__avatar" src="/upload/blogger/lars-ankum.jpg">
+                                                </div>
+                                                <div class="media__body media__body--profiles">
+                                                    <span class="name">Lars Ankum</span>
+                                                    <span class="date">24 Feb.</span>
+                                                </div>
+                                                <span class="blog-reaction-content soft-top">test bericht van Lars Ankum</span>
+                                            </div>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

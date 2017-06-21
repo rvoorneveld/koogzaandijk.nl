@@ -8,6 +8,10 @@ class Admin_BlogController extends KZ_Controller_Action
 	public function init()
     {
 
+        // Get The User
+        $objNamespace = new Zend_Session_Namespace('KZ_Admin');
+        $this->user = $objNamespace->user;
+
 	    $this->view->format = new KZ_View_Helper_Format();
 		$this->objModelBlog = new KZ_Models_Blog();
 		$this->objTranslate = new KZ_View_Helper_Translate();
@@ -92,6 +96,15 @@ class Admin_BlogController extends KZ_Controller_Action
     		$strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Missing param for id')));
     		$this->_redirect('/admin/blog/index/feedback/'.$strSerializedFeedback.'/#tab0/');
     	}
+
+    	// Get Blog Item Ids for current User and check for a match for security
+        if(! empty($this->user['blogger_id']) && ! is_null($this->user['blogger_id'])) {
+    	    $arrBlogItemIds = $this->objModelBlog->getBlogItemIdsByBloggerId($this->user['blogger_id']);
+    	    if(! in_array($arrParams['id'],$arrBlogItemIds)) {
+    	        header("Location: /admin/blog/");
+    	        exit;
+            }
+        }
     	
     	// Get Blog Item
     	$arrBlogItem = $this->objModelBlog->getBlogItemById($arrParams['id']);
@@ -159,6 +172,15 @@ class Admin_BlogController extends KZ_Controller_Action
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Missing param for id')));
             $this->_redirect('/admin/blog/index/feedback/'.$strSerializedFeedback.'/#tab0/');
+        }
+
+        // Get Blog Item Ids for current User and check for a match for security
+        if(! empty($this->user['blogger_id']) && ! is_null($this->user['blogger_id'])) {
+            $arrBlogItemIds = $this->objModelBlog->getBlogItemIdsByBloggerId($this->user['blogger_id']);
+            if(! in_array($arrParams['id'],$arrBlogItemIds)) {
+                header("Location: /admin/blog/");
+                exit;
+            }
         }
 
         // Get Blog Item
