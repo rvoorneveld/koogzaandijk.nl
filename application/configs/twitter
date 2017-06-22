@@ -1,0 +1,4 @@
+exports.token = '54224924-sD6vCOMsSIf9ZqaTGqGky6xZJD87gSXJpR1ZvjwES';
+exports.secret = 'tDfzmHf7QTG6px09xkjppD8lPijJro2ZYuOArtNhJvlUQ';
+exports.consumerKey = "zvN6ZIjI5GmJuQoT6xHoxWhxV";
+exports.consumerSecret = "bPqITQLRiT6n8u0uAq4gM9mB3eGvt4TfZhcDcpBXphGfetGO74";

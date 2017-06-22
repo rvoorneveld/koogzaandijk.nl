@@ -24,7 +24,7 @@ class BlogController extends KZ_Controller_Action
 
         if($this->profile) {
             // Get Reactions on Blog
-            $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id']);
+            $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id'],KZ_Controller_Action::STATE_ACTIVE);
         }
 
         if($booBlogger === true  && $booBlogItem !== true) {
@@ -61,7 +61,7 @@ class BlogController extends KZ_Controller_Action
                         $strMessage = 'Uw reactie is met succes opgeslagen';
 
                         // Reload Reactions on Blog
-                        $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id']);
+                        $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id'],KZ_Controller_Action::STATE_ACTIVE);
 
                     } else {
                         $strType = 'error';

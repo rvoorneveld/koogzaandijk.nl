@@ -294,21 +294,80 @@ class KZ_Models_Blog extends KZ_Controller_Table
         return (Zend_Db_Table::getDefaultAdapter())->delete('blog_blogger',"id = {$intBloggerId}");
     }
 
-    public function getBlogItemReactions($id)
+    public function getBlogItemReactions($id,$status = false)
     {
         $strQuery = $this->select()
                     ->setIntegrityCheck(false)
                     ->from('blog_reaction','*')
                     ->joinLeft('profile', 'profile.profile_id = blog_reaction.profile_id',['profile.avatar'])
                     ->joinLeft('members', 'members.members_id = profile.member_id',['members.firstname','members.insertion','members.lastname'])
-                    ->where('blog_item_id = ?',$id)
-                    ->order('blog_reaction.created DESC');
+                    ->where('blog_item_id = ?',$id);
+
+        if(! empty($status) && in_array($status,[KZ_Controller_Action::STATE_ACTIVE,KZ_Controller_Action::STATE_INACTIVE])) {
+            $strQuery->where('status = ?',$status);
+        }
+
+        $strQuery->order('blog_reaction.created DESC');
+
+
+
+
         return $this->returnData($strQuery);
+    }
+
+    public function getReactionById($id)
+    {
+        $strQuery = $this->select()
+                    ->setIntegrityCheck(false)
+                    ->from('blog_reaction')
+                    ->where('id = ?', $id);
+        return $this->returnData($strQuery,'array', 'fetchRow');
+    }
+
+    public function updateReaction($id,$data)
+    {
+        // Update the Reaction
+        return (Zend_Db_Table::getDefaultAdapter())->update('blog_reaction',$data,"id = {$id}");
     }
 
     public function addReaction($reaction)
     {
         return (Zend_Db_Table::getDefaultAdapter()->insert('blog_reaction', $reaction));
+    }
+
+    public function getBlogReactionsForTable($booReturnTotal = false, $arrLimitData = null, $strSearchData = null, $arrOrderData = null)
+    {
+
+        if($booReturnTotal === true) {
+            $strQuery = $this->select('COUNT(id) AS total')
+                        ->setIntegrityCheck(false)
+                        ->from('blog_reaction');
+            $objData 	= $this->fetchAll($strQuery);
+            return count($objData);
+        }
+
+        $strQuery 		= $this->select()
+            ->setIntegrityCheck(false)
+            ->from('blog_reaction', array('*'))
+            ->join('profile','blog_reaction.profile_id = profile.profile_id',[])
+            ->join('members', 'members.members_id = profile.member_id',"CONCAT(members.firstname, ' ',members.insertion, ' ', members.lastname) AS name");
+
+        if(!is_null($strSearchData)) {
+            $strQuery->where($strSearchData);
+        }
+
+        // Set the Limit when isset
+        if(!is_null($arrLimitData)) {
+            $strQuery->limit($arrLimitData['count'], $arrLimitData['offset']);
+        }
+
+        // Set an order when isset
+        if(!empty($arrOrderData)) {
+            $strQuery->order($arrOrderData);
+        }
+
+        $objData = $this->fetchAll($strQuery);
+        return $objData;
     }
 
 }

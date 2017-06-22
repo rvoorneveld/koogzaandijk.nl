@@ -17,6 +17,8 @@
                     <th width="50"><?php echo $this->translate('ID'); ?></th>
                     <th width="150"><?php echo $this->translate('Name'); ?></th>
                     <th width="*"><?php echo $this->translate('Title'); ?></th>
+                    <th width="100"><?php echo $this->translate('Facebook'); ?></th>
+                    <th width="100"><?php echo $this->translate('Twitter'); ?></th>
                     <th width="100"><?php echo $this->translate('Status'); ?></th>
                     <th width="150"><?php echo $this->translate('Created'); ?></th>
                     <th width="125"><?php echo $this->translate('Options'); ?></th>
@@ -66,6 +68,17 @@
     <?php if (isset($this->editorInit)) print $this->editorInit; ?>
 
     jQuery(document).ready(function(){
+
+        jQuery('.js-share').live('click',function(){
+
+            var social = jQuery(this).attr('data-share-social');
+            var type = jQuery(this).attr('data-share-type');
+            var id = jQuery(this).attr('data-share-id');
+
+            alert('Share '+type+' bericht op '+social+' met id '+id)
+
+        });
+
         jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
             var _that = this;
 
@@ -101,6 +114,8 @@
                 });
             },
             "aoColumns": [
+                null,
+                null,
                 null,
                 null,
                 null,

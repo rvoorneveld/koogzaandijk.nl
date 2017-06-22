@@ -111,10 +111,10 @@ class KZ_Controller_Action extends Zend_Controller_Action
 
 				// Give Blogger only access to blog
 				if(! empty($arrUser['blogger_id'])) {
-				    if($this->strControllerName != 'blog' && $this->strControllerName != 'logout') {
+				    if($this->strControllerName != 'blog' && $this->strControllerName != 'logout' && $this->strControllerName != 'social') {
                         die('no permissions');
                     }
-                    if(! in_array($this->strActionName,['index','edit','delete','generateitemsdatatable'])) {
+                    if(! in_array($this->strActionName,['index','edit','delete','generateitemsdatatable','share'])) {
 				        die('no permissions');
                     }
                 }
