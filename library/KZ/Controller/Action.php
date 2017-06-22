@@ -128,8 +128,8 @@ class KZ_Controller_Action extends Zend_Controller_Action
 			
 			return false;
 		}
-		
-		return false; 
+
+		return false;
 	}
 	
 	protected function _setGoogleAnalytics()

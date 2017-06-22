@@ -294,4 +294,21 @@ class KZ_Models_Blog extends KZ_Controller_Table
         return (Zend_Db_Table::getDefaultAdapter())->delete('blog_blogger',"id = {$intBloggerId}");
     }
 
+    public function getBlogItemReactions($id)
+    {
+        $strQuery = $this->select()
+                    ->setIntegrityCheck(false)
+                    ->from('blog_reaction','*')
+                    ->joinLeft('profile', 'profile.profile_id = blog_reaction.profile_id',['profile.avatar'])
+                    ->joinLeft('members', 'members.members_id = profile.member_id',['members.firstname','members.insertion','members.lastname'])
+                    ->where('blog_item_id = ?',$id)
+                    ->order('blog_reaction.created DESC');
+        return $this->returnData($strQuery);
+    }
+
+    public function addReaction($reaction)
+    {
+        return (Zend_Db_Table::getDefaultAdapter()->insert('blog_reaction', $reaction));
+    }
+
 }
