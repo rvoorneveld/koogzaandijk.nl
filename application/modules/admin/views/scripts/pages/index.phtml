@@ -213,6 +213,15 @@
 
                 </dd>
             </dl>
+            <dl>
+                <dt><label class="label" for="fullpage"><?php echo $this->translate('Full page'); ?></label></dt>
+                <dd>
+                    <select class="small" name="fullpage">
+                        <option value="20"<?php echo (($this->fullpage == 20) ? ' selected="selected"' : ''); ?>>Yes</option>
+                        <option value="10"<?php echo (($this->fullpage == 20) ? '' : ' selected="selected"'); ?>>No</option>
+                    </select>
+                </dd>
+            </dl>
 			<dl>
 				<dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
 				<dd>
