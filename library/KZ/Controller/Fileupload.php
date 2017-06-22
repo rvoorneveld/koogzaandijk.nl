@@ -4,33 +4,15 @@ class KZ_Controller_Fileupload
     /**
      * Function for Handeling all File Uploads
      *
-     * @param $sesFileData
+     * @param $strUploadDirectory
      * @param array $arrAllowedFileTypes
      * @param bool $booKeepFilename
      * @param bool $booResizeImage
      * @param bool $booCreateThumbnail
      * @return string
      */
-    public function doFileUpload($sesFileData, $arrAllowedFileTypes = array(), $booKeepFilename = true, $booResizeImage = false, $booCreateThumbnail = false)
+    public function doFileUpload($strUploadDirectory, $arrAllowedFileTypes = array(), $booKeepFilename = true, $booResizeImage = false, $booCreateThumbnail = false)
     {
-        // Get the Starting Location and Selected folder
-        if(is_object($sesFileData) && isset($sesFileData->startlocation)) {
-            $strStartLocation			= $sesFileData->startlocation;
-            $strCurrentFolder			= ((isset($sesFileData->folder) && $sesFileData->folder != '') ? $sesFileData->folder : '');
-
-            // Set the Upload Directory
-            $strUploadDirectory = $strStartLocation.'/'.$strCurrentFolder;
-            if (!is_dir($strUploadDirectory) && is_dir($_SERVER['DOCUMENT_ROOT']).$strUploadDirectory) {
-                $strUploadDirectory = $_SERVER['DOCUMENT_ROOT'].$strUploadDirectory;
-            }
-            if($strCurrentFolder != '') {
-                $strUploadDirectory		= $strUploadDirectory.'/';
-            }
-        } else {
-            $strUploadDirectory			= $_SERVER['DOCUMENT_ROOT'].$sesFileData;
-        }
-        $strUploadDirectory = realpath($strUploadDirectory).'/';
-
         // Get Uploaded file
         $objUpload 				= new Zend_File_Transfer_Adapter_Http();
 

@@ -628,7 +628,7 @@ header{
 			li.result.news{
 					a{
 						span.date_container{
-							float:left;
+							float:left !important;
 							span.bullet{
 								display:inline-block;
 								width:10px;
@@ -1481,9 +1481,6 @@ html[xmlns] .slides
 								color:@kz_blue;
 								line-height:1;
 							}
-						}
-						.date_container {
-							float:none;
 						}
 						span.label {
 							color:@kz_blue;
@@ -2757,7 +2754,7 @@ li.results{
 Generic content table
 ***/
 table.default{
-	/*border-collapse:collapse;*/
+	border-collapse:collapse;
 	width:100% !important;
 	strong{
 		font-family:"univers_65_boldregular",arial,sans-serif !important;
@@ -2795,6 +2792,19 @@ table.default{
 		text-decoration:underline !important;
 	}
 }
+table.default.default--no-background {
+	tr:nth-child(odd){
+		td{
+			background:none;
+		}
+	}
+	tr:hover{
+		td{
+			background:none;
+		}
+	}
+}
+
 /***
 /Generic content table
 ***/

@@ -65,7 +65,7 @@
                         <span class="image">
                             <div class="media zapp">
                                 <div class="media__img">
-                                    <img class="profiles__avatar" src="<?php echo $this->profile['avatar']; ?>">
+                                    <img class="profiles__avatar" src="/upload/avatars/<?php echo $this->profile['avatar']; ?>">
                                 </div>
                                 <div class="media__body media__body--profiles">
                                     <span class="name"><?php echo $this->profile['firstname'].(($this->profile['insertion'] != '') ? ' '.$this->profile['insertion'] : '').' '.$this->profile['lastname']; ?></span>
@@ -92,7 +92,7 @@
                                 <span class="image">
                                     <div class="media zapp">
                                         <div class="media__img">
-                                            <img class="profiles__avatar" src="'.$reaction['avatar'].'">
+                                            <img class="profiles__avatar" src="/upload/avatars/'.$reaction['avatar'].'">
                                         </div>
                                         <div class="media__body media__body--profiles">
                                             <span class="name">'.$reaction['firstname'].(($reaction['insertion'] != '') ? ' '.$reaction['insertion'] : '').' '.$reaction['lastname'].'</span>

@@ -642,7 +642,7 @@ class Toolscontroller extends KZ_Controller_Action
 			$arrAllowedFileTypes		= array('jpg','gif','png','jpeg');
 
 			// Upload the file(s)
-			$jsonControllerUpload		= KZ_Controller_FileUpload::doFileUpload($strUploadDirectory,$arrAllowedFileTypes, false, true);
+			$jsonControllerUpload		= (new KZ_Controller_FileUpload)->doFileUpload($strUploadDirectory,$arrAllowedFileTypes, false, true);
 
 			// Check for Error
 			if($jsonControllerUpload == 'error') {

@@ -1,5 +1,5 @@
 <div id="nextpage" class="zapp">
-	<div class="col left">
+    <div class="col <?php echo ((! empty($this->page['fullpage']) && $this->page['fullpage'] == KZ_Controller_Action::STATE_ACTIVE) ? 'full' : 'left'); ?>">
 		<div class="inner">
 		
 			<?php
@@ -28,6 +28,9 @@
 
 		</div>
 	</div>
+
+    <?php  if(! empty($this->page['fullpage']) && $this->page['fullpage'] != KZ_Controller_Action::STATE_ACTIVE) { ?>
+
 	<div class="col right">
 		<div class="item news bg_kz_lightgrey">
 			<?php
@@ -77,3 +80,4 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
