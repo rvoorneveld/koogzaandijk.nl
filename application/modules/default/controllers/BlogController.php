@@ -22,11 +22,6 @@ class BlogController extends KZ_Controller_Action
         $objControllerSession = new KZ_Controller_Session();
         $this->profile = $objControllerSession->getProfileSession();
 
-        if($this->profile) {
-            // Get Reactions on Blog
-            $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id'],KZ_Controller_Action::STATE_ACTIVE);
-        }
-
         if($booBlogger === true  && $booBlogItem !== true) {
         	// Blog items overview for single blogger
             $this->forward('singleblogger');
@@ -35,11 +30,16 @@ class BlogController extends KZ_Controller_Action
         if($booBlogger === false && $booBlogItem === false) {
 			$this->forward('bloggers');
         }
+
     }
 
     public function indexAction(){
 
         if($this->profile !== false) {
+
+            // Get Reactions on Blog
+            $this->reactions = $this->objModelBlog->getBlogItemReactions($this->item['id'],KZ_Controller_Action::STATE_ACTIVE);
+
             if ($this->getRequest()->isPost()) {
 
                 if(empty($this->_getParam('reaction'))) {
