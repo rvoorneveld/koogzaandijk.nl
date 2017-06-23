@@ -246,6 +246,19 @@ class Admin_ClubController extends KZ_Controller_Action
 
 						}
 
+                        // Set Profile Model
+                        $objModelProfile = new KZ_Models_Profile();
+
+                        // Search Profile in Database
+                        $arrProfile = $objModelProfile->getProfileByMemberID($arrMember['members_id']);
+
+                        if(empty($arrProfile) || ! is_array($arrProfile)) {
+                            // Get New Security Key
+                            $objModelSecurity = new KZ_Controller_Action_Helper_Security();
+                            $strSecurityKey = $objModelSecurity->createSecurityCode();
+                            $objModelProfile->addProfile($arrMember['members_id'], $strSecurityKey);
+                        }
+
 						// Return Feedback
 						$strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully updated member')));
 						$this->_redirect('/admin/club/members/feedback/'.$strFeedback.'/#tab0');
