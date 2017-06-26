@@ -615,14 +615,14 @@ class Admin_NewsController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_1_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
-	    					) {
-	    					
-	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
-	    					
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_1_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrNewsData['data']	= serialize(array(	
@@ -663,14 +663,14 @@ class Admin_NewsController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_2_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
-	    					) {
-	    					
-	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
-	    					
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_2_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
+//	    					) {
+//	    					
+//	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
+//	    					
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrNewsData['data']	= serialize(array(	
@@ -846,14 +846,14 @@ class Admin_NewsController extends KZ_Controller_Action
 	    				$strContent1Text 	= $arrPostParams['content_1_text'];
 	    				
 	    				// Add Default table class to table element
-	    				if(
-	    				strstr($arrPostParams['content_1_text'], '<table')
-	    				&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
-	    				) {
-	    				
-	    					$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
-	    				
-	    				}
+//	    				if(
+//	    				strstr($arrPostParams['content_1_text'], '<table')
+//	    				&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
+//	    				) {
+//
+//	    					$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
+//
+//	    				}
 	    				
 	    				if(empty($strContent1Title)) {
 	    					$this->view->feedback = array('type' => 'error', 'message' => 'You didn\'t fill in a title');
@@ -920,14 +920,14 @@ class Admin_NewsController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_2_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
-	    					) {
-	    						 
-	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
-	    						 
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_2_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrNewsData['data']	= serialize(array(	
