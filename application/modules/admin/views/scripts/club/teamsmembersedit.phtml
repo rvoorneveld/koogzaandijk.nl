@@ -5,6 +5,21 @@
 
 	<form name="editTeamMemberForm" method="post" action="">
 
+        <dl>
+            <dt><label class="label" for="team_id"><?php echo $this->translate('Team'); ?></label></dt>
+            <dd>
+                <?php
+
+                if(! empty($this->teams) && is_array($this->teams)) {
+                    echo '<select name="team_id" id="team_id" class="small">';
+                    foreach($this->teams as $arrTeam) {
+                        echo '<option value="'.$arrTeam['name'].'"'.(($this->defaults['team_id'] == $arrTeam['name']) ? ' selected="selected"' : '').'>'.$arrTeam['name'].'</option>';
+                    }
+                    echo '</select>';
+                }
+                ?>
+            </dd>
+        </dl>
 		<dl>
 			<dt><label class="label" for="team_role_id"><?php echo $this->translate('Role'); ?></label></dt>
 			<dd>
