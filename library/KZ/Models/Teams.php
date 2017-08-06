@@ -37,6 +37,12 @@ class KZ_Models_Teams extends KZ_Controller_Table
 		return $this->returnData($strQuery,'array','fetchRow');
 	}
 
+	public function getDistinctTeamNames()
+    {
+        $objDb = Zend_Db_Table::getDefaultAdapter();
+        return $objDb->fetchAll("SELECT name FROM {$this->_name} ORDER BY LENGTH(name), name");
+    }
+
     public function getTeamsByCategory($strCategory) {
 	    $strQuery = $this->select()
                     ->distinct(true)

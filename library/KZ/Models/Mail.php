@@ -141,8 +141,7 @@ class KZ_Models_Mail extends KZ_Controller_Table
 			$objMail		= new Zend_Mail('utf-8');
 			
 			if(APPLICATION_ENV == 'development') {
-				//$strToAddres = 'rick@mediaconcepts.nl';
-				$strToAddres = 'a.flipphi@hoteliers.com';
+				$strToAddres = 'rick@mediaconcepts.nl';
 			}
 			
 			$objMail->addTo($strToAddres)

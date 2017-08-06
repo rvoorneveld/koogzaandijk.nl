@@ -129,6 +129,34 @@ class KZ_View_Helper_Breadcrumb extends Zend_View
 				}
 				
 			}
+
+            if(in_array($strController, array('blog'))) {
+
+				// Set Base Breadcrumb
+	            $strBreadcrumbContent	.= '<a href="/blog/" title="Blog">Blog</a>';
+
+	            // Set Blog Model
+	            $objModelBlog = new KZ_Models_Blog();
+
+	            // Check for blogger
+	            if(! empty($arrParams['blogger'])) {
+	            	$arrBlogger = $objModelBlog->getBloggerBySlug($arrParams['blogger']);
+	            	if(! empty($arrBlogger) && is_array($arrBlogger)) {
+						// Add Blogger to Breadcrumb
+			            $strBreadcrumbContent	.= '<a href="/blog/'.$arrBlogger['slug'].'/" title="'.$arrBlogger['name'].'">'.$arrBlogger['name'].'</a>';
+		            }
+	            }
+
+	            // Check for item
+	            if(! empty($arrParams['item'])) {
+		            $arrBlogItem = $objModelBlog->getBlogItemBySlug($arrParams['item']);
+		            if(! empty($arrBlogItem) && is_array($arrBlogItem)) {
+			            // Add Blog item to Breadcrumb
+			            $strBreadcrumbContent	.= '<a href="/blog/'.$arrBlogItem['slug'].'/" title="'.$arrBlogItem['title'].'">'.$arrBlogItem['title'].'</a>';
+		            }
+	            }
+
+            }
 			
 			if(in_array($strAction, array('results'))) {
 				$strBreadcrumbContent	.= '<a href="/uitslagen/" title="Uitslagen">Uitslagen</a>';

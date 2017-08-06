@@ -2,6 +2,10 @@
 
 class KZ_Controller_Action extends Zend_Controller_Action
 {
+
+    const STATE_ACTIVE = 20;
+    const STATE_INACTIVE = 10;
+
 	private $objConfig;
 	private $strModuleName;
 	private $strControllerName;
@@ -72,10 +76,17 @@ class KZ_Controller_Action extends Zend_Controller_Action
 
 		// Check development
 		if($this->strApplicationEnv == 'development') {
-			
-			// Set mail smtp
-			$objTransport = new Zend_Mail_Transport_Smtp('smtp.zakelijkmail.nl');
-			Zend_Mail::setDefaultTransport($objTransport);
+
+            $options = array(
+                'auth'     => 'CRAMMD5',
+                'username' => 'e86e627d406489',
+                'password' => '98e61393e25a07',
+                'port' => 2525
+            );
+
+            $mailTransport = new Zend_Mail_Transport_Smtp('smtp.mailtrap.io', $options);
+            Zend_Mail::setDefaultTransport($mailTransport);
+
 		}
 	
 	}
@@ -97,6 +108,16 @@ class KZ_Controller_Action extends Zend_Controller_Action
 				
 				// Get User Session
 				$arrUser 					= $objNamespace->user;
+
+				// Give Blogger only access to blog
+				if(! empty($arrUser['blogger_id'])) {
+				    if($this->strControllerName != 'blog' && $this->strControllerName != 'logout' && $this->strControllerName != 'social') {
+                        die('no permissions');
+                    }
+                    if(! in_array($this->strActionName,['index','edit','delete','generateitemsdatatable','share'])) {
+				        die('no permissions');
+                    }
+                }
 				
 				// Parse user data to view
 				$this->view->login_name		= $arrUser['name'];
@@ -107,8 +128,8 @@ class KZ_Controller_Action extends Zend_Controller_Action
 			
 			return false;
 		}
-		
-		return false; 
+
+		return false;
 	}
 	
 	protected function _setGoogleAnalytics()

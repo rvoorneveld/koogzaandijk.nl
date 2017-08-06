@@ -1,0 +1,109 @@
+<header>
+    <h2><?php echo $this->translate('Bloggers'); ?></h2>
+    <nav>
+        <ul class="tab-switch">
+            <li><a href="#tab0" class="default-tab"><?php echo $this->translate('Overview'); ?></a></li>
+            <li><a href="#tab1"><?php echo $this->translate('Add blogger'); ?></a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+
+    <div id="tab0" class="tab default-tab">
+        <table class="ajax_datatable">
+            <thead>
+                <tr>
+                    <th width="50"><?php echo $this->translate('ID'); ?></th>
+                    <th width="150"><?php echo $this->translate('Name'); ?></th>
+                    <th width="100"><?php echo $this->translate('Status'); ?></th>
+                    <th width="125"><?php echo $this->translate('Options'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab1" class="tab">
+
+        <form name="addBloggerForm" method="post" action="#tab1">
+            <dl>
+                <dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
+                <dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->defaults['name']; ?>" /></dd>
+            </dl>
+            <dl>
+                <dt><label class="label" for="photo"><?php echo $this->translate('Photo'); ?></label></dt>
+                <dd><input type="text" class="small" id="photo" name="photo" value="<?php echo $this->defaults['photo']; ?>" /></dd>
+            </dl>
+            <dl>
+                <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+                <dd>
+                    <?php
+                        if(! empty($this->states) && is_array($this->states)) {
+                            echo '<select name="status" id="status">';
+                            foreach($this->states as $intStatusCode => $strStatus) {
+                                echo '<option value="'.$intStatusCode.'"'.(($this->defaults['status'] == $intStatusCode) ? ' selected="selected"' : '').'>'.$this->translate($strStatus).'</option>';
+                            }
+                            echo '</select>';
+                        }
+                    ?>
+            </dl>
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add blogger'); ?>" /></dd>
+            </dl>
+
+        </form>
+
+    </div>
+
+</section>
+<script type="text/javascript">
+
+    jQuery(document).ready(function(){
+        jQuery.fn.dataTableExt.oApi.fnFilterOnReturn = function (oSettings) {
+            var _that = this;
+
+            this.each(function (i) {
+                $.fn.dataTableExt.iApiIndex = i;
+                var $this = this;
+                var anControl = $('input', _that.fnSettings().aanFeatures.f);
+                anControl.unbind('keyup').bind('keypress', function (e) {
+                    if (e.which == 13) {
+                        $.fn.dataTableExt.iApiIndex = i;
+                        _that.fnFilter(anControl.val());
+                    }
+                });
+                return this;
+            });
+            return this;
+        };
+
+        jQuery('.ajax_datatable').dataTable( {
+            "bProcessing"		: true,
+            "bServerSide"		: true,
+            "bStateSave"		: true,
+            'iDisplayLength'	: 25,
+            'sPaginationType'	: "full_numbers",
+            "sAjaxSource"		: "/admin/blog/generatebloggersdatatable/",
+            "fnServerData": function ( sSource, aoData, fnCallback ) {
+                $.ajax( {
+                    "dataType": 'json',
+                    "type": "POST",
+                    "url": sSource,
+                    "data": aoData,
+                    "success": fnCallback
+                });
+            },
+            "aoColumns": [
+                null,
+                null,
+                null,
+                {"bSortable" : false, "bSearchable": false}
+            ],
+            'aaSorting'			: [[ 4, "desc" ]]
+        }).fnFilterOnReturn();
+    });
+</script>

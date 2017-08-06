@@ -28,6 +28,7 @@ class Admin_PagesController extends KZ_Controller_Action
 		$strName					= '';
 		$strMenuName				= '';
 		$strMenuUrl					= '';
+		$intFullPage                = KZ_Controller_Action::STATE_INACTIVE;
 		$strSeoTitle				= '';
 		$strSeoKeywords				= '';
 		$strSeoDescription			= '';
@@ -44,6 +45,7 @@ class Admin_PagesController extends KZ_Controller_Action
 			$strName				= $arrPostParams['name'];
 			$strMenuName			= $arrPostParams['menu_name'];
 			$strMenuUrl				= $arrPostParams['menu_url'];
+            $intFullPage            = $arrPostParams['fullpage'];
 			$strSeoTitle			= $arrPostParams['seo_title'];
 			$strSeoKeywords			= $arrPostParams['seo_keywords'];
 			$strSeoDescription		= $arrPostParams['seo_description'];
@@ -75,6 +77,7 @@ class Admin_PagesController extends KZ_Controller_Action
                         'menu_name'			=> $strMenuName,
                         'menu_url'			=> ((strstr($strMenuUrl, 'http://')) ? $strMenuUrl : KZ_Controller_Action_Helper_Slug::slug($strMenuUrl)),
                         'menu_type_id'		=> 0,
+                        'fullpage'          => $intFullPage,
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
                         'seo_keywords'		=> $strSeoKeywords,
@@ -145,6 +148,7 @@ class Admin_PagesController extends KZ_Controller_Action
 		$this->view->name				= $strName;
 		$this->view->menu_name			= $strMenuName;
 		$this->view->menu_url			= $strMenuUrl;
+		$this->view->fullpage           = $intFullPage;
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
@@ -184,6 +188,7 @@ class Admin_PagesController extends KZ_Controller_Action
 		$strMenuName				= $arrPage['menu_name'];
 		$strMenuUrl					= $arrPage['menu_url'];
 		$intMenuTypeID				= $arrPage['menu_type_id'];
+		$intFullPage                = $arrPage['fullpage'];
 		$strSeoTitle				= $arrPage['seo_title'];
 		$strSeoKeywords				= $arrPage['seo_keywords'];
 		$strSeoDescription			= $arrPage['seo_description'];
@@ -213,6 +218,7 @@ class Admin_PagesController extends KZ_Controller_Action
 			$strName				= $arrPostParams['name'];
 			$strMenuName			= $arrPostParams['menu_name'];
 			$strMenuUrl				= $arrPostParams['menu_url'];
+			$intFullPage            = $arrPostParams['fullpage'];
 			$strSeoTitle			= $arrPostParams['seo_title'];
 			$strSeoKeywords			= $arrPostParams['seo_keywords'];
 			$strSeoDescription		= $arrPostParams['seo_description'];
@@ -237,6 +243,7 @@ class Admin_PagesController extends KZ_Controller_Action
                         'name' 				=> $strName,
                         'menu_name'			=> $strMenuName,
                         'menu_url'			=> $strMenuUrl,
+                        'fullpage'          => $intFullPage,
                         'seo_title'			=> $strSeoTitle,
                         'seo_description'	=> $strSeoDescription,
                         'seo_keywords'		=> $strSeoKeywords,
@@ -279,6 +286,7 @@ class Admin_PagesController extends KZ_Controller_Action
 		$this->view->menu_name			= $strMenuName;
 		$this->view->menu_url			= $strMenuUrl;
 		$this->view->menu_type_id		= $intMenuTypeID;
+		$this->view->fullpage           = $intFullPage;
 		$this->view->seo_title			= $strSeoTitle;
 		$this->view->seo_description	= $strSeoDescription;
 		$this->view->seo_keywords		= $strSeoKeywords;
@@ -595,14 +603,14 @@ class Admin_PagesController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_1_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
-	    					) {
-	    						 
-	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
-	    						 
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_1_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrPageData['data']	= serialize(array(	
@@ -643,14 +651,14 @@ class Admin_PagesController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_2_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
-	    					) {
-	    							
-	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
-	    							
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_2_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrPageData['data']	= serialize(array(	
@@ -886,14 +894,14 @@ class Admin_PagesController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_1_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
-	    					) {
-	    					
-	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
-	    					
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_1_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_1_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent1Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_1_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrPageData['data']	= serialize(array(	
@@ -954,14 +962,14 @@ class Admin_PagesController extends KZ_Controller_Action
 	    				} else {
 	    					
 	    					// Add Default table class to table element
-	    					if(
-	    					strstr($arrPostParams['content_2_text'], '<table')
-	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
-	    					) {
-	    							
-	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
-	    							
-	    					}
+//	    					if(
+//	    					strstr($arrPostParams['content_2_text'], '<table')
+//	    					&&	! strstr($arrPostParams['content_2_text'], 'class="default"')
+//	    					) {
+//
+//	    						$strContent2Text	= str_replace('<table', '<table class="default"', $arrPostParams['content_2_text']);
+//
+//	    					}
 	    					
 	    					// Add content data to array
 	    					$arrPageData['data']	= serialize(array(	

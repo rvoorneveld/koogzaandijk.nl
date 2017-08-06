@@ -36,6 +36,8 @@ class KZ_Controller_Editor {
    						force_p_newlines 					: false,
 						forced_root_block					: false,
 						
+						table_styles: "Standaard=default;Wit=default default__no-background",
+						
 						relative_urls 						: false,
 						remove_script_host 					: true,
 						document_base_url 					: "/",

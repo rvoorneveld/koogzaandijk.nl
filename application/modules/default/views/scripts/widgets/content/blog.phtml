@@ -1,0 +1,39 @@
+<?php
+    $objModelBlog = new KZ_Models_Blog();
+    $arrBloggersItems = $objModelBlog->getBloggers(2);
+
+    if(! empty($arrBloggersItems) && is_array($arrBloggersItems)) {
+        echo '<div class="table--profiles table--profiles__widget">
+                <ol class="profiles zapp">';
+        foreach($arrBloggersItems as $arrDataRow) {
+
+            // Get Latest Blog Items
+            $arrBlogItems = $objModelBlog->getBlogItemsByBlogger($arrDataRow['id'],2);
+
+            echo '  <li class="profiles__profile">
+                        <div class="media zapp">
+                            <div class="media__img">
+                                <a href="/blog/'.$arrDataRow['slug'].'/">
+                                    <img class="profiles__avatar" src="'.$arrDataRow['photo'].'">
+                                </a>
+                            </div>
+                            <div class="media__body media__body--profiles">
+                                <a href="/blog/'.$arrDataRow['slug'].'/">'.$arrDataRow['name'].'</a><br />';
+
+            if(! empty($arrBlogItems) && is_array($arrBlogItems)) {
+                echo '<ol>';
+                foreach($arrBlogItems as $arrBlogItem) {
+                    echo '<li><a class="date" href="/blog/'.$arrDataRow['slug'].'/'.$arrBlogItem['slug'].'"><span class="blog-date blog-date__color-yellow">'.$this->date()->format($arrBlogItem['created'], 'dd MMM').'</span> '.$arrBlogItem['title'].'</a>';
+                }
+                echo '</ol>';
+            }
+
+            echo            '</div>
+                        </div>
+                    </li>';
+        }
+        echo '  </ol>
+              </div>';
+    } else {
+        echo 'Er zijn nog geen bloggers toegevoegd';
+    }

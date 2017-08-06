@@ -390,37 +390,25 @@ class Toolscontroller extends KZ_Controller_Action
 			$objModelProfile        = new KZ_Models_Profile();
 
 			// Search Profile in Database
-			$arrProfile             = $objModelProfile->getProfileByMemberID($intMemberID);
-
-			if(! empty($arrProfile) && is_array($arrProfile)) {
-				$strSecurityKey     = $arrProfile['code'];
-			} else {
-				// Get New Security Key
-				$objModelSecurity   = new KZ_Controller_Action_Helper_Security();
-				$strSecurityKey     = $objModelSecurity->createSecurityCode();
-
-				$objModelProfile->addProfile($intMemberID,$strSecurityKey);
-
-				// Search Profile in Database
-				$arrProfile         = $objModelProfile->getProfileByMemberID($intMemberID);
-			}
+			$arrProfile = $objModelProfile->getProfileByMemberID($intMemberID);
+			$strSecurityKey = $arrProfile['code'];
 
 			// Get Member By Code and Password
-			$objModelMembers        = new KZ_Models_Members();
-			$arrMember              = $objModelMembers->getMember($intMemberID);
+			$objModelMembers = new KZ_Models_Members();
+			$arrMember = $objModelMembers->getMember($intMemberID);
 
-			// Check if Member Profile wasn't found was found
+			// Check if Member Profile was found
 			if(! empty($arrMember) && is_array($arrMember)) {
 
 				// Set Profile Session
-				$objModelSession    = new KZ_Controller_Session();
+				$objModelSession = new KZ_Controller_Session();
 				$objModelSession->setProfileSession($arrMember);
 
 			}
 
 			// Get Cookie Info
-			$objModelCookie         = new KZ_Controller_Action_Helper_Cookie();
-			$strCookieData          = $objModelCookie->getCookie('KZ_Logins');
+			$objModelCookie = new KZ_Controller_Action_Helper_Cookie();
+			$strCookieData = $objModelCookie->getCookie('KZ_Logins');
 
 			// Set Cookie Profile Codes array
 			$arrSecurityCodes       = array();
@@ -432,15 +420,10 @@ class Toolscontroller extends KZ_Controller_Action
 				}
 			}
 
-//			// Check if new Security Key must be added to Cookie
+			// Check if new Security Key must be added to Cookie
 			if(! in_array($strSecurityKey, $arrSecurityCodes)) {
 				array_push($arrSecurityCodes,$strSecurityKey);
 			}
-
-			// Check if old Security Key must be removed from Cookie
-//			if(($intKey = array_search($arrProfile['code'], $arrSecurityCodes)) !== false) {
-//				unset($arrSecurityCodes[$intKey]);
-//			}
 
 			// Get Config
 			$objConfig 				= Zend_Registry::get('Zend_Config');
@@ -462,17 +445,6 @@ class Toolscontroller extends KZ_Controller_Action
 				);
 
 				$objModelProfile->update($arrUpdateData, "member_id = $intMemberID");
-
-			} else {
-
-				// Insert Profile
-				$arrInsertData = array(
-					'member_id'     => $intMemberID,
-					'code'          => $strSecurityKey,
-					'created'       => $strDate
-				);
-
-				$objModelProfile->insert($arrInsertData);
 
 			}
 
@@ -642,7 +614,7 @@ class Toolscontroller extends KZ_Controller_Action
 			$arrAllowedFileTypes		= array('jpg','gif','png','jpeg');
 
 			// Upload the file(s)
-			$jsonControllerUpload		= KZ_Controller_FileUpload::doFileUpload($strUploadDirectory,$arrAllowedFileTypes, false, true);
+			$jsonControllerUpload		= (new KZ_Controller_FileUpload)->doFileUpload($strUploadDirectory,$arrAllowedFileTypes, false, true);
 
 			// Check for Error
 			if($jsonControllerUpload == 'error') {
@@ -834,7 +806,6 @@ class Toolscontroller extends KZ_Controller_Action
 		$intAutoLogin       = $arrParams['auto_login'];
 
 		// Set Data
-		$arrUpdateData      = $arrParams;
 		unset($arrParams['action']);
 		unset($arrParams['module']);
 		unset($arrParams['controller']);
@@ -851,7 +822,8 @@ class Toolscontroller extends KZ_Controller_Action
 
 		// Update Profile
 		$objModelProfile    = new KZ_Models_Profile();
-		$intUpdateID        = $objModelProfile->updateProfileContact($intMemberID, $arrUpdateData);
+
+		$intUpdateID = $objModelProfile->updateProfileContact($intMemberID, $arrUpdateData);
 		$objModelProfile->updateProfile($intMemberID, array('auto_login' => $intAutoLogin));
 
 		echo $intUpdateID;

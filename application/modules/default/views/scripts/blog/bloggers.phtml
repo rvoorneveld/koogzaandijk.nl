@@ -1,0 +1,25 @@
+<h2>KZ/Hiltex Bloggers</h2>
+<?php
+    if(! empty($this->bloggers) && is_array($this->bloggers)) {
+        echo '<div class="table table--profiles table--profiles__blog">
+                <ol class="profiles row zapp">';
+        foreach($this->bloggers as $arrBlogger) {
+            echo '  <li class="profiles__profile cell">
+                        <div class="media zapp">
+                            <div class="media__img">
+                                <a href="/blog/'.$arrBlogger['slug'].'/">
+                                    <img class="profiles__avatar" src="'.$arrBlogger['photo'].'">
+                                </a>
+                            </div>
+                            <div class="media__body media__body--profiles">
+                                <a href="/blog/'.$arrBlogger['slug'].'/">'.$arrBlogger['name'].'</a>
+                            </div>
+                        </div>
+                    </li>';
+        }
+        echo '  </ol>
+              </div>';
+    } else {
+        echo 'Er zijn nog geen bloggers toegevoegd';
+    }
+?>

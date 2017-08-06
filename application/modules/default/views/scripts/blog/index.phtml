@@ -1,0 +1,220 @@
+<div id="nextpage" class="zapp">
+    <div class="col left">
+        <div class="inner">
+            <h2><?php echo html_entity_decode($this->item['title']); ?></h2>
+            <span class="blog-date blog-date__color-blue"><?php echo $this->date()->format($this->item['created'], 'dd MMM yyyy'); ?></span>
+            <?php echo html_entity_decode($this->item['content']); ?>
+        </div>
+    </div>
+    <div class="col right">
+
+        <div class="table table--profiles table--profiles__blog">
+            <ol class="profiles row zapp">
+                <li class="profiles__profile cell">
+                    <div class="media zapp">
+                        <div class="media__img">
+                            <a href="/blog/<?php echo $this->blogger['slug']; ?>/">
+                                <img class="profiles__avatar" src="<?php echo $this->blogger['photo']; ?>">
+                            </a>
+                        </div>
+                        <div class="media__body media__body--profiles">
+                            <a href="/blog/<?php echo $this->blogger['slug']; ?>/"><?php echo $this->blogger['name']; ?></a>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+
+        <br />
+
+        <div class="item news bg_kz_lightgrey">
+            <h2>Laatste blogs</h2>
+            <?php
+                if(! empty($this->recent) && is_array($this->recent)) {
+                    echo '<ul>';
+                    foreach($this->recent as $arrRecent) {
+                        echo '<li>
+                                <span class="date newstag">'.$this->date()->format($arrRecent['created'], 'dd MMM yyyy').'</span>
+                                <a href="/blog/'.$this->blogger['slug'].'/'.$arrRecent['slug'].'/" title="">'.$arrRecent['title'].'</a>
+                              </li>';
+                    }
+                    echo '</ul>';
+                } else {
+                    echo 'Er zijn nog geen blog berichten van '.$this->blogger['name'].'.';
+                }
+            ?>
+        </div>
+    </div>
+
+    <div class="col full soft-top">
+        <div class="inner">
+            <div class="table infobox">
+                <a name="reacties"></a>
+                <ul class="row">
+                    <li class="cell large bg_kz_blue color_kz_white schedule zapp">
+                        <h3 class="color_kz_white left">Reacties</h3>
+
+<?php
+    // Check for a Profile login
+    if(! empty($this->profile) && is_array($this->profile)){
+?>
+        <ol class="guestbook">
+            <li>
+                <ul>
+                    <li class="color_kz_yellow poster">
+                        <span class="image">
+                            <div class="media zapp">
+                                <div class="media__img">
+                                    <img class="profiles__avatar" src="/upload/avatars/<?php echo $this->profile['avatar']; ?>">
+                                </div>
+                                <div class="media__body media__body--profiles">
+                                    <span class="name"><?php echo $this->profile['firstname'].(($this->profile['insertion'] != '') ? ' '.$this->profile['insertion'] : '').' '.$this->profile['lastname']; ?></span>
+                                    <span class="date"><?php echo (new Zend_Date())->get('dd MMM'); ?></span>
+                                    <form class="form-standard" method="post" action="#reacties">
+                                        <ol>
+                                            <li><textarea name="reaction" class="fill" placeholder="Schrijf jouw reactie"></textarea></li>
+                                            <li><input type="submit" value="Plaats reactie" /></li>
+                                        </ol>
+                                    </form>
+                                </div>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            </li>
+<?php
+
+        if(! empty($this->reactions) && is_array($this->reactions)) {
+                foreach($this->reactions as $reaction) {
+                    echo '<li>
+                            <ul>
+                                <li class="color_kz_yellow poster">
+                                <span class="image">
+                                    <div class="media zapp">
+                                        <div class="media__img">
+                                            <img class="profiles__avatar" src="/upload/avatars/'.$reaction['avatar'].'">
+                                        </div>
+                                        <div class="media__body media__body--profiles">
+                                            <span class="name">'.$reaction['firstname'].(($reaction['insertion'] != '') ? ' '.$reaction['insertion'] : '').' '.$reaction['lastname'].'</span>
+                                            <span class="date">'.(KZ_View_Helper_Date::format($reaction['created'],'dd MMM')).'</span>
+                                        </div>
+                                        <span class="blog-reaction-content soft-top">'.html_entity_decode($reaction['reaction']).'</span>
+                                    </div>
+                                </span>
+                                </li>
+                            </ul>
+                        </li>';
+                }
+?>
+                
+<!--                -->
+<!--                <li>-->
+<!--                    <ul>-->
+<!--                        <li class="color_kz_yellow poster">-->
+<!--                        <span class="image soft-bottom">-->
+<!--                            <div class="media zapp">-->
+<!--                                <div class="media__img">-->
+<!--                                    <img class="profiles__avatar" src="/upload/blogger/lisa-van-tongeren.jpg">-->
+<!--                                </div>-->
+<!--                                <div class="media__body media__body--profiles">-->
+<!--                                    <span class="name">Lisa van Tongeren</span>-->
+<!--                                    <span class="date">25 Jan</span>-->
+<!--                                </div>-->
+<!--                                <span class="blog-reaction-content soft-top">test bericht van Lisa van Tongeren</span>-->
+<!--                            </div>-->
+<!--                        </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <ul>-->
+<!--                        <li class="color_kz_yellow poster">-->
+<!--                        <span class="image">-->
+<!--                            <div class="media zapp">-->
+<!--                                <div class="media__img">-->
+<!--                                    <img class="profiles__avatar" src="/upload/blogger/rick-voorneveld.jpg">-->
+<!--                                </div>-->
+<!--                                <div class="media__body media__body--profiles">-->
+<!--                                    <span class="name">Rick Voorneveld</span>-->
+<!--                                    <span class="date">25 Jan.</span>-->
+<!--                                </div>-->
+<!--                                <span class="blog-reaction-content soft-top">test bericht van Rick Voorneveld</span>-->
+<!--                            </div>-->
+<!--                        </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <ul>-->
+<!--                        <li class="color_kz_yellow poster">-->
+<!--                        <span class="image">-->
+<!--                            <div class="media zapp">-->
+<!--                                <div class="media__img">-->
+<!--                                    <img class="profiles__avatar" src="/upload/blogger/piet-hein-havik.jpg">-->
+<!--                                </div>-->
+<!--                                <div class="media__body media__body--profiles">-->
+<!--                                    <span class="name">Piet Hein Havik</span>-->
+<!--                                    <span class="date">24 Feb.</span>-->
+<!--                                </div>-->
+<!--                                <span class="blog-reaction-content soft-top">test bericht van Piet Hein Havik</span>-->
+<!--                            </div>-->
+<!--                        </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <ul>-->
+<!--                        <li class="color_kz_yellow poster">-->
+<!--                        <span class="image">-->
+<!--                            <div class="media zapp">-->
+<!--                                <div class="media__img">-->
+<!--                                    <img class="profiles__avatar" src="/upload/blogger/lars-ankum.jpg">-->
+<!--                                </div>-->
+<!--                                <div class="media__body media__body--profiles">-->
+<!--                                    <span class="name">Lars Ankum</span>-->
+<!--                                    <span class="date">24 Feb.</span>-->
+<!--                                </div>-->
+<!--                                <span class="blog-reaction-content soft-top">test bericht van Lars Ankum</span>-->
+<!--                            </div>-->
+<!--                        </span>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+            </ol>
+<?php
+        } else {
+            echo 'er zijn nog geen reacties geplaatst, schrijf als eerste een reactie!';
+        }
+    } else {
+        echo 'U bent niet ingelogd met uw profiel en kunt daarom geen reactie plaatsen.';
+    }
+?>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<?php
+if(! empty($this->feedback) && is_array($this->feedback)) {
+?>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+
+            jQuery('.user-feedback').html('<?php echo $this->feedback['message']; ?>');
+            jQuery('.user-feedback').addClass('user-feedback--<?php echo $this->feedback['type']; ?>');
+            jQuery('.user-feedback').show();
+
+            setTimeout(function() {
+                jQuery('.user-feedback').removeClass('user-feedback--<?php echo $this->feedback['type']; ?>');
+                jQuery('.user-feedback').hide();
+            }, 5000);
+
+        });
+</script>
+<?php
+}
+?>

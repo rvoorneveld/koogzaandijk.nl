@@ -15,6 +15,7 @@ class Admin_UsersController extends KZ_Controller_Action
 	{
 		// Set Defaults Variables
 		$intAccessLevel				= '';
+		$intBlogID                  = NULL;
 		$strName					= '';
 		$strEmail					= '';
 		$intStatus					= 0;
@@ -28,6 +29,12 @@ class Admin_UsersController extends KZ_Controller_Action
 			$intAccessLevel				= $arrPostData['user_group_id'];
 			$arrPostData['name']		= ((isset($arrPostData['name']) && ! empty($arrPostData['name'])) ? $arrPostData['name'] : '');
 			$arrPostData['email']		= ((isset($arrPostData['email']) && ! empty($arrPostData['email'])) ? $arrPostData['email'] : '');
+            $arrPostData['blogger_id']	= ((isset($arrPostData['blogger_id']) && ! empty($arrPostData['blogger_id'])) ? $arrPostData['blogger_id'] : NULL);
+
+            // Check if User Group doesn't equal a blogger
+            if($arrPostData['user_group_id'] != 4) {
+                $arrPostData['blogger_id'] = NULL;
+            }
 
 			// Set Email Validation Object
 			$objEmailValidator		= new Zend_Validate_EmailAddress();
@@ -59,6 +66,10 @@ class Admin_UsersController extends KZ_Controller_Action
 
 		// Get all users
 		$arrUsers					= $this->users->getAllUsers();
+
+		// Get All Bloggers
+        $objModelBlog               = new KZ_Models_Blog();
+        $arrBloggers                = $objModelBlog->getBloggers();
 	
 		// Get all User Auth Groups
 		$arrUserGroups				= $this->users->getAllUserGroupLevels();
@@ -66,6 +77,7 @@ class Admin_UsersController extends KZ_Controller_Action
 		// Send to the view
 		$this->view->users			= $arrUsers;
 		$this->view->usergroups		= $arrUserGroups;
+		$this->view->bloggers       = $arrBloggers;
 	}
 	
 	public function editAction()

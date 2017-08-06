@@ -43,6 +43,11 @@ class Admin_LoginController extends KZ_Controller_Action
 					$objNamespace->setExpirationSeconds((3600 * 8), 'user'); // Expire in 8 hours
 					$objNamespace->user = $objUser->toArray();
 
+					if(! empty($objNamespace->user['blogger_id'])) {
+                        $this->_redirect('/admin/blog/');
+                        exit;
+                    }
+
 					$this->_redirect('/admin/pages/');
 					exit;
 					

@@ -3,6 +3,23 @@
 class KZ_View_Helper_Format extends Zend_View_Helper_Abstract
 {
 
+    const STATUS_INACTIVE = [0,10];
+
+    public function status($intStatus)
+    {
+        switch(true) {
+            case in_array($intStatus,self::STATUS_INACTIVE) :
+                $intColor = 'red';
+                $strText = 'Inactive';
+                break;
+            default:
+                $intColor = 'green';
+                $strText = 'Active';
+                break;
+        }
+        return sprintf('<span class="tag %s">%s</span>',$intColor,$strText);
+    }
+
 	/**
 	 * Function for getting and setting the correct image url in content
 	 *
@@ -99,6 +116,10 @@ class KZ_View_Helper_Format extends Zend_View_Helper_Abstract
 
 		return $strInputData;
 	}
+
+    public static function date($value,$format) {
+	    return self::format($value,$format,'date');
+    }
 
 	public static function format($mixInputValue, $strOutputFormat, $strInputType = 'date', $strOpacity = '')
 	{

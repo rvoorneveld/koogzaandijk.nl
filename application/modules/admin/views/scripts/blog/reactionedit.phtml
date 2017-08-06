@@ -1,0 +1,32 @@
+<header>
+    <h2><?php echo $this->translate('Edit reaction'); ?></h2>
+</header>
+
+<section>
+
+    <form name="updateReactionForm" method="post" action="">
+        <dl>
+            <dt width="200"><label class="label"><?php echo $this->translate('Reactie'); ?></label></dt>
+            <dd width="*" class="text"><p><?php echo $this->defaults['reaction']; ?></p></dd>
+        </dl>
+        <dl>
+            <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
+            <dd>
+<?php
+                if(! empty($this->states) && is_array($this->states)) {
+                    echo '<select name="status" id="status">';
+                    foreach($this->states as $intStatusCode => $strStatus) {
+                        echo '<option value="'.$intStatusCode.'"'.(($this->defaults['status'] == $intStatusCode) ? ' selected="selected"' : '').'>'.$this->translate($strStatus).'</option>';
+                    }
+                    echo '</select>';
+                }
+?>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Update reaction'); ?>" /></dd>
+        </dl>
+
+    </form>
+
+</section>

@@ -246,6 +246,19 @@ class Admin_ClubController extends KZ_Controller_Action
 
 						}
 
+                        // Set Profile Model
+                        $objModelProfile = new KZ_Models_Profile();
+
+                        // Search Profile in Database
+                        $arrProfile = $objModelProfile->getProfileByMemberID($arrMember['members_id']);
+
+                        if(empty($arrProfile) || ! is_array($arrProfile)) {
+                            // Get New Security Key
+                            $objModelSecurity = new KZ_Controller_Action_Helper_Security();
+                            $strSecurityKey = $objModelSecurity->createSecurityCode();
+                            $objModelProfile->addProfile($arrMember['members_id'], $strSecurityKey);
+                        }
+
 						// Return Feedback
 						$strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully updated member')));
 						$this->_redirect('/admin/club/members/feedback/'.$strFeedback.'/#tab0');
@@ -372,6 +385,9 @@ class Admin_ClubController extends KZ_Controller_Action
 		// Get Team Roles
 		$arrTeamRoles       = $objModelTeams->getTeamRoles();
 
+		// Get Teams
+        $arrDistinctTeamNames = $objModelTeams->getDistinctTeamNames();
+
 		// Set Defaults
 		$arrDefaults        = $arrTeamMember;
 
@@ -392,6 +408,7 @@ class Admin_ClubController extends KZ_Controller_Action
 
 				// Set Team Member Array
 				$arrMemberData = array(
+				    'team_id'       => $arrDefaults['team_id'],
 					'team_role_id'  => $arrDefaults['team_role_id'],
 					'gender'        => $arrDefaults['gender'],
 					'firstname'     => $arrDefaults['firstname'],
@@ -420,6 +437,7 @@ class Admin_ClubController extends KZ_Controller_Action
 		// Parse variables to view
 		$this->view->defaults   = $arrDefaults;
 		$this->view->roles      = $arrTeamRoles;
+		$this->view->teams      = $arrDistinctTeamNames;
 
 	}
 

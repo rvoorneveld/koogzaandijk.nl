@@ -1,0 +1,42 @@
+<div id="nextpage" class="zapp blog">
+	<div class="col left">
+		<div class="inner">
+			<h2>Blog berichten van <?php echo $this->blogger['name']; ?></h2>
+            <?php
+                if(! empty($this->items) && is_array($this->items)) {
+                    echo '<table class="default" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <th>Datum</th>
+                                <th>Titel</th>
+                            </tr>';
+                    foreach($this->items as $arrItem) {
+                        echo '  <tr>
+                                    <td><span class="blog-date">'.$this->date()->format($arrItem['created'], 'dd MMM yyyy').'</span></td>
+                                    <td><a href="/blog/'.$this->blogger['slug'].'/'.$arrItem['slug'].'/">'.$arrItem['title'].'</td>
+                                </tr>';
+                    }
+                    echo '</table>';
+                }
+            ?>
+		</div>
+	</div>
+	<div class="col right">
+
+		<div class="table table--profiles table--profiles__blog">
+            <ol class="profiles row zapp">
+                <li class="profiles__profile cell">
+                    <div class="media zapp">
+                        <div class="media__img">
+                            <a href="/blog/<?php echo $this->blogger['slug']; ?>/">
+                                <img class="profiles__avatar" src="<?php echo $this->blogger['photo']; ?>">
+                            </a>
+                        </div>
+                        <div class="media__body media__body--profiles">
+                            <a href="/blog/<?php echo $this->blogger['slug']; ?>/"><?php echo $this->blogger['name']; ?></a>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+	</div>
+</div>
