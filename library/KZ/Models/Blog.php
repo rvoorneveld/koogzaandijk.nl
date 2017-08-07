@@ -264,7 +264,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
      */
     public function insertBlogger($arrBlogger)
     {
-        return (Zend_Db_Table::getDefaultAdapter())->insert('blog_blogger',$arrBlogger);
+        return Zend_Db_Table::getDefaultAdapter()->insert('blog_blogger',$arrBlogger);
     }
 
     /**
@@ -275,7 +275,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
      */
     public function updateBlogger($intBloggerId,$arrBlogger)
     {
-        return (Zend_Db_Table::getDefaultAdapter())->update('blog_blogger', $arrBlogger, "id = {$intBloggerId}");
+        return Zend_Db_Table::getDefaultAdapter()->update('blog_blogger', $arrBlogger, "id = {$intBloggerId}");
     }
 
     /**
@@ -289,7 +289,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
         Zend_Db_Table::getDefaultAdapter()->delete('blog_item',"blogger_id = {$intBloggerId}");
 
         // Delete the Blogger
-        return (Zend_Db_Table::getDefaultAdapter())->delete('blog_blogger',"id = {$intBloggerId}");
+        return Zend_Db_Table::getDefaultAdapter()->delete('blog_blogger',"id = {$intBloggerId}");
     }
 
     public function getBlogItemReactions($id,$status = false)
@@ -325,12 +325,12 @@ class KZ_Models_Blog extends KZ_Controller_Table
     public function updateReaction($id,$data)
     {
         // Update the Reaction
-        return (Zend_Db_Table::getDefaultAdapter())->update('blog_reaction',$data,"id = {$id}");
+        return Zend_Db_Table::getDefaultAdapter()->update('blog_reaction',$data,"id = {$id}");
     }
 
     public function addReaction($reaction)
     {
-        return (Zend_Db_Table::getDefaultAdapter()->insert('blog_reaction', $reaction));
+        return Zend_Db_Table::getDefaultAdapter()->insert('blog_reaction', $reaction);
     }
 
     public function getBlogReactionsForTable($booReturnTotal = false, $arrLimitData = null, $strSearchData = null, $arrOrderData = null)
