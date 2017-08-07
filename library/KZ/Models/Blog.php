@@ -146,7 +146,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
      */
     public function updateBlogItem($intBlogItemId,$arrBlogItem)
     {
-        return (Zend_Db_Table::getDefaultAdapter())->update('blog_item', $arrBlogItem, "id = {$intBlogItemId}");
+        return Zend_Db_Table::getDefaultAdapter()->update('blog_item', $arrBlogItem, "id = {$intBlogItemId}");
     }
 
     /**
