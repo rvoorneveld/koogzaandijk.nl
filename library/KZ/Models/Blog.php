@@ -156,7 +156,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
      */
     public function deleteBlogItem($intBlogItemID)
     {
-        return (Zend_Db_Table::getDefaultAdapter())->delete('blog_item',"id = {$intBlogItemID}");
+        return Zend_Db_Table::getDefaultAdapter()->delete('blog_item',"id = {$intBlogItemID}");
     }
 
 
