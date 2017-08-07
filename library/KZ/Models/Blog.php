@@ -135,9 +135,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
     public function insertBlogItem($arrBlogItem)
     {
         // Set Created Date
-        $objDate = new Zend_Date();
-        $strCreated = $objDate->toString('yyyy/MM/dd HH:mm:ss');
-        return (Zend_Db_Table::getDefaultAdapter())->insert('blog_item', array_merge($arrBlogItem,['created' => $strCreated]));
+        return Zend_Db_Table::getDefaultAdapter()->insert('blog_item', array_merge($arrBlogItem,['created' => (new Zend_Date())->toString('yyyy/MM/dd HH:mm:ss')]));
     }
 
     /**
