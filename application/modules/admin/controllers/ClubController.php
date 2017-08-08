@@ -364,6 +364,80 @@ class Admin_ClubController extends KZ_Controller_Action
 
 	}
 
+    public function teamsmembersaddAction()
+    {
+        // Get All Params
+        $arrParams = $this->_getAllParams();
+
+        // Check if Param id is set
+        if(! isset($arrParams['id'])) {
+            // return feedback
+            $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Missing param for id')));
+            $this->_redirect('/admin/club/teams/feedback/'.$strSerializedFeedback.'/');
+        }
+
+        // Set Defaults
+        $arrDefaults            = array(
+            'team_role_id'  => 1,
+            'gender'        => 'm',
+            'firstname'     => '',
+            'lastname'      => '',
+            'link'          => '',
+            'image'         => ''
+        );
+
+        // Set Models
+        $objModelTeams = new KZ_Models_Teams();
+
+        // Check for Post
+        if($this->getRequest()->isPost()) {
+
+            // Get All Params
+            $arrParams					= $this->_getAllParams();
+
+            // Set Defaults
+            $arrDefaults                = $arrParams;
+
+            if(empty($arrDefaults['firstname'])) {
+                $this->view->feedback = array('type' => 'error', 'message' => 'You didn\'t fill in a firstname');
+            } elseif(empty($arrDefaults['lastname'])) {
+                $this->view->feedback = array('type' => 'error', 'message' => 'You didn\'t fill in a lastname');
+            } else {
+
+                // Set Team Member Array
+                $arrMemberData = array(
+                    'team_id'       => $arrParams['id'],
+                    'team_role_id'  => $arrDefaults['team_role_id'],
+                    'gender'        => $arrDefaults['gender'],
+                    'firstname'     => $arrDefaults['firstname'],
+                    'lastname'      => $arrDefaults['lastname'],
+                    'link'          => $arrDefaults['link'],
+                    'image'         => str_replace(ROOT_URL,'',$arrDefaults['image'])
+                );
+
+                // Add Team member
+                $intInsertID = $objModelTeams->addTeamMember($arrMemberData);
+
+                // Check for Succesfull page insert
+                if(isset($intInsertID) && is_numeric($intInsertID)) {
+                    // Return Feedback
+                    $strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully added team member')));
+                    $this->_redirect('/admin/club/teams/feedback/'.$strFeedback.'/');
+                } else {
+                    // Return feedback
+                    $this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to add the team member');
+                }
+
+            }
+
+        }
+
+        // Parse variables to view
+        $this->view->defaults   = $arrDefaults;
+        $this->view->roles      = $objModelTeams->getTeamRoles();
+
+    }
+
 	public function teamsmemberseditAction()
 	{
 		// Get All Params
