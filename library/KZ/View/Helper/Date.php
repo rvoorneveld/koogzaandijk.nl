@@ -68,7 +68,7 @@ class KZ_View_Helper_Date extends Zend_View_Helper_Abstract
 	
 	public function getSeasonStartDate()
 	{
-		return '2016-09-01';
+		return '2017-08-15';
 	}
 
     public function date()
