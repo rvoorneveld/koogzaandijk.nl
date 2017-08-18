@@ -14,8 +14,10 @@ class KZ_Models_Standings extends KZ_Controller_Table
 	public function getStandingsByPoule($strPouleName, $strSportType)
 	{
 		$strQuery = $this->select()
+                    ->from('standings',['MIN(position)','*'])
 					->where('poule_name = ?', $strPouleName)
 					->where('type LIKE(?)', ucfirst($strSportType))
+                    ->group('position')
 					->order('position');
 		return $this->returnData($strQuery);
 	}
