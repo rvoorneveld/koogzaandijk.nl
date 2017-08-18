@@ -32,6 +32,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		// Setup database
 	   	$this->objDatabase = Zend_Db::factory($this->objConfig->database);
+	   	$this->objDatabase->query("SET sql_mode = ''");
 		Zend_Db_Table::setDefaultAdapter($this->objDatabase);
 	}
 	
