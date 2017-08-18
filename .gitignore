@@ -107,7 +107,10 @@ extras/documentation
 
 
 ### PROJECT SPECIFIC
+public/thumbs
+public/clubplugin
 public/upload
 public/cronjobs
 public/magazines
 cache
+public/assets/default/image/captcha
