@@ -228,7 +228,7 @@ class Toolscontroller extends KZ_Controller_Action
 		if(isset($arrTeam) && is_array($arrTeam) && count($arrTeam) > 0) {
 			
 			if(! empty($arrMatch['facility_name']) && ! empty($arrMatch['facility_id'])) {
-				$strLocation = '<li><a href="http://www.knkv.nl/competitie/algemene-info/competitie/accommodatie/'.$arrMatch['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a></li>';
+				$strLocation = '<li><a href="https://www.korfbal.nl/competitie/#/clubs" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a></li>';
 			}
 			
 			echo '
