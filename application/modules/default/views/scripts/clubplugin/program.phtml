@@ -48,7 +48,8 @@
                                     $strDate	= $this->date()->format($arrMatch['date'], 'dd.MM');
 
                                     $strTimeRow	=	$this->translate($strDay).' '.$strDate.'&nbsp;&nbsp;'.(($arrMatch['time'] == '00:00') ? '' : $arrMatch['time'].'u').'<br>
-                                                    <a href="http://competitie.knkv.nl/competitie/accommodatie/'.$arrMatch['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a>';
+                                                    '.stripslashes($arrMatch['facility_name']);
+                                                    /*<a href="http://competitie.knkv.nl/competitie/accommodatie/'.$arrMatch['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($arrMatch['facility_name']).'">'.stripslashes($arrMatch['facility_name']).'</a>';*/
 
                                     $strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
                                     $strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
