@@ -59,9 +59,9 @@
 							
 							$strLocation	= stripslashes($this->match['facility_name']);
 							
-//							if(! empty($this->match['facility_id'])) {
-//								$strLocation	= '<a href="http://competitie.knkv.nl/competitie/accommodatie/'.$this->match['facility_id'].'/2/" target="_blank" title="Route naar '.stripslashes($this->match['facility_name']).'">'.stripslashes($this->match['facility_name']).'</a>';
-//							}
+							if(! empty($this->match['facility_id'])) {
+								$strLocation	= '<a href="https://www.korfbal.nl/competitie/#/clubs" target="_blank" title="Route naar '.stripslashes($this->match['facility_name']).'">'.stripslashes($this->match['facility_name']).'</a>';
+							}
 
 							echo '<li>
 									<span class="label">'.$this->translate('Location').'</span>
