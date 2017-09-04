@@ -104,23 +104,13 @@ class KZ_Models_Matches extends KZ_Controller_Table
 			$strQuery->orWhere(' team_away_clubteam = ? )', 1);
 		}
 
-		$strQuery->order(['date ASC']);
+		$strQuery->order(['date ASC','time ASC']);
 		
 		if($intLimit !== false && is_numeric($intLimit)) {
 			$strQuery->limit($intLimit);
 		}
-		
-		$arrData =  $this->returnData($strQuery);
 
-        if(isset($arrData) && is_array($arrData) && count($arrData) > 0) {
-            $arrReturnData = [];
-            foreach($arrData as $arrDataRow) {
-                $intTimeForOrdering = (int)str_replace('-','',$arrDataRow['date']).(int)str_replace(':','',$arrDataRow['time']);
-                $arrReturnData[$intTimeForOrdering] = $arrDataRow;
-            }
-            ksort($arrReturnData);
-            return $arrReturnData;
-        }
+        return $this->returnData($strQuery);
 	}
 	
 	public function getDistinct($strColumn = 'year')
