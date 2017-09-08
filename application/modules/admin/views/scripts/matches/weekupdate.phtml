@@ -43,16 +43,12 @@
 							<th>'.$this->translate('Time departure').'</th>
 						</tr>';
 				
-				foreach($this->matches as $strTeam => $arrMatches) {
-					
-					foreach($arrMatches as $arrMatch) {
-						echo '	<tr>
-									<td>'.$arrMatch['team_home_name'].' - '.$arrMatch['team_away_name'].'</td>
-									<td><input class="tiny" name="team_home_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_home_score'].'" /> - <input class="tiny" name="team_away_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_away_score'].'" /></td>
-									<td><input class="normal" name="time_departure_'.$arrMatch['matches_id'].'" value="'.$arrMatch['time_departure'].'" /></td>
-								</tr>';
-					}
-
+				foreach($this->matches as $arrMatch) {
+                    echo '	<tr>
+                                <td>'.$arrMatch['team_home_name'].' - '.$arrMatch['team_away_name'].'</td>
+                                <td><input class="tiny" name="team_home_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_home_score'].'" /> - <input class="tiny" name="team_away_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_away_score'].'" /></td>
+                                <td><input class="normal" name="time_departure_'.$arrMatch['matches_id'].'" value="'.$arrMatch['time_departure'].'" /></td>
+                            </tr>';
 				}
 				echo '</table>';
 			}
