@@ -74,7 +74,7 @@ class KZ_Models_Matches extends KZ_Controller_Table
 		return $objData;
 	}
 	
-	public function getMatches($intYear, $intWeek, $arrTeams = false, $booOnlyClubTeams = true, $intLimit = 10)
+	public function getMatches($intYear, $intWeek, $arrTeams = false, $booOnlyClubTeams = true, $intLimit = 10,$booOnlyUnplayedGames = null)
 	{
 		
 		$strQuery	= 	$this->select()
@@ -103,6 +103,11 @@ class KZ_Models_Matches extends KZ_Controller_Table
 			$strQuery->where('( team_home_clubteam = ?', 1);
 			$strQuery->orWhere(' team_away_clubteam = ? )', 1);
 		}
+
+		if($booOnlyUnplayedGames === true) {
+            $strQuery->where('( team_home_score IS NULL');
+            $strQuery->where(' team_away_score IS NULL )');
+        }
 
 		$strQuery->order(['date ASC','time ASC']);
 		

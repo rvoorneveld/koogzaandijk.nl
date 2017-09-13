@@ -21,7 +21,7 @@
 	$intLimit = 10;
 
 	// Get Matches for current week
-	$arrMatches = $objModelMatches->getMatches($intYear, $intWeek, $arrTeams, true, $intLimit);
+	$arrMatches = $objModelMatches->getMatches($intYear, $intWeek, $arrTeams, true, $intLimit,true);
 
 	if(isset($arrMatches) && is_array($arrMatches) && count($arrMatches) > 0) {
 		
