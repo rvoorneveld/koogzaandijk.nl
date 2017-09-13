@@ -107,7 +107,7 @@ class ClubpluginController extends KZ_Controller_Action
 		$objModelNews			= new KZ_Models_News();
 
 		// Get Matches
-		$arrMatches				= $objModelMatches->getMatches($this->year, $this->week, false, true, false);
+		$arrMatches				= $objModelMatches->getMatches($this->year, $this->week, false, true, false, true);
 		
 		// Get Latest News
 		$arrLatestNews			= $objModelNews->getLatestNews($intMaxItems);
