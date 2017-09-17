@@ -73,8 +73,6 @@ class Admin_MatchesController extends KZ_Controller_Action
     		$arrPostData		= $this->_getAllParams();
     		
     		// Set Post Variables
-    		$intTeamHomeScore	= ((isset($arrPostData['team_home_score']) && ! empty($arrPostData['team_home_score'])) ? (int)$arrPostData['team_home_score'] : NULL);
-    		$intTeamAwayScore	= ((isset($arrPostData['team_away_score']) && ! empty($arrPostData['team_away_score'])) ? (int)$arrPostData['team_away_score'] : NULL);
     		$strDate			= $arrPostData['date'];
     		$strTime			= $arrPostData['time'];
     		$strTimeDeparture	= $arrPostData['time_departure'];
@@ -93,8 +91,8 @@ class Admin_MatchesController extends KZ_Controller_Action
 	    			'time'				=> $strTime,
 	    			'time_departure'	=> $strTimeDeparture,
 	    			'officials'			=> $strOfficials,
-    				'team_home_score'	=> $intTeamHomeScore,
-    				'team_away_score'	=> $intTeamAwayScore
+    				'team_home_score'	=> $this->_validateScore($arrPostData['team_home_score']),
+    				'team_away_score'	=> $this->_validateScore($arrPostData['team_away_score'])
     			);
     			
     			// Update The Data
@@ -428,6 +426,22 @@ class Admin_MatchesController extends KZ_Controller_Action
 		</tr>
     	*/
     	
+    }
+
+    private function _validateScore($score = null){
+
+        switch($score) {
+            case 'c':
+                return 'c';
+                break;
+            case $score <= 99:
+                return (int)$score;
+                break;
+            default:
+                return null;
+                break;
+        }
+
     }
 	
 }
