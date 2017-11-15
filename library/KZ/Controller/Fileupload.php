@@ -1,243 +1,257 @@
 <?php
 class KZ_Controller_Fileupload
 {
-    /**
-     * Function for Handeling all File Uploads
-     *
-     * @param $strUploadDirectory
-     * @param array $arrAllowedFileTypes
-     * @param bool $booKeepFilename
-     * @param bool $booResizeImage
-     * @param bool $booCreateThumbnail
-     * @return string
-     */
-    public function doFileUpload($strUploadDirectory, $arrAllowedFileTypes = array(), $booKeepFilename = true, $booResizeImage = false, $booCreateThumbnail = false)
-    {
-        // Get Uploaded file
-        $objUpload 				= new Zend_File_Transfer_Adapter_Http();
+	/**
+	 * Function for Handeling all File Uploads
+	 *
+	 * @param $sesFileData
+	 * @param array $arrAllowedFileTypes
+	 * @param bool $booKeepFilename
+	 * @param bool $booResizeImage
+	 * @param bool $booCreateThumbnail
+	 * @return string
+	 */
+	public function doFileUpload($sesFileData, $arrAllowedFileTypes = array(), $booKeepFilename = true, $booResizeImage = false, $booCreateThumbnail = false)
+	{
 
-        // Set destination
-        $objUpload->setDestination($strUploadDirectory);
+		$x =1;
+		// Get the Starting Location and Selected folder
+		if(is_object($sesFileData) && isset($sesFileData->startlocation)) {
+			$strStartLocation			= $sesFileData->startlocation;
+			$strCurrentFolder			= ((isset($sesFileData->folder) && $sesFileData->folder != '') ? $sesFileData->folder : '');
 
-        // Returns the sizes from all files as array if more than one file was uploaded
-        $objFile 				= $objUpload->getFileInfo();
-        $strImgName				= $objFile['file']['name'];
+			// Set the Upload Directory
+			$strUploadDirectory			= $_SERVER['DOCUMENT_ROOT'].$strStartLocation.'/'.$strCurrentFolder;
+			if($strCurrentFolder != '') {
+				$strUploadDirectory		= $strUploadDirectory.'/';
+			}
+		} else {
+			$strUploadDirectory			= $_SERVER['DOCUMENT_ROOT'].$sesFileData;
+		}
 
-        // Find and replace all unwanted chars from the filename
-        $objFormatHelper        = new KZ_View_Helper_Format();
-        $strCleanFileName       = $objFormatHelper->format($strImgName, null, 'folder');
+		// Get Uploaded file
+		$objUpload 				= new Zend_File_Transfer_Adapter_Http();
 
-        // Set the New Clean filename
-        $objUpload->addFilter(
-            'Rename',
-            array(
-                'target'    => $strUploadDirectory.$strCleanFileName,
-                'overwrite' => false
-            )
-        );
+		// Set destination
+		$objUpload->setDestination($strUploadDirectory);
 
-        // Set Default values
-        $arrImageDimensions     = array();
-        $strMD5HashLocation     = $strCleanFileName;
+		// Returns the sizes from all files as array if more than one file was uploaded
+		$objFile 				= $objUpload->getFileInfo();
+		$strImgName				= $objFile['file']['name'];
 
-        // Get file extention
-        $arrUploadFileData      = explode('.', $objFile['file']['name']);
-        $strFileExtention 		= end($arrUploadFileData);
-        $strFileExtention       = strtolower($strFileExtention);
+		// Find and replace all unwanted chars from the filename
+//	    $objFormatHelper        = new Admin_View_Helper_Format();
+//	    $strCleanFileName       = $objFormatHelper->format($strImgName, null, 'folder');
+		$strCleanFileName       = $strImgName;
 
-        // Check for Video Upload, if so no thumb and resizing needed
-        if($strFileExtention == 'mp4') {
-            $booResizeImage     = false;
-            $booCreateThumbnail = false;
-        }
+		// Set the New Clean filename
+		$objUpload->addFilter(
+			'Rename',
+			array(
+				'target'    => $strUploadDirectory.$strCleanFileName,
+				'overwrite' => false
+			)
+		);
 
-        // Do the Upload if there are no file restrictions or fileextension is in allowed files
-        if(empty($arrAllowedFileTypes) || in_array($strFileExtention, $arrAllowedFileTypes)) {
-            $arrFullMimetypeList = $this->_getMimetypeList();
-            $arrValidMimetypeList = [];
-            foreach ($arrAllowedFileTypes as $strExtension) {
-                if (!isset($arrFullMimetypeList[$strExtension])) {
-                    continue;
-                }
-                $arrValidMimetypeList[$strExtension] = $arrFullMimetypeList[$strExtension];
-            }
+		// Set Default values
+		$arrImageDimensions     = array();
+		$strMD5HashLocation     = $strCleanFileName;
 
-            if (!empty($arrValidMimetypeList)) {
-                $objUpload->addValidator(new Zend_Validate_File_MimeType($arrValidMimetypeList));
-            }
+		// Get file extention
+		$arrUploadFileData      = explode('.', $objFile['file']['name']);
+		$strFileExtention 		= end($arrUploadFileData);
+		$strFileExtention       = strtolower($strFileExtention);
 
-            // Check if we need to rename the filename
-            if($booKeepFilename === false) {
+		// Do the Upload if there are no file restrictions or fileextension is in allowed files
+		if(empty($arrAllowedFileTypes) || in_array($strFileExtention, $arrAllowedFileTypes)) {
+			$arrFullMimetypeList = $this->_getMimetypeList();
+			$arrValidMimetypeList = [];
+			foreach ($arrAllowedFileTypes as $strExtension) {
+				if (!isset($arrFullMimetypeList[$strExtension])) {
+					continue;
+				}
+				$arrValidMimetypeList[$strExtension] = $arrFullMimetypeList[$strExtension];
+			}
 
-                // Check if file with the same name already exists in upload destination
-                if(file_exists($strUploadDirectory.$strCleanFileName)) {
+			if (!empty($arrValidMimetypeList)) {
+				$objUpload->addValidator(new Zend_Validate_File_MimeType($arrValidMimetypeList));
+			}
 
-                    // Set file name
-                    $strFileName 	    = str_replace('.'.$strFileExtention, '', $strCleanFileName);
+			// Check if we need to rename the filename
+			if($booKeepFilename === false) {
 
-                    // Check for multiple version of the same filename
-                    $arrFilesSameName   = $this->checkFilenameInDir($strFileName, $strFileExtention, $strUploadDirectory);
-                    if(!empty($arrFilesSameName)) {
-                        // Only 1 file with the Same name, so add -2 to the Filename
-                        if(count($arrFilesSameName) == 1) {
-                            $strCleanFileName     = $strFileName.'-2.'.$strFileExtention;
-                        } else {
-                            $intFileNumber  = 1;
-                            foreach($arrFilesSameName as $intKey => $strCurrentFileName) {
-                                // Set file name
-                                $strSameFileName 	= str_replace('.'.$strFileExtention, '', $strCurrentFileName);
-                                $arrFileValues      = explode('-', $strSameFileName);
-                                if(!empty($arrFileValues) && count($arrFileValues) > 1) {
-                                    $intCurrentFileNumber       = end($arrFileValues);
-                                    if($intCurrentFileNumber > $intFileNumber) {
-                                        $intFileNumber      = $intCurrentFileNumber;
-                                    }
-                                }
-                            }
+				// Check if file with the same name already exists in upload destination
+				if(file_exists($strUploadDirectory.$strCleanFileName)) {
 
-                            // Set the new filename
-                            $strCleanFileName     = $strFileName.'-'.($intFileNumber + 1).'.'.$strFileExtention;
-                        }
-                    }
+					// Set file name
+					$strFileName 	    = str_replace('.'.$strFileExtention, '', $strCleanFileName);
 
-                }
+					// Check for multiple version of the same filename
+					$arrFilesSameName   = $this->checkFilenameInDir($strFileName, $strFileExtention, $strUploadDirectory);
+					if(!empty($arrFilesSameName)) {
+						// Only 1 file with the Same name, so add -2 to the Filename
+						if(count($arrFilesSameName) == 1) {
+							$strCleanFileName     = $strFileName.'-2.'.$strFileExtention;
+						} else {
+							$intFileNumber  = 1;
+							foreach($arrFilesSameName as $intKey => $strCurrentFileName) {
+								// Set file name
+								$strSameFileName 	= str_replace('.'.$strFileExtention, '', $strCurrentFileName);
+								$arrFileValues      = explode('-', $strSameFileName);
+								if(!empty($arrFileValues) && count($arrFileValues) > 1) {
+									$intCurrentFileNumber       = end($arrFileValues);
+									if($intCurrentFileNumber > $intFileNumber) {
+										$intFileNumber      = $intCurrentFileNumber;
+									}
+								}
+							}
 
-                // Set the New filename
-                $objUpload->addFilter(
-                    'Rename',
-                    array(
-                        'target'    => $strUploadDirectory.$strCleanFileName,
-                        'overwrite' => false
-                    )
-                );
-            } else {
+							// Set the new filename
+							$strCleanFileName     = $strFileName.'-'.($intFileNumber + 1).'.'.$strFileExtention;
+						}
+					}
 
-                // Check if file with the same name already exists in upload destination
-                if(file_exists($strUploadDirectory.$strCleanFileName)) {
-                    unlink($strUploadDirectory.$strCleanFileName);
-                }
+				}
 
-            }
+				// Set the New filename
+				$objUpload->addFilter(
+					'Rename',
+					array(
+						'target'    => $strUploadDirectory.$strCleanFileName,
+						'overwrite' => false
+					)
+				);
+			} else {
 
-            // Check if we need to Resize the image
-            if($booResizeImage === true) {
+				// Check if file with the same name already exists in upload destination
+				if(file_exists($strUploadDirectory.$strCleanFileName)) {
+					unlink($strUploadDirectory.$strCleanFileName);
+				}
 
-                // Get the Uploaded file Dimensions
-                $arrImageDimensions		= getimagesize($objFile['file']['tmp_name']);
-                $intFileWidth			= $arrImageDimensions[0];
-                $intFileHeight			= $arrImageDimensions[1];
+			}
 
-                // Check for landscape or portrait
-                if($intFileWidth > $intFileHeight) {
-                    $strImageStyle		= 'landscape';
-                } elseif($intFileWidth < $intFileHeight) {
-                    $strImageStyle		= 'portrait';
-                } else {
-                    $strImageStyle		= 'square';
-                }
+			// Check if we need to Resize the image
+			if($booResizeImage === true) {
 
-                // Do the Resize if needed
-                switch($strImageStyle) {
-                    case 'square':
-                        // Set the max Image dimensions
-                        $intMaxWidth		= '1600';
-                        $intMaxHeight		= $intMaxWidth;
-                        if($intFileWidth > $intMaxWidth) {
-                            // Set the Resize
-                            $objUpload->addFilter(new KZ_Filter_File_Resize([
-                                'width' 		=> $intMaxWidth,
-                                'height'		=> $intMaxHeight,
-                                'keepRatio'		=> false,
-                            ]));
-                        }
-                        break;
+				// Get the Uploaded file Dimensions
+				$arrImageDimensions		= getimagesize($objFile['file']['tmp_name']);
+				$intFileWidth			= $arrImageDimensions[0];
+				$intFileHeight			= $arrImageDimensions[1];
 
-                    case 'landscape':
-                        // Set the max Image dimensions
-                        $intMaxWidth		= '1600';
-                        $intMaxHeight		= (($intMaxWidth / 4) * 3);
-                        if($intFileWidth > $intMaxWidth) {
-                            // Set the Resize
-                            $objUpload->addFilter(new KZ_Filter_File_Resize([
-                                'width' 		=> $intMaxWidth,
-                                'height'		=> $intMaxHeight,
-                                'keepRatio'		=> true
-                            ]));
-                        }
-                        break;
+				// Check for landscape or portrait
+				if($intFileWidth > $intFileHeight) {
+					$strImageStyle		= 'landscape';
+				} elseif($intFileWidth < $intFileHeight) {
+					$strImageStyle		= 'portrait';
+				} else {
+					$strImageStyle		= 'square';
+				}
 
-                    case 'portrait':
-                        // Set the max Image dimensions
-                        $intMaxWidth		= '1200';
-                        $intMaxHeight		= (($intMaxWidth / 3) * 4);
-                        if($intFileWidth > $intMaxWidth) {
-                            $objUpload->addFilter(new KZ_Filter_File_Resize([
-                                'width' 		=> $intMaxWidth,
-                                'height'		=> $intMaxHeight,
-                                'keepRatio'		=> true
-                            ]));
-                        }
+				// Do the Resize if needed
+				switch($strImageStyle) {
+					case 'square':
+						// Set the max Image dimensions
+						$intMaxWidth		= '1200';
+						$intMaxHeight		= $intMaxWidth;
+						if($intFileWidth > $intMaxWidth) {
+							// Set the Resize
+							$objUpload->addFilter(
+								new Admin_Filter_File_Resize([
+									'width' => $intMaxWidth,
+									'height' => floor($intMaxHeight),
+									'keepRatio' => false,
+								])
+							);
+						}
+						break;
 
-                        break;
-                }
-            }
+					case 'landscape':
+						// Set the max Image dimensions
+						$intMaxWidth		= '1200';
+						$intMaxHeight		= (($intMaxWidth / 4) * 3);
+						if($intFileWidth > $intMaxWidth) {
+							// Set the Resize
+							$objUpload->addFilter(
+								new Admin_Filter_File_Resize([
+									'width' => $intMaxWidth,
+									'height' => floor($intMaxHeight),
+									'keepRatio' => true,
+								])
+							);
+						}
+						break;
 
-            // Do the Upload
-            if($objUpload->isValid()) {
-                try {
-                    // upload received file(s)
-                    $objUpload->receive();
+					case 'portrait':
+						// Set the max Image dimensions
+						$intMaxWidth		= '1200';
+						$intMaxHeight		= (($intMaxWidth / 3) * 4);
+						if($intFileWidth > $intMaxWidth) {
+							$objUpload->addFilter(
+								new Admin_Filter_File_Resize([
+									'width' => floor($intMaxWidth),
+									'height' => $intMaxHeight,
+									'keepRatio' => true,
+								])
+							);
+						}
 
-                    if($booCreateThumbnail === true) {
+						break;
+				}
+			}
 
-                        // Get the Config
-                        $objConfig					= Zend_Registry::get('Zend_Config');
+			// Do the Upload
+			if($objUpload->isValid()) {
+				try {
+					// upload received file(s)
+					$objUpload->receive();
 
-                        // Set the Admin Thumbnail upload Folder
-                        $strThumbUploadDirectory	= str_replace('/upload/', '/thumbs/', $strUploadDirectory);
+					if($booCreateThumbnail === true) {
 
-                        // Check if image thumb upload dir exists
-                        if(!is_dir($strThumbUploadDirectory)) {
-                            mkdir($strThumbUploadDirectory,0755,true);
-                        }
+						// Set the Admin Thumbnail upload Folder
+						$strThumbUploadDirectory	= str_replace('/upload/images/', '/thumbs/', $strUploadDirectory);
 
-                        // Returns the sizes from all files as array if more than one file was uploaded
-                        $objThumbnailFile 		= $objUpload->getFileInfo();
+						// Check if image thumb upload dir exists
+						if(!is_dir($strThumbUploadDirectory)) {
+							mkdir($strThumbUploadDirectory);
+						}
 
-                        // Get file extention
-                        // Get file extention
-                        $arrUploadFileData      = explode('.', $objThumbnailFile['file']['name']);
-                        $strFileExtention 		= end($arrUploadFileData);
-                        $strFileExtention       = strtolower($strFileExtention);
+						// Returns the sizes from all files as array if more than one file was uploaded
+						$objThumbnailFile 		= $objUpload->getFileInfo();
 
-                        // Do the Upload if there are no file restrictions or fileextension is in allowed files
-                        if(empty($arrAllowedFileTypes) || in_array($strFileExtention, $arrAllowedFileTypes)) {
+						// Get file extention
+						// Get file extention
+						$arrUploadFileData      = explode('.', $objThumbnailFile['file']['name']);
+						$strFileExtention 		= end($arrUploadFileData);
+						$strFileExtention       = strtolower($strFileExtention);
 
-                            // Set the Filename
-                            $strTempFilename		= $objThumbnailFile['file']['tmp_name'];
-                            $strFilename			= $strThumbUploadDirectory.'/'.$strCleanFileName;
+						// Do the Upload if there are no file restrictions or fileextension is in allowed files
+						if(empty($arrAllowedFileTypes) || in_array($strFileExtention, $arrAllowedFileTypes)) {
 
-                            // Create the Thumbnail
-                            self::createThumbnail($strTempFilename, $strFilename);
-                        }
-                    }
-                } catch (Zend_File_Transfer_Exception $e) {
-                    $e->getMessage();
-                }
-            }
-        }
+							// Set the Filename
+							$strTempFilename		= $objThumbnailFile['file']['tmp_name'];
+							$strFilename			= $strThumbUploadDirectory.$strCleanFileName;
 
-        // Add a return message
-        return json_encode(
-            array(
-                'filename' 		    => $strCleanFileName,
-                'image_name'		=> $strMD5HashLocation,
-                'image_location'    => $objUpload->getFileName(),
-                'dimensions'		=> $arrImageDimensions
-            )
-        );
+							// Create the Thumbnail
+							self::createThumbnail($strTempFilename, $strFilename);
+						}
+					}
+				} catch (Zend_File_Transfer_Exception $e) {
+					$e->getMessage();
+				}
+			}
+		}
 
-    }
+		// Add a return message
+		return json_encode(
+			array(
+				'filename' 		    => $strCleanFileName,
+				'image_name'		=> $strMD5HashLocation,
+				'image_location'    => $objUpload->getFileName(),
+				'dimensions'		=> $arrImageDimensions
+			)
+		);
+
+	}
 
     /**
      * Function for creating the Image Thumbnails

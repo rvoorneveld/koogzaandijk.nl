@@ -92,7 +92,8 @@ $strPostSize = $this->maxpost;
 
         // Set the Active folder based on the Image Upload Session
         setActiveFolder('.folders', '<?php echo $this->currentfolder; ?>');
-        var maxqueuesize = <?php echo substr($this->maxpost, 0, -1) * 1024 * 1024; ?>,
+
+        var maxqueuesize = <?php echo $this->maxqueuesize; ?>,
             $plupload = jQuery('.plupload');
 
         if($plupload.length > 0 ) {

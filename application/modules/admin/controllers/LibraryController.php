@@ -123,8 +123,9 @@ class Admin_LibraryController extends KZ_Controller_Action {
 		if (!is_dir($strStartLocation)) {
 			mkdir($strStartLocation);
 		}
+		// Add the Starting Location and Fie location to the Session
+		$sesImageUpload->startlocation	= $this->strUploadDir;
 
-		$sesImageUpload->startlocation = $this->strUploadDir;
 		$strFileLocation = $this->strUploadDir;
 		$strThumbLocation = $this->strThumbDir.'/';
 
@@ -173,10 +174,10 @@ class Admin_LibraryController extends KZ_Controller_Action {
 		$intIniMaxUpload = ini_get('upload_max_filesize'); // File upload uses POST
 		$intIniMaxPost = ini_get('post_max_size');
 
-		// Send to view
 		$this->view->assign([
-			'maxupload' => str_replace('M','mb',$intIniMaxUpload),
-			'maxpost' => str_replace('M','mb',$intIniMaxPost),
+			'maxupload' => str_replace('M', 'mb', $intIniMaxUpload),
+			'maxpost' => str_replace('M', 'mb', $intIniMaxPost),
+			'maxqueuesize' => (int)str_replace('M', '', $intIniMaxPost) * 1024 * 1024,
 			'directories' => $arrDirectories,
 			'images' => $arrDirectoryFiles,
 			'imageslocation' => $strFileLocation,
@@ -206,7 +207,7 @@ class Admin_LibraryController extends KZ_Controller_Action {
 			$arrAllowedFileTypes = ['jpg','gif','png','jpeg'];
 
 			// Do the Upload
-			$objControllerUpload = $this->objControllerUpload->doFileUpload($sesImageUpload,$arrAllowedFileTypes,false,true);
+			$objControllerUpload = $this->objControllerUpload->doFileUpload($sesImageUpload, $arrAllowedFileTypes,false,true);
 
 		}
 
