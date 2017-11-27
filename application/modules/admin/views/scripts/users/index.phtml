@@ -29,7 +29,7 @@
 					<?php foreach($this->users as $arrUserData) : ?>
 						<tr>
 							<td><?php echo $arrUserData['user_id']; ?></td>
-							<td><a href="/admin/settings/usersedit/id/<?php echo $arrUserData['user_id']; ?>"><strong><?php echo $arrUserData['name']; ?></strong></a></td>
+							<td><a href="/admin/users/edit/id/<?php echo $arrUserData['user_id']; ?>"><strong><?php echo $arrUserData['name']; ?></strong></a></td>
 							<td><?php echo $this->translate($arrUserData['authlevel']); ?></td>
 							<td><?php echo $arrUserData['email']; ?></td>
 							<?php if($arrUserData['status'] == 1) { ?>
