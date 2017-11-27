@@ -373,16 +373,16 @@ class Admin_BlogController extends KZ_Controller_Action
 
                 $arrBlogger = [
                     'name' => $arrDefaults['name'],
-                    'url' => '',
+                    'slug' => KZ_Controller_Action_Helper_Slug::slug($arrDefaults['name']),
                     'photo' => $arrDefaults['photo'],
-                    'status' => $arrDefaults['status']
+                    'status' => $arrDefaults['status'],
                 ];
 
                 $intInsertId = $this->objModelBlog->insertBlogger($arrBlogger);
 
                 if(isset($intInsertId) && is_numeric($intInsertId)) {
                     $strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully added blogger')));
-                    $this->_redirect('/admin/blog/blogger/feedback/'.$strFeedback.'/#tab0');
+                    $this->_redirect('/admin/blog/bloggers/feedback/'.$strFeedback.'/#tab0');
                 } else {
                     // Return feedback
                     $this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to add the blogger');
@@ -405,7 +405,7 @@ class Admin_BlogController extends KZ_Controller_Action
         if(! isset($arrParams['id'])) {
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Missing param for id')));
-            $this->_redirect('/admin/blog/blogger/feedback/'.$strSerializedFeedback.'/#tab0/');
+            $this->_redirect('/admin/blog/bloggers/feedback/'.$strSerializedFeedback.'/#tab0/');
         }
 
         // Get Blogger
@@ -415,7 +415,7 @@ class Admin_BlogController extends KZ_Controller_Action
         if(isset($arrBlogger) && count($arrBlogger) <= 0) {
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Unable to find blogger')));
-            $this->_redirect('/admin/blog/blogger/feedback/'.$strSerializedFeedback.'/#tab0/');
+            $this->_redirect('/admin/blog/bloggers/feedback/'.$strSerializedFeedback.'/#tab0/');
         }
 
         // Set Defaults
@@ -441,16 +441,15 @@ class Admin_BlogController extends KZ_Controller_Action
 
                 $arrBlogger = [
                     'name' => $arrDefaults['name'],
-                    'url' => '',
                     'photo' => $arrDefaults['photo'],
-                    'status' => $arrDefaults['status']
+                    'status' => $arrDefaults['status'],
                 ];
 
                 $intUpdateID = $this->objModelBlog->updateBlogger($arrDefaults['id'],$arrBlogger);
 
                 if(isset($intUpdateID) && is_numeric($intUpdateID)) {
                     $strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully updated blogger')));
-                    $this->_redirect('/admin/blog/blogger/feedback/'.$strFeedback.'/#tab0');
+                    $this->_redirect('/admin/blog/bloggers/feedback/'.$strFeedback.'/#tab0');
                 } else {
                     // Return feedback
                     $this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to update the blogger');
@@ -465,7 +464,7 @@ class Admin_BlogController extends KZ_Controller_Action
 
     }
 
-    public function bloggerDeleteAction()
+    public function bloggerdeleteAction()
     {
         // Get All Params
         $arrParams = $this->_getAllParams();
@@ -474,7 +473,7 @@ class Admin_BlogController extends KZ_Controller_Action
         if(! isset($arrParams['id'])) {
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Missing param for id')));
-            $this->_redirect('/admin/blog/blogger/feedback/'.$strSerializedFeedback.'/#tab0/');
+            $this->_redirect('/admin/blog/bloggers/feedback/'.$strSerializedFeedback.'/#tab0/');
         }
 
         // Get Blogger
@@ -484,7 +483,7 @@ class Admin_BlogController extends KZ_Controller_Action
         if(isset($arrBlogger) && count($arrBlogger) <= 0) {
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(array('type' => 'error', 'message' => 'Unable to find blogger')));
-            $this->_redirect('/admin/blog/blogger/feedback/'.$strSerializedFeedback.'/#tab0/');
+            $this->_redirect('/admin/blog/bloggers/feedback/'.$strSerializedFeedback.'/#tab0/');
         }
 
         // Set Defaults
