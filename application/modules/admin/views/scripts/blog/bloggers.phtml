@@ -28,14 +28,17 @@
 
     <div id="tab1" class="tab">
 
-        <form name="addBloggerForm" method="post" action="#tab1">
+        <form name="addBloggerForm" id="addBloggerForm" method="post" action="#tab1">
             <dl>
                 <dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
                 <dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->defaults['name']; ?>" /></dd>
             </dl>
             <dl>
                 <dt><label class="label" for="photo"><?php echo $this->translate('Photo'); ?></label></dt>
-                <dd><input type="text" class="small" id="photo" name="photo" value="<?php echo $this->defaults['photo']; ?>" /></dd>
+                <dd>
+                    <input type="text" class="small" id="photo" name="photo" value="<?php echo $this->defaults['photo']; ?>" />
+                    <a class="button" href="javascript:mcImageManager.open('addBloggerForm','photo','','',{path : '../../../../../upload/bloggers', remember_last_path : true});"><?php echo $this->translate('Select image'); ?></a>
+                </dd>
             </dl>
             <dl>
                 <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>

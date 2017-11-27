@@ -4,14 +4,17 @@
 
 <section>
 
-    <form name="updateBloggerForm" method="post" action="">
+    <form name="updateBloggerForm" id="updateBloggerForm" method="post" action="">
         <dl>
             <dt width="200"><label class="label" for="name"><?php echo $this->translate('Name'); ?></label></dt>
             <dd width="*"><input type="text" class="small" id="name" name="name" value="<?php echo $this->defaults['name']; ?>" /></dd>
         </dl>
         <dl>
             <dt><label class="label" for="photo"><?php echo $this->translate('Photo'); ?></label></dt>
-            <dd><input type="text" class="small" id="photo" name="photo" value="<?php echo $this->defaults['photo']; ?>" /></dd>
+            <dd>
+                <input type="text" class="small" id="photo" name="photo" value="<?php echo $this->defaults['photo']; ?>" />
+                <a class="button" href="javascript:mcImageManager.open('updateBloggerForm','photo','','',{path : '../../../../../upload/bloggers', remember_last_path : true});"><?php echo $this->translate('Select image'); ?></a>
+            </dd>
         </dl>
         <dl>
             <dt><label class="label" for="status"><?php echo $this->translate('Status'); ?></label></dt>
