@@ -32,7 +32,7 @@ class Admin_UsersController extends KZ_Controller_Action
             $arrPostData['blogger_id']	= ((isset($arrPostData['blogger_id']) && ! empty($arrPostData['blogger_id'])) ? $arrPostData['blogger_id'] : NULL);
 
             // Check if User Group doesn't equal a blogger
-            if($arrPostData['user_group_id'] != 4) {
+            if($arrPostData['user_group_id'] !== '4') {
                 $arrPostData['blogger_id'] = NULL;
             }
 
