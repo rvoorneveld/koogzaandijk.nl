@@ -232,6 +232,7 @@ section[role=navigation] header h1 {
 #main-nav ul li a.pages { background-image:url('/assets/admin/image/icons/icon_nav_pages.png'); }
 #main-nav ul li a.news { background-image:url('/assets/admin/image/icons/icon_nav_news.png'); }
 #main-nav ul li a.agenda { background-image:url('/assets/admin/image/icons/icon_nav_agenda.png'); }
+#main-nav ul li a.blog { background-image:url('/assets/admin/image/icons/icon_notification_information.png'); }
 #main-nav ul li a.widgets { background-image:url('/assets/admin/image/icons/icon_nav_widgets.png'); }
 #main-nav ul li a.matches { background-image:url('/assets/admin/image/icons/icon_nav_matches.png'); }
 #main-nav ul li a.library { background-image:url('/assets/admin/image/icons/icon_nav_library.png'); }
