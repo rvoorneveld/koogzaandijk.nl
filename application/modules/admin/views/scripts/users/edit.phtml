@@ -39,7 +39,8 @@
                     <?php
                     if (isset($this->bloggers) && is_array($this->bloggers)) {
                         foreach ($this->bloggers as $arrBlogger) {
-                            echo '<option value="' . $arrBlogger['id'] . '">' . $arrBlogger['name'] . '</option>';
+                            $strSelected = $arrBlogger['id'] === $this->user['blogger_id'] ? ' selected="selected"' : '';
+                            echo '<option value="' . $arrBlogger['id'] . '"'.$strSelected.'>' . $arrBlogger['name'] . '</option>';
                         }
                     }
                     ?>
