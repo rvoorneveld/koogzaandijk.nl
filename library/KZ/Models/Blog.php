@@ -63,11 +63,11 @@ class KZ_Models_Blog extends KZ_Controller_Table
 
     public function getBlogItemIdsByBloggerId($id)
     {
-        $strQuery = $this->select()
-                    ->from('blog_item',['id'])
+        $objQuery = $this->select()
+                    ->from('blog_item', ['id',])
                     ->setIntegrityCheck(false)
-                    ->where('id = ?',$id);
-        $arrData = $this->returnData($strQuery);
+                    ->where('blogger_id = ?',$id);
+        $arrData = $this->returnData($objQuery);
 
         if(! empty($arrData) && is_array($arrData)) {
             $arrReturn = [];
