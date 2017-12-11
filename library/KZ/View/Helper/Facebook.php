@@ -1,51 +1,45 @@
 <?php
+
 class KZ_View_Helper_Facebook extends Zend_View_Helper_Abstract
 {
-	
-	public function facebook($strFacebookFeed)
-	{
-		$strFacebookContentJson = file_get_contents($strFacebookFeed);
-		$objFacebookContent     = json_decode($strFacebookContentJson);
 
-		if(isset($objFacebookContent) && is_object($objFacebookContent)) {
-			
-			echo '<ul class="facebook">';
-			
-			$intTotal = 1;
+    public function facebook($strFacebookFeed)
+    {
+        $strFacebookContentJson = file_get_contents($strFacebookFeed);
+        $objFacebookContent = json_decode($strFacebookContentJson);
 
-			foreach($objFacebookContent->feed->data as $intPostKey => $arrPost) {
+        if (false === empty($objFacebookContent) && true === is_object($objFacebookContent)) {
+            echo '<ul class="facebook">';
 
-				if(isset($arrPost->message) && $arrPost->message != ' ' && $intTotal <= 5) {
-				
-					$intTotal++;
+            $intTotal = 1;
 
-					// Set Created Date Object
-					$objCreatedDate     = new Zend_Date($arrPost->created_time);
-					$intCurrentMonth    = $objCreatedDate->toString('M');
-					$strCurrentMonth    = $this->view->date()->getMonth($intCurrentMonth,false,true);
+            foreach ($objFacebookContent->feed->data as $intPostKey => $arrPost) {
+                if (false === empty($arrPost->message) && $intTotal <= 5) {
+                    $intTotal++;
 
-				echo '	<li>
+                    // Set Created Date Object
+                    $objCreatedDate = new Zend_Date($arrPost->created_time);
+                    $intCurrentMonth = $objCreatedDate->toString('M');
+                    $strCurrentMonth = $this->view->date()->getMonth($intCurrentMonth, false, true);
+
+                    echo '	<li>
 							<span class="date">'.$this->view->translate($objCreatedDate->toString('EE')).' '.$objCreatedDate->toString('dd').' '.$strCurrentMonth.' '.$objCreatedDate->toString('yyyy').' om '.$objCreatedDate->toString('HH:mm').' uur</span>';
-				if(isset($arrPost->link)) {
-					echo '<a href="'.$arrPost->link.'" title="'.$arrPost->message.'" target="_blank">';
-				}
+                    if (false === empty($arrPost->link)) {
+                        echo '<a href="'.$arrPost->link.'" title="'.$arrPost->message.'" target="_blank">';
+                    }
 
-					echo $arrPost->message;
+                    echo $arrPost->message;
 
-				if(isset($arrPost->link)) {
-					echo '</a>';
-				}
+                    if (false === emtpy($arrPost->link)) {
+                        echo '</a>';
+                    }
 
-				echo '</li>';
-				
-				}
+                    echo '</li>';
+                }
+            }
 
-			}
-			
-			echo '</ul>';
-			
-		}
-		
-	}
-	
+            echo '</ul>';
+        }
+    }
+
 }
