@@ -115,7 +115,32 @@ class KZ_Models_Matches extends KZ_Controller_Table
 			$strQuery->limit($intLimit);
 		}
 
-        return $this->returnData($strQuery);
+        $arrData = $this->returnData($strQuery);
+
+		if (false === empty($arrData) && true === is_array($arrData)) {
+
+            $arrAssoc	        = array();
+            $arrAssocSeniors    = array();
+
+            foreach($arrData as $intMatchKey => $arrMatch) {
+
+                $strTeam				= trim(str_replace('KZ/Hiltex','',((strstr($arrMatch['team_home_name'], 'KZ/Hiltex')) ? $arrMatch['team_home_name'] : $arrMatch['team_away_name'])));
+
+                if(is_numeric($strTeam)) {
+                    $arrAssocSeniors[$strTeam][]    = $arrMatch;
+                } else {
+                    $arrAssoc[$strTeam][]	        = $arrMatch;
+                }
+
+            }
+
+            ksort($arrAssocSeniors);
+            ksort($arrAssoc);
+
+            return array_merge($arrAssocSeniors, $arrAssoc);
+        }
+
+		return [];
 	}
 	
 	public function getDistinct($strColumn = 'year')

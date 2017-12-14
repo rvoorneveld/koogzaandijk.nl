@@ -42,7 +42,8 @@
 										</li>';
 								}
 								
-								foreach($this->matches as $strTeam => $arrMatch) {
+								foreach($this->matches as $strTeam => $arrMatchesByTeamThisWeek) {
+								    foreach($arrMatchesByTeamThisWeek as $arrMatch) {
 
                                     $strDay		= $this->date()->format($arrMatch['date'], 'EE');
                                     $strDate	= $this->date()->format($arrMatch['date'], 'dd.MM');
@@ -89,6 +90,7 @@
                                                 <span class="seperator">-</span>
                                                 <span class="team_away_name">'.$strTeamAwayName.'</span>
                                             </li>';
+                                    }
 
                                 }
 								

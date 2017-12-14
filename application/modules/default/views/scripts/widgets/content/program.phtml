@@ -12,10 +12,10 @@
 	$intYear		        = (int)$objDate->get(Zend_Date::YEAR_8601);
 	
 	// Set Teams array
-	//$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_9_teams']));
+	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_9_teams']));
 
 	// Do not load team specific data, load all teams by default and order by date
-	$arrTeams = false;
+//	$arrTeams = false;
 
 	// Set Limit to 10 on homepage
 	$intLimit = 10;
@@ -37,42 +37,43 @@
 					<span class="team_away_name">Uit</span>
 				</li>';
 		
-		foreach($arrMatches as $strTeam => $arrMatch) {
-			
-			$strDay = $this->date()->format($arrMatch['date'], 'EE');
+		foreach($arrMatches as $strTeam => $arrMatchesByTeamThisWeek) {
 
-			$strTeamHomeName = stripslashes($arrMatch['team_home_name']);
-			if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
-				if(strstr($strTeamHomeName, '/')) {
-					$arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
-					$arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
-					$intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
+		    foreach($arrMatchesByTeamThisWeek as $arrMatch) {
+                $strDay = $this->date()->format($arrMatch['date'], 'EE');
 
-					$strTeamHomeName	= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
-				}
-			}
-			$strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
+                $strTeamHomeName = stripslashes($arrMatch['team_home_name']);
+                if (!strstr($strTeamHomeName, 'KZ/Hiltex')) {
+                    if (strstr($strTeamHomeName, '/')) {
+                        $arrTeamHomeNameFirst = explode('/', $strTeamHomeName);
+                        $arrTeamHomeNameSecond = explode(' ', $strTeamHomeName);
+                        $intTotalTeamHomeNameCount = count($arrTeamHomeNameSecond);
 
-			$strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
-			if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
-				if(strstr($strTeamAwayName, '/')) {
-					$arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
-					$arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
-					$intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+                        $strTeamHomeName = $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount - 1];
+                    }
+                }
+                $strTeamHomeName = ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
 
-					$strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
-				}
-			}
-			$strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+                $strTeamAwayName = stripslashes($arrMatch['team_away_name']);
+                if (!strstr($strTeamAwayName, 'KZ/Hiltex')) {
+                    if (strstr($strTeamAwayName, '/')) {
+                        $arrTeamAwayNameFirst = explode('/', $strTeamAwayName);
+                        $arrTeamAwayNameSecond = explode(' ', $strTeamAwayName);
+                        $intTotalTeamAwayNameCount = count($arrTeamAwayNameSecond);
 
-			echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
-							<span class="time">'.$strDay.' '.$arrMatch['time'].'</span>
-							<span class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</span>
-							<span class="team_home_name">'.$strTeamHomeName.'</span>
-							<span class="seperator">-</span>
-							<span class="team_away_name">'.$strTeamAwayName.'</span>
-						</li>';
-			
+                        $strTeamAwayName = $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount - 1];
+                    }
+                }
+                $strTeamAwayName = ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
+
+                echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
+                                <span class="time">'.$strDay.' '.$arrMatch['time'].'</span>
+                                <span class="time_departure">'.(($arrMatch['time_departure'] == '') ? '-' : $arrMatch['time_departure']).'</span>
+                                <span class="team_home_name">'.$strTeamHomeName.'</span>
+                                <span class="seperator">-</span>
+                                <span class="team_away_name">'.$strTeamAwayName.'</span>
+                            </li>';
+            }
 		}
 		
 		echo '</ol>';

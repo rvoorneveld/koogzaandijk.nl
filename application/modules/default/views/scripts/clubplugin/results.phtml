@@ -27,55 +27,54 @@
 											<span class="team_away_name">Uit</span>
 										</li>';
 								
-								foreach($this->matches as $strTeam => $arrMatch) {
-										
-                                    // Set Default Team Names
-                                    $strTeamHomeName = stripslashes($arrMatch['team_home_name']);
-                                    $strTeamAwayName = stripslashes($arrMatch['team_away_name']);
+								foreach($this->matches as $strTeam => $arrMatchesByTeamThisWeek) {
+								    foreach($arrMatchesByTeamThisWeek as $arrMatch) {
+                                        // Set Default Team Names
+                                        $strTeamHomeName = stripslashes($arrMatch['team_home_name']);
+                                        $strTeamAwayName = stripslashes($arrMatch['team_away_name']);
 
-                                    // Check for Mobile
-                                    if($booIsMobile === true) {
+                                        // Check for Mobile
+                                        if ($booIsMobile === true) {
+                                            // Change Team Home Name
+                                            if (!strstr($strTeamHomeName, 'KZ/Hiltex')) {
+                                                if (strstr($strTeamHomeName, '/')) {
+                                                    $arrTeamHomeNameFirst = explode('/', $strTeamHomeName);
+                                                    $arrTeamHomeNameSecond = explode(' ', $strTeamHomeName);
+                                                    $intTotalTeamHomeNameCount = count($arrTeamHomeNameSecond);
 
-                                        // Change Team Home Name
-                                        if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
-                                            if(strstr($strTeamHomeName, '/')) {
-                                                $arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
-                                                $arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
-                                                $intTotalTeamHomeNameCount	= count($arrTeamHomeNameSecond);
-
-                                                $strTeamHomeName			= $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount-1];
+                                                    $strTeamHomeName = $arrTeamHomeNameFirst[0].' '.$arrTeamHomeNameSecond[$intTotalTeamHomeNameCount - 1];
+                                                }
                                             }
-                                        }
-                                        // Set Home Team Length
-                                        $strTeamHomeName	= substr($strTeamHomeName,0,12);
+                                            // Set Home Team Length
+                                            $strTeamHomeName = substr($strTeamHomeName, 0, 12);
 
-                                        // Change Team Away Name
-                                        if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
-                                            if(strstr($strTeamAwayName, '/')) {
-                                                $arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
-                                                $arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
-                                                $intTotalTeamAwayNameCount	= count($arrTeamAwayNameSecond);
+                                            // Change Team Away Name
+                                            if (!strstr($strTeamAwayName, 'KZ/Hiltex')) {
+                                                if (strstr($strTeamAwayName, '/')) {
+                                                    $arrTeamAwayNameFirst = explode('/', $strTeamAwayName);
+                                                    $arrTeamAwayNameSecond = explode(' ', $strTeamAwayName);
+                                                    $intTotalTeamAwayNameCount = count($arrTeamAwayNameSecond);
 
-                                                $strTeamAwayName	= $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount-1];
+                                                    $strTeamAwayName = $arrTeamAwayNameFirst[0].' '.$arrTeamAwayNameSecond[$intTotalTeamAwayNameCount - 1];
+                                                }
                                             }
+
+                                            // Set Away Team Length
+                                            $strTeamAwayName = substr($strTeamAwayName, 0, 12);
                                         }
 
-                                        // Set Away Team Length
-                                        $strTeamAwayName	= substr($strTeamAwayName,0,12);
-
+                                        echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
+                                                    <span class="team_home_name">
+                                                        '.$strTeamHomeName.'
+                                                        <span class="team_home_score">'.$arrMatch['team_home_score'].'</span>
+                                                    </span>
+                                                    <span class="seperator">-</span>
+                                                    <span class="team_away_name">
+                                                        <span class="team_away_score">'.$arrMatch['team_away_score'].'</span>
+                                                        '.$strTeamAwayName.'
+                                                    </span>
+                                                </li>';
                                     }
-
-                                    echo '	<li class="widget" rel="'.$arrMatch['match_id'].'">
-                                                <span class="team_home_name">
-                                                    '.$strTeamHomeName.'
-                                                    <span class="team_home_score">'.$arrMatch['team_home_score'].'</span>
-                                                </span>
-                                                <span class="seperator">-</span>
-                                                <span class="team_away_name">
-                                                    <span class="team_away_score">'.$arrMatch['team_away_score'].'</span>
-                                                    '.$strTeamAwayName.'
-                                                </span>
-                                            </li>';
 
                                 }
 								
