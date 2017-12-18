@@ -79,6 +79,8 @@ class GastenboekController extends KZ_Controller_Action
             }
         }
 
+        $booSuccess = false;
+
         // Check if we have POST data
         if (true === $this->getRequest()->isPost()) {
             // Get all POST data
@@ -86,16 +88,13 @@ class GastenboekController extends KZ_Controller_Action
 
             if (false === empty($arrPostParams['g-recaptcha-response'])) {
                 $arrResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$this->strGooglePrivateKey."&response=".$arrPostParams['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
-
                 if (false === empty($arrResponse) && true === is_array($arrResponse) && true === isset($arrResponse['success']) && true === $arrResponse['success']) {
-                    $booSuccess = false;
-
                     // Set Post Variables
                     $strName = $arrPostParams['guestbook_name'];
                     $strEmail = $arrPostParams['guestbook_email'];
                     $strMessage = $arrPostParams['guestbook_message'];
 
-                    if (false === empty($arrPostParams['guestbook_email']) && '' !== $arrPostParams['guestbook_email']) {
+                    if (false === empty($arrPostParams['guestbook_email'])) {
                         // Set the Model
                         $objModelGuestbook = new KZ_Models_Guestbook();
 
