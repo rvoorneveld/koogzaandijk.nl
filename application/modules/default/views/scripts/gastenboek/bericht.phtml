@@ -1,105 +1,57 @@
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('.button_guestbook_leavemessage').click(function() {
-			jQuery('.guestbookMessageForm').submit();
-		});
-	});
+    jQuery(document).ready(function() {
+        jQuery('.button_guestbook_leavemessage').click(function() {
+            jQuery('.guestbookMessageForm').submit();
+        });
+    });
 </script>
-<?php
-	$objModelResponsive	= new KZ_Controller_Action_Helper_Responsive();
-	$booIsMobile		= $objModelResponsive->isMobile();
-	
-	$booIsMobile		= true;
-	
-?>
 <div id="nextpage" class="zapp">
-	<div class="col full">
-		<div class="inner">
-		
-			<div class="table infobox">
-				<ul class="row">
-					<li class="cell large bg_kz_blue color_kz_white guestbook">
-						<h3 class="color_kz_white left">Gastenboek - Plaats bericht</h3>
-						<?php if($this->showsucces === true) { ?>
-						<span class="color_kz_white"><strong>Bedankt voor uw bijdrage.</strong><br>Uw bericht is in het gastenboek geplaatst.<br><br><a href="/gastenboek/" title="Keer terug naar het gastenboek" class="color_kz_yellow">&laquo; Keer terug naar het gastenboek</a></span>
-						<?php } else { ?>
-						<form name="guestbookMessageForm" class="guestbookMessageForm ketchup form-standard" method="post" action="">
+    <div class="col full">
+        <div class="inner">
 
-							<?php
-								if($this->showerror != '') {
-									echo '<span class="error">'.$this->showerror.'</span>';
-								}
-							?>
+            <div class="table infobox">
+                <ul class="row">
+                    <li class="cell large bg_kz_blue color_kz_white guestbook">
+                        <h3 class="color_kz_white left">Gastenboek - Plaats bericht</h3>
+                        <?php if ($this->showsucces === true) { ?>
+                            <span class="color_kz_white"><strong>Bedankt voor uw bijdrage.</strong><br>Uw bericht is in het gastenboek geplaatst.<br><br><a href="/gastenboek/" title="Keer terug naar het gastenboek" class="color_kz_yellow">&laquo; Keer terug naar het gastenboek</a></span>
+                        <?php } else { ?>
+                            <form name="guestbookMessageForm" class="guestbookMessageForm ketchup form-standard" method="post" action="">
 
-							<?php if($booIsMobile === true) { ?>
-							
-								<ol class="guestbook_form block-list">
-									<li>
-										<label for="guestbook_name">*Uw naam:</label>
-										<input type="text" name="guestbook_name" id="guestbook_name" value="<?php echo $this->guestbook_name; ?>" data-validate="validate(required)" />
-									</li>
-									<li>
-										<label for="guestbook_email">*Uw e-mailadres:</label>
-										<input type="text" name="guestbook_email" id="guestbook_email" value="<?php echo $this->guestbook_email; ?>" data-validate="validate(required,email)" />
-									</li>
-									<li>
-										<label for="guestbook_message">*Uw bericht:</label>
-										<textarea type="text" name="guestbook_message" id="guestbook_message" cols="45" rows="10" data-validate="validate(required)"><?php echo $this->guestbook_message; ?></textarea>
-									</li>
-									<li class="captcha">
-										<label for="captcha">*Verificatiecode:</label>
+                                <?php
+                                if ($this->showerror != '') {
+                                    echo '<span class="error">'.$this->showerror.'</span>';
+                                }
+                                ?>
+
+                                <ol class="guestbook_form block-list">
+                                    <li>
+                                        <label for="guestbook_name">*Uw naam:</label>
+                                        <input type="text" name="guestbook_name" id="guestbook_name" value="<?php echo $this->guestbook_name; ?>" data-validate="validate(required)"/>
+                                    </li>
+                                    <li>
+                                        <label for="guestbook_email">*Uw e-mailadres:</label>
+                                        <input type="text" name="guestbook_email" id="guestbook_email" value="<?php echo $this->guestbook_email; ?>" data-validate="validate(required,email)"/>
+                                    </li>
+                                    <li>
+                                        <label for="guestbook_message">*Uw bericht:</label>
+                                        <textarea type="text" name="guestbook_message" id="guestbook_message" cols="45" rows="10" data-validate="validate(required)"><?php echo $this->guestbook_message; ?></textarea>
+                                    </li>
+                                    <li class="captcha">
+                                        <label for="captcha">*Verificatie:</label>
                                         <div class="g-recaptcha" data-sitekey="<?php echo $this->google_recaptcha_sitekey; ?>"></div>
-									</li>
-									<li>
-										<a class="button_guestbook_leavemessage">Plaats mijn bericht</a>
-									</li>
-								</ol>
-								
-							<?php } else { ?>
+                                    </li>
+                                    <li>
+                                        <a class="button_guestbook_leavemessage">Plaats mijn bericht</a>
+                                    </li>
+                                </ol>
 
-								<table class="guestbook_form">
-									<tr>
-										<td>*Uw naam:</td>
-										<td><input type="text" name="guestbook_name" value="" data-validate="validate(required)" /></td>
-									</tr>
-									<tr>
-										<td>*Uw e-mailadres:</td>
-										<td><input type="text" name="guestbook_email" value="" data-validate="validate(required,email)" /></td>
-									</tr>
-									<tr>
-										<td>*Uw bericht:</td>
-										<td><textarea type="text" name="guestbook_message" cols="45" rows="10" data-validate="validate(required)"></textarea></td>
-									</tr>
-									<tr class="captcha">
-										<td valign="top">*Verificatiecode:</td>
-										<td><?php echo $this->captcha->render($this, null) ?></td>
-									</tr>
-									<tr>
-										<td>&nbsp;</td>
-										<td>
-											Vul de bovenstaande verificatiecode in:<br>
-											<input type="text" name="captcha" data-validate="validate(required)" />
-											<input type="hidden" name="cid" value="<?php echo $this->captcha->getId(); ?>">
-										</td>
-									</tr>
-									<tr>
-										<td>&nbsp;</td>
-									</tr>
-									<tr>
-										<td colspan="2">
-											<a class="button_guestbook_leavemessage">Plaats mijn bericht</a>
-										</td>
-									</tr>
-								</table>
-								
-							<?php } ?>
-								
-						</form>
-						<?php } ?>
-					</li>
-				</ul>
-			</div>
+                            </form>
+                        <?php } ?>
+                    </li>
+                </ul>
+            </div>
 
-		</div>
-	</div>	
+        </div>
+    </div>
 </div>
