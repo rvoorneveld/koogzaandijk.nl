@@ -35,7 +35,7 @@
 		<?php
 		
 			if(isset($this->matches) && is_array($this->matches) && count($this->matches) > 0) {
-				
+
 				echo '<table>
 						<tr>
 							<th>'.$this->translate('Game').'</th>
@@ -44,6 +44,12 @@
 						</tr>';
 				
 				foreach($this->matches as $arrMatch) {
+
+				    /*
+				     * @todo remove this fix
+				     */
+				    $arrMatch = $arrMatch[0];
+
                     echo '	<tr>
                                 <td>'.$arrMatch['team_home_name'].' - '.$arrMatch['team_away_name'].'</td>
                                 <td><input class="tiny" name="team_home_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_home_score'].'" /> - <input class="tiny" name="team_away_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_away_score'].'" /></td>
