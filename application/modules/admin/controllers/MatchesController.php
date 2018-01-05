@@ -127,8 +127,11 @@ class Admin_MatchesController extends KZ_Controller_Action
         // Get All Params
         $arrParams = $this->getAllParams();
 
+        // Set the Matches Model
+        $objModelMatches = new KZ_Models_Matches();
+
         // Get Distinct Years
-        $arrDistinctYears = ($objModelMatches = new KZ_Models_Matches())->getDistinct();
+        $arrDistinctYears = $objModelMatches->getDistinct();
 
         // Get Distinct Weeks
         $arrDistinctWeeks = $objModelMatches->getDistinct('week');
