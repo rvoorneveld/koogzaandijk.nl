@@ -156,7 +156,7 @@ class Admin_MatchesController extends KZ_Controller_Action
 
             // Loop through Post
             foreach ($arrPostParams as $strPostKey => $strPostValue) {
-                if (strstr($strPostKey, 'team_home_score_') || strstr($strPostKey, 'team_away_score_')|| strstr($strPostKey, 'time_departure_')) {
+                if (strstr($strPostKey, 'team_home_score_') || strstr($strPostKey, 'team_away_score_') || strstr($strPostKey, 'time_departure_')) {
                     if (false === empty($strPostValue)) {
                         // Explode Post Key
                         $arrPostKey = explode('_', $strPostKey);
@@ -172,6 +172,7 @@ class Admin_MatchesController extends KZ_Controller_Action
                         }
 
                         // Remove matches ID from array and create string
+                        array_pop($arrPostKey);
                         $strDatabaseKey = implode('_', $arrPostKey);
 
                         // Set Update Value
