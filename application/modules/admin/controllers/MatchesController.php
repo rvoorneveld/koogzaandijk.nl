@@ -40,7 +40,8 @@ class Admin_MatchesController extends KZ_Controller_Action
         }
 
         // Get Match
-        $arrMatch = $objModelMatches = (new KZ_Models_Matches())->getMatch($arrParams['id']);
+        $objModelMatches = new KZ_Models_Matches();
+        $arrMatch = $objModelMatches->getMatch($arrParams['id']);
 
         // Check if Match wasn't found
         if (true === empty($arrMatch)) {
@@ -214,7 +215,8 @@ class Admin_MatchesController extends KZ_Controller_Action
         }
 
         // Get Match
-        $arrMatch = $objModelMatches = (new KZ_Models_Matches())->getMatch($arrParams['id']);
+        $objModelMatches = new KZ_Models_Matches();
+        $arrMatch = $objModelMatches->getMatch($arrParams['id']);
 
         // Check if Match wasn't found
         if (true === empty($arrMatch)) {
