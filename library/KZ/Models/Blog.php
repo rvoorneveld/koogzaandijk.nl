@@ -243,13 +243,22 @@ class KZ_Models_Blog extends KZ_Controller_Table
         return $objData;
     }
 
-    public function getBloggers($intMaxReturn = false)
+    /**
+     * Function for getting bloggers
+     * @param $max
+     * @param $active
+     * @return array
+     */
+    public function getBloggers($max = false, $active = true)
     {
         $strQuery = $this->select();
 
-        if($intMaxReturn !== false && is_numeric($intMaxReturn)) {
-            $strQuery->order(new Zend_Db_Expr('RAND()'))
-                    ->limit($intMaxReturn);
+        if (true === $active) {
+            $strQuery->where('status = ?', KZ_Controller_Action::STATE_ACTIVE);
+        }
+
+        if (false !== $max && true === is_numeric($max)) {
+            $strQuery->order(new Zend_Db_Expr('RAND()'))->limit($max);
         } else {
             $strQuery->order('name');
         }
@@ -259,12 +268,12 @@ class KZ_Models_Blog extends KZ_Controller_Table
 
     /**
      * Function for adding a blogger
-     * @param $arrBlogger
+     * @param $data
      * @return int
      */
-    public function insertBlogger($arrBlogger)
+    public function insertBlogger($data)
     {
-        return Zend_Db_Table::getDefaultAdapter()->insert('blog_blogger',$arrBlogger);
+        return Zend_Db_Table::getDefaultAdapter()->insert('blog_blogger', $data);
     }
 
     /**
