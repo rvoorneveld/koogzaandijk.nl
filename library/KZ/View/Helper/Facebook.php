@@ -30,7 +30,7 @@ class KZ_View_Helper_Facebook extends Zend_View_Helper_Abstract
 
                     echo $arrPost->message;
 
-                    if (false === emtpy($arrPost->link)) {
+                    if (false === empty($arrPost->link)) {
                         echo '</a>';
                     }
 

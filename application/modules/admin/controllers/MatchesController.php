@@ -33,7 +33,7 @@ class Admin_MatchesController extends KZ_Controller_Action
         $arrParams = $this->getAllParams();
 
         // Check if Param id is set
-        if (true === emtpy($arrParams['id'])) {
+        if (true === empty($arrParams['id'])) {
             // return feedback
             $strSerializedFeedback = base64_encode(serialize(['type' => 'error', 'message' => 'Missing param for id']));
             $this->redirect('/admin/matches/index/feedback/'.$strSerializedFeedback.'/#tab0/');
