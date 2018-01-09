@@ -1,6 +1,6 @@
 <?php
     $objModelBlog = new KZ_Models_Blog();
-    $arrBloggersItems = $objModelBlog->getBloggers(2);
+    $arrBloggersItems = $objModelBlog->getBloggers(3);
 
     if(! empty($arrBloggersItems) && is_array($arrBloggersItems)) {
         echo '<div class="table--profiles table--profiles__widget">
