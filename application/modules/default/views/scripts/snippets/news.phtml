@@ -132,14 +132,24 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 			echo '<ol>';
 		
 			foreach($this->news as $intNewsKey => $arrNews) :
-			
-				echo '	<li>
-							<div class="date_container">
-								<span class="bullet" title="'.stripslashes($arrNews['category']).'" style="background: '.$arrNews['category_color'].';"></span>
-								<span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'"><time datetime="'.$fncFormat($arrNews['date'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['date'], 'dd-MM').'</time></a></span>
-							</div>
-							<a class="news_title" href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'">'.stripslashes($arrNews['name']).'</a>
-						</li>';
+
+                if (true === isset($arrNews['blogger_id'])) {
+                    echo '	<li>
+                                <div class="date_container">
+                                    <span class="bullet" title="Blog" style="background: purple;"></span>
+                                    <span class="date newstag"><a href="'.ROOT_URL.'/blog/'.$arrNews['blogSlug'].'/'.$arrNews['slug'].'/" title="'.stripslashes($arrNews['blogName']).'"><time datetime="'.$fncFormat($arrNews['created'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['created'], 'dd-MM').'</time></a></span>
+                                </div>
+                                <a class="news_title" href="'.ROOT_URL.'/blog/'.$arrNews['blogSlug'].'/'.$arrNews['slug'].'/" title="'.$arrNews['blogName'].': '.stripslashes($arrNews['title']).'">'.$arrNews['blogName'].': '.stripslashes($arrNews['title']).'</a>
+                            </li>';
+                } else {
+			        echo '	<li>
+                                <div class="date_container">
+                                    <span class="bullet" title="'.stripslashes($arrNews['category']).'" style="background: '.$arrNews['category_color'].';"></span>
+                                    <span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'"><time datetime="'.$fncFormat($arrNews['date'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['date'], 'dd-MM').'</time></a></span>
+                                </div>
+                                <a class="news_title" href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'">'.stripslashes($arrNews['name']).'</a>
+                            </li>';
+                }
 			
 			endforeach;
 			
