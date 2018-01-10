@@ -24,6 +24,7 @@ class PageController extends KZ_Controller_Action
 
         $objModelPages = new KZ_Models_Pages();
         $objModelNews = new KZ_Models_News();
+        $objModelBlog = new KZ_Models_Blog();
 
         if (false === empty($arrParams['mainpage'])) {
             $arrPage = $objModelPages->getPageBySlug($arrParams['mainpage']);
@@ -42,7 +43,7 @@ class PageController extends KZ_Controller_Action
         $this->view->assing([
             'page' => $arrPage,
             'content' => $objModelPages->getPageContent($arrPage['page_id'], 1),
-            'latest' => $objModelNews->getLatestNews((int)$objConfig->news->maxRelated * 2),
+            'latest' => $objModelNews->getLatestNews($intLimit = (int)$objConfig->news->maxRelated * 2),
             'activeRouteContact' => $strActiveRouteContact,
         ]);
 
