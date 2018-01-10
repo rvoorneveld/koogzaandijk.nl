@@ -45,6 +45,26 @@ class KZ_Models_Blog extends KZ_Controller_Table
         return $this->returnData($strQuery,'array','fetchRow');
     }
 
+    /**
+     * @param null $limit
+     * @return array
+     */
+    public function getLatestBlogItems($limit = null)
+    {
+        $strQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('blog_item')
+            ->join('blog_blogger', 'blog_blogger.id = blog_item.blogger_id', ['id AS blogId', 'name as blogName', 'slug as blogSlug',])
+            ->where('blog_blogger.status = ?', KZ_Controller_Action::STATE_ACTIVE)
+            ->order('blog_item.created');
+
+        if (null !== $limit && true === is_numeric($limit)) {
+            $strQuery->limit($limit);
+        }
+
+        return $this->returnData($strQuery);
+    }
+
     public function getBlogItemsByBlogger($id,$max = false)
     {
         $strQuery = $this->select()
