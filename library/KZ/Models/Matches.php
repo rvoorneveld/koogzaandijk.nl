@@ -115,8 +115,6 @@ class KZ_Models_Matches extends KZ_Controller_Table
 			$strQuery->limit($intLimit);
 		}
 
-		echo $strQuery;exit;
-
         $arrData = $this->returnData($strQuery);
 
 		if (false === empty($arrData) && true === is_array($arrData)) {
