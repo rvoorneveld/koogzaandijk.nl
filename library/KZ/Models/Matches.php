@@ -105,8 +105,8 @@ class KZ_Models_Matches extends KZ_Controller_Table
 		}
 
 		if($booOnlyUnplayedGames === true) {
-            $strQuery->where('( team_home_score IS NULL');
-            $strQuery->where(' team_away_score IS NULL )');
+            $strQuery->where("( team_home_score IS NULL || team_home_score = '' ");
+            $strQuery->where(" team_away_score IS NULL || team_away_score = '')");
         }
 
 		$strQuery->order(['date ASC','time ASC']);
@@ -114,6 +114,8 @@ class KZ_Models_Matches extends KZ_Controller_Table
 		if($intLimit !== false && is_numeric($intLimit)) {
 			$strQuery->limit($intLimit);
 		}
+
+		echo $strQuery;exit;
 
         $arrData = $this->returnData($strQuery);
 
