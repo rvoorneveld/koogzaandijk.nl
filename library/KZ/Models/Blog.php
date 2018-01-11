@@ -287,6 +287,33 @@ class KZ_Models_Blog extends KZ_Controller_Table
     }
 
     /**
+     * @param null $max
+     * @param null $active
+     * @return array
+     */
+    function getBloggersByMostRecentPosts($max = null, $active = null)
+    {
+        $strQuery = $this->select()
+            ->from('blog_blogger','*')
+            ->setIntegrityCheck(false)
+            ->distinct()
+            ->join('blog_item','blog_item.blogger_id = blog_blogger.id');
+
+        if (null !== $active) {
+            $strQuery->where('blog_blogger.status = ?', $status = (false === $active ? KZ_Controller_Action::STATE_INACTIVE : KZ_Controller_Action::STATE_ACTIVE))
+                ->where('blog_item.status = ?', $status);
+        }
+
+        $strQuery->order('blog_item.created DESC');
+
+        if (false !== $max && true === is_numeric($max)) {
+            $strQuery->limit($max);
+        }
+
+        return $this->returnData($strQuery);
+    }
+
+    /**
      * Function for adding a blogger
      * @param $data
      * @return int
