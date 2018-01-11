@@ -10,9 +10,10 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
         $objRequest = Zend_Controller_Front::getInstance()->getRequest();
 
         $strControllerName = $objRequest->getParam('controller');
+        $strActionName = $objRequest->getParam('action');
         $strTitle = $objRequest->getParam('title');
 
-        if (true === in_array($strControllerName, ['page', 'index',], true)) {
+        if ('page' === $strControllerName && 'index' === $strActionName) {
             $objModelNews = new KZ_Models_News();
             $objModelAgenda = new KZ_Models_Agenda();
             $objModelCategories = new KZ_Models_Categories();
