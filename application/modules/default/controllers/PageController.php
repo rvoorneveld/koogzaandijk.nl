@@ -24,7 +24,6 @@ class PageController extends KZ_Controller_Action
 
         $objModelPages = new KZ_Models_Pages();
         $objModelNews = new KZ_Models_News();
-        $objModelBlog = new KZ_Models_Blog();
 
         if (false === empty($arrParams['mainpage'])) {
             $arrPage = $objModelPages->getPageBySlug($arrParams['mainpage']);
