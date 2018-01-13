@@ -39,13 +39,10 @@ class PageController extends KZ_Controller_Action
         $arrPage = $objModelPages->getPageBySlug($strTitleSlug, $intMainPageID);
         $this->_setSeo($arrPage);
 
-        $this->view->assing([
-            'page' => $arrPage,
-            'content' => $objModelPages->getPageContent($arrPage['page_id'], 1),
-            'latest' => $objModelNews->getLatestNews($intLimit = (int)$objConfig->news->maxRelated * 2),
-            'activeRouteContact' => $strActiveRouteContact,
-        ]);
-
+        $this->view->page = $arrPage;
+        $this->view->content = $objModelPages->getPageContent($arrPage['page_id'], 1);
+        $this->view->latest = $objModelNews->getLatestNews($intLimit = (int)$objConfig->news->maxRelated * 2);
+        $this->view->activeRouteContact = $strActiveRouteContact;
     }
 
     public function newsAction()
