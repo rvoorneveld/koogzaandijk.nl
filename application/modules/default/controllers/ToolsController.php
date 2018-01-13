@@ -1,101 +1,132 @@
 <?php
 class Toolscontroller extends KZ_Controller_Action
 {
-	const UPLOAD_DIR 	= '/upload/';
+    const UPLOAD_DIR = '/upload/';
 
 
-	public function newsfilterAction()
-	{
-		// Disable layout and view 
-		$this->_helper->layout->disableLayout();
-    	$this->_helper->viewRenderer->setNoRender(true);
-		
-		// Get Config
-    	$objConfig		= Zend_Registry::get('Zend_Config');
-    	
-    	// Set Status
-    	$intStatus		= 1;
-    	
-    	// Get Limit
-    	$intLimit		= $objConfig->news->maxRelated;
+    public function newsfilterAction()
+    {
+        // Disable layout and view
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
 
-    	// Set All Params
-    	$arrParams		= $this->_getAllParams();
-    	
-    	// Get Category ID Param
-		$intCategoryID	= ((isset($arrParams['id']) && ! empty($arrParams['id']) && is_numeric($arrParams['id'])) ? $arrParams['id'] : false);
-		
-		// Set Models
-		$objModelNews	= new KZ_Models_News();
+        // Get Config
+        $objConfig = Zend_Registry::get('Zend_Config');
 
-		if(isset($arrParams['type']) && ! empty($arrParams['type']) && $arrParams['type'] == 'allnews') {
+        // Set Status
+        $intStatus = 1;
 
-			// Get News By category ID
-			$arrNews		= $objModelNews->getNewsByCategoryID($intCategoryID, false, $intStatus, false, $intLimit);
-			
-			// Set Defaults
-			$arrNewsByMonth		= array();
-				
-			// Check if News was found
-			if(isset($arrNews) && is_array($arrNews) && count($arrNews) > 0) {
-				
-				foreach($arrNews as $intNewsKey => $arrNewsItem) {
-					
-					// Get News Content
-					$arrNewsContent				= $objModelNews->getNewsContent($arrNewsItem['news_id'], 1);
-					
-					// Check if News content was found
-					if(isset($arrNewsContent) && is_array($arrNewsContent) && count($arrNewsContent) > 0) {
-					
-						// Set Unserialized Content
-						$arrUnserializedContent	= unserialize($arrNewsContent[0]['data']);
-						
-						if(isset($arrUnserializedContent) && is_array($arrUnserializedContent) && count($arrUnserializedContent) > 0) {
-							
-							foreach($arrUnserializedContent as $strDataKey => $strDataValue) {
-	
-								// Find Title
-								if(strstr($strDataKey, 'title')) {
-									$arrNewsItem['content']['title']	= stripslashes($arrUnserializedContent[$strDataKey]);								
-								}
-								
-								// Find Text
-								if(strstr($strDataKey, 'text')) {
-									$arrNewsItem['content']['text']		= stripslashes(KZ_View_Helper_Truncate::truncate(strip_tags(str_replace(array('<br />','<br>'), ' ', $arrUnserializedContent[$strDataKey])), 50, '', '/nieuws/'.$arrNewsItem['nameSlug'].'/'));
-								}
+        // Get Limit
+        $intLimit = $objConfig->news->maxRelated;
 
-							}
-							
-						}
-						
-						$intMonth					= (int)$this->view->date()->format($arrNewsItem['date'], 'MM');
-						
-						// Check if Month wasn't set yet
-						if(! isset($arrNewsByMonth[$intMonth])) {
-							// Set empty Month array
-							$arrNewsByMonth[$intMonth] = array();
-						}
-					
-						$arrNewsByMonth[$intMonth][]	= $arrNewsItem;
-						
-					}
-					
-				}
-	
-			}
-			
-			echo json_encode($arrNewsByMonth);
-			exit;
-			
-		}
-		
-		// Get News By category ID
-		$arrNews		= $objModelNews->getNewsByCategoryID($intCategoryID, 2, $intStatus, false, $intLimit);
-			
-		echo json_encode($arrNews);
-		exit;
-	
-	}
+        // Set All Params
+        $arrParams = $this->_getAllParams();
+
+        // Get Category ID Param
+        $intCategoryID = ((isset($arrParams['id']) && !empty($arrParams['id']) && is_numeric($arrParams['id'])) ? $arrParams['id'] : false);
+
+        // Set Models
+        $objModelNews = new KZ_Models_News();
+
+        if (isset($arrParams['type']) && !empty($arrParams['type']) && $arrParams['type'] == 'allnews') {
+
+            // Get News By category ID
+            $arrNews = $objModelNews->getNewsByCategoryID($intCategoryID, false, $intStatus, false, $intLimit);
+
+            // Set Defaults
+            $arrNewsByMonth = array();
+
+            // Check if News was found
+            if (isset($arrNews) && is_array($arrNews) && count($arrNews) > 0) {
+
+                foreach ($arrNews as $intNewsKey => $arrNewsItem) {
+
+                    // Get News Content
+                    $arrNewsContent = $objModelNews->getNewsContent($arrNewsItem['news_id'], 1);
+
+                    // Check if News content was found
+                    if (isset($arrNewsContent) && is_array($arrNewsContent) && count($arrNewsContent) > 0) {
+
+                        // Set Unserialized Content
+                        $arrUnserializedContent = unserialize($arrNewsContent[0]['data']);
+
+                        if (isset($arrUnserializedContent) && is_array($arrUnserializedContent) && count($arrUnserializedContent) > 0) {
+
+                            foreach ($arrUnserializedContent as $strDataKey => $strDataValue) {
+
+                                // Find Title
+                                if (strstr($strDataKey, 'title')) {
+                                    $arrNewsItem['content']['title'] = stripslashes($arrUnserializedContent[$strDataKey]);
+                                }
+
+                                // Find Text
+                                if (strstr($strDataKey, 'text')) {
+                                    $arrNewsItem['content']['text'] = stripslashes(KZ_View_Helper_Truncate::truncate(strip_tags(str_replace(array('<br />', '<br>'), ' ', $arrUnserializedContent[$strDataKey])), 50, '', '/nieuws/' . $arrNewsItem['nameSlug'] . '/'));
+                                }
+
+                            }
+
+                        }
+
+                        $intMonth = (int)$this->view->date()->format($arrNewsItem['date'], 'MM');
+
+                        // Check if Month wasn't set yet
+                        if (!isset($arrNewsByMonth[$intMonth])) {
+                            // Set empty Month array
+                            $arrNewsByMonth[$intMonth] = array();
+                        }
+
+                        $arrNewsByMonth[$intMonth][] = $arrNewsItem;
+
+                    }
+
+                }
+
+            }
+
+            echo json_encode($arrNewsByMonth);
+            exit;
+
+        }
+
+        if (true === $this->blogFilterSelected($intCategoryID)) {
+            $objModelBlog = new KZ_Models_Blog();
+            $arrBlog = $objModelBlog->getLatestBlogItems($intLimit);
+
+            $objModelCategory = new KZ_Models_Categories();
+            $arrCategory = $objModelCategory->getCategory($intCategoryID);
+
+            $arrData = [];
+            if (false === empty($arrBlog) && true === is_array($arrBlog)) {
+                $objDate = new Zend_Date();
+                foreach ($arrBlog as $arrItem) {
+                    $objDate->set($arrItem['created']);
+                    $arrData[] = [
+                        'blog_id' => $arrItem['id'],
+                        'name' => $arrItem['blogName'].': '.$arrItem['title'],
+                        'nameSlug' => $arrItem['slug'],
+                        'blogSlug' => $arrItem['blogSlug'],
+                        'date' => $objDate->toString('yyyy-MM-dd'),
+                        'created' => $arrItem['created'],
+                        'color' => $arrCategory['color'],
+                        'category' => $arrCategory['name'],
+                    ];
+                }
+            }
+        } else {
+            // Get News By category ID
+            $arrData = $objModelNews->getNewsByCategoryID($intCategoryID, 2, $intStatus, false, $intLimit);
+        }
+
+        echo json_encode($arrData);
+        exit;
+
+    }
+
+    private function blogFilterSelected($id)
+    {
+        return KZ_Controller_Action::BLOG_CATEGORY_ID === (int)$id;
+    }
 
 	public function searchAction()
 	{
