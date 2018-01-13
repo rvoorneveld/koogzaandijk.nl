@@ -56,7 +56,7 @@ class KZ_Models_Blog extends KZ_Controller_Table
             ->from('blog_item')
             ->join('blog_blogger', 'blog_blogger.id = blog_item.blogger_id', ['id AS blogId', 'name as blogName', 'slug as blogSlug',])
             ->where('blog_blogger.status = ?', KZ_Controller_Action::STATE_ACTIVE)
-            ->order('blog_item.created');
+            ->order('blog_item.created DESC');
 
         if (null !== $limit && true === is_numeric($limit)) {
             $strQuery->limit($limit);
