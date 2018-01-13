@@ -28,6 +28,7 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 
 					jQuery.each(arrModel, function(intKeyModel) {
 
+					    var prefixUrl       = 'undefined' == typeof(arrModel[intKeyModel].news_id) ? arrModel[intKeyModel].blogSlug : 'nieuws'
 						var itemName		= arrModel[intKeyModel].name;
 						var	itemCategory	= arrModel[intKeyModel].category;
 						var	itemColor		= arrModel[intKeyModel].color;
@@ -36,7 +37,14 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
 						itemCreated		= jQuery.format.date(arrModel[intKeyModel].date + ' 00:00:00', "dd-MM");
 						itemTimeTag		= jQuery.format.date(arrModel[intKeyModel].date + ' 00:00:00', "dd-MM-yyyy");
 						
-						var strList		= '<li><div class="date_container"><span class="bullet" title="'+itemCategory+'" style="background: '+itemColor+';"></span><span class="date newstag"><time datetime="'+itemTimeTag+'">'+itemCreated+'</time></span></div><a class="news_title" title="'+itemName+'" href="/nieuws/'+itemUrl+'">'+itemName+'</a></li>';
+						var strList		= '' +
+                            '<li>' +
+                            '   <div class="date_container">' +
+                            '       <span class="bullet" title="'+itemCategory+'" style="background: '+itemColor+';"></span>' +
+                            '       <span class="date newstag"><time datetime="'+itemTimeTag+'">'+itemCreated+'</time></span>' +
+                            '   </div>' +
+                            '   <a class="news_title" title="'+itemName+'" href="/'+prefixUrl+'/'+itemUrl+'">'+itemName+'</a>' +
+                            '</li>';
 						
 						jQuery('div.news_wrapper li.news ol').append(strList);
 						
