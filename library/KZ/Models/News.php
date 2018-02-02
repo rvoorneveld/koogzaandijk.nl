@@ -103,7 +103,7 @@ class KZ_Models_News extends KZ_Controller_Table
 		// Set Query string
 		$strQuery 	= 	$this->select()
 						->setIntegrityCheck(false)
-						->from('news', array('news_id','name','nameSlug','created','date'))
+						->from('news', array('news_id', 'name', 'nameSlug', 'created', 'date', 'time'))
 						->joinLeft('category', 'category.category_id = news.category_id', array('category.name as category', 'category.color as color'));
 
 		if($intCategoryID !== false) {

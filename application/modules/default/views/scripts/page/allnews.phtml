@@ -102,6 +102,10 @@
 					echo '<ol class="month_list"><li class="month"><h4>'.$this->date()->getMonth($intMonth).'</h4></li>';
 
 					foreach($arrNews as $intNewsKey => $arrNewsItem) {
+
+                        if(true === empty($arrNewsItem['content'])) {
+                            continue;
+                        }
 						
 						echo '	<li class="newsItem zapp">
 									<div class="dateContainer">
@@ -109,11 +113,10 @@
 										<span class="date newstag">'.$this->date()->format($arrNewsItem['date'], 'dd-MM-yyyy').'</span>
 									</div>
 									<div class="content">
-										<span class="title"><a href="/nieuws/'.$arrNewsItem['nameSlug'].'">'.stripslashes($arrNewsItem['content']['title']).'</a></span><br />
-										'.stripslashes($arrNewsItem['content']['text']).'
+										<span class="title"><a href="/nieuws/' . $arrNewsItem['nameSlug'] . '">' . stripslashes($arrNewsItem['content']['title']) . '</a></span><br />
+										' . stripslashes($arrNewsItem['content']['text']) . '
 									</div>
 								</li>';
-						
 					}
 					
 					echo '</ol>';
