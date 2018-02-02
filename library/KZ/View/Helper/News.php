@@ -27,11 +27,12 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
             // Set Defaults
             $intCategoryID = false;
             $arrCategory = false;
+            $booLoadBlogItems = true;
 
             if ('home' !== $strTitleSlug) {
+                $booLoadBlogItems = false;
                 $arrCategory = $objModelCategories->getCategoryBySlug($strTitleSlug);
                 $intCategoryID = (false === empty($arrCategory) && true === is_array($arrCategory)) ? $arrCategory['category_id'] : false;
-
             }
 
             // Set Content Type ID - Carousel (1) and Top (2)
@@ -45,10 +46,12 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
 
             // Get News items
             $arrNewsItems = $objModelNews->getNews($intContentTypeID, $intCategoryID, $intStatus, false, $intLimit);
-            $arrNewsItemsOrdered = $this->orderByDateAndTime($arrNewsItems);
+            $arrOrderedNews = $this->orderByDateAndTime($arrNewsItems);
 
-            // Combine News And Blog items
-            $arrOrderedNews = $this->orderByDateAndTime($objModelBlog->getLatestBlogItems($intLimit), 'blog', $arrNewsItemsOrdered);
+            if (true === $booLoadBlogItems) {
+                // Combine News And Blog items
+                $arrOrderedNews = $this->orderByDateAndTime($objModelBlog->getLatestBlogItems($intLimit), 'blog', $arrOrderedNews);
+            }
 
             // Set Current Date
             $objDate = new Zend_Date();
@@ -93,7 +96,7 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
      * @return array|null
      * @throws Zend_Date_Exception
      */
-    private function orderByDateAndTime($arrData, $strType = null, $arrReturn = null)
+    public static function orderByDateAndTime($arrData, $strType = null, $arrReturn = null)
     {
         if (null === $arrReturn) {
             $arrReturn = [];
