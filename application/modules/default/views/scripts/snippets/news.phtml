@@ -46,7 +46,7 @@ $fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
                             '   <a class="news_title" title="'+itemName+'" href="/'+prefixUrl+'/'+itemUrl+'">'+itemName+'</a>' +
                             '</li>';
 						
-						jQuery('div.news_wrapper li.news ol').append(strList);
+						jQuery('div.news_wrapper li.news ol').prepend(strList);
 						
 					});
 
