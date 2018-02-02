@@ -20,21 +20,20 @@ class Toolscontroller extends KZ_Controller_Action
         $intLimit = $objConfig->news->maxRelated;
 
         // Set All Params
-        $arrParams = $this->_getAllParams();
+        $arrParams = $this->getAllParams();
 
         // Get Category ID Param
-        $intCategoryID = ((isset($arrParams['id']) && !empty($arrParams['id']) && is_numeric($arrParams['id'])) ? $arrParams['id'] : false);
+        $intCategoryID = (false === empty($arrParams['id']) && true === is_numeric($arrParams['id'])) ? $arrParams['id'] : false;
 
         // Set Models
         $objModelNews = new KZ_Models_News();
 
-        if (isset($arrParams['type']) && !empty($arrParams['type']) && $arrParams['type'] == 'allnews') {
-
+        if (false === empty($arrParams['type']) && 'allnews' === $arrParams['type']) {
             // Get News By category ID
             $arrNews = $objModelNews->getNewsByCategoryID($intCategoryID, false, $intStatus, false, $intLimit);
 
             // Set Defaults
-            $arrNewsByMonth = array();
+            $arrNewsByMonth = [];
 
             // Check if News was found
             if (isset($arrNews) && is_array($arrNews) && count($arrNews) > 0) {
@@ -89,23 +88,25 @@ class Toolscontroller extends KZ_Controller_Action
 
         }
 
-        if (true === $this->blogFilterSelected($intCategoryID)) {
+        $arrData = [];
+        $booBlogFilterSelected = false;
+        if (false === $intCategoryID || true === $booBlogFilterSelected = $this->blogFilterSelected($intCategoryID)) {
             $objModelBlog = new KZ_Models_Blog();
             $arrBlog = $objModelBlog->getLatestBlogItems($intLimit);
 
             $objModelCategory = new KZ_Models_Categories();
-            $arrCategory = $objModelCategory->getCategory($intCategoryID);
+            $arrCategory = $objModelCategory->getCategory(KZ_Controller_Action::BLOG_CATEGORY_ID);
 
             $arrData = [];
             if (false === empty($arrBlog) && true === is_array($arrBlog)) {
                 $objDate = new Zend_Date();
                 foreach ($arrBlog as $arrItem) {
                     $objDate->set($arrItem['created']);
-                    $arrData[] = [
+                    $arrData[$objDate->toValue()] = [
                         'blog_id' => $arrItem['id'],
                         'name' => $arrItem['blogName'].': '.$arrItem['title'],
                         'nameSlug' => $arrItem['slug'],
-                        'blogSlug' => $arrItem['blogSlug'],
+                        'blogSlug' => 'blog/'.$arrItem['blogSlug'],
                         'date' => $objDate->toString('yyyy-MM-dd'),
                         'created' => $arrItem['created'],
                         'color' => $arrCategory['color'],
@@ -113,9 +114,16 @@ class Toolscontroller extends KZ_Controller_Action
                     ];
                 }
             }
-        } else {
+        }
+
+        if (false === $booBlogFilterSelected) {
             // Get News By category ID
-            $arrData = $objModelNews->getNewsByCategoryID($intCategoryID, 2, $intStatus, false, $intLimit);
+            $arrUnorderedData = $objModelNews->getNewsByCategoryID($intCategoryID, 2, $intStatus, false, $intLimit);
+            if (false === empty($arrData) && true === is_array($arrData)) {
+                $arrData = KZ_View_Helper_News::orderByDateAndTime($arrUnorderedData, 'news', $arrData);
+            } else {
+                $arrData = array_reverse($arrUnorderedData);
+            }
         }
 
         echo json_encode($arrData);
