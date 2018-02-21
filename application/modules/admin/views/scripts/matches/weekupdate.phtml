@@ -1,68 +1,66 @@
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		jQuery('.headerDropdown').change(function(){
-			var year	= jQuery('.headerDropdown.year').val();
-			var week	= jQuery('.headerDropdown.week').val();
-			document.location.href = '/admin/matches/weekupdate/year/'+year+'/week/'+week+'/';
-		});
-	});
+    jQuery(document).ready(function () {
+        jQuery('.headerDropdown').change(function () {
+            var year = jQuery('.headerDropdown.year').val();
+            var week = jQuery('.headerDropdown.week').val();
+            document.location.href = '/admin/matches/weekupdate/year/' + year + '/week/' + week + '/';
+        });
+    });
 </script>
 <header>
-	<select class="headerDropdown year" name="year">
-		<?php
-			foreach($this->years as $arrYear) :
-				echo '<option value="'.$arrYear['year'].'"'.(($this->year == $arrYear['year']) ? ' selected="selected"' : '').'>'.$arrYear['year'].'</option>';
-			endforeach;
-		?>
-	</select>
-	
-	<select class="headerDropdown week" name="week">
-		<?php
-			foreach($this->weeks as $arrWeek) :
-				echo '<option value="'.$arrWeek['week'].'"'.(($this->week == $arrWeek['week']) ? ' selected="selected"' : '').'>'.$arrWeek['week'].'</option>';
-			endforeach;
-		?>
-	</select>
+    <select class="headerDropdown year" name="year">
+        <?php
+        foreach ($this->years as $arrYear) :
+            echo '<option value="' . $arrYear['year'] . '"' . (($this->year == $arrYear['year']) ? ' selected="selected"' : '') . '>' . $arrYear['year'] . '</option>';
+        endforeach;
+        ?>
+    </select>
 
-	<h2>
-		<?php echo $this->translate('Week update'); ?> &nbsp;
-	</h2>
+    <select class="headerDropdown week" name="week">
+        <?php
+        foreach ($this->weeks as $arrWeek) :
+            echo '<option value="' . $arrWeek['week'] . '"' . (($this->week == $arrWeek['week']) ? ' selected="selected"' : '') . '>' . $arrWeek['week'] . '</option>';
+        endforeach;
+        ?>
+    </select>
+
+    <h2>
+        <?php echo $this->translate('Week update'); ?> &nbsp;
+    </h2>
 </header>
 <section>
 
-	<form method="post" name="weekUpdateForm" action="">
-		
-		<?php
-		
-			if(isset($this->matches) && is_array($this->matches) && count($this->matches) > 0) {
+    <form method="post" name="weekUpdateForm" action="">
 
-				echo '<table>
+        <?php
+
+        if (isset($this->matches) && is_array($this->matches) && count($this->matches) > 0) {
+
+            echo '<table>
 						<tr>
-							<th>'.$this->translate('Game').'</th>
-							<th>'.$this->translate('Score').'</th>
-							<th>'.$this->translate('Time departure').'</th>
+							<th>' . $this->translate('Game') . '</th>
+							<th>' . $this->translate('Score') . '</th>
+							<th>' . $this->translate('Time departure') . '</th>
 						</tr>';
-				
-				foreach($this->matches as $arrMatch) {
 
-				    /*
-				     * @todo remove this fix
-				     */
-				    $arrMatch = $arrMatch[0];
+            foreach ($this->matches as $arrMatches) {
+
+                foreach ($arrMatches as $arrMatch) {
 
                     echo '	<tr>
-                                <td>'.$arrMatch['team_home_name'].' - '.$arrMatch['team_away_name'].'</td>
-                                <td><input class="tiny" name="team_home_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_home_score'].'" /> - <input class="tiny" name="team_away_score_'.$arrMatch['matches_id'].'" value="'.$arrMatch['team_away_score'].'" /></td>
-                                <td><input class="normal" name="time_departure_'.$arrMatch['matches_id'].'" value="'.$arrMatch['time_departure'].'" /></td>
-                            </tr>';
-				}
-				echo '</table>';
-			}
+                                    <td>' . $arrMatch['team_home_name'] . ' - ' . $arrMatch['team_away_name'] . '</td>
+                                    <td><input class="tiny" name="team_home_score_' . $arrMatch['matches_id'] . '" value="' . $arrMatch['team_home_score'] . '" /> - <input class="tiny" name="team_away_score_' . $arrMatch['matches_id'] . '" value="' . $arrMatch['team_away_score'] . '" /></td>
+                                    <td><input class="normal" name="time_departure_' . $arrMatch['matches_id'] . '" value="' . $arrMatch['time_departure'] . '" /></td>
+                                </tr>';
+                }
+            }
+            echo '</table>';
+        }
 
-		?>
-		
-		<br />
-		<input class="button blue" type="submit" name="submit" value="Save" />
-		
-	</form>
+        ?>
+
+        <br/>
+        <input class="button blue" type="submit" name="submit" value="Save"/>
+
+    </form>
 </section>
