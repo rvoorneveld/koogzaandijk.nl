@@ -10,7 +10,7 @@ ini_set('memory_limit', '512M');
 defined($strKey = 'APPLICATION_PATH') || define($strKey, realpath(dirname(__FILE__) . '/../application'));
 
 // Define application environment
-defined($strKey = 'APPLICATION_ENV') || define($strKey, (preg_match('/mediaconcepts.nl/i', APPLICATION_PATH) ? 'preview' : 'production'));
+defined($strKey = 'APPLICATION_ENV') || define($strKey, (true === isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 'production'));
 
 defined($strKey = 'VENDOR_PATH') || define($strKey, APPLICATION_PATH . '/../vendor', true);
 
@@ -53,12 +53,12 @@ $intDayofWeek = $objDate->get(Zend_Date::WEEKDAY_DIGIT);
 // Set status to active (get Active Cronjobs only)
 $intStatus = 1;
 
-$arrDates = array(
+$arrDates = [
     'hour' => $intHour,
     'dayofmonth' => $intDayofMonth,
     'month' => $intMonth,
-    'dayofweek' => $intDayofWeek
-);
+    'dayofweek' => $intDayofWeek,
+];
 
 // Load Models
 $objModelCronjobs = new KZ_Models_Cronjobs();
@@ -67,8 +67,7 @@ $objModelCronjobs = new KZ_Models_Cronjobs();
 $objCronjobs = $objModelCronjobs->getCronjobs($arrDates, $intStatus);
 
 // Check if Cronjobs where found
-if (!is_null($objCronjobs) && count($objCronjobs->toArray()) > 0) {
-
+if (null !== $objCronjobs && false === empty($objCronjobs->toArray())) {
     // Set Default Http Host
     $strHttpHost = $objConfig->cron->api->url;
 
