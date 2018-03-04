@@ -69,44 +69,23 @@ $objCronjobs = $objModelCronjobs->getCronjobs($arrDates, $intStatus);
 // Check if Cronjobs where found
 if (null !== $objCronjobs && false === empty($objCronjobs->toArray())) {
     // Set Default Http Host
-    $strHttpHost = $objConfig->cron->api->url;
+    $strHttpHost = ($objCronApi = $objConfig->cron->api)->url;
 
     // Set Cronjobs array
     $arrCronjobs = $objCronjobs->toArray();
 
     // Set Villatrips API Key
-    $strApiKey = $objConfig->cron->api->key;
+    $strApiKey = $objCronApi->key;
 
     // Loop through cronjobs
     foreach ($arrCronjobs as $intCronjobKey => $arrCronjob) {
-        switch ($arrCronjob['type']) {
-            case 'xml':
-            default:
-                // Set Post Data
-                $strXml = 'xml=<request><key>' . $strApiKey . '</key><service>' . $arrCronjob['service'] . '</service><params>' . $arrCronjob['params'] . '</params></request>';
-
-                // Ininitalize Curl
-                $ch = curl_init();
-
-                // Set Curl Url
-                curl_setopt($ch, CURLOPT_URL, $strHttpHost);
-
-                // Set Curl Count Post Fields
-                curl_setopt($ch, CURLOPT_POST, 1);
-
-                // Set Curl Post Fields
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $strXml);
-
-                // Execute the Curl
-                curl_exec($ch);
-
-                // Close the Curl
-                curl_close($ch);
-
-                break;
+        if ('xml' === $arrCronjob['type']) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $strHttpHost);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "xml=<request><key>{$strApiKey}</key><service>{$arrCronjob['service']}</service><params>{$arrCronjob['params']}</params></request>");
+            curl_exec($ch);
+            curl_close($ch);
         }
-
     }
-
 }
-?>
