@@ -1,0 +1,85 @@
+<?php
+$objModelResponsive = new KZ_Controller_Action_Helper_Responsive();
+$booIsMobile = $objModelResponsive->isMobile();
+?>
+<div id="nextpage" class="zapp full-mobile">
+    <div class="col left">
+        <div class="inner">
+
+            <div class="table">
+                <ul class="row">
+                    <li class="cell large bg_kz_black color_kz_yellow results js-volunteers">
+                        <h3 class="color_kz_yellow">
+                            Bardiensten week <?php echo $this->week; ?>
+                            <a class="font_icons left results<?php echo(($this->week_previous === false) ? ' disabled' : ''); ?>"
+                               aria-hidden="true"
+                               href="/vrijwilligers/bar/<?php echo $this->week_previous; ?>/<?php echo $this->year_previous; ?>/"
+                               title="vorige week">&#xe003;</a>
+                            <a class="font_icons right results<?php echo(($this->week_next === false) ? ' disabled' : ''); ?>"
+                               aria-hidden="true"
+                               href="/vrijwilligers/bar/<?php echo $this->week_next; ?>/<?php echo $this->year_next; ?>/"
+                               title="volgende week">&#xe002;</a>
+                        </h3>
+
+                        <?php
+                        if (false === empty($this->volunteers) && true === is_array($this->volunteers)) {
+
+                            echo '<ol class="clubplugin results js-volunteers">
+                                    <li class="heading">
+                                        <span>Datum</span>
+                                        <span>Vanaf</span>
+                                        <span>Tot</span>
+                                        <span>Naam</span>
+                                    </li>';
+
+                            foreach ($this->volunteers as $arrVolunteer) {
+                                    echo '<li class="widget">
+                                            <span class="volunteer_date">
+                                                '.(new Zend_Date($arrVolunteer['date'], 'yyyy-MM-dd'))->toString('dd-MM').'
+                                            </span>
+                                            <span>'.substr($arrVolunteer['timeStart'], 0, 5).'</span>
+                                            <span>'.substr($arrVolunteer['timeEnd'], 0, 5).'</span>
+                                            <span class="volunteer_name">'.$arrVolunteer['name'].'</span>
+                                        </li>';
+                            }
+
+                            echo '</ol>';
+
+                        } else {
+
+                            echo $this->translate('Geen bardiensten voor week').' '.$this->week;
+
+                        }
+                        ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col right">
+
+        <div class="item news bg_kz_lightgrey">
+            <?php
+
+            if (isset($this->latest) && !empty($this->latest)) :
+
+                echo '<h2>' . $this->translate('Laatste nieuws') . '</h2><ol>';
+
+                foreach ($this->latest as $arrLatest) :
+
+                    echo '	<li>
+										<span class="bullet" title="' . stripslashes($arrLatest['category']) . '" style="background: ' . $arrLatest['category_color'] . ';"></span>
+										<span class="date newstag"><a href="' . ROOT_URL . '/nieuws/' . KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])) . '" title="' . stripslashes($arrLatest['name']) . '">' . $this->date()->format($arrLatest['date'], 'dd MMM yyyy') . '</a></span>
+										<a href="' . ROOT_URL . '/nieuws/' . KZ_Controller_Action_Helper_Slug::slug(stripslashes($arrLatest['name'])) . '" title="' . stripslashes($arrLatest['name']) . '">' . stripslashes($arrLatest['name']) . '</a>
+									</li>';
+
+                endforeach;
+
+                echo '</ol>';
+
+            endif;
+
+            ?>
+        </div>
+    </div>
+</div>

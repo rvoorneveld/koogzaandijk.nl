@@ -183,6 +183,10 @@
 			// Get Match Results Info
 			jQuery('ol.clubplugin.results li.widget').click(function(){
 
+			    if (true == jQuery(this).parent().hasClass('js-volunteers')) {
+                    return false;
+                }
+
 				jQuery('ol.clubplugin.results li.widget').removeClass('active');
 				jQuery('ul.row li.results div#match_info_results').html('');
 				jQuery('ul.row li.results #match_info_results').css('display', 'none');
