@@ -51,6 +51,17 @@ class KZ_Models_Tags extends KZ_Controller_Table
     }
 
     /**
+     * @param $name
+     * @return array
+     */
+    public function getTagByName($name)
+    {
+        $objQuery = $this->select()
+                    ->where('name = ?', $name);
+        return $this->returnData($objQuery, 'array', 'fetchRow');
+    }
+
+    /**
      *
      * Add Tag
      * @param    array $arrTag
