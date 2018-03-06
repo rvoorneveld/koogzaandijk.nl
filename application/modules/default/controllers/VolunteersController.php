@@ -145,8 +145,13 @@ class Volunteerscontroller extends KZ_Controller_Action
         }
     }
 
-    public function barAction()
+    public function kantinedienstenAction()
     {
+        $arrNewsByTag = false;
+        if (false === empty($arrTag = (new KZ_Models_Tags())->getTagByName('kantinediensten')) && true === is_array($arrTag)) {
+            $arrNewsByTag = (new KZ_Models_News())->getNewsByTags(0, '0,'.$arrTag['tag_id'], $this->objConfig->news->maxRelated);
+        }
+
         $this->view->assign([
             'volunteers' => (new KZ_Models_Volunteers())->getVolunteersByDate($this->weekendStart, $this->weekendEnd),
             'year' => $this->year,
@@ -155,7 +160,7 @@ class Volunteerscontroller extends KZ_Controller_Action
             'week_next' => $this->week_next,
             'year_previous' => $this->year_previous,
             'year_next' => $this->year_next,
-            'latest' => (new KZ_Models_News())->getLatestNews($this->objConfig->news->maxRelated),
+            'latest' => $arrNewsByTag,
         ]);
     }
 }
