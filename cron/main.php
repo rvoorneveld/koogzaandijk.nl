@@ -68,14 +68,14 @@ $objCronjobs = $objModelCronjobs->getCronjobs($arrDates, $intStatus);
 
 // Check if Cronjobs where found
 if (null !== $objCronjobs && false === empty($objCronjobs->toArray())) {
-    // Set Default Http Host
-    $strHttpHost = ($objCronApi = $objConfig->cron->api)->url;
+
+    // Set Cron Api Settings
+    $objCronApi = $objConfig->cron->api;
+    $strHttpHost = $objCronApi->url;
+    $strApiKey = $objCronApi->key;
 
     // Set Cronjobs array
     $arrCronjobs = $objCronjobs->toArray();
-
-    // Set Villatrips API Key
-    $strApiKey = $objCronApi->key;
 
     // Loop through cronjobs
     foreach ($arrCronjobs as $intCronjobKey => $arrCronjob) {
