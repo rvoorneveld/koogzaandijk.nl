@@ -1,0 +1,368 @@
+<div class="Banner">
+    <div class="Banner-auth" id="auth"></div>
+</div>
+
+<div>
+    <section>
+        <div class="Component Realtime" id="realtime">
+            <h1 class="Realtime-content">
+                <?php echo 'Active Users'; ?>:
+                <span class="Realtime-value" id="active-users"></span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="Component Chart Chart--chartjs">
+        <h3 class="Chart-title"><?php echo 'This Week vs Last Week (Sessions)'; ?>:</h3>
+        <div id="chart1"></div>
+        <ol class="Legend" id="legend1"></ol>
+    </section>
+
+    <section class="Component Chart Chart--chartjs">
+        <h3 class="Chart-title"><?php echo 'This Year vs Last Year (Sessions)'; ?>:</h3>
+        <div id="chart2"></div>
+        <ol class="Legend" id="legend2"></ol>
+    </section>
+
+    <section class="Component Chart Chart--chartjs">
+        <h3 class="Chart-title"><?php echo 'Top Browsers'; ?>:</h3>
+        <div id="chart3"></div>
+        <ol class="Legend" id="legend3"></ol>
+    </section>
+
+    <section class="Component Chart Chart--chartjs">
+        <h3 class="Chart-title"><?php echo 'Device Type'; ?>:</h3>
+        <div id="chart4"></div>
+        <ol class="Legend" id="legend4"></ol>
+    </section>
+</div>
+
+<div class="Banner">
+    <a href="http://www.google.com/analytics/" target="_blank"><?php echo 'Click here to access the website of Google Analytics for more statistics'; ?></a>
+</div>
+
+<script>
+    (function(w,d,s,g,js,fs){
+        g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+        js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+        js.src='https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+    }(window,document,'script'));
+</script>
+
+<script src="/assets/admin/script/libs/embedapi/promise.js"></script>
+<script src="/assets/admin/script/libs/embedapi/viewpicker.js"></script>
+<script src="/assets/admin/script/libs/embedapi/datepicker.js"></script>
+<script src="/assets/admin/script/libs/embedapi/chart.js"></script>
+<script src="/assets/admin/script/libs/embedapi/moment.js"></script>
+<script src="/assets/admin/script/libs/embedapi/active-users.js"></script>
+
+<script type="text/javascript">
+    window.console = window.console || {};
+    if (typeof(window.console.log) !==  'function' || '<?php echo APPLICATION_ENV; ?>' !== 'development') {
+        window.console.log = function() {};
+    }
+    moment.lang('en',{
+        week: {
+            dow: 1,
+        }
+    });
+
+    gapi.analytics.ready(function() {
+        var objAnalytics = gapi.analytics,
+            objAuth = objAnalytics.auth,
+            strDataId = 'ga:<?php echo $this->intDataId; ?>';
+
+        objAuth.on('signIn',function() {
+            console.log('signed in');
+            document.body.classList.add('is-authorized');
+//            objViewpicker.execute();
+        }).on('signOut',function() {
+            console.log('signed out');
+        }).on('needsAuthorization',function() {
+            console.log('needs auth');
+        }).on('error',function() {
+            console.log('error');
+        });
+
+        /**
+         * Authorize this user.
+         */
+        objAuth.authorize({
+            serverAuth: {
+                access_token: '<?php echo $this->strAuthToken; ?>',
+            }
+        });
+        if (objAuth.isAuthorized() !== true) {
+            console.log('Failed to authorize');
+            return;
+        }
+
+        /**
+         * Create a new ActiveUsers instance to be rendered inside of an
+         * element with the id "active-users" and poll for changes every
+         * five seconds.
+         */
+        var objActiveUsers = new objAnalytics.ext.ActiveUsers({
+                container: 'active-users',
+                pollingInterval: 5,
+            }).on('stop',fncRemoveAnimationClasses).on('change',function(data) {
+                eleRealtime.classList.add(data.direction);
+            }),
+            eleRealtime = document.getElementById('realtime'),
+            fncRemoveAnimationClasses = function() {
+                eleRealtime.classList.remove('increase');
+                eleRealtime.classList.remove('decrease');
+            };
+        eleRealtime.addEventListener('animationend',fncRemoveAnimationClasses);
+        eleRealtime.addEventListener('webkitAnimationEnd',fncRemoveAnimationClasses);
+
+        /**
+         * Update all of the components if the users changes the view.
+         */
+        objActiveUsers.set({
+            ids: strDataId,
+        }).execute();
+        drawWeek(strDataId);
+        drawYear(strDataId);
+        drawBrowserStats(strDataId);
+        drawDeviceUsage(strDataId);
+    });
+
+    /**
+     * Execute a Google Analytics Core Reporting API query
+     * and return a promise.
+     * @param {Object} params The request parameters.
+     * @return {Promise} A promise.
+     */
+    function query(params) {
+        return new Promise(function(resolve, reject) {
+            var data = new gapi.analytics.report.Data({query: params});
+            data.once('success',function(response) {
+                resolve(response);
+            }).once('error',function(response) {
+                reject(response);
+            }).execute();
+        });
+    }
+
+    /**
+     * Create a new canvas inside the specified element. Optionally control
+     * how tall/wide it is. Any existing elements in will be destroyed.
+     * @param {string} id The id attribute of the element to create the canvas in.
+     * @param {number} opt_width The width of the canvas. Defaults to 500.
+     * @param {number} opt_height The height of the canvas. Defaults to 300.
+     * @return {RenderingContext} The 2D canvas context.
+     */
+    function makeCanvas(id, opt_width, opt_height) {
+        var container = document.getElementById(id),
+            canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d');
+        container.innerHTML = '';
+        canvas.width = opt_width || 500;
+        canvas.height = opt_height || 300;
+        container.appendChild(canvas);
+        return ctx;
+    }
+
+    /**
+     * Create a visual legend inside the specified element.
+     * @param {string} id The id attribute of the element to create the legend in.
+     * @param {Array.<Object>} items A list of labels and colors for the legend.
+     */
+    function setLegend(id, items) {
+        document.getElementById(id).innerHTML = items.map(function(item) {
+            return '<li><i style="background:'+item.color+'"></i>'+item.label+'</li>';
+        }).join('');
+    }
+
+    /**
+     * Draw the a chart.js line chart with data from the specified view that
+     * overlays session data for the current week over session data for the
+     * previous week.
+     */
+    function drawWeek(ids) {
+        var strDateFormat = 'YYYY-MM-DD',
+            objStartOfWeek = moment().startOf('week'),
+            objEndOfWeek = objStartOfWeek.clone().endOf('week'),
+            thisWeek = query({
+                ids: ids,
+                dimensions: 'ga:date,ga:nthDay',
+                metrics: 'ga:sessions',
+                'start-date': objStartOfWeek.format(strDateFormat),
+                'end-date': objEndOfWeek.format(strDateFormat),
+            }),
+            lastWeek = query({
+                ids: ids,
+                dimensions: 'ga:date,ga:nthDay',
+                metrics: 'ga:sessions',
+                'start-date': objStartOfWeek.clone().subtract('week',1).format(strDateFormat),
+                'end-date': objEndOfWeek.clone().subtract('week',1).format(strDateFormat),
+            });
+
+        Promise.all([thisWeek, lastWeek]).then(function(results) {
+            var data1 = results[0].rows.map(function(row) {
+                    return +row[2];
+                }),
+                data2 = results[1].rows.map(function(row) {
+                    return +row[2];
+                }),
+                labels = results[1].rows.map(function(row) {
+                    return +row[0];
+                });
+
+            labels = labels.map(function(label) {
+                return moment(label,'YYYYMMDD').format('ddd');
+            });
+
+            new Chart(makeCanvas('chart1')).Line({
+                labels : labels,
+                datasets : [{
+                    fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    data : data2,
+                },{
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : data1,
+                },],
+            },{
+                animationSteps: 60,
+                animationEasing: 'easeInOutQuart',
+            });
+
+            setLegend('legend1', [{
+                color: 'rgba(151,187,205,1)',
+                label: 'This Week',
+            },{
+                color: 'rgba(220,220,220,1)',
+                label: 'Last Week',
+            },]);
+        });
+    }
+
+    /**
+     * Draw the a chart.js bar chart with data from the specified view that overlays
+     * session data for the current year over session data for the previous year,
+     * grouped by month.
+     */
+    function drawYear(ids) {
+        var strDateFormat = 'YYYY-MM-DD',
+            objStartOfYear = moment().startOf('year'),
+            objEndOfYear = objStartOfYear.clone().endOf('year'),
+            thisYear = query({
+                ids: ids,
+                dimensions: 'ga:month,ga:nthMonth',
+                metrics: 'ga:sessions',
+                'start-date': objStartOfYear.format(strDateFormat),
+                'end-date': objEndOfYear.format(strDateFormat),
+            }),
+            lastYear = query({
+                ids: ids,
+                dimensions: 'ga:month,ga:nthMonth',
+                metrics: 'ga:sessions',
+                'start-date': objStartOfYear.clone().subtract('year',1).format(strDateFormat),
+                'end-date': objEndOfYear.clone().subtract('year',1).format(strDateFormat),
+            });
+
+        Promise.all([thisYear,lastYear]).then(function(results) {
+            var data1 = results[0].rows.map(function(row) {
+                    return +row[2];
+                }),
+                data2 = results[1].rows.map(function(row) {
+                    return +row[2];
+                }),
+                labels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',];
+
+            new Chart(makeCanvas('chart2')).Bar({
+                labels : labels,
+                datasets : [{
+                    fillColor : 'rgba(151,187,205,0.5)',
+                    strokeColor : 'rgba(151,187,205,1)',
+                    data : data1,
+                },{
+                    fillColor : 'rgba(220,220,220,0.5)',
+                    strokeColor : 'rgba(220,220,220,1)',
+                    data : data2,
+                },],
+            },{
+                animationSteps: 60,
+                animationEasing: 'easeInOutQuart',
+            });
+
+            setLegend('legend2',[{
+                color: 'rgba(151,187,205,1)',
+                label: 'This Year',
+            },{
+                color: 'rgba(220,220,220,1)',
+                label: 'Last Year',
+            },]);
+        });
+    }
+
+    /**
+     * Draw the a chart.js doughnut chart with data from the specified view that
+     * show the top 5 browsers over the past seven days.
+     */
+    function drawBrowserStats(ids) {
+        query({
+            ids: ids,
+            dimensions: 'ga:browser',
+            metrics: 'ga:sessions',
+            sort: '-ga:sessions',
+            'max-results': 5,
+        }).then(function(response) {
+            var data = [],
+                colors = ['#F7464A','#E2EAE9','#D4CCC5','#949FB1','#4D5360',].reverse();
+
+            response.rows.forEach(function(row, i) {
+                data.push({
+                    value: +row[1],
+                    color: colors[i],
+                    label: row[0],
+                });
+            });
+
+            new Chart(makeCanvas('chart3')).Doughnut(data,{
+                animationSteps: 60,
+                animationEasing: 'easeInOutQuart',
+            });
+
+            setLegend('legend3',data);
+        });
+    }
+
+    /**
+     * Draw the a chart.js polar area chart with data from the specified view that
+     * compares sessions from mobile, desktop, and tablet over the past seven days.
+     */
+    function drawDeviceUsage(ids) {
+        query({
+            ids: ids,
+            dimensions: 'ga:deviceCategory',
+            metrics: 'ga:sessions',
+        }).then(function(response) {
+            var data = [],
+                colors = ['#F7464A','#E2EAE9','#D4CCC5','#949FB1','#4D5360',].reverse();
+
+            response.rows.forEach(function(row, i) {
+                data.push({
+                    label: row[0],
+                    value: +row[1],
+                    color: colors[i],
+                });
+            });
+
+            new Chart(makeCanvas('chart4')).PolarArea(data,{
+                animationSteps: 60,
+                animationEasing: 'easeInOutQuart',
+            });
+
+            setLegend('legend4',data);
+        });
+    }
+</script>
