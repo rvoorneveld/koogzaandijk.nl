@@ -45,7 +45,7 @@ class KZ_View_Helper_Dashboard extends Zend_View_Helper_Abstract
     {
         $objView = new Zend_View();
         $objView->setScriptPath(APPLICATION_PATH.'/modules/admin/views/scripts/dashboard/');
-        return $objView->partial('index.phtml', [
+        return $objView->partial('googleanalytics.phtml', [
             'strAuthToken' => $strAuthToken,
             'intDataId' => $intDataId,
         ]);
