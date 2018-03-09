@@ -248,53 +248,46 @@ class KZ_Models_News extends KZ_Controller_Table
         return $arrData;
 
     }
-	
-	public function getNewsByTags($intNewsID, $strTags, $intLimit = 10)
-	{
-		
-		$strQuery = $this->select()
-					->setIntegrityCheck(false)
-					->from('news', '*')
-					->joinLeft('category', 'category.category_id = news.category_id', array('category.name as category', 'category.color as category_color'))
-					->where('news.news_id != ?', $intNewsID);
-		
-		if(stristr($strTags, ',')) {
-			
-			// Get Tags array
-			$arrTags 		= explode(',', $strTags);
-			
-			// Set Total Tags
-			$intTotalTags	= count($arrTags); 
-			
-			// Loop through Tags array
-			foreach($arrTags as  $intTagKey => $intTagID) {
-				
-				$strCloseStatement = ((($intTagKey + 1) == $intTotalTags) ? ' )' : '');
 
-				if($intTagKey == 0) {
-					$strQuery->where('( news.tags LIKE ?', '%,'.$intTagID)
-							->orWhere('news.tags LIKE ? '.$strCloseStatement, $intTagID.',%');
-				} else {
-					
-					$strQuery->orWhere('news.tags LIKE ?', '%,'.$intTagID)
-							->orWhere('news.tags LIKE ? '.$strCloseStatement, $intTagID.',%');
-				}
+    /**
+     * @param $intNewsID
+     * @param $strTags
+     * @param int $intLimit
+     * @return array
+     */
+    public function getNewsByTags($intNewsID, $strTags, $intLimit = 10)
+    {
 
-			}
-			
-		} else {
+        $objQuery = $this->select()
+            ->setIntegrityCheck(false)
+            ->from('news', '*')
+            ->joinLeft('category', 'category.category_id = news.category_id', ['category.name as category', 'category.color as category_color',])
+            ->where('news.news_id != ?', $intNewsID);
 
-			$strQuery->where('news.tags = ?', $strTags);
+        if (false !== strpos($strTags, ',')) {
+            $arrTags = explode(',', $strTags);
+            $intTotalTags = count($arrTags);
+            foreach ($arrTags as $intTagKey => $intTagID) {
+                $strCloseStatement = ((($intTagKey + 1) === $intTotalTags) ? ' )' : '');
+                if (0 === $intTagKey) {
+                    $objQuery->where('( news.tags LIKE ?', '%,' . $intTagID)
+                        ->orWhere('news.tags LIKE ?', $intTagID . ',%')
+                        ->orWhere('news.tags = ?' . $strCloseStatement, $intTagID);
+                } else {
+                    $objQuery->orWhere('news.tags LIKE ?', '%,' . $intTagID)
+                        ->orWhere('news.tags LIKE ?', $intTagID . ',%')
+                        ->orWhere('news.tags = ?' . $strCloseStatement, $intTagID);
+                }
+            }
+        } else {
+            $objQuery->where('news.tags = ?', $strTags);
+        }
 
-		}
-		
-		$strQuery->where('news.status = ?', 1)
-				->order('news.date DESC')
-				->limit($intLimit);
-		
-		return $this->returnData($strQuery);
-
-	}
+        $objQuery->where('news.status = ?', 1)
+            ->order('news.date DESC')
+            ->limit($intLimit);
+        return $this->returnData($objQuery);
+    }
 	
 	public function getLatestNews($intLimit = 10)
 	{
