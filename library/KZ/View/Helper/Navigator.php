@@ -246,7 +246,7 @@ class KZ_View_Helper_Navigator extends Zend_View_Helper_Abstract
 				
 				if($intPageKey == 2) {
 					
-					$strMenuHtml .= '<li class="main logo"><a href="'.ROOT_URL.'"><img src="/assets/default/image/logo_kzhiltex.png"></a></li>';
+					$strMenuHtml .= '<li class="main logo"><a href="'.ROOT_URL.'"><img src="/assets/default/image/logo_kzthermo4u.png"></a></li>';
 					
 				}
 				
