@@ -124,7 +124,8 @@ section[role=navigation] header {
 }
 section[role=navigation] header a {
 	background:url('/assets/admin/image/logo_kzthermo4u_portrait.png') no-repeat;
-	width:221px;
+	width:160px;
+	height:20px;
 	text-indent:-9999em;
 	display:block;
 }
@@ -1499,7 +1500,8 @@ table .actions .users { background:url('/assets/admin/image/icons/icon_nav_users
 }
 .login section[role=main] > a {
 	background:url('/assets/admin/image/logo_kzthermo4u_portrait.png') no-repeat;
-	width:221px;
+	width:160px;
+	height:20px;
 	text-indent:-9999em;
 	display:block;
 }
