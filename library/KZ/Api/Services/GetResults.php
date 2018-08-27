@@ -6,7 +6,7 @@ class KZ_Api_Services_GetResults extends KZ_Api_Services
 	public 	$service 			= 'GetResults';
 	public 	$version 			= '1.0';
 	public	$code				= 'ef0baad8aa6d23b60';
-	public 	$location			= 'http://www.knkv.nl/kcp';
+	public 	$location			= 'https://www.knkv.nl/kcp';
 
 	public function run()
 	{

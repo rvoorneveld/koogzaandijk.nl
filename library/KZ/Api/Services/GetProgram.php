@@ -6,7 +6,7 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 	public 	$service 			= 'GetProgram';
 	public 	$version 			= '1.0';
 	public	$code				= 'ef0baad8aa6d23b60';
-	public 	$location			= 'http://www.knkv.nl/kcp';
+	public 	$location			= 'https://www.knkv.nl/kcp';
 
 	public function run()
 	{
@@ -20,15 +20,15 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 		// Set Load From Cache
 		$booLoadCached			= false;
 
-		// Set Configuration array
-		$arrConfig	= array(
-			'file'	=> 'xml',
-			'f'		=> 'get_data',
-			't'		=> 'program',
-			't_id'	=> '',
-			'p'		=> 0,
-			'full'	=> 1
-		);
+        // Set Configuration array
+        $arrConfig = [
+            'file' => 'json',
+            'f' => 'get_data',
+            't' => 'program',
+            't_id' => 0,
+            'p' => 0,
+            'full' => 1,
+        ];
 
 		$strLoadedXml		    = $this->_loadXml($booLoadCached, $arrConfig);
 
