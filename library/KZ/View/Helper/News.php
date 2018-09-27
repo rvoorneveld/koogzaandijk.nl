@@ -81,7 +81,7 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
                 'category' => $arrCategory,
                 'categories' => $arrCategories,
                 'topstory' => $arrTopstory,
-                'news_categories' => array_slice($arrNewsCategories, 0, 7),
+                'news_categories' => array_slice($arrNewsCategories, 0, 8),
                 'title' => $strTitle
             ]);
 
