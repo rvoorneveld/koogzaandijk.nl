@@ -60,19 +60,19 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 					$arrDate					= explode('-', $arrMatch->date);
 
 					// Set Match Variables
-					$strAwayTeam			    = (string)$arrMatch->away_team_name;
+					$strAwayTeam			    = trim((string)$arrMatch->away_team_name);
 					$intAwayTeamID			    = (int)$arrMatch->away_team_id;
 					$intAwayTeamClub		    = (int)((isset($arrMatch->away_team_name['clubteam']) && (string)$arrMatch->away_team_name['clubteam'] == 'TRUE') ? 1 : 0);
 					$strDate				    = (string)$arrMatch->date;
 					$strFacilityID			    = (string)$arrMatch->facility_id;
-					$strFacilityName		    = (string)$arrMatch->facility_name;
+					$strFacilityName		    = trim((string)$arrMatch->facility_name);
 					$strFacilityAddition	    = (string)$arrMatch->field;
 					$intMatchID				    = (int)$arrMatch->game_id;
 					$intCompetitionProgramID    = (int)$arrMatch->program_id;
-					$strHomeTeam			    = (string)$arrMatch->home_team_name;
+					$strHomeTeam			    = trim((string)$arrMatch->home_team_name);
 					$intHomeTeamID			    = (int)$arrMatch->home_team_id;
 					$intHomeTeamClub		    = (int)((isset($arrMatch->home_team_name['clubteam']) && (string)$arrMatch->home_team_name['clubteam'] == 'TRUE') ? 1 : 0);
-					$strOfficials			    = (string)$arrMatch->match_officials;
+					$strOfficials			    = trim((string)$arrMatch->match_officials);
 					$strPoule				    = (string)$arrMatch->poule_name;
 					$strClass				    = (string)$arrMatch->class;
 					$strTime				    = (string)$arrMatch->time;
