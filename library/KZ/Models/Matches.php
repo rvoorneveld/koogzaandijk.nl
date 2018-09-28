@@ -9,8 +9,8 @@ class KZ_Models_Matches extends KZ_Controller_Table
 	{
 		$strQuery = $this->select()
 					->from($this->_name, array('team_home_name','team_away_name'))
-					->where('team_home_name LIKE ?', '%KZ/Hiltex%')
-					->orWhere('team_away_name LIKE ?', '%KZ/Hiltex%')
+					->where('team_home_name LIKE ?', '%KZ/Thermo4U%')
+					->orWhere('team_away_name LIKE ?', '%KZ/Thermo4U%')
 					->order('poule_name');
 		
 		return $this->returnData($strQuery);
@@ -124,7 +124,7 @@ class KZ_Models_Matches extends KZ_Controller_Table
 
             foreach($arrData as $intMatchKey => $arrMatch) {
 
-                $strTeam				= trim(str_replace('KZ/Hiltex','',((strstr($arrMatch['team_home_name'], 'KZ/Hiltex')) ? $arrMatch['team_home_name'] : $arrMatch['team_away_name'])));
+                $strTeam				= trim(str_replace('KZ/Thermo4U','',((strstr($arrMatch['team_home_name'], 'KZ/Thermo4U')) ? $arrMatch['team_home_name'] : $arrMatch['team_away_name'])));
 
                 if(is_numeric($strTeam)) {
                     $arrAssocSeniors[$strTeam][]    = $arrMatch;
@@ -243,8 +243,8 @@ class KZ_Models_Matches extends KZ_Controller_Table
 					->where('date > ?', $strSeasonStartDate);
 					
 		if($booOnlyClubTeams === true) {
-			$strQuery->where('( team_home_name LIKE ?', '%KZ/Hiltex%')
-					->orWhere('team_away_name LIKE ? )', '%KZ/Hiltex%');
+			$strQuery->where('( team_home_name LIKE ?', '%KZ/Thermo4U%')
+					->orWhere('team_away_name LIKE ? )', '%KZ/Thermo4U%');
 		}
 		
 		$strQuery->order('date');
