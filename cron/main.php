@@ -22,7 +22,7 @@ set_include_path(implode(PATH_SEPARATOR, [
     get_include_path(),
 ]));
 
-// Load Zend Framework and KZ/Hiltex Libraries
+// Load Zend Framework Libraries
 Zend_Loader_Autoloader::getInstance()->registerNamespace('KZ_');
 
 // Get Config
