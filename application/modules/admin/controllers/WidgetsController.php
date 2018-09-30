@@ -278,18 +278,18 @@ class Admin_WidgetsController extends KZ_Controller_Action
 		if(isset($arrTeams) && is_array($arrTeams) && count($arrTeams) > 0) {
 			foreach($arrTeams as $intTeamKey => $arrTeams) {
 				
-				if(strstr($arrTeams['team_home_name'], 'KZ/Hiltex')) {
+				if(strstr($arrTeams['team_home_name'], 'KZ/Thermo4U')) {
 					
-					$strHomeTeam		= str_replace('/Hiltex ', '', $arrTeams['team_home_name']);
+					$strHomeTeam		= str_replace('/Thermo4U ', '', $arrTeams['team_home_name']);
 					
 					if(! in_array($strHomeTeam, $arrDistinctTeams)) {
 						$arrDistinctTeams[]	= $strHomeTeam;
 					}
 				}
 				
-				if(strstr($arrTeams['team_away_name'], 'KZ/Hiltex')) {
+				if(strstr($arrTeams['team_away_name'], 'KZ/Thermo4U')) {
 					
-					$strAwayTeam		= str_replace('/Hiltex ', '', $arrTeams['team_away_name']);
+					$strAwayTeam		= str_replace('/Thermo4U ', '', $arrTeams['team_away_name']);
 					
 					if(! in_array($strAwayTeam, $arrDistinctTeams)) {
 						$arrDistinctTeams[]	= $strAwayTeam;
