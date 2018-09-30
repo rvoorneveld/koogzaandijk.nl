@@ -17,7 +17,7 @@
     $intLastWeekYear = (int)$objLastWeekDate->toString('yyyy');
 
 	// Set Teams array
-	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Hiltex ', $this->data['content_10_teams']));
+	$arrTeams				= explode(',', str_replace('KZ', 'KZ/Thermo4U ', $this->data['content_10_teams']));
 
 	// Get Matches for current week
 	$arrMatches 			= $objModelMatches->getMatches($intLastWeekYear,$intLastWeekWeekNumber, $arrTeams);
@@ -63,7 +63,7 @@
                     && is_numeric($arrThisWeekMatch['team_away_score'])
                 ) {
                     $strTeamHomeName = stripslashes($arrThisWeekMatch['team_home_name']);
-                    if (!strstr($strTeamHomeName, 'KZ/Hiltex')) {
+                    if (!strstr($strTeamHomeName, 'KZ/Thermo4U')) {
                         if (strstr($strTeamHomeName, '/')) {
                             $arrTeamHomeNameFirst = explode('/', $strTeamHomeName);
                             $arrTeamHomeNameSecond = explode(' ', $strTeamHomeName);
@@ -76,7 +76,7 @@
                     $strTeamHomeName = ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
 
                     $strTeamAwayName = stripslashes($arrThisWeekMatch['team_away_name']);
-                    if (!strstr($strTeamAwayName, 'KZ/Hiltex')) {
+                    if (!strstr($strTeamAwayName, 'KZ/Thermo4U')) {
                         if (strstr($strTeamAwayName, '/')) {
                             $arrTeamAwayNameFirst = explode('/', $strTeamAwayName);
                             $arrTeamAwayNameSecond = explode(' ', $strTeamAwayName);
@@ -87,7 +87,7 @@
                     }
                     $strTeamAwayName = ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
 
-                    $arrTeamsShowed[] = ((!strstr($strTeamHomeName, 'KZ/Hiltex')) ? $strTeamAwayName : $strTeamHomeName);
+                    $arrTeamsShowed[] = ((!strstr($strTeamHomeName, 'KZ/Thermo4U')) ? $strTeamAwayName : $strTeamHomeName);
 
                     echo '	<li class="widget" rel="'.$arrThisWeekMatch['match_id'].'">
                                     <span class="team_home_name">
@@ -119,7 +119,7 @@
                 foreach($arrMatchesByTeamThisWeek as $arrMatch) {
 
                     $strTeamHomeName	= stripslashes($arrMatch['team_home_name']);
-                    if(! strstr($strTeamHomeName, 'KZ/Hiltex')) {
+                    if(! strstr($strTeamHomeName, 'KZ/Thermo4U')) {
                         if(strstr($strTeamHomeName, '/')) {
                             $arrTeamHomeNameFirst		= explode('/',$strTeamHomeName);
                             $arrTeamHomeNameSecond		= explode(' ', $strTeamHomeName);
@@ -131,7 +131,7 @@
                     $strTeamHomeName 	= ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
 
                     $strTeamAwayName	= stripslashes($arrMatch['team_away_name']);
-                    if(! strstr($strTeamAwayName, 'KZ/Hiltex')) {
+                    if(! strstr($strTeamAwayName, 'KZ/Thermo4U')) {
                         if(strstr($strTeamAwayName, '/')) {
                             $arrTeamAwayNameFirst		= explode('/',$strTeamAwayName);
                             $arrTeamAwayNameSecond		= explode(' ', $strTeamAwayName);
@@ -142,7 +142,7 @@
                     }
                     $strTeamAwayName 	= ((strlen($strTeamAwayName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamAwayName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamAwayName);
 
-                    $strCurrentTeam		= ((! strstr($strTeamHomeName, 'KZ/Hiltex')) ? $strTeamAwayName : $strTeamHomeName);
+                    $strCurrentTeam		= ((! strstr($strTeamHomeName, 'KZ/Thermo4U')) ? $strTeamAwayName : $strTeamHomeName);
 
                     if(! in_array($strCurrentTeam, $arrTeamsShowed)) {
 
