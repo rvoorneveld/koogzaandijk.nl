@@ -204,7 +204,7 @@ class KZ_View_Helper_Breadcrumb extends Zend_View
 			if($strController == 'team') {
 				if(isset($arrParams['team']) && ! empty($arrParams['team'])) {
 					$strBreadcrumbContent .= '<a href="/teams/" title="Teams">Teams</a>';
-					$strBreadcrumbContent .= '<a href="/team/'.$arrParams['team'].'/" title="KZ/Hiltex '.$arrParams['team'].'">KZ/Hiltex '.$arrParams['team'].'</a>';
+					$strBreadcrumbContent .= '<a href="/team/'.$arrParams['team'].'/" title="KZ/Thermo4U '.$arrParams['team'].'">KZ/Thermo4U '.$arrParams['team'].'</a>';
 				}
 			}
 			

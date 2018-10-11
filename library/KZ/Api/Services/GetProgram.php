@@ -81,7 +81,7 @@ class KZ_Api_Services_GetProgram extends KZ_Api_Services
 					// Set Unique Matches ID
 					$intUniqueMatchesID         = $intMatchID.$intHomeTeamID.$intAwayTeamID;
 
-					// Check if Match is a KZ/Hiltex match
+					// Check if Match is a KZ/Thermo4U match
 					if($intHomeTeamClub == 1 || $intAwayTeamClub == 1) {
 
 						$arrMatchData	= array(
