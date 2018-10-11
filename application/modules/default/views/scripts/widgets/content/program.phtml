@@ -43,7 +43,7 @@
                 $strDay = $this->date()->format($arrMatch['date'], 'EE');
 
                 $strTeamHomeName = stripslashes($arrMatch['team_home_name']);
-                if (!strstr($strTeamHomeName, 'KZ/Hiltex')) {
+                if (!strstr($strTeamHomeName, 'KZ/Thermo4U')) {
                     if (strstr($strTeamHomeName, '/')) {
                         $arrTeamHomeNameFirst = explode('/', $strTeamHomeName);
                         $arrTeamHomeNameSecond = explode(' ', $strTeamHomeName);
@@ -55,7 +55,7 @@
                 $strTeamHomeName = ((strlen($strTeamHomeName) > (($this->size == 'small') ? 12 : 20)) ? substr($strTeamHomeName, 0, (($this->size == 'small') ? 12 : 20)) : $strTeamHomeName);
 
                 $strTeamAwayName = stripslashes($arrMatch['team_away_name']);
-                if (!strstr($strTeamAwayName, 'KZ/Hiltex')) {
+                if (!strstr($strTeamAwayName, 'KZ/Thermo4U')) {
                     if (strstr($strTeamAwayName, '/')) {
                         $arrTeamAwayNameFirst = explode('/', $strTeamAwayName);
                         $arrTeamAwayNameSecond = explode(' ', $strTeamAwayName);

@@ -296,8 +296,8 @@ class Toolscontroller extends KZ_Controller_Action
 		
 		// Set Default Rss feed data
 		$arrFeedData = array(
-				'title'			=> 'Korfbalvereniging KZ/Hiltex',
-				'description'	=> 'Korfbalvereniging KZ/Hiltex Rss feed',
+				'title'			=> 'Korfbalvereniging KZ/Thermo4U',
+				'description'	=> 'Korfbalvereniging KZ/Thermo4U Rss feed',
 				'link'			=> 'http://www.koogzaandijk.nl/rss/',
 				'charset'		=> 'utf8',
 				'entries'		=>	array()
