@@ -11,6 +11,9 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^koogzaandijk\.nl [NC]
 RewriteRule ^(.*)$ http://www.koogzaandijk.nl/$1 [L,R=301]
 
+Redirect 301 /programma https://programma.koogzaandijk.nl
+Redirect 301 /uitslagen https://programma.koogzaandijk.nl
+
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
