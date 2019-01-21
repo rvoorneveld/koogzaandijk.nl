@@ -3,6 +3,8 @@
 class KZ_View_Helper_News extends Zend_View_Helper_Abstract
 {
 
+    const NEWS_CATEGORIES_STATUS__ACTIVE = 1;
+
     public function news($booIsMobile = false)
     {
         $objConfig = Zend_Registry::get('Zend_Config');
@@ -71,18 +73,14 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
                 $arrTopstory = $objModelPage->getPageContent($arrTopstory['value']);
             }
 
-            // Get News Categories
-            $intStatus = 1;
-            $arrNewsCategories = $objModelNews->getNewsCategories($intStatus);
-
             return $this->view->partial('snippets/news.phtml', [
                 'news' => array_slice($arrOrderedNews, 0, $intLimit),
                 'agenda' => $arrAgendaItems,
                 'category' => $arrCategory,
                 'categories' => $arrCategories,
                 'topstory' => $arrTopstory,
-                'news_categories' => array_slice($arrNewsCategories, 0, 8),
-                'title' => $strTitle
+                'news_categories' => $objModelNews->getNewsCategories(static::NEWS_CATEGORIES_STATUS__ACTIVE),
+                'title' => $objModelNews->getNewsCategories($intStatus)
             ]);
 
         }
