@@ -2,6 +2,7 @@
     "require": {
         "google/apiclient": "~2.0@RC",
         "mobiledetect/mobiledetectlib": "^2.8",
-        "zendframework/zendframework1": "^1.12"
+        "zendframework/zendframework1": "^1.12",
+        "shardj/zendframework1-php7.2": "^1.13"
     }
 }
