@@ -10,7 +10,7 @@ defined($strKey = 'CACHE_PATH') || define($strKey,realpath(dirname(__FILE__).'/.
 defined($strKey = 'APPLICATION_ENV') || define($strKey,getenv($strKey) ?: 'production');
 
 // Define root url
-defined($strKey = 'ROOT_URL') || define($strKey,'http://'.$_SERVER['HTTP_HOST']);
+defined($strKey = 'ROOT_URL') || define($strKey, 'https://'.$_SERVER['HTTP_HOST']);
 
 defined($strKey = 'SERVER_URL') || define($strKey, realpath($_SERVER['DOCUMENT_ROOT']));
 
