@@ -2,313 +2,320 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="DC.language" content="en">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="Author" content="Mediaconcepts.nl">
-	<?php echo $this->headMeta(); ?>
-	<title><?php echo $this->seo_title; ?></title>
-	<meta name="Description" content="<?php echo $this->seo_description; ?>">
-	<meta name="Keywords" content="<?php echo $this->seo_keywords; ?>">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="DC.language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="Author" content="Mediaconcepts.nl">
+    <?php echo $this->headMeta(); ?>
+    <title><?php echo $this->seo_title; ?></title>
+    <meta name="Description" content="<?php echo $this->seo_description; ?>">
+    <meta name="Keywords" content="<?php echo $this->seo_keywords; ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/default/image/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/default/image/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/default/image/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/default/image/favicon/manifest.json">
     <link rel="mask-icon" href="/assets/default/image/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-	
+
     <link href="/assets/default/css/style.less" rel="stylesheet/less" type="text/css">
-	<link href="/assets/default/css/tablet_landscape.less" rel="stylesheet/less" type="text/css" media="only screen and (min-width: 801px) and (max-width: 1100px)">
-	<link href="/assets/default/css/tablet_portrait.less" rel="stylesheet/less" type="text/css" media="only screen and (min-width: 1px) and (max-width: 800px)">
-	<link href="/assets/default/css/jquery.offcanvas.less" rel="stylesheet/less" type="text/css" media="only screen and (min-width: 1px) and (max-width: 800px)">
-	<!--[if lt IE 8]>
-		<link href="/assets/default/css/table_test.less" rel="stylesheet/less" type="text/css">
-	<![endif]-->
-	<link href="/assets/default/css/jquery.dropdown.css" rel="stylesheet" type="text/css">
-	<link href="/assets/default/css/jquery.ketchup.css" rel="stylesheet" type="text/css">
-	<link href="/assets/default/css/jquery.ui.css" rel="stylesheet" type="text/css">
-	<link href="/assets/default/css/jquery.flexslider.css" rel="stylesheet" type="text/css">
-	<link href="/assets/default/css/jquery.fancybox.css" rel="stylesheet" type="text/css">
-	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>-->
-	<script type="text/javascript" src="/assets/default/script/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.ui.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.easing.js"></script>
-	<script type="text/javascript" src="/assets/default/script/less.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.tweet.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" src="/assets/default/script/modernizr.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.dropdown.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.tinycarousel.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.ketchup.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.ketchup.validations.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.ketchup.helpers.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.responsive.js"></script>
-	<script type="text/javascript" src="/assets/default/script/jquery.offcanvas.js"></script>
+    <link href="/assets/default/css/tablet_landscape.less" rel="stylesheet/less" type="text/css"
+          media="only screen and (min-width: 801px) and (max-width: 1100px)">
+    <link href="/assets/default/css/tablet_portrait.less" rel="stylesheet/less" type="text/css"
+          media="only screen and (min-width: 1px) and (max-width: 800px)">
+    <link href="/assets/default/css/jquery.offcanvas.less" rel="stylesheet/less" type="text/css"
+          media="only screen and (min-width: 1px) and (max-width: 800px)">
+    <!--[if lt IE 8]>
+    <link href="/assets/default/css/table_test.less" rel="stylesheet/less" type="text/css">
+    <![endif]-->
+    <link href="/assets/default/css/jquery.dropdown.css" rel="stylesheet" type="text/css">
+    <link href="/assets/default/css/jquery.ketchup.css" rel="stylesheet" type="text/css">
+    <link href="/assets/default/css/jquery.ui.css" rel="stylesheet" type="text/css">
+    <link href="/assets/default/css/jquery.flexslider.css" rel="stylesheet" type="text/css">
+    <link href="/assets/default/css/jquery.fancybox.css" rel="stylesheet" type="text/css">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/assets/default/script/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.ui.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.easing.js"></script>
+    <script type="text/javascript" src="/assets/default/script/less.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.tweet.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/assets/default/script/modernizr.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.dropdown.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.tinycarousel.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.ketchup.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.ketchup.validations.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.ketchup.helpers.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.responsive.js"></script>
+    <script type="text/javascript" src="/assets/default/script/jquery.offcanvas.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-	<script type="text/javascript">
-		
-		jQuery(document).ready(function() {
+    <script type="text/javascript">
 
-			// Form Validation by Ketchup
-			jQuery('.ketchup').ketchup();				
-			
-			//INIT TWEETS
-			jQuery(function(){
+        jQuery(document).ready(function () {
 
-				if(jQuery(".tweet").length > 0) {
-					jQuery(".tweet").each(function(){
-						jQuery(this).tweet({
-							join_text: "auto",
-							username: jQuery(this).attr('rel'),
-							/*avatar_size: 60,*/
-							count: 6,
-							auto_join_text_default: "plaatste <a href=\"http://www.twitter.com/"+ jQuery(this).attr('rel') +"\" target=\"_blank\">@"+ jQuery(this).attr('rel') +"</a>,",
-							auto_join_text_ed: jQuery(this).attr('rel'),
-							auto_join_text_ing: jQuery(this).attr('rel') + " was",
-							auto_join_text_reply: jQuery(this).attr('rel') + " antwoordde",
-							auto_join_text_url: "plaatste <a href=\"http://www.twitter.com/"+ jQuery(this).attr('rel') +"\" target=\"_blank\">@"+ jQuery(this).attr('rel') +"</a>,",
-							loading_text: "Tweets laden..."
-						  });
-					});
-				}
-			});
+            // Form Validation by Ketchup
+            jQuery('.ketchup').ketchup();
 
-			jQuery('#main-slider').flexslider({
-				minItems: 1,
-				maxItems: 1,
-				move: 1,
-				animation: 'fade',
-				animationSpeed: 1500,
-				startAt: 0,
-				directionNav: false,
-				pauseOnHover: true
-			});
+            //INIT TWEETS
+            jQuery(function () {
 
-			jQuery('#widget-slider').flexslider({
-				minItems: 1,
-				maxItems: 2,
-				itemWidth: 105,
-				itemMargin:0,
-				animation: 'slide',
-				animationSpeed: 1500,
-				startAt: 0,
-				directionNav: false,
-				controlNav: true,
-				pauseOnHover: true,
-			});
-			
-			jQuery('li.main ul').hover( function(){
-				jQuery(this).parent('li').children('a').addClass('hover');
-			});
+                if (jQuery(".tweet").length > 0) {
+                    jQuery(".tweet").each(function () {
+                        jQuery(this).tweet({
+                            join_text: "auto",
+                            username: jQuery(this).attr('rel'),
+                            /*avatar_size: 60,*/
+                            count: 6,
+                            auto_join_text_default: "plaatste <a href=\"http://www.twitter.com/" + jQuery(this).attr('rel') + "\" target=\"_blank\">@" + jQuery(this).attr('rel') + "</a>,",
+                            auto_join_text_ed: jQuery(this).attr('rel'),
+                            auto_join_text_ing: jQuery(this).attr('rel') + " was",
+                            auto_join_text_reply: jQuery(this).attr('rel') + " antwoordde",
+                            auto_join_text_url: "plaatste <a href=\"http://www.twitter.com/" + jQuery(this).attr('rel') + "\" target=\"_blank\">@" + jQuery(this).attr('rel') + "</a>,",
+                            loading_text: "Tweets laden..."
+                        });
+                    });
+                }
+            });
 
-			jQuery('li.main ul').mouseleave( function(){
+            jQuery('#main-slider').flexslider({
+                minItems: 1,
+                maxItems: 1,
+                move: 1,
+                animation: 'fade',
+                animationSpeed: 1500,
+                startAt: 0,
+                directionNav: false,
+                pauseOnHover: true
+            });
 
-				jQuery(this).parent('li').children('a').removeClass('hover');
-				
-			});
+            jQuery('#widget-slider').flexslider({
+                minItems: 1,
+                maxItems: 2,
+                itemWidth: 105,
+                itemMargin: 0,
+                animation: 'slide',
+                animationSpeed: 1500,
+                startAt: 0,
+                directionNav: false,
+                controlNav: true,
+                pauseOnHover: true,
+            });
 
-			// Search Suggestions
-			jQuery('#suggestions').css('display', 'none');
-			
-			jQuery("#search").blur(function(){
-				jQuery('#suggestions').fadeOut();
-				jQuery(this).val('');
-			});
+            jQuery('li.main ul').hover(function () {
+                jQuery(this).parent('li').children('a').addClass('hover');
+            });
 
-			var matchMedia = window.matchMedia || window.msMatchMedia; 
-			
-			if(matchMedia) {
+            jQuery('li.main ul').mouseleave(function () {
 
-				// Calculate width of navigation
-				var intTotalNavigationItems = jQuery("nav ul.main").children().length;
+                jQuery(this).parent('li').children('a').removeClass('hover');
 
-				// Resize Navigation Slider
-				jQuery('#widget-slider').resize();
+            });
 
-				currentResponsiveView 		= jQuery().responsive({
-					items		: (intTotalNavigationItems / 2)
-				});
-				
-				var currentResponsiveView = '';
-				
-				jQuery(window).resize(function() {
+            // Search Suggestions
+            jQuery('#suggestions').css('display', 'none');
 
-					currentResponsiveView = jQuery().responsive({
-						current		: currentResponsiveView,
-						items		: (intTotalNavigationItems / 2)
-					});						
+            jQuery("#search").blur(function () {
+                jQuery('#suggestions').fadeOut();
+                jQuery(this).val('');
+            });
 
-				});
+            var matchMedia = window.matchMedia || window.msMatchMedia;
 
-			}
-			
-			// Get Match Program Info
-			jQuery('ol.clubplugin.program li.widget').click(function(){
+            if (matchMedia) {
 
-				jQuery('ol.clubplugin.program li.widget').removeClass('active');
-				jQuery('ul.row li.schedule div#match_info_program').html('');
-				jQuery('ul.row li.schedule #match_info_program').css('display', 'none');
-				
-				jQuery(this).addClass('active');
-				jQuery('#match_info_program').html('');
-				
-				var position 		= jQuery(this).position();
-				var elementHeight 	= jQuery(this).outerHeight();
-				var elementWidth 	= jQuery(this).outerWidth();
-				var elementMatchID 	= jQuery(this).attr('rel');
+                // Calculate width of navigation
+                var intTotalNavigationItems = jQuery("nav ul.main").children().length;
 
-				jQuery('#match_info_program').css('display', 'block');
-				jQuery('#match_info_program').css('top', Math.floor(position.top) + elementHeight);
-				jQuery('#match_info_program').css('left', Math.round(position.left));
-				jQuery('#match_info_program').css('width', elementWidth);
+                // Resize Navigation Slider
+                jQuery('#widget-slider').resize();
 
-				jQuery.get("/tools/teaminfo", {match_id:elementMatchID}).done(function(data) {
-					jQuery('#match_info_program').html(data);
-				});
+                currentResponsiveView = jQuery().responsive({
+                    items: (intTotalNavigationItems / 2)
+                });
 
-			});
+                var currentResponsiveView = '';
 
-			// Match Program Infobox
-			jQuery("div#match_info_program").live({
-				click: function() {
-					jQuery('ol.clubplugin.program li.widget').removeClass('active');
-					jQuery('ul.row li.schedule div#match_info_program').html('');
-					jQuery('ul.row li.schedule #match_info_program').css('display', 'none');
-				}
-			});
+                jQuery(window).resize(function () {
 
-			// Get Match Results Info
-			jQuery('ol.clubplugin.results li.widget').click(function(){
+                    currentResponsiveView = jQuery().responsive({
+                        current: currentResponsiveView,
+                        items: (intTotalNavigationItems / 2)
+                    });
 
-			    if (true == jQuery(this).parent().hasClass('js-volunteers')) {
+                });
+
+            }
+
+            // Get Match Program Info
+            jQuery('ol.clubplugin.program li.widget').click(function () {
+
+                jQuery('ol.clubplugin.program li.widget').removeClass('active');
+                jQuery('ul.row li.schedule div#match_info_program').html('');
+                jQuery('ul.row li.schedule #match_info_program').css('display', 'none');
+
+                jQuery(this).addClass('active');
+                jQuery('#match_info_program').html('');
+
+                var position = jQuery(this).position();
+                var elementHeight = jQuery(this).outerHeight();
+                var elementWidth = jQuery(this).outerWidth();
+                var elementMatchID = jQuery(this).attr('rel');
+
+                jQuery('#match_info_program').css('display', 'block');
+                jQuery('#match_info_program').css('top', Math.floor(position.top) + elementHeight);
+                jQuery('#match_info_program').css('left', Math.round(position.left));
+                jQuery('#match_info_program').css('width', elementWidth);
+
+                jQuery.get("/tools/teaminfo", {match_id: elementMatchID}).done(function (data) {
+                    jQuery('#match_info_program').html(data);
+                });
+
+            });
+
+            // Match Program Infobox
+            jQuery("div#match_info_program").live({
+                click: function () {
+                    jQuery('ol.clubplugin.program li.widget').removeClass('active');
+                    jQuery('ul.row li.schedule div#match_info_program').html('');
+                    jQuery('ul.row li.schedule #match_info_program').css('display', 'none');
+                }
+            });
+
+            // Get Match Results Info
+            jQuery('ol.clubplugin.results li.widget').click(function () {
+
+                if (true == jQuery(this).parent().hasClass('js-volunteers')) {
                     return false;
                 }
 
-				jQuery('ol.clubplugin.results li.widget').removeClass('active');
-				jQuery('ul.row li.results div#match_info_results').html('');
-				jQuery('ul.row li.results #match_info_results').css('display', 'none');
-				
-				jQuery(this).addClass('active');
-				jQuery('#match_info_results').html('');
-				
-				var position 		= jQuery(this).position();
-				var elementHeight 	= jQuery(this).outerHeight();
-				var elementWidth 	= jQuery(this).outerWidth();
-				var elementMatchID 	= jQuery(this).attr('rel');
+                jQuery('ol.clubplugin.results li.widget').removeClass('active');
+                jQuery('ul.row li.results div#match_info_results').html('');
+                jQuery('ul.row li.results #match_info_results').css('display', 'none');
 
-				jQuery('#match_info_results').css('display', 'block');
-				jQuery('#match_info_results').css('top', Math.floor(position.top) + elementHeight);
-				jQuery('#match_info_results').css('left', Math.round(position.left));
-				jQuery('#match_info_results').css('width', elementWidth);
+                jQuery(this).addClass('active');
+                jQuery('#match_info_results').html('');
 
-				jQuery.get("/tools/teaminfo", {match_id:elementMatchID}).done(function(data) {
-					jQuery('#match_info_results').html(data);
-				});
+                var position = jQuery(this).position();
+                var elementHeight = jQuery(this).outerHeight();
+                var elementWidth = jQuery(this).outerWidth();
+                var elementMatchID = jQuery(this).attr('rel');
 
-			});
+                jQuery('#match_info_results').css('display', 'block');
+                jQuery('#match_info_results').css('top', Math.floor(position.top) + elementHeight);
+                jQuery('#match_info_results').css('left', Math.round(position.left));
+                jQuery('#match_info_results').css('width', elementWidth);
 
-			// Match Results Infobox
-			jQuery("div#match_info_results").live({
-				click: function() {
-					jQuery('ol.clubplugin.results li.widget').removeClass('active');
-					jQuery('ul.row li.results div#match_info_results').html('');
-					jQuery('ul.row li.results #match_info_results').css('display', 'none');
-				}
-			});
+                jQuery.get("/tools/teaminfo", {match_id: elementMatchID}).done(function (data) {
+                    jQuery('#match_info_results').html(data);
+                });
 
-			// SIDEBAR OFFCANVAS
-			jQuery().offcanvas();
+            });
 
-			// Login Profiles
-			jQuery('.openProfiles').click(function(){
-				jQuery('.l-wrapper--profiles').show();
-				jQuery(this).hide();
-			});
-			
-		});
+            // Match Results Infobox
+            jQuery("div#match_info_results").live({
+                click: function () {
+                    jQuery('ol.clubplugin.results li.widget').removeClass('active');
+                    jQuery('ul.row li.results div#match_info_results').html('');
+                    jQuery('ul.row li.results #match_info_results').css('display', 'none');
+                }
+            });
 
-		function searchSuggestions(searchValue) {
-			if(searchValue.length < 2) {
-				jQuery('#suggestions').fadeOut(); // Hide the suggestions box
-			} else {
-				jQuery.post("/tools/search/", {search: ""+searchValue+""}, function(data) { // Do an AJAX call
-					jQuery('#suggestions').fadeIn(); // Show the suggestions box
-					jQuery('#suggestions').html(data); // Fill the suggestions box
-				});
-			}
-		}
+            // SIDEBAR OFFCANVAS
+            jQuery().offcanvas();
 
-	</script>
+            // Login Profiles
+            jQuery('.openProfiles').click(function () {
+                jQuery('.l-wrapper--profiles').show();
+                jQuery(this).hide();
+            });
+
+        });
+
+        function searchSuggestions(searchValue) {
+            if (searchValue.length < 2) {
+                jQuery('#suggestions').fadeOut(); // Hide the suggestions box
+            } else {
+                jQuery.post("/tools/search/", {search: "" + searchValue + ""}, function (data) { // Do an AJAX call
+                    jQuery('#suggestions').fadeIn(); // Show the suggestions box
+                    jQuery('#suggestions').html(data); // Fill the suggestions box
+                });
+            }
+        }
+
+    </script>
 </head>
 <body>
-	<div id="full-container">
-		<?php echo $this->profiles(); ?>
-		<div class="menu-container" style="display: none;">
-			<?php echo $this->navigator(1); ?>
-		</div>
-		<div class="content-container">
-			<header class="zapp">
-				<div class="portrait">
-					<div class="menu_button_container">
+<div id="full-container">
+    <?php echo $this->profiles(); ?>
+    <div class="menu-container" style="display: none;">
+        <?php echo $this->navigator(1); ?>
+    </div>
+    <div class="content-container">
+        <header class="zapp">
+            <div class="portrait">
+                <div class="menu_button_container">
 						<span class="menu_button">menu
 							<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span>
 						</span>
-					</div>
-					<a href="/"><img class="logo" src="/assets/default/image/logo_kzthermo4u_portrait.png" alt="Logo kz/thermo4u"></a>
-				</div>
-				<ul class="col right">
-					<li><a class="contact<?php echo ((isset($this->activeRouteContact) && $this->activeRouteContact === true) ? ' hover' : '');?>" href="/route-contact">contact en route</a></li>
-					<li class="sm">
-						<span class="title">volg ons:</span>
-						<a class="twitter" href="https://twitter.com/KZ_Thermo4U" target="_blank"><span>twitter</span></a>
-						<a class="facebook" href="http://www.facebook.com/kvkoogzaandijk" target="_blank"><span>facebook</span></a>
-					</li>
-					<li class="search">
-						<label>Zoek:</label>
-						<input type="text" name="search" id="search" value="" onkeyup="searchSuggestions(this.value);">
-						<ul id="suggestions"></ul>
-					</li>
-				</ul>
-				<?php echo $this->profiles('button'); ?>
-			</header>
-			<div class="menu-container-oncanvas">
-				<?php echo $this->navigator(1); ?>
-			</div>
-			<div id="wrapper_main" class="zapp">
-				<div class="col main left">
-					<div class="wrapper_inner">
+                </div>
+                <a href="/"><img class="logo" src="/assets/default/image/logo_kzthermo4u_portrait.png"
+                                 alt="Logo kz/thermo4u"></a>
+            </div>
+            <ul class="col right">
+                <li>
+                    <a class="contact<?php echo((isset($this->activeRouteContact) && $this->activeRouteContact === true) ? ' hover' : ''); ?>"
+                       href="/route-contact">contact en route</a></li>
+                <li class="sm">
+                    <span class="title">volg ons:</span>
+                    <a class="twitter" href="https://twitter.com/KZ_Thermo4U" target="_blank"><span>twitter</span></a>
+                    <a class="facebook" href="http://www.facebook.com/kvkoogzaandijk"
+                       target="_blank"><span>facebook</span></a>
+                </li>
+                <li class="search">
+                    <label>Zoek:</label>
+                    <input type="text" name="search" id="search" value="" onkeyup="searchSuggestions(this.value);">
+                    <ul id="suggestions"></ul>
+                </li>
+            </ul>
+            <?php echo $this->profiles('button'); ?>
+        </header>
+        <div class="menu-container-oncanvas">
+            <?php echo $this->navigator(1); ?>
+        </div>
+        <div id="wrapper_main" class="zapp">
+            <div class="col main left">
+                <div class="wrapper_inner">
 
-						<!--<a class="header--eindsprong" href="https://www.eindsprong.nl" title="Website Eindsprong" target="_blank">
-							<img src="/assets/default/image/header_website.gif" alt="Banner eindsprong" title="Klik hier om naar de speciale website te gaan" />
-						</a>-->
-					
-						<?php echo $this->breadcrumb(); ?>
-					
-						<?php echo $this->carousel(); ?>
-					
-						<?php echo $this->layout()->content; ?>
-					
-						<?php echo $this->news(); ?>
-						
-						<?php echo $this->widgets(); ?>
-						
-						<?php echo $this->navigator(2); ?>
-			
-					</div>
-				</div>
-				<!--<div class="col main right">
-					<iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de436577a"></iframe>
-					<iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de475ba80"></iframe>
-					<iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de4c91af2"></iframe>
-					<iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82deb699c93"></iframe>
-				</div>-->
-			</div>
-		</div>
-	</div>
-	<div id="fb-root"></div>
-	<?php echo $this->googleanalytics; ?>
+                    <!--<a class="header--eindsprong" href="https://www.eindsprong.nl" title="Website Eindsprong" target="_blank">
+                        <img src="/assets/default/image/header_website.gif" alt="Banner eindsprong" title="Klik hier om naar de speciale website te gaan" />
+                    </a>-->
+
+                    <?php echo $this->breadcrumb(); ?>
+
+                    <?php echo $this->carousel(); ?>
+
+                    <?php echo $this->layout()->content; ?>
+
+                    <?php echo $this->news(); ?>
+
+                    <?php echo $this->widgets(); ?>
+
+                    <?php echo $this->navigator(2); ?>
+
+                </div>
+            </div>
+            <!--<div class="col main right">
+                <iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de436577a"></iframe>
+                <iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de475ba80"></iframe>
+                <iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de4c91af2"></iframe>
+                <iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82deb699c93"></iframe>
+            </div>-->
+        </div>
+    </div>
+</div>
+<div id="fb-root"></div>
+<?php echo $this->googleanalytics; ?>
 </body>
 </html>
