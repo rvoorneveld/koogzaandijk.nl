@@ -1,292 +1,207 @@
 <?php
 
-$fncFormat = function($strDate,$strFormat,$booReturnObject = false) {
-    return $this->date()->format($strDate,$strFormat,$booReturnObject);
+$fncFormat = function ($strDate, $strFormat, $booReturnObject = false) {
+    return $this->date()->format($strDate, $strFormat, $booReturnObject);
+};
+
+$objResponsive = new KZ_Controller_Action_Helper_Responsive();
+$booIsMobile = $objResponsive->isMobile();
+
+if ($booIsMobile === false) {
+    if ($this->title == 'home') {
+        echo '<div id="sponsors"></div>';
+    }
 }
-
-?><script type="text/javascript" src="/assets/default/script/jquery.dateformat.js"></script>
-<script type="text/javascript">
-
-	jQuery(document).ready(function(){
-
-		jQuery('#newsDropdown ul li').click(function(){
-
-			jQuery('span.dropdown_button').html(jQuery(this).html());
-			jQuery('span.dropdown_button').append('<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span>');
-			jQuery('span.dropdown_button').removeClass('dropdown-open');
-			jQuery('#newsDropdown').hide();
-			
-			var categoryID = jQuery(this).attr('rel');
-
-			jQuery.get('/tools/newsfilter/id/'+categoryID+'/',
-	
-				function(returnData) {
-
-					jQuery('div.news_wrapper li.news ol').html('');
-				
-					var arrModel = eval( '(' + returnData + ')' );
-
-					jQuery.each(arrModel, function(intKeyModel) {
-
-					    var prefixUrl       = 'undefined' == typeof(arrModel[intKeyModel].news_id) ? arrModel[intKeyModel].blogSlug : 'nieuws'
-						var itemName		= arrModel[intKeyModel].name;
-						var	itemCategory	= arrModel[intKeyModel].category;
-						var	itemColor		= arrModel[intKeyModel].color;
-						var itemUrl			= arrModel[intKeyModel].nameSlug;
-
-						itemCreated		= jQuery.format.date(arrModel[intKeyModel].date + ' 00:00:00', "dd-MM");
-						itemTimeTag		= jQuery.format.date(arrModel[intKeyModel].date + ' 00:00:00', "dd-MM-yyyy");
-						
-						var strList		= '' +
-                            '<li>' +
-                            '   <div class="date_container">' +
-                            '       <span class="bullet" title="'+itemCategory+'" style="background: '+itemColor+';"></span>' +
-                            '       <span class="date newstag"><time datetime="'+itemTimeTag+'">'+itemCreated+'</time></span>' +
-                            '   </div>' +
-                            '   <a class="news_title" title="'+itemName+'" href="/'+prefixUrl+'/'+itemUrl+'">'+itemName+'</a>' +
-                            '</li>';
-						
-						jQuery('div.news_wrapper li.news ol').prepend(strList);
-						
-					});
-
-				}
-					
-			);
-
-		});
-
-		var	defaultSponsorUrl	= "https://www.sponsorportaal.nl/marquee/?id=510041347d247";
-		var parentWidth 		= jQuery('#sponsors').parent().width();
-		var iframeWidth 		= parentWidth - 47;
-		var iframeSource 		= defaultSponsorUrl + "&amp;width=" + iframeWidth;
-
-		jQuery('#sponsors').css('width', parentWidth + 'px');
-		jQuery('#sponsors').append('<iframe id="sponsors_horizontal" src="'+iframeSource+'" frameborder="0" scrolling="no" width="'+parentWidth+'px" height="86px"></iframe>');
-
-
-		jQuery(window).resize(function() {
-		    if(this.resizeTO) clearTimeout(this.resizeTO);
-		    this.resizeTO = setTimeout(function() {
-		        $(this).trigger('resizeEnd');
-		    }, 500);
-		});
-
-		jQuery(window).bind('resizeEnd', function() {
-		    
-			var	defaultSponsorUrl	= "https://www.sponsorportaal.nl/marquee/?id=510041347d247";
-			var parentWidth 		= jQuery('#sponsors').parent().width();
-			var iframeWidth 		= parentWidth - 47;
-			var iframeSource 		= defaultSponsorUrl + "&amp;width=" + iframeWidth;
-
-			jQuery('#sponsors').css('width', parentWidth + 'px');
-			jQuery('#sponsors').html('<iframe id="sponsors_horizontal" src="'+iframeSource+'" frameborder="0" scrolling="no" width="'+parentWidth+'px" height="86px"></iframe>');
-			
-		});
-		
-	});
-
-</script>
-<?php
-	
-	$objResponsive 	= new KZ_Controller_Action_Helper_Responsive();
-	$booIsMobile	= $objResponsive->isMobile();
-
-	if($booIsMobile === false) {
-		if($this->title == 'home') {
-			echo '<div id="sponsors"></div>';
-		}
-	}
 ?>
 <div class="table news_wrapper">
-	<ul class="row">
-	
-		<?php
-		
-		if(isset($this->news) && is_array($this->news) && count($this->news) > 0) :
-			
-			echo '	<li class="cell large bg_kz_lightgrey news">';
+    <ul class="row">
 
-				// Set Categories Dropdown
-				if(isset($this->categories) && is_array($this->categories) && count($this->categories) > 0) : 
-				
-					echo '	<h2>'.$this->translate('Laatste nieuws').'</h2>';
-							
-					if(isset($this->category) && is_array($this->category)) {
-						
-						echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: '.$this->category['color'].';"></span>'.$this->category['name'].'<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span></span>';
-						
-					} else {
-						
-						echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: #000;"></span>Alle categorie&euml;n<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span></span>';
-					}
-					
-							
-						echo '<div id="newsDropdown" class="dropdown-menu has-tip anchor-right">
+        <?php
+
+        if (isset($this->news) && is_array($this->news) && count($this->news) > 0) :
+
+            echo '	<li class="cell large bg_kz_lightgrey news">';
+
+            // Set Categories Dropdown
+            if (isset($this->categories) && is_array($this->categories) && count($this->categories) > 0) :
+
+                echo '	<h2>' . $this->translate('Laatste nieuws') . '</h2>';
+
+                if (isset($this->category) && is_array($this->category)) {
+
+                    echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: ' . $this->category['color'] . ';"></span>' . $this->category['name'] . '<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span></span>';
+
+                } else {
+
+                    echo '<span class="dropdown_button" data-dropdown="#newsDropdown"><span class="bullet" style="background: #000;"></span>Alle categorie&euml;n<span class="downarrow"><span aria-hidden="true">&#xe000;</span></span></span>';
+                }
+
+
+                echo '<div id="newsDropdown" class="dropdown-menu has-tip anchor-right">
 								<ul>
-									<li rel="false"><span class="bullet" style="background: #000;"></span>'.$this->translate('Alle categorie&euml;n').'</li>';
-					
-						foreach($this->categories as $intCategoryID => $arrCategory) :
-						
-							echo '<li rel="'.$arrCategory['category_id'].'"><span class="bullet" title="'.stripslashes($arrCategory['name']).'" style="background: '.$arrCategory['color'].';"></span>'.stripslashes($arrCategory['name']).'</li>';
-							
-						endforeach;
-								
-					echo '		</ul>
+									<li rel="false"><span class="bullet" style="background: #000;"></span>' . $this->translate('Alle categorie&euml;n') . '</li>';
+
+                foreach ($this->categories as $intCategoryID => $arrCategory) :
+
+                    echo '<li rel="' . $arrCategory['category_id'] . '"><span class="bullet" title="' . stripslashes($arrCategory['name']) . '" style="background: ' . $arrCategory['color'] . ';"></span>' . stripslashes($arrCategory['name']) . '</li>';
+
+                endforeach;
+
+                echo '		</ul>
 							</div>';
-					
-				endif;
-			
-			echo '<ol>';
-		
-			foreach($this->news as $intNewsKey => $arrNews) :
+
+            endif;
+
+            echo '<ol>';
+
+            foreach ($this->news as $intNewsKey => $arrNews) :
 
                 if (true === isset($arrNews['blogger_id'])) {
                     echo '	<li>
                                 <div class="date_container">
                                     <span class="bullet" title="Blog" style="background: purple;"></span>
-                                    <span class="date newstag"><a href="'.ROOT_URL.'/blog/'.$arrNews['blogSlug'].'/'.$arrNews['slug'].'/" title="'.stripslashes($arrNews['blogName']).'"><time datetime="'.$fncFormat($arrNews['created'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['created'], 'dd-MM').'</time></a></span>
+                                    <span class="date newstag"><a href="' . ROOT_URL . '/blog/' . $arrNews['blogSlug'] . '/' . $arrNews['slug'] . '/" title="' . stripslashes($arrNews['blogName']) . '"><time datetime="' . $fncFormat($arrNews['created'], 'dd-MM-yyyy') . '">' . $fncFormat($arrNews['created'], 'dd-MM') . '</time></a></span>
                                 </div>
-                                <a class="news_title" href="'.ROOT_URL.'/blog/'.$arrNews['blogSlug'].'/'.$arrNews['slug'].'/" title="'.$arrNews['blogName'].': '.stripslashes($arrNews['title']).'">'.$arrNews['blogName'].': '.stripslashes($arrNews['title']).'</a>
+                                <a class="news_title" href="' . ROOT_URL . '/blog/' . $arrNews['blogSlug'] . '/' . $arrNews['slug'] . '/" title="' . $arrNews['blogName'] . ': ' . stripslashes($arrNews['title']) . '">' . $arrNews['blogName'] . ': ' . stripslashes($arrNews['title']) . '</a>
                             </li>';
                 } else {
-			        echo '	<li>
+                    echo '	<li>
                                 <div class="date_container">
-                                    <span class="bullet" title="'.stripslashes($arrNews['category']).'" style="background: '.$arrNews['category_color'].';"></span>
-                                    <span class="date newstag"><a href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'"><time datetime="'.$fncFormat($arrNews['date'], 'dd-MM-yyyy').'">'.$fncFormat($arrNews['date'], 'dd-MM').'</time></a></span>
+                                    <span class="bullet" title="' . stripslashes($arrNews['category']) . '" style="background: ' . $arrNews['category_color'] . ';"></span>
+                                    <span class="date newstag"><a href="' . ROOT_URL . '/nieuws/' . $arrNews['nameSlug'] . '" title="' . stripslashes($arrNews['name']) . '"><time datetime="' . $fncFormat($arrNews['date'], 'dd-MM-yyyy') . '">' . $fncFormat($arrNews['date'], 'dd-MM') . '</time></a></span>
                                 </div>
-                                <a class="news_title" href="'.ROOT_URL.'/nieuws/'.$arrNews['nameSlug'].'" title="'.stripslashes($arrNews['name']).'">'.stripslashes($arrNews['name']).'</a>
+                                <a class="news_title" href="' . ROOT_URL . '/nieuws/' . $arrNews['nameSlug'] . '" title="' . stripslashes($arrNews['name']) . '">' . stripslashes($arrNews['name']) . '</a>
                             </li>';
                 }
-			
-			endforeach;
-			
-			echo '</ol><a class="color_kz_blue inline_link" href="/nieuws/">Meer nieuws &raquo;</a></li>';
-			
-		endif;
-		
-		if(isset($this->agenda) && is_array($this->agenda) && count($this->agenda) > 0) :
 
-			echo '	<li class="cell small bg_kz_lightyellow agenda">
+            endforeach;
+
+            echo '</ol><a class="color_kz_blue inline_link" href="/nieuws/">Meer nieuws &raquo;</a></li>';
+
+        endif;
+
+        if (isset($this->agenda) && is_array($this->agenda) && count($this->agenda) > 0) :
+
+            echo '	<li class="cell small bg_kz_lightyellow agenda">
 	
                         <!--<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="https://www.sponsorportaal.nl/banner/?id=587ca4e9c6425" id="i_587ca4e9c6425"></iframe>-->
 	
-						<h2>'.$this->translate('Agenda').'</h2>
+						<h2>' . $this->translate('Agenda') . '</h2>
 						<ol>';
-		
-			foreach($this->agenda as $intAgendaKey => $arrAgenda) :
-			
-				echo '	<li>
-							<span class="date news_tag"><a href="'.ROOT_URL.'/agenda/'.$arrAgenda['nameSlug'].'" title="'.stripslashes($arrAgenda['name']).'">'.$fncFormat($arrAgenda['date_start'], 'dd-MM-yyyy').(($arrAgenda['date_end'] != $arrAgenda['date_start']) ? ' / '.$fncFormat($arrAgenda['date_end'], 'dd-MM-yyyy') : '').'</a></span>
-							<a href="'.ROOT_URL.'/agenda/'.$arrAgenda['nameSlug'].'" title="'.$arrAgenda['name'].'">'.stripslashes($arrAgenda['name']).'</a>
+
+            foreach ($this->agenda as $intAgendaKey => $arrAgenda) :
+
+                echo '	<li>
+							<span class="date news_tag"><a href="' . ROOT_URL . '/agenda/' . $arrAgenda['nameSlug'] . '" title="' . stripslashes($arrAgenda['name']) . '">' . $fncFormat($arrAgenda['date_start'], 'dd-MM-yyyy') . (($arrAgenda['date_end'] != $arrAgenda['date_start']) ? ' / ' . $fncFormat($arrAgenda['date_end'], 'dd-MM-yyyy') : '') . '</a></span>
+							<a href="' . ROOT_URL . '/agenda/' . $arrAgenda['nameSlug'] . '" title="' . $arrAgenda['name'] . '">' . stripslashes($arrAgenda['name']) . '</a>
 						</li>';
-			
-			endforeach;
 
-			// Set Clubwinkel Banner
-			echo '<h2>Koop nu online</h2><a class="clubwinkel" href="https://www.onzeclubwinkel.nl" target="_blank" title="onzeclubwinkel"><img src="/assets/default/image/onzeclubwinkel-logo-trans.png" alt="onzeclubwinkel" title="onzeclubwinkel" /></a>';
-			
-			echo '</ol><a class="color_kz_blue inline_link" href="/agenda/">De complete agenda &raquo;</a></li>';
-			
-		endif;
-		
-		?>
+            endforeach;
 
-		<?php
-		/*
-			if(isset($this->topstory) && is_array($this->topstory) && count($this->topstory) > 0) {
+            // Set Clubwinkel Banner
+            echo '<h2>Koop nu online</h2><a class="clubwinkel" href="https://www.onzeclubwinkel.nl" target="_blank" title="onzeclubwinkel"><img src="/assets/default/image/onzeclubwinkel-logo-trans.png" alt="onzeclubwinkel" title="onzeclubwinkel" /></a>';
 
-				$strTitle 	= '';
-				$strText	= '';
-				$strImage	= '';
-				
-				$arrData	= unserialize($this->topstory[0]['data']);
-				
-				foreach($arrData as $strDataKey => $strDataValue) {
-					
-					if(strstr($strDataKey, 'title')) {
-						$strImageTitle	= stripslashes($strDataValue);
-						$strTitle 		= '<h2>'.stripslashes($strDataValue).'</h2>';
-					}
-					
-					if(strstr($strDataKey, 'text')) {
-						
-						$strText 		= stripslashes($strDataValue);
-						
-					}
-					
-					if(strstr($strDataKey, 'image')) {
-						$strImage 		= '<br /><img src="/upload/'.$strDataValue.'" title="'.((isset($strImageTitle) && ! empty($strImageTitle) ? $strImageTitle : '')).'" alt="'.((isset($strImageTitle) && ! empty($strImageTitle) ? $strImageTitle : '')).'">';
-					}
-					
-					
-				}
-				
-				if(! empty($strText)) {
-					echo '<li class="cell small bg_kz_yellow color_kz_blue ad">'.$strTitle.$strText.$strImage.'</li>';
-				}
-				
-			}
-		*/
-		
-		// Col right - News Categories
-		if(! empty($this->news_categories) && is_array($this->news_categories)) :
+            echo '</ol><a class="color_kz_blue inline_link" href="/agenda/">De complete agenda &raquo;</a></li>';
 
-			echo '<li class="cell small arrows">';
+        endif;
 
-		    /*
-		     *
-		     *  <div class="clubkit">
+        ?>
+
+        <?php
+        /*
+            if(isset($this->topstory) && is_array($this->topstory) && count($this->topstory) > 0) {
+
+                $strTitle 	= '';
+                $strText	= '';
+                $strImage	= '';
+
+                $arrData	= unserialize($this->topstory[0]['data']);
+
+                foreach($arrData as $strDataKey => $strDataValue) {
+
+                    if(strstr($strDataKey, 'title')) {
+                        $strImageTitle	= stripslashes($strDataValue);
+                        $strTitle 		= '<h2>'.stripslashes($strDataValue).'</h2>';
+                    }
+
+                    if(strstr($strDataKey, 'text')) {
+
+                        $strText 		= stripslashes($strDataValue);
+
+                    }
+
+                    if(strstr($strDataKey, 'image')) {
+                        $strImage 		= '<br /><img src="/upload/'.$strDataValue.'" title="'.((isset($strImageTitle) && ! empty($strImageTitle) ? $strImageTitle : '')).'" alt="'.((isset($strImageTitle) && ! empty($strImageTitle) ? $strImageTitle : '')).'">';
+                    }
+
+
+                }
+
+                if(! empty($strText)) {
+                    echo '<li class="cell small bg_kz_yellow color_kz_blue ad">'.$strTitle.$strText.$strImage.'</li>';
+                }
+
+            }
+        */
+
+        // Col right - News Categories
+        if (!empty($this->news_categories) && is_array($this->news_categories)) :
+
+            echo '<li class="cell small arrows">';
+
+            /*
+             *
+             *  <div class="clubkit">
                     <a target="_blank" href="https://www.korfbalgoals.nl/" title="Korfbalgoals"><img class="korfbalgoals" src="/assets/default/image/layout/korfbalgoals.png" alt="Korfbalgoals" title="Korfbalgoals" /></a>
                     <a href="/vrienden-van/" title="Vrienden van KZ/Thermo4U"><img class="vrienden-van" src="/assets/default/image/layout/clubkit/vrienden-van.jpg" alt="Vrienden van KZ/Thermo4U" title="Vrienden van KZ/Thermo4U" /></a>
                 </div>
-		     *
-		     */
+             *
+             */
 
-			foreach($this->news_categories as $arrNewsCategory) :
-				
-				$strLink	= (($arrNewsCategory['link_target'] == '_blank') ? 'window.open(\''.$arrNewsCategory['link'].'\');' : 'document.location.href=\''.$arrNewsCategory['link'].'\'');
-			
-				echo '	<div class="arrow_box bg'.$arrNewsCategory['color_background'].'" onclick="'.$strLink.'">
-							<div class="inner color'.$arrNewsCategory['color_text'].'">
-								'.substr($arrNewsCategory['title'],0,23).'
+            foreach ($this->news_categories as $arrNewsCategory) :
+
+                $strLink = (($arrNewsCategory['link_target'] == '_blank') ? 'window.open(\'' . $arrNewsCategory['link'] . '\');' : 'document.location.href=\'' . $arrNewsCategory['link'] . '\'');
+
+                echo '	<div class="arrow_box bg' . $arrNewsCategory['color_background'] . '" onclick="' . $strLink . '">
+							<div class="inner color' . $arrNewsCategory['color_text'] . '">
+								' . substr($arrNewsCategory['title'], 0, 23) . '
 							</div>
 						</div>';
-			
-			endforeach;
 
-			echo '<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="https://www.sponsorportaal.nl/banner/?id=587ca48f6b3f5" id="i_587ca48f6b3f5"></iframe>';
+            endforeach;
 
-			echo '</li>';
-			
-		endif;
-		?>
-		
-	</ul>
-	<ul class="row last-row">
-		<li class="cell big readmore bg_kz_lightgrey">
-			<a class="color_kz_blue" href="/nieuws/">Meer nieuws &raquo;</a>
-		</li>
-		<li class="cell small readmore bg_kz_lightyellow">
-			<a class="color_kz_blue" href="/agenda/">De complete agenda &raquo;</a>
-		</li>
-		<?php
-			/*if(! empty($strText)) {
-				echo '<li class="cell small readmore bg_kz_yellow"></li>';
-			}*/
-		?>
-		<li class="cell small readmore"></li>
-	</ul>
-	
+            echo '<iframe class="sponsor" allowtransparency="true" frameborder="0" scrolling="no" src="https://www.sponsorportaal.nl/banner/?id=587ca48f6b3f5" id="i_587ca48f6b3f5"></iframe>';
+
+            echo '</li>';
+
+        endif;
+        ?>
+
+    </ul>
+    <ul class="row last-row">
+        <li class="cell big readmore bg_kz_lightgrey">
+            <a class="color_kz_blue" href="/nieuws/">Meer nieuws &raquo;</a>
+        </li>
+        <li class="cell small readmore bg_kz_lightyellow">
+            <a class="color_kz_blue" href="/agenda/">De complete agenda &raquo;</a>
+        </li>
+        <?php
+        /*if(! empty($strText)) {
+            echo '<li class="cell small readmore bg_kz_yellow"></li>';
+        }*/
+        ?>
+        <li class="cell small readmore"></li>
+    </ul>
+
 </div>
 <?php
-	if($this->title != 'home' || $booIsMobile === true) {
-		echo '<div id="sponsors" class="no_home"></div>';
-	}
-	echo '	<div id="sponsors_tablet_landscape" class="zapp">
-				<div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de436577a"></iframe></div>
-				<div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de475ba80"></iframe></div>
-				<div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de4c91af2"></iframe></div>
-				<div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82deb699c93"></iframe></div>
-			</div>';
+if ($this->title != 'home' || $booIsMobile === true) {
+    echo '<div id="sponsors" class="no_home"></div>';
+}
+echo '	<div id="sponsors_tablet_landscape" class="zapp">
+            <div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de436577a"></iframe></div>
+            <div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de475ba80"></iframe></div>
+            <div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82de4c91af2"></iframe></div>
+            <div class="sponsor-block"><iframe allowtransparency="true" frameborder="0" width="144" scrolling="no" src="https://www.sponsorportaal.nl/shared/banner/?id=4e82deb699c93"></iframe></div>
+        </div>';
 ?>
