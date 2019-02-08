@@ -166,7 +166,7 @@ class Moxiecode_Error
  * @param Array $errcontext Error context array, contains all variables.
  * @return Bool Just return true for now.
  */
-public function JSONErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function JSONErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 {
     global $MCErrorHandler;
 
