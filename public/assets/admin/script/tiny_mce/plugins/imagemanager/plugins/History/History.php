@@ -4,7 +4,7 @@
  *
  * @package HistoryCookiePlugin
  * @author Moxiecode
- * @copyright Copyright © 2007, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2007, Moxiecode Systems AB, All rights reserved.
  */
 
 /**
@@ -21,16 +21,16 @@ class Moxiecode_HistoryPlugin extends Moxiecode_ManagerPlugin {
 	/**
 	 * ..
 	 */
-	function Moxiecode_HistoryPlugin() {
+	public function __construct() {
 	}
 
-	function onInit(&$man) {
+	public function onInit(&$man) {
 		$man->registerFileSystem('history', 'Moxiecode_HistoryFile');
 
 		return true;
 	}
 
-	function onInsertFile(&$man, &$file) {
+	public function onInsertFile(&$man, &$file) {
 		$path = $file->getAbsolutePath();
 		$type = $man->getType();
 		$maxhistory = isset($config["history.max"]) ? $config["history.max"] : $this->_maxhistory;
@@ -61,54 +61,54 @@ class Moxiecode_HistoryPlugin extends Moxiecode_ManagerPlugin {
 		return true;
 	}
 
-	function getCookieData($type) {
+	public function getCookieData($type) {
 		if (isset($_COOKIE["MCManagerHistoryCookie_". $type]))
 			return $_COOKIE["MCManagerHistoryCookie_". $type];
 		else
 			return "";
 	}
 
-	function setCookieData($type, $val) {
+	public function setCookieData($type, $val) {
 		setcookie("MCManagerHistoryCookie_". $type, $val, time()+(3600*24*30)); // 30 days
 	}
 
-	function onClearHistory(&$man) {
+	public function onClearHistory(&$man) {
 		setcookie ("MCManagerHistoryCookie_". $man->getType(), "", time() - 3600); // 1 hour ago
 		return true;
 	}
 }
 
 class Moxiecode_HistoryFile extends Moxiecode_BaseFileImpl {
-	function Moxiecode_HistoryFile(&$manager, $absolute_path, $child_name = "", $type = MC_IS_FILE) {
+	public function __construct(&$manager, $absolute_path, $child_name = "", $type = MC_IS_FILE) {
 		$absolute_path = str_replace('favorite://', '', $absolute_path);
 		Moxiecode_BaseFileImpl::Moxiecode_BaseFileImpl($manager, $absolute_path, $child_name, $type);
 	}
 
-	function canRead() {
+	public function canRead() {
 		return true;
 	}
 
-	function canWrite() {
+	public function canWrite() {
 		return false;
 	}
 
-	function exists() {
+	public function exists() {
 		return true;
 	}
 
-	function isDirectory() {
+	public function isDirectory() {
 		return true;
 	}
 
-	function isFile() {
+	public function isFile() {
 		return false;
 	}
 
-	function getParent() {
+	public function getParent() {
 		return null;
 	}
 
-	function &getParentFile() {
+	public function &getParentFile() {
 		return null;
 	}
 
@@ -117,7 +117,7 @@ class Moxiecode_HistoryFile extends Moxiecode_BaseFileImpl {
 	 *
 	 * @return Array array of File instances.
 	 */
-	function &listFiles() {
+	public function &listFiles() {
 		$files = $this->listFilesFiltered(new Moxiecode_DummyFileFilter());
 		return $files;
 	}
@@ -128,7 +128,7 @@ class Moxiecode_HistoryFile extends Moxiecode_BaseFileImpl {
 	 * @param MCE_FileFilter &$filter MCE_FileFilter instance to filter files by.
 	 * @return Array array of MCE_File instances based on the specified filter instance.
 	 */
-	function &listFilesFiltered(&$filter) {
+	public function &listFilesFiltered(&$filter) {
 		$files = array();
 		$man = $this->_manager;
 
@@ -163,14 +163,14 @@ class Moxiecode_HistoryFile extends Moxiecode_BaseFileImpl {
 		return $files;
 	}
 
-	function _getCookieData($type) {
+	public function _getCookieData($type) {
 		if (isset($_COOKIE["MCManagerHistoryCookie_". $type]))
 			return $_COOKIE["MCManagerHistoryCookie_". $type];
 		else
 			return "";
 	}
 
-	function _removeFavorite(&$man, $path=array()) {
+	public function _removeFavorite(&$man, $path=array()) {
 		$type = $man->getType();
 
 		$cookievalue = $this->_getCookieData($type);
@@ -203,11 +203,10 @@ class Moxiecode_HistoryFile extends Moxiecode_BaseFileImpl {
 		return true;
 	}
 
-	function _setCookieData($type, $val) {
+	public function _setCookieData($type, $val) {
 		setcookie("MCManagerHistoryCookie_". $type, $val, time()+(3600*24*30)); // 30 days
 	}
 }
 
 // Add plugin to MCManager
 $man->registerPlugin("history", new Moxiecode_HistoryPlugin());
-?>
