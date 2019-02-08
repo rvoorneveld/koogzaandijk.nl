@@ -1,0 +1,407 @@
+@media only screen and (min-width: 1px) and (max-width: 800px) {
+  $max_width: 1500px;
+  $kz_blue: #00529b;
+  $kz_lightblue: #0c63b0;
+  $kz_yellow: #febd11;
+  $kz_lightyellow: #ffecc4;
+  $kz_grey: #d9d9cd;
+  $kz_lightgrey: #f5f6f2;
+  $kz_white: #fff;
+  $kz_black: #000;
+
+  $base-spacing-unit: 30px;
+  $half-spacing-unit: $base-spacing-unit/2;
+
+  body#tablet_portrait {
+
+    /*** GENERIC TABLET STYLES ***/
+
+    /***
+    HIDE RIGHT BANNER, MAIN CONTENT 100%
+    ***/
+    div.col.main.left {
+      padding-right: 0 !important;
+    }
+
+    div.col.main.right {
+      display: none;
+    }
+
+    /***
+    /HIDE RIGHT BANNER, MAIN CONTENT 100%
+    ***/
+
+    /*** /GENERIC TABLET STYLES ***/
+
+
+    /*** CUSTOM PORTRAIT STYLES ***/
+
+    padding: 0 !important;
+
+    /***
+    PORTRAIT TABLET MENU OPENER
+    ***/
+    header {
+      padding: 5px 0 !important;
+      min-height: 50px;
+
+      ul.col.right, ul.col.left {
+        display: none !important;
+      }
+
+      .portrait {
+        display: block !important;
+
+        .menu_button_container {
+          position: absolute;
+          right: 10px;
+          top: 0;
+          z-index: 200;
+          display: block;
+        }
+
+        span.menu_button {
+          -moz-border-radius: 5px; /* Firefox */
+          -webkit-border-radius: 5px; /* Safari, Chrome */
+          border-radius: 5px; /* CSS3 */
+          text-decoration: none;
+          color: #000;
+          background: #fff;
+          padding: 10px 35px 10px 15px;
+          border: solid 1px #DDD;
+          cursor: pointer;
+          margin: 10px;
+          width: 100px;
+          position: relative;
+          display: block;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box; /* Firefox */
+          -webkit-box-sizing: border-box; /* Safari */
+          span.downarrow {
+            font-family: icons;
+            color: grey;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 5px 0 5px;
+            height: 100%;
+            border-left: 1px solid #ddd;
+            font-size: 1.2rem;
+            background: #fff;
+            border-radius: 0px 5px 5px 0px; /* CSS3 */
+            -moz-border-radius: 0px 5px 5px 0px; /* Firefox */
+            -webkit-border-radius: 0px 5px 5px 0px; /* Safari, Chrome */
+            font-family: icons;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box; /* Firefox */
+            -webkit-box-sizing: border-box; /* Safari */
+          }
+        }
+
+        .logo {
+          margin: 10px 0 0 10px;
+        }
+      }
+
+      .col.left {
+        float: none;
+        padding: 10px 10px 5px 10px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        width: 100%;
+      }
+    }
+
+    /***
+    /PORTRAIT TABLET MENU OPENER
+    ***/
+
+    /***
+    RESIZE NAV
+    ***/
+    /*nav {
+        margin:0 !important;
+        padding:0 !important;
+        border-top:0 !important;
+        border-bottom:0 !important;
+        display:none !important;
+        background:$kz_white;
+        position:absolute;
+        top:51px;
+        z-index:10;
+        box-shadow:0 5px 5px rgba(0,0,0,0.8);
+        -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.8);
+        -moz-box-shadow:0 5px 5px rgba(0,0,0,0.8);
+        -o-box-shadow:0 5px 5px rgba(0,0,0,0.8);
+        font-size:1.4rem;
+        ul.main{
+            height:auto !important;
+            li{
+                float:none !important;
+                text-align:left !important;
+                a{
+                    border-bottom:1px dotted $kz_black;
+                    padding:10px !important;
+                    height:auto !important;
+                    line-height:1;
+                    span{
+                        strong{
+                            font-weight:normal;
+                            font-size:2rem;
+                        }
+                    }
+                }
+                a:hover,
+                a.hover{
+                    border-left:none !important;
+                    border-right:none !important;
+                    span{
+                        border:0 !important;
+                    }
+                }
+            }
+            li:hover {
+                ul {
+                    display: none !important;
+                }
+            }
+            li:last-child{
+                a{
+                    border:0;
+                }
+            }
+        }
+    }*/
+    /***
+    /RESIZE NAV
+    ***/
+
+    /***
+    RESET WRAPPER INNER
+    ***/
+    .wrapper_inner {
+      border: 0 !important;
+      box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      -o-box-shadow: none !important;
+      padding: 0 !important;
+
+      #breadcrumb {
+        padding: 30px 0 0 30px !important;
+      }
+
+      #nextpage {
+        .col.left {
+          padding: 0 15px !important;
+          width: 100% !important;
+
+          ul.row {
+            display: block !important;
+          }
+        }
+
+        .col.right {
+          display: none !important;
+        }
+
+        h2 {
+          padding-left: 15px;
+        }
+      }
+    }
+
+    /***
+    /RESET WRAPPER INNER
+    ***/
+
+    /***
+    REPOSITION LOGO
+    ***/
+    li.main.logo {
+      display: none;
+      position: absolute !important;
+      z-index: 100 !important;
+      left: 15px !important;
+      top: 10px !important;
+
+      img {
+        margin: 0 !important;
+        height: 80px !important;
+      }
+    }
+
+    /***
+    /REPOSITION LOGO
+    ***/
+
+    /***
+    REARANGE CAROUSEL
+    ***/
+    ul#carousel {
+      h2 {
+        font-size: 2.4rem !important;
+      }
+
+      li {
+        div {
+          width: 100% !important;
+          float: none !important;
+        }
+
+        div.content {
+          min-height: 400px !important;
+          overflow: hidden !important;
+        }
+
+        div.main_image {
+          display: none !important;
+        }
+
+        .read-more-carousel {
+          left: 0 !important;
+        }
+      }
+
+      margin-bottom: 30px !important;
+    }
+
+    /***
+    /REARANGE CAROUSEL
+    ***/
+
+    /***
+    HIDE SPONSORBAR HORIZONTAL
+    ***/
+    #sponsors {
+      display: none !important;
+    }
+
+    /***
+    /HIDE SPONSORBAR HORIZONTAL
+    ***/
+
+    /***
+    NEWS WRAPPER
+    ***/
+    .news_wrapper {
+      h2 {
+        font-size: 2.4rem !important;
+      }
+    }
+
+    /***
+    /NEWS WRAPPER
+    ***/
+
+    /***
+    WIDGET 100% WIDTH
+    ***/
+    div.table {
+      display: block !important;
+
+      ul.row {
+        display: block !important;
+
+        li.cell {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          -moz-box-sizing: border-box !important;
+          -webkit-box-sizing: border-box !important;
+          border: 0 !important;
+          margin-bottom: 30px !important;
+          /*padding: 0 !important;*/
+          h3 {
+            font-size: 1.8rem !important;
+          }
+
+          a.inline_link {
+            display: block !important;
+            padding-top: 10px;
+            text-align: center;
+          }
+        }
+
+        li.ad {
+          display: none !important;
+        }
+      }
+
+      ul.row.last-row {
+        display: none !important;
+      }
+    }
+
+    /***
+    /WIDGET 100% WIDTH
+    ***/
+
+    /***
+    RESIZE SUPERKOOGER
+    ***/
+    li.fanzone {
+      img {
+        width: 50% !important;
+      }
+    }
+
+    /***
+    /RESIZE SUPERKOOGER
+    ***/
+
+    /***
+    PROFILES
+    ***/
+    .teams-profile li.teams-profile-list {
+      width: 100% !important;
+      margin: 0 !important;
+      margin-bottom: 30px !important;
+
+      .teams-profile-box {
+        border: 0 !important;
+        border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        -webkit-border-radius: 0 !important;
+        -o-border-radius: 0 !important;
+        margin-bottom: 0 !important;
+
+        .teams-profile-name {
+          padding-left: 15px !important;
+        }
+      }
+    }
+
+    /***
+    /PROFILES
+    ***/
+
+    /***
+    FOOTER
+    ***/
+    footer {
+      padding-bottom: 10px !important;
+
+      dl {
+        padding-right: 0 !important;
+        padding-left: 10px !important;
+      }
+    }
+
+    /***
+    /FOOTER
+    ***/
+
+    /***
+    BLOG
+     */
+    .table--profiles__blog {
+      margin: 0 $half-spacing-unit;
+    }
+
+    /*** CUSTOM PORTRAIT STYLES ***/
+
+  }
+}

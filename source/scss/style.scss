@@ -1,13 +1,13 @@
-@max_width:1300px;
-@kz_blue:#00529b;
-@kz_lightblue:#0c63b0;
-@kz_yellow:#febd11;
-@kz_lightyellow:#ffecc4;
-@kz_grey:#d9d9cd;
-@kz_lightgrey:#f5f6f2;
-@kz_white:#fff;
-@kz_black:#000;
-@kz_red:#D9160D;
+$max_width:1300px;
+$kz_blue:#00529b;
+$kz_lightblue:#0c63b0;
+$kz_yellow:#febd11;
+$kz_lightyellow:#ffecc4;
+$kz_grey:#d9d9cd;
+$kz_lightgrey:#f5f6f2;
+$kz_white:#fff;
+$kz_black:#000;
+$kz_red:#D9160D;
 /***
 FONTS
 ***/
@@ -79,24 +79,27 @@ FONTS
 /***
 COLORS
 ***/
-.bg_kz_blue{background:@kz_blue}
-.bg_kz_yellow{background:@kz_yellow}
-.bg_kz_lightyellow{background:@kz_lightyellow}
-.bg_kz_grey{background:@kz_grey}
-.bg_kz_lightgrey{background:@kz_lightgrey}
+.bg_kz_blue{background:$kz_blue}
+.bg_kz_yellow{background:$kz_yellow}
+.bg_kz_lightyellow{background:$kz_lightyellow}
+.bg_kz_grey{background:$kz_grey}
+.bg_kz_lightgrey{background:$kz_lightgrey}
 .bg_kz_black{background:#000}
 .bg_kz_stripes{background:url(../image/layout/bg_stripes.png)}
-.bg_kz_red{background:@kz_red}
+.bg_kz_red{background:$kz_red}
 
-.color_kz_blue{color:@kz_blue}
-.color_kz_yellow{color:@kz_yellow}
-.color_kz_grey{color:@kz_grey}
+.color_kz_blue{color:$kz_blue}
+.color_kz_yellow{color:$kz_yellow}
+.color_kz_grey{color:$kz_grey}
 .color_kz_black{color:#000}
 .color_kz_white{color:#fff}
-.color_kz_red{color:@kz_red}
+.color_kz_red{color:$kz_red}
 /***
 /COLORS
 ***/
+
+$base-spacing-unit: 30px;
+$half-spacing-unit: $base-spacing-unit/2;
 
 *{margin:0;padding:0;border:0;}
 html {
@@ -116,16 +119,16 @@ body{
 	height:100%;	
 }
 .hard-top {
-	margin-top: @base-spacing-unit;
+	margin-top: $base-spacing-unit;
 }
 .hard-bottom {
-	margin-bottom: @base-spacing-unit;
+	margin-bottom: $base-spacing-unit;
 }
 .soft-top {
-	margin-top: @half-spacing-unit;
+	margin-top: $half-spacing-unit;
 }
 .soft-bottom {
-	margin-bottom: @half-spacing-unit;
+	margin-bottom: $half-spacing-unit;
 }
 .fill {
 	width:100% !important;
@@ -181,12 +184,12 @@ body{
 	display:block;
 	text-align:center;
 	padding:3px 10px;
-	background:@kz_yellow !important;
-	color:@kz_blue !important;
+	background:$kz_yellow !important;
+	color:$kz_blue !important;
 	font-weight:bold;
 	text-decoration:none;
-	border-top:2px solid @kz_lightyellow !important;
-	border-left:2px solid @kz_lightyellow !important;
+	border-top:2px solid $kz_lightyellow !important;
+	border-left:2px solid $kz_lightyellow !important;
 	border-bottom:2px solid #d49a00 !important;
 	border-right:2px solid #d49a00 !important;
 	-moz-border-radius: 5px; /* Firefox */
@@ -208,14 +211,14 @@ body{
 .button:hover{
 	border-top:2px solid #d49a00 !important;
 	border-left:2px solid #d49a00 !important;
-	border-bottom:2px solid @kz_lightyellow !important;
-	border-right:2px solid @kz_lightyellow !important;
+	border-bottom:2px solid $kz_lightyellow !important;
+	border-right:2px solid $kz_lightyellow !important;
 }
 .button:active{
 	border-top:2px solid #a77900 !important;
 	border-left:2px solid #a77900 !important;
-	border-bottom:2px solid @kz_lightyellow !important;
-	border-right:2px solid @kz_lightyellow !important;
+	border-bottom:2px solid $kz_lightyellow !important;
+	border-right:2px solid $kz_lightyellow !important;
 	background:#d49a00 !important;
 }
 .button--login
@@ -252,7 +255,7 @@ body{
 	margin-left: -5px;
 	.cell {
 		border-right:0!important;
-		margin-right:@half-spacing-unit;
+		margin-right:$half-spacing-unit;
 	}
 	.cell:hover,
 	.cell:focus
@@ -274,7 +277,7 @@ body{
 }
 .l-wrapper--profiles
 {
-	background: @kz_yellow;
+	background: $kz_yellow;
 	padding: 10px;
 	position: absolute;
 	top: 0;
@@ -297,7 +300,7 @@ body{
 }
 	.profiles__profile
 	{
-		background: @kz_blue;
+		background: $kz_blue;
 		border-radius: 5px;
 		vertical-align: top;
 		padding: 10px;
@@ -312,7 +315,7 @@ body{
 		}
 	}
 	.profiles__profile--color-yellow {
-		background: @kz_yellow;
+		background: $kz_yellow;
 	}
 	.profiles__profile--new
 	{
@@ -341,7 +344,7 @@ body{
 	}
 	.media__img
 	 {
-		border: 5px solid @kz_blue;
+		border: 5px solid $kz_blue;
 		border: 5px solid rgb(0,66,124);
 		cursor:pointer;
 	 }
@@ -349,7 +352,7 @@ body{
 	.media__img.media--profile-edit:focus,
 	.media--profile-active
 	{
-		border: 5px solid @kz_yellow !important;
+		border: 5px solid $kz_yellow !important;
 		border: 5px solid rgb(254,189,17) !important;
 	}
 	.media--profile-edit {
@@ -367,7 +370,7 @@ body{
 	}
 	.media--contacts
 	{
-		color:@kz_black !important;
+		color:$kz_black !important;
 		font-size:1.6rem;
 		margin-top:15px;
 		width:50%;
@@ -381,10 +384,10 @@ body{
 			padding-right:10px;
 		}
 		a {
-			color: @kz_black;
+			color: $kz_black;
 		}
 		a:hover,a:focus {
-			color: @kz_blue;
+			color: $kz_blue;
 		}
 	}
 	.media--contacts:last-child
@@ -511,17 +514,17 @@ h3{
 		display:none;
 	}
 	a.results{
-		color:@kz_lightyellow !important;
+		color:$kz_lightyellow !important;
 	}
 	a.results:hover{
-		color:@kz_yellow !important;
+		color:$kz_yellow !important;
 		text-decoration: none !important;
 	}
 	a.program{
-		color:@kz_lightyellow !important;
+		color:$kz_lightyellow !important;
 	}
 	a.program:hover{
-		color:@kz_blue !important;
+		color:$kz_blue !important;
 		text-decoration: none !important;
 	}
 }
@@ -530,7 +533,7 @@ HEADER
 ***/
 header{
 	margin:auto;
-	max-width:@max_width;
+	max-width:$max_width;
 	text-transform:uppercase;
 	font-size:14px;
 	font-size:1.4rem;
@@ -541,7 +544,7 @@ header{
 	}
 	
 	a{
-		color:@kz_black;
+		color:$kz_black;
 		text-decoration:none;
 	}
 	a:hover{		
@@ -551,18 +554,18 @@ header{
 	GENERAL INPUT TEXT HEADER STYLING
 	***/
 	input[type="text"]{
-		border:2px solid @kz_grey;
+		border:2px solid $kz_grey;
 		padding:5px;
 		width:100%;
 		box-sizing:border-box;
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		font-size:1.6rem;
-		background:@kz_lightgrey;
+		background:$kz_lightgrey;
 	}
 	input[type="text"]:focus{
-		border:2px solid @kz_blue;
-		background:@kz_white;
+		border:2px solid $kz_blue;
+		background:$kz_white;
 		box-shadow:0 0 5px rgba(0,0,0,0.6);
 		-moz-box-shadow:0 0 5px rgba(0,0,0,0.6);
 		-webkit-box-shadow:0 0 5px rgba(0,0,0,0.6);
@@ -590,7 +593,7 @@ header{
 			-moz-border-radius: 5px; /* Firefox */
 		  	-webkit-border-radius: 5px; /* Safari, Chrome */
 		  	border-radius: 5px; /* CSS3 */
-			background: @kz_white;
+			background: $kz_white;
 			list-style: none;
 			border: solid 1px #DDD;
 			box-sizing:border-box;
@@ -616,16 +619,16 @@ header{
 				a{
 					display:block;
 					padding:10px;
-					border-bottom:1px solid @kz_grey;
+					border-bottom:1px solid $kz_grey;
 					span.date_container{
 						display:block;
-						color:@kz_blue;
+						color:$kz_blue;
 					}
 
 				}
 				a:hover{
 					text-decoration:none;
-					background:@kz_lightyellow;
+					background:$kz_lightyellow;
 				}
 			}
 			li.result.news{
@@ -648,8 +651,8 @@ header{
 					}
 			}
 			li.category {
-				background: @kz_blue;
-				color: @kz_white;
+				background: $kz_blue;
+				color: $kz_white;
 				font-family: 'univers_75_blackregular';
 				border-bottom: 0;
 			}
@@ -775,7 +778,7 @@ nav{
 	}
 	ul.main{
 		margin:auto;
-		max-width:@max_width;
+		max-width:$max_width;
 		height:90px;		
 		li.main{
 			display:block;
@@ -786,7 +789,7 @@ nav{
 				display:block;
 				height:90px;
 				line-height:90px;
-				color:@kz_black;
+				color:$kz_black;
 				text-transform:uppercase;
 				text-decoration:none;
 				padding:0 10px;
@@ -800,21 +803,21 @@ nav{
 				}
 			}
 			a.main:hover{
-				background:@kz_white;
-				border-left:2px dotted @kz_black;
-				border-right:2px dotted @kz_black;
-				color:@kz_blue;
+				background:$kz_white;
+				border-left:2px dotted $kz_black;
+				border-right:2px dotted $kz_black;
+				color:$kz_blue;
 				height:92px;
 				span{
-					border-top:4px solid @kz_yellow;
+					border-top:4px solid $kz_yellow;
 					padding-top:13px;
 				}
 			}
 			a.main.active,a.main.hover {
-				background:@kz_white;
-				border-left:2px dotted @kz_black;
-				border-right:2px dotted @kz_black;
-				color:@kz_blue;
+				background:$kz_white;
+				border-left:2px dotted $kz_black;
+				border-right:2px dotted $kz_black;
+				color:$kz_blue;
 				height:92px;
 			}
 			/***
@@ -835,20 +838,20 @@ nav{
 			ul{
 				display:block;
 				margin:auto;				
-				border-bottom:2px dotted @kz_black;
-				background:@kz_white;
+				border-bottom:2px dotted $kz_black;
+				background:$kz_white;
 				text-align:left;
 				z-index: 1000;
 				min-width:100%;
 				li{
-					border-left:2px dotted @kz_black;
-					border-right:2px dotted @kz_black;
+					border-left:2px dotted $kz_black;
+					border-right:2px dotted $kz_black;
 					padding:0 15px;
 					a{
 						display:block;
-						border-bottom:2px dotted @kz_blue;
+						border-bottom:2px dotted $kz_blue;
 						padding:15px 0;
-						color:@kz_black;
+						color:$kz_black;
 						text-decoration:none;
 					}
 					a:hover{
@@ -859,9 +862,9 @@ nav{
 					border:0;
 				}
 				li:hover,li.subactive{
-					background:@kz_blue;
+					background:$kz_blue;
 					a{
-						color:@kz_white;					
+						color:$kz_white;					
 					}					
 				}
 			}
@@ -898,7 +901,7 @@ MAIN WRAPPER
 ***/
 #wrapper_main{
 	margin:auto;
-	max-width:@max_width;
+	max-width:$max_width;
 	line-height:1.3;
 	/***
 	CONTENT COLUMN
@@ -933,8 +936,8 @@ MAIN WRAPPER
 			-webkit-box-sizing:border-box; /* Safari */
 			background:#fff;
 			padding:30px;
-			border-left:2px dotted @kz_black;
-			border-right:2px dotted @kz_black;
+			border-left:2px dotted $kz_black;
+			border-right:2px dotted $kz_black;
 			-moz-box-shadow:3px 3px 5px 6px #ccc;
 			-webkit-box-shadow:3px 3px 5px 6px #ccc;
 			box-shadow:4px 4px 8px 0px #aaaaaa;
@@ -954,8 +957,8 @@ MAIN WRAPPER
 				text-align:center;
 				margin-bottom:30px;
 				padding: 15px 0;
-				border-top: 2px dotted @kz_black;
-				border-bottom: 2px dotted @kz_black;
+				border-top: 2px dotted $kz_black;
+				border-bottom: 2px dotted $kz_black;
 				div.sponsor-block {
 					width:25%;
 					float:left;
@@ -983,7 +986,7 @@ MAIN WRAPPER
 					text-decoration:none;
 				}
 				a:hover{
-					color:@kz_blue;
+					color:$kz_blue;
 				}
 				margin-bottom: 10px;
 			}
@@ -994,7 +997,7 @@ MAIN WRAPPER
 			#carousel {
 				width: 100%;
 				list-style: none;
-				background-color: @kz_blue;
+				background-color: $kz_blue;
 				li {
 				}
 				.main_image {
@@ -1017,7 +1020,7 @@ MAIN WRAPPER
 					display: table-cell;
 					vertical-align: top;
 					a, a:hover {
-						color: @kz_yellow;
+						color: $kz_yellow;
 					}
 				}
 				.read-more-carousel {
@@ -1031,7 +1034,7 @@ MAIN WRAPPER
 					-o-box-sizing: border-box;
 					-webkit-box-sizing: border-box;
 					a {
-						color: @kz_yellow;
+						color: $kz_yellow;
 					}
 				}
 				// fix voor clubkit actie
@@ -1186,7 +1189,7 @@ html[xmlns] .slides
 }
 .flex-control-paging li a
 {
-	background: @kz_lightyellow;	
+	background: $kz_lightyellow;	
 	box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
 	cursor: pointer;
 	display: block;
@@ -1204,11 +1207,11 @@ html[xmlns] .slides
 }
 .flex-control-paging li a:hover
 {
-	background: @kz_yellow;
+	background: $kz_yellow;
 }
 .flex-control-paging li a.flex-active
 {
-	background: @kz_yellow;
+	background: $kz_yellow;
 	cursor: default;
 }
 .flex-control-thumbs
@@ -1273,7 +1276,7 @@ html[xmlns] .slides
 						border-right:30px solid white;
 						padding:15px;
 						h2{
-							color:@kz_blue !important;
+							color:$kz_blue !important;
 							font-size: 3rem;
 						}
 						a.inline_link {
@@ -1321,7 +1324,7 @@ html[xmlns] .slides
 					font-size:2rem;
 					line-height:1.6;
 					a{
-						color:@kz_white;
+						color:$kz_white;
 						text-decoration:none;
 					}
 					a:hover{
@@ -1344,8 +1347,8 @@ html[xmlns] .slides
 					    top:-9px;
 					    cursor:pointer;
 					    .inner{
-					    	border-top:2px dashed @kz_white;
-					    	border-bottom:2px dashed @kz_white;
+					    	border-top:2px dashed $kz_white;
+					    	border-bottom:2px dashed $kz_white;
 					    	display:inline-block;
 					    	box-sizing:border-box;
 					    	-moz-box-sizing:border-box;
@@ -1359,19 +1362,19 @@ html[xmlns] .slides
 					    	line-height:1;
 					    }
 					    .inner.color_kz_blue {
-					    	color: @kz_blue;
+					    	color: $kz_blue;
 					    }
 					    .inner.color_kz_yellow {
-					    	color: @kz_yellow;
+					    	color: $kz_yellow;
 					    }
 					    .inner.color_kz_black {
-					    	color: @kz_black;
+					    	color: $kz_black;
 					    }
 					    .inner.color_kz_grey {
-					    	color: @kz_grey;
+					    	color: $kz_grey;
 					    }
 					    .inner.color_kz_white {
-					    	color: @kz_white;
+					    	color: $kz_white;
 					    }
 					    margin-bottom:10px;
 					}
@@ -1392,19 +1395,19 @@ html[xmlns] .slides
 						border-color:rgba(255,255,255,0);
 					}
 					.arrow_box.bg_kz_yellow:after{	
-						border-right-color:@kz_yellow;
+						border-right-color:$kz_yellow;
 					}
 					.arrow_box.bg_kz_black:after{
-						border-right-color:@kz_black;
+						border-right-color:$kz_black;
 					}
 					.arrow_box.bg_kz_blue:after{	
-						border-right-color:@kz_blue;
+						border-right-color:$kz_blue;
 					}
 					.arrow_box.bg_kz_grey:after{	
-						border-right-color:@kz_grey;
+						border-right-color:$kz_grey;
 					}
 					.arrow_box.bg_kz_white:after{	
-						border-right-color:@kz_white;
+						border-right-color:$kz_white;
 					}
 
 				}
@@ -1419,11 +1422,11 @@ html[xmlns] .slides
 			
 			.news,.agenda,.match{
 				h4{
-					background:@kz_grey;
+					background:$kz_grey;
 					font-size:2.5rem;
 					font-weight:normal;
 					padding:10px;
-					color:@kz_white;
+					color:$kz_white;
 				}
 				ol.month_list{
 					li{
@@ -1440,28 +1443,28 @@ html[xmlns] .slides
 				}
 				ol.month_list:last-child{
 					li:last-child{
-						border-bottom:2px dotted @kz_blue;
+						border-bottom:2px dotted $kz_blue;
 					}
 				}
 				.newsItem {
 					box-sizing:border-box;
 					-moz-box-sizing:border-box; /* Firefox */
 					-webkit-box-sizing:border-box; /* Safari */
-					border-bottom: 2px dotted @kz_blue;
+					border-bottom: 2px dotted $kz_blue;
 					width: 100%;
 					padding: 7px;
 					.dateContainer {
 						float: left;
 						width: 15%;
 						font-weight: bold;
-						color: @kz_blue;
+						color: $kz_blue;
 					}
 					.content {
 						.title {
 							font-weight: bold;
 						}
 						a, a:hover {
-							color: @kz_blue;
+							color: $kz_blue;
 						}
 						float: left;
 						width: 85%;
@@ -1472,26 +1475,26 @@ html[xmlns] .slides
 				ul,ol{
 					list-style:none;
 					li{
-						border-bottom:2px dotted @kz_blue;
+						border-bottom:2px dotted $kz_blue;
 						padding-bottom:10px;
 						margin-bottom:10px;
 						.date_container{
 							float:left;
 						}
 						span.date{
-							color:@kz_blue;
+							color:$kz_blue;
 							a {
-								color:@kz_blue;
+								color:$kz_blue;
 								line-height:1;
 							}
 						}
 						span.label {
-							color:@kz_blue;
+							color:$kz_blue;
 							float: left;
 							width: 25%;
 						}
 						a{
-							color:@kz_black;
+							color:$kz_black;
 							text-decoration:none;
 						}
 					}
@@ -1552,11 +1555,11 @@ html[xmlns] .slides
 			#nextpage{
 				margin-bottom:15px;
 				h2{
-					color:@kz_blue;
+					color:$kz_blue;
 				}
 				.col.full{
 					width: 100%;
-					color:@kz_white;
+					color:$kz_white;
 					.inner{
 						.clubplugin.program,
 						.clubplugin.standings,
@@ -1565,16 +1568,16 @@ html[xmlns] .slides
 							border-collapse:collapse;
 							tr{								
 								th{
-									background:@kz_blue;								
+									background:$kz_blue;								
 									font-weight:normal;
 									text-transform:uppercase;
 									padding:5px 10px;
-									color:@kz_white;
+									color:$kz_white;
 									text-align:center;
 								}
 								td{
 									padding:5px 10px;
-									border-bottom:@kz_blue 1px solid;
+									border-bottom:$kz_blue 1px solid;
 									cursor:pointer;
 								}
 								.time{
@@ -1599,7 +1602,7 @@ html[xmlns] .slides
 							}
 							tr:hover{
 								td{
-									background:@kz_lightgrey;
+									background:$kz_lightgrey;
 								}
 							}
 						}
@@ -1633,7 +1636,7 @@ html[xmlns] .slides
 							.teams-profile-box {
 								width:100%;
 								height:100%;
-								border:2px solid @kz_blue;
+								border:2px solid $kz_blue;
 								border-radius:5px 5px 5px 5px;
 								margin-bottom:15px;
 								box-sizing:border-box;
@@ -1650,8 +1653,8 @@ html[xmlns] .slides
 						{
 							font-family: 'univers_57_condensedregular';
 							display:inline-block;
-							background:@kz_blue;
-							color:@kz_white!important;
+							background:$kz_blue;
+							color:$kz_white!important;
 							width:100%;
 							padding:5px;
 							font-size:1.8rem;
@@ -1659,7 +1662,7 @@ html[xmlns] .slides
 							-moz-box-sizing:border-box;
 							-webkit-box-sizing:border-box;
 							-o-box-sizing:border-box;
-							border-bottom:2px solid @kz_blue;
+							border-bottom:2px solid $kz_blue;
 						}
 						.teams-profile-list-item
 						{
@@ -1673,7 +1676,7 @@ html[xmlns] .slides
 								width:20%;
 								height:100%;
 								font-family:icons;
-								color:@kz_yellow;
+								color:$kz_yellow;
 								font-size:2.5rem;
 								box-sizing:border-box;
 								-moz-box-sizing:border-box;
@@ -1697,11 +1700,11 @@ html[xmlns] .slides
 								padding-bottom:3px;
 								width:80%;
 								a {
-									color:@kz_blue;
+									color:$kz_blue;
 									text-decoration:none;
 								}
 								a:hover {
-									color:@kz_blue;
+									color:$kz_blue;
 									text-decoration:underline;
 								}
 								.team-profile-list-item--match
@@ -1720,15 +1723,15 @@ html[xmlns] .slides
 						}
 						.teams-profile-list-item:nth-child(even)
 						{
-							background:@kz_lightgrey;
+							background:$kz_lightgrey;
 						}
 					}
 					.avatar_uploader {
-						color:@kz_black;
+						color:$kz_black;
 					}
 				}
 				.col.full.full__content{
-					color:@kz_black;
+					color:$kz_black;
 				}
 				.col.left{
 					width:71%;
@@ -1748,7 +1751,7 @@ html[xmlns] .slides
 							font-weight:normal;
 						}
 						a{
-							color: @kz_blue;
+							color: $kz_blue;
 							text-decoration: none;
 						}
 						a:hover{
@@ -1795,14 +1798,14 @@ html[xmlns] .slides
 								a:hover{
 									border-top:2px solid #d49a00;
 									border-left:2px solid #d49a00;
-									border-bottom:2px solid @kz_lightyellow;
-									border-right:2px solid @kz_lightyellow;
+									border-bottom:2px solid $kz_lightyellow;
+									border-right:2px solid $kz_lightyellow;
 								}
 								a:active{
 									border-top:2px solid #a77900;
 									border-left:2px solid #a77900;
-									border-bottom:2px solid @kz_lightyellow;
-									border-right:2px solid @kz_lightyellow;
+									border-bottom:2px solid $kz_lightyellow;
+									border-right:2px solid $kz_lightyellow;
 									background:#d49a00;
 								}
 							}
@@ -1821,12 +1824,12 @@ html[xmlns] .slides
 					display:block;
 					text-align:center;
 					padding:3px 0;
-					background:@kz_yellow;
-					color:@kz_blue !important;
+					background:$kz_yellow;
+					color:$kz_blue !important;
 					font-weight:bold;
 					text-decoration:none;
-					border-top:2px solid @kz_lightyellow;
-					border-left:2px solid @kz_lightyellow;
+					border-top:2px solid $kz_lightyellow;
+					border-left:2px solid $kz_lightyellow;
 					border-bottom:2px solid #d49a00;
 					border-right:2px solid #d49a00;
 					-moz-border-radius: 5px; /* Firefox */
@@ -1846,14 +1849,14 @@ html[xmlns] .slides
 				.button_guestbook_leavemessage:hover{
 					border-top:2px solid #d49a00;
 					border-left:2px solid #d49a00;
-					border-bottom:2px solid @kz_lightyellow;
-					border-right:2px solid @kz_lightyellow;
+					border-bottom:2px solid $kz_lightyellow;
+					border-right:2px solid $kz_lightyellow;
 				}
 				.button_guestbook_leavemessage:active{
 					border-top:2px solid #a77900;
 					border-left:2px solid #a77900;
-					border-bottom:2px solid @kz_lightyellow;
-					border-right:2px solid @kz_lightyellow;
+					border-bottom:2px solid $kz_lightyellow;
+					border-right:2px solid $kz_lightyellow;
 					background:#d49a00;
 				}
 				.guestbook_form{
@@ -1862,7 +1865,7 @@ html[xmlns] .slides
 							padding:5px 0;
 						}
 						td:first-child{
-							color:@kz_yellow;
+							color:$kz_yellow;
 							font-weight:bold;
 						}
 					}
@@ -1880,22 +1883,22 @@ html[xmlns] .slides
 						border-bottom:2px solid #0183f6;
 						border-right:2px solid #0183f6;
 						padding:3px;
-						background:@kz_grey;
+						background:$kz_grey;
 						font-family:arial,sans-serif;
 						font-size:1.4rem;
 						width:75%;
 					}
 					input:focus,textarea:focus{
-						background:@kz_white;
-						border:2px solid @kz_yellow;
+						background:$kz_white;
+						border:2px solid $kz_yellow;
 					}*/
 				}
 				.guestbook{
 					a{
-						color:@kz_yellow;
+						color:$kz_yellow;
 					}
 					a:hover{
-						color:@kz_yellow;
+						color:$kz_yellow;
 					}
 				}
 				/***
@@ -1944,8 +1947,8 @@ html[xmlns] .slides
 
 						span.vs{							
 							font-size:3.5rem;
-							background:@kz_white;
-							color:@kz_blue;
+							background:$kz_white;
+							color:$kz_blue;
 							height:56px;
 							line-height:56px;
 							width:56px;
@@ -1963,7 +1966,7 @@ html[xmlns] .slides
 							box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
 						}
 						span.details{
-							border-top:1px solid @kz_lightblue;
+							border-top:1px solid $kz_lightblue;
 							font-family: 'univers_65_boldregular';
 							margin-top:20px;
 							padding-top:20px;
@@ -2021,7 +2024,7 @@ html[xmlns] .slides
 							list-style:none;
 							li{
 								a{
-									color:@kz_black;
+									color:$kz_black;
 									text-decoration:none;
 
 								}
@@ -2036,7 +2039,7 @@ html[xmlns] .slides
 									-moz-border-radius: 10px; /* Firefox */
 									-webkit-border-radius: 10px; /* Safari, Chrome */
 									border-radius: 10px; /* universal */
-									background:@kz_black;
+									background:$kz_black;
 									margin-top:6px;
 									margin-right:5px;
 								}
@@ -2048,7 +2051,7 @@ html[xmlns] .slides
 									-moz-border-radius: 10px; /* Firefox */
 									-webkit-border-radius: 10px; /* Safari, Chrome */
 									border-radius: 10px; /* universal */
-									background:@kz_black;
+									background:$kz_black;
 									margin-top:6px;
 									margin-left:5px;	
 								}
@@ -2070,7 +2073,7 @@ html[xmlns] .slides
 								li.poster{
 									position:relative;
 									a{
-										color:@kz_yellow;
+										color:$kz_yellow;
 										text-decoration:none;
 									}
 									a:hover{
@@ -2091,7 +2094,7 @@ html[xmlns] .slides
 							padding:20px;
 						}
 						> li:nth-child(odd){
-							background:@kz_lightblue;
+							background:$kz_lightblue;
 						}
 						> li:first-child{
 							li.poster{
@@ -2116,23 +2119,23 @@ html[xmlns] .slides
 							list-style: none;
 							.tweet_time{
 								a{
-									color:@kz_black;
+									color:$kz_black;
 									text-decoration:none;
 									font-size:1.4rem;
 								}
 							}
 							.tweet_join{
-								color:@kz_black;
+								color:$kz_black;
 								font-size:1.4rem;
 								a{
-									color:@kz_black;
+									color:$kz_black;
 								}
 							}
 							.tweet_text{
 								display:block;
 								margin-top:5px;
 								a{
-									color:@kz_blue;
+									color:$kz_blue;
 								}
 							}
 						}
@@ -2166,7 +2169,7 @@ html[xmlns] .slides
 							li{
 								padding:10px;
 								a{
-									color:@kz_white;
+									color:$kz_white;
 									text-decoration:none;
 								}
 								.date{
@@ -2176,7 +2179,7 @@ html[xmlns] .slides
 								}
 							}
 							li:nth-child(odd){
-								background:@kz_lightblue;
+								background:$kz_lightblue;
 							}
 						}
 					}
@@ -2219,7 +2222,7 @@ html[xmlns] .slides
 								margin-left:-35px;
 								font-size:3rem;
 								background:rgba(255,255,255,0.85);
-								color:@kz_blue;
+								color:$kz_blue;
 								height:70px;
 								line-height:70px;
 								width:70px;
@@ -2297,7 +2300,7 @@ ul.paginator{
 			vertical-align:middle;
 			line-height:2rem;
 			font-size:1.4rem;
-			color:@kz_yellow;
+			color:$kz_yellow;
 			text-decoration:none;
 		}
 		a:hover{
@@ -2306,20 +2309,20 @@ ul.paginator{
 	}
 	li.number{
 		a{																		
-			border:1px solid @kz_yellow;
+			border:1px solid $kz_yellow;
 			height:2rem;
 			width:2rem;
 		}
 		a:hover{
-			background:@kz_lightyellow;
-			color:@kz_blue;
+			background:$kz_lightyellow;
+			color:$kz_blue;
 			text-decoration:none;
 		}
 	}
 	li.number.active{
 		a{
-			background:@kz_yellow;
-			color:@kz_blue;
+			background:$kz_yellow;
+			color:$kz_blue;
 		}
 	}
 }
@@ -2332,7 +2335,7 @@ FOOTER
 footer{
 	display:table;
 	width:100%;
-	border-top:2px dotted @kz_black;
+	border-top:2px dotted $kz_black;
 	padding-top:15px;
 	dl{
 		width:25%;
@@ -2342,13 +2345,13 @@ footer{
 		-webkit-box-sizing:border-box; /* Safari */
 		padding-right:20px;
 		dt{
-			color:@kz_blue;
+			color:$kz_blue;
 			text-transform:uppercase;
 			padding-bottom:15px;
 		}
 		dd{
 			a{
-				color:@kz_black;
+				color:$kz_black;
 				text-decoration:none;
 			}
 			a:hover, a.hover{
@@ -2370,7 +2373,7 @@ li.schedule{
 		top:-40px;
 		left:0;
 		width: 100%;
-		background:@kz_white;
+		background:$kz_white;
 		z-index: 10000;
 		border-radius:4px;
 		box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
@@ -2392,14 +2395,14 @@ li.schedule{
 			list-style:none;
 			padding:15px 20px 20px 15px;
 			li{
-				border-bottom:@kz_blue 1px solid;
+				border-bottom:$kz_blue 1px solid;
 				padding:5px 0;
 				a{
-					color:@kz_blue;
+					color:$kz_blue;
 					text-decoration:none;
 				}
 				a:hover{
-					color:@kz_black;
+					color:$kz_black;
 				}
 			}
 			li:first-child{
@@ -2435,15 +2438,15 @@ li.schedule{
 			-o-box-sizing:border-box; /* Opera */
 			span{			
 				display:table-cell;
-				border-bottom:1px solid @kz_yellow;
-				border-top:1px solid @kz_yellow;
+				border-bottom:1px solid $kz_yellow;
+				border-top:1px solid $kz_yellow;
 				box-sizing:border-box;
 				-moz-box-sizing:border-box; /* Firefox */
 				-webkit-box-sizing:border-box; /* Safari */
 				padding:5px 0;
 			}
 			span.time{
-				border-left:1px solid @kz_yellow;
+				border-left:1px solid $kz_yellow;
 				padding-left:5px;				
 				padding-right:1px;
 				text-align:left;
@@ -2457,7 +2460,7 @@ li.schedule{
 				padding-left:1px;
 			}
 			span.team_away_name{
-				border-right:1px solid @kz_yellow;
+				border-right:1px solid $kz_yellow;
 			}
 			span.seperator,span.seperator{
 				padding:0 10px;
@@ -2472,20 +2475,20 @@ li.schedule{
 				border-radius:0;	
 				background:none;
 				border:0;
-				border-bottom:1px solid @kz_yellow;
-				border-top:1px solid @kz_yellow;
+				border-bottom:1px solid $kz_yellow;
+				border-top:1px solid $kz_yellow;
 				cursor:auto;
 			}
 			span.time{
-				border-left:1px solid @kz_yellow;
+				border-left:1px solid $kz_yellow;
 			}
 			span.team_away_name{
-				border-right:1px solid @kz_yellow;
+				border-right:1px solid $kz_yellow;
 			}
 		}
 		li:hover,li.active{
 			span{
-				background:@kz_white;
+				background:$kz_white;
 				border-bottom:1px solid rgba(0,0,0,0.4);
 				border-top:1px solid rgba(0,0,0,0.4);
 				box-sizing:border-box;
@@ -2513,7 +2516,7 @@ li.schedule{
 		}
 		li:active{
 			span{
-				background:@kz_white;
+				background:$kz_white;
 				border-bottom:1px solid rgba(0,0,0,0.8);
 				border-top:1px solid rgba(0,0,0,0.8);
 				box-sizing:border-box;
@@ -2540,7 +2543,7 @@ li.schedule{
 			}
 		}
 		a{
-			color:@kz_blue;
+			color:$kz_blue;
 		}
 	}
 }
@@ -2557,7 +2560,7 @@ li.results{
 		top:-40px;
 		left:0;
 		width: 100%;
-		background:@kz_white;
+		background:$kz_white;
 		z-index: 10000;
 		border-radius:4px;
 		box-shadow:1px 1px 2px 0 rgba(0,0,0,0.5);
@@ -2579,14 +2582,14 @@ li.results{
 			list-style:none;
 			padding:15px 20px 20px 15px;
 			li{
-				border-bottom:@kz_blue 1px solid;
+				border-bottom:$kz_blue 1px solid;
 				padding:5px 0;
 				a{
-					color:@kz_blue;
+					color:$kz_blue;
 					text-decoration:none;
 				}
 				a:hover{
-					color:@kz_black;
+					color:$kz_black;
 				}
 			}
 			li:first-child{
@@ -2622,15 +2625,15 @@ li.results{
 			-o-box-sizing:border-box; /* Opera */
 			span{			
 				display:table-cell;
-				border-bottom:1px solid @kz_black;
-				border-top:1px solid @kz_black;
+				border-bottom:1px solid $kz_black;
+				border-top:1px solid $kz_black;
 				box-sizing:border-box;
 				-moz-box-sizing:border-box; /* Firefox */
 				-webkit-box-sizing:border-box; /* Safari */
 				padding:5px 0;
 			}
 			span.time{
-				border-left:1px solid @kz_black;
+				border-left:1px solid $kz_black;
 				padding-left:5px;				
 				padding-right:1px;
 				text-align:left;
@@ -2650,7 +2653,7 @@ li.results{
 				border-bottom-left-radius: 4px;
 			}
 			span.team_away_name{
-				border-right:1px solid @kz_black;
+				border-right:1px solid $kz_black;
 			}
 			.team_home_score,
 			.team_home_score:hover
@@ -2681,20 +2684,20 @@ li.results{
 				border-radius:0;	
 				background:none;
 				border:0;
-				border-bottom:1px solid @kz_black;
-				border-top:1px solid @kz_black;
+				border-bottom:1px solid $kz_black;
+				border-top:1px solid $kz_black;
 				cursor:auto;
 			}
 			span.time{
-				border-left:1px solid @kz_black;
+				border-left:1px solid $kz_black;
 			}
 			span.team_away_name{
-				border-right:1px solid @kz_black;
+				border-right:1px solid $kz_black;
 			}
 		}
 		li:hover,li.active{
 			span{
-				background:@kz_white;
+				background:$kz_white;
 				border-bottom:1px solid rgba(0,0,0,0.4);
 				border-top:1px solid rgba(0,0,0,0.4);
 				box-sizing:border-box;
@@ -2722,7 +2725,7 @@ li.results{
 		}
 		li:active{
 			span{
-				background:@kz_white;
+				background:$kz_white;
 				border-bottom:1px solid rgba(0,0,0,0.8);
 				border-top:1px solid rgba(0,0,0,0.8);
 				box-sizing:border-box;
@@ -2749,7 +2752,7 @@ li.results{
 			}
 		}
 		a{
-			color:@kz_blue;
+			color:$kz_blue;
 		}
 	}
 }
@@ -2768,30 +2771,30 @@ table.default{
 	}
 	tr{
 		th{
-			background:@kz_blue;
-			border: 1px solid @kz_blue !important;
-			color:@kz_white;
+			background:$kz_blue;
+			border: 1px solid $kz_blue !important;
+			color:$kz_white;
 			padding:5px;
 			text-align:center;
 		}
 		td{
-			border-bottom:1px solid @kz_blue;
+			border-bottom:1px solid $kz_blue;
 			padding:5px;
-			border-right:1px solid @kz_blue;
+			border-right:1px solid $kz_blue;
 		}
 		td:first-child,
 		th:first-child{
-			border-left:1px solid @kz_blue;
+			border-left:1px solid $kz_blue;
 		}
 	}
 	tr:nth-child(odd){
 		td{
-			background:@kz_lightgrey;
+			background:$kz_lightgrey;
 		}
 	}
 	tr:hover{
 		td{
-			background:@kz_grey;
+			background:$kz_grey;
 		}
 	}
 	a{
@@ -2820,7 +2823,7 @@ table.default.default__no-background {
     list-style: none;
 	li
 	{
-	    border-bottom: 2px dotted @kz_yellow;
+	    border-bottom: 2px dotted $kz_yellow;
 	    padding: 20px 0;
 	}
 	li:after
@@ -2846,7 +2849,7 @@ table.default.default__no-background {
 		font-weight:bold;
 		display:block;
 		margin-bottom:5px;
-		color:@kz_yellow;
+		color:$kz_yellow;
 	}
 	input,textarea,select{
 		border-top:2px solid #002749;
@@ -2854,25 +2857,25 @@ table.default.default__no-background {
 		border-bottom:2px solid #0183f6;
 		border-right:2px solid #0183f6;
 		padding:3px;
-		background:@kz_white;
+		background:$kz_white;
 		font-family:arial,sans-serif;
 		font-size:1.4rem;
 		width:33%;
 	}
 	input:focus,textarea:focus,select:focus{
-		background:@kz_white;
-		border:2px solid @kz_yellow;
+		background:$kz_white;
+		border:2px solid $kz_yellow;
 	}
 	input[type="submit"]{
 		display:block;
 		text-align:center;
 		padding:3px 0;
-		background:@kz_yellow;
-		color:@kz_blue !important;
+		background:$kz_yellow;
+		color:$kz_blue !important;
 		font-weight:bold;
 		text-decoration:none;
-		border-top:2px solid @kz_lightyellow;
-		border-left:2px solid @kz_lightyellow;
+		border-top:2px solid $kz_lightyellow;
+		border-left:2px solid $kz_lightyellow;
 		border-bottom:2px solid #d49a00;
 		border-right:2px solid #d49a00;
 		-moz-border-radius: 5px; /* Firefox */
@@ -2892,14 +2895,14 @@ table.default.default__no-background {
 	input[type="submit"]:hover{
 		border-top:2px solid #d49a00;
 		border-left:2px solid #d49a00;
-		border-bottom:2px solid @kz_lightyellow;
-		border-right:2px solid @kz_lightyellow;
+		border-bottom:2px solid $kz_lightyellow;
+		border-right:2px solid $kz_lightyellow;
 	}
 	input[type="submit"]:active{
 		border-top:2px solid #a77900;
 		border-left:2px solid #a77900;
-		border-bottom:2px solid @kz_lightyellow;
-		border-right:2px solid @kz_lightyellow;
+		border-bottom:2px solid $kz_lightyellow;
+		border-right:2px solid $kz_lightyellow;
 		background:#d49a00;
 	}
 }
@@ -3042,12 +3045,12 @@ table.default.default__no-background {
 /**
  * Grid wrapper
  */
-@base-spacing-unit: 30px;
-@half-spacing-unit: @base-spacing-unit/2;
+$base-spacing-unit: 30px;
+$half-spacing-unit: $base-spacing-unit/2;
 
 .grid
 {
-//	margin-left: @base-spacing-unit;
+//	margin-left: $base-spacing-unit;
 	list-style:none;
 	margin-bottom:0;
 	box-sizing: border-box;
@@ -3070,7 +3073,7 @@ table.default.default__no-background {
 .grid__item
 {
 	display:inline-block;
-//	padding-left: @base-spacing-unit;
+//	padding-left: $base-spacing-unit;
 	vertical-align:top;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -3126,7 +3129,7 @@ table.default.default__no-background {
 
 .matchboard
 {
-	color: @kz_blue;
+	color: $kz_blue;
 	width:100%;
 	line-height:1;
 	margin-bottom:15px;
@@ -3150,8 +3153,8 @@ table.default.default__no-background {
 }
 .matchboard__box
 {
-	background:@kz_white;
-	border:1px solid @kz_grey;
+	background:$kz_white;
+	border:1px solid $kz_grey;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -3160,7 +3163,7 @@ table.default.default__no-background {
 }
 .matchboard__date
 {
-	color:@kz_blue;
+	color:$kz_blue;
 	text-transform: uppercase;
 	text-align: center;
 	font-family: 'univers_57_condensedregular';
@@ -3188,15 +3191,15 @@ table.default.default__no-background {
 	vertical-align:middle;
 	.matchboard__score--box
 	{
-		background:@kz_blue;
-		color:@kz_white;
+		background:$kz_blue;
+		color:$kz_white;
 		margin:3px;
 		border-radius:5px;
 		font-size:1.6rem;
 		padding:3px 0;
 		.matchboard__score--home
 		{
-			border-bottom:1px solid @kz_white;
+			border-bottom:1px solid $kz_white;
 			display:block;
 			padding-bottom:3px;
 		}
@@ -3209,7 +3212,7 @@ table.default.default__no-background {
 }
 .matchboard__team
 {
-	color:@kz_black;
+	color:$kz_black;
 	font-family: 'univers_57_condensedregular';
 	display:inline-block;
 	line-height:1;
@@ -3243,7 +3246,7 @@ table.default.default__no-background {
 	}
 }
 .dummy_link {
-	color:@kz_blue;
+	color:$kz_blue;
 }
 
 /***
@@ -3317,7 +3320,7 @@ table.default.default__no-background {
 .header--eindsprong {
 	display:block;
 	width:100%;
-	margin-bottom: @base-spacing-unit;
+	margin-bottom: $base-spacing-unit;
 	img {
 		width:100%;
 	}
@@ -3334,27 +3337,27 @@ table.default.default__no-background {
 	display:inline-block;
 	padding-right: 30px;
 	font-family: sans-serif;
-	color: @kz_black;
+	color: $kz_black;
 }
 .blog-date__color-blue {
-	color: @kz_blue;
+	color: $kz_blue;
 }
 .blog-date__color-yellow {
-	color: @kz_yellow;
+	color: $kz_yellow;
 }
 .blog-date__color-white {
-	color: @kz_white;
+	color: $kz_white;
 }
 
 .table--profiles__widget .profiles__profile {
 	width:100%;
 	min-width:100%;
 	max-width:100%;
-	margin-bottom: @half-spacing-unit;
+	margin-bottom: $half-spacing-unit;
 	box-sizing:border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing:border-box;
 }
 .blog-reaction-content {
-	color: @kz_white;
+	color: $kz_white;
 }
