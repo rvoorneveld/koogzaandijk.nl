@@ -1,25 +1,14 @@
-@max_width:1500px;
-@kz_blue:#00529b;
-@kz_lightblue:#0c63b0;
-@kz_yellow:#febd11;
-@kz_lightyellow:#ffecc4;
-@kz_grey:#d9d9cd;
-@kz_lightgrey:#f5f6f2;
-@kz_white:#fff;
-@kz_black:#000;
+$max_width:1500px;
+$kz_blue:#00529b;
+$kz_lightblue:#0c63b0;
+$kz_yellow:#febd11;
+$kz_lightyellow:#ffecc4;
+$kz_grey:#d9d9cd;
+$kz_lightgrey:#f5f6f2;
+$kz_white:#fff;
+$kz_black:#000;
 
-@font-face {
-    font-family: 'icons';
-    src: url('../font/icomoon.eot');
-    src: url('../font/icomoon.eot?#iefix') format('embedded-opentype'),
-         url('../font/icomoon.woff') format('woff'),
-         url('../font/icomoon.ttf') format('truetype'),
-         url('../font/icomoon.svg#icons') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body#tablet_portrait{
+body#mobile{
 
 /*** GENERIC TABLET STYLES ***/
 
@@ -82,7 +71,8 @@ body#tablet_portrait{
 				box-sizing:border-box;
 				-moz-box-sizing:border-box; /* Firefox */
 				-webkit-box-sizing:border-box; /* Safari */
-				span.downarrow {
+				span.downarrow
+				{
 					font-family: icons;
 					color:grey;
 					position:absolute;
@@ -93,17 +83,20 @@ body#tablet_portrait{
 					border-left:1px solid #ddd;
 					font-size:1.2rem;
 					background:#fff;
-					border-radius: 0px 5px 5px 0px; /* CSS3 */
 				  	-moz-border-radius: 0px 5px 5px 0px; /* Firefox */
 				  	-webkit-border-radius: 0px 5px 5px 0px; /* Safari, Chrome */
+				  	border-radius: 0px 5px 5px 0px; /* CSS3 */
 				  	font-family: icons;
 				  	box-sizing:border-box;
 					-moz-box-sizing:border-box; /* Firefox */
 					-webkit-box-sizing:border-box; /* Safari */
 				}
 			}
+			span.menu_button:hover {
+				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+			}
 			.logo {
-				margin:10px 0 0 10px;
+				margin:15px 0 0 10px;
 			}
 		}
 		.col.left
@@ -111,77 +104,16 @@ body#tablet_portrait{
 			float: none;
 			padding: 10px 10px 5px 10px;
 			box-sizing:border-box;
-			-moz-box-sizing:border-box;
-			-webkit-box-sizing:border-box;
-			-o-box-sizing:border-box;
+			-moz-box-sizing:border-box; /* Firefox */
+			-webkit-box-sizing:border-box; /* Safari */
+			-o-box-sizing:border-box; /* Safari */
 			width: 100%;
 		}
 	}
-
 	/***
 	/PORTRAIT TABLET MENU OPENER
 	***/
 
-	/***
-	RESIZE NAV
-	***/
-	/*nav {
-		margin:0 !important;
-		padding:0 !important;
-		border-top:0 !important;
-		border-bottom:0 !important;
-		display:none !important;
-		background:@kz_white;
-		position:absolute;
-		top:51px;
-		z-index:10;
-		box-shadow:0 5px 5px rgba(0,0,0,0.8);
-		-webkit-box-shadow:0 5px 5px rgba(0,0,0,0.8);
-		-moz-box-shadow:0 5px 5px rgba(0,0,0,0.8);
-		-o-box-shadow:0 5px 5px rgba(0,0,0,0.8);
-		font-size:1.4rem;
-		ul.main{
-			height:auto !important;
-			li{
-				float:none !important;
-				text-align:left !important;
-				a{
-					border-bottom:1px dotted @kz_black;
-					padding:10px !important;
-					height:auto !important;
-					line-height:1;
-					span{
-						strong{
-							font-weight:normal;
-							font-size:2rem;
-						}	
-					}
-				}
-				a:hover,
-				a.hover{
-					border-left:none !important;
-					border-right:none !important;
-					span{
-						border:0 !important;	
-					}
-				}
-			}
-			li:hover {
-				ul {
-					display: none !important;
-				}
-			}
-			li:last-child{
-				a{
-					border:0;
-				}
-			}
-		}
-	}*/
-	/***
-	/RESIZE NAV
-	***/
-	
 	/***
 	RESET WRAPPER INNER
 	***/
@@ -196,6 +128,16 @@ body#tablet_portrait{
 			padding: 30px 0 0 30px !important;
 		}
 		#nextpage {
+			h2{
+				font-size:2.4rem !important;
+				margin-top:15px;
+				margin-bottom:5px;
+			}
+			.col.full {
+				h2 {
+					padding-left:15px;
+				}
+			}
 			.col.left {
 				padding: 0 15px !important;
 				width: 100% !important;
@@ -206,8 +148,10 @@ body#tablet_portrait{
 			.col.right {
 				display: none !important;
 			}
-			h2 {
-				padding-left:15px;
+		}
+		#nextpage.full-mobile {
+			.col.left {
+				padding: 0 !important;
 			}
 		}
 	}
@@ -237,9 +181,6 @@ body#tablet_portrait{
 	REARANGE CAROUSEL
 	***/
 	ul#carousel{
-		h2{
-			font-size:2.4rem !important;
-		}
 		li{
 			div{
 				width:100% !important;
@@ -252,26 +193,14 @@ body#tablet_portrait{
 			div.main_image{
 				display:none !important;
 			}
-			.read-more-carousel {
-				left: 0 !important;
-			}
 		}
 		margin-bottom:30px !important;
 	}
+
 	/***
 	/REARANGE CAROUSEL
 	***/
-	
-	/***
-	HIDE SPONSORBAR HORIZONTAL
-	***/
-		#sponsors{
-			display:none !important;
-		}
-	/***
-	/HIDE SPONSORBAR HORIZONTAL
-	***/
-	
+
 	/***
 	NEWS WRAPPER
 	***/
@@ -313,34 +242,31 @@ body#tablet_portrait{
 				display:none !important;
 			}
 		}
-		ul.row.last-row {
+		ul.row.last-row{
 			display:none !important;
 		}
 	}
 	/***
 	/WIDGET 100% WIDTH
 	***/
-	
 	/***
-	RESIZE SUPERKOOGER
+	PROFILE PAGE
 	***/
-	li.fanzone{
-		img{
-			width:50% !important;
-		}
-	}
-	/***
-	/RESIZE SUPERKOOGER
-	***/
-
-	/***
-	PROFILES
-	***/
+//	.teams-profile ul li
+//	{
+//		margin-right:0 !important;
+//		margin-bottom:0 !important;
+//		padding:0!important;
+//		border:0 !important;
+//		border-radius:0!important;
+//		-moz-border-radius:0!important;
+//		-webkit-border-radius:0!important;
+//		-o-border-radius:0!important;
+//	}
 	.teams-profile li.teams-profile-list
 	{
 		width:100% !important;
 		margin:0!important;
-		margin-bottom:30px !important;
 		.teams-profile-box
 		{
 			border:0!important;
@@ -355,31 +281,203 @@ body#tablet_portrait{
 			}
 		}
 	}
+
 	/***
-	/PROFILES
+	/PROFILE PAGE
 	***/
 	
+	/***
+	RESIZE SUPERKOOGER
+	***/
+	li.fanzone{
+		img{
+			width:50% !important;
+		}
+	}
+	/***
+	/RESIZE SUPERKOOGER
+	***/
+	/***
+	WIDGET: GUESTBOOK
+	***/
+	.guestbook{
+		li{
+			ul{
+				li.poster{
+					position:relative;
+					a{
+
+					}
+					a:hover{
+
+					}
+					span.name{
+						display:block;
+					}
+					span.date{
+						position:relative !important;
+						left:0;
+					}
+				}
+			}
+		}
+	}
+	/***
+	/WIDGET: GUESTBOOK
+	***/	
+	/***
+	GUESTBOOK STYLING
+	***/
+	.button_guestbook_leavemessage{
+		float:none !important;
+		width:100% !important;
+		}
+	/***
+	/GUESTBOOK STYLING
+	***/	
+	
+	/***
+	TEAMS
+	***/
+	.teams{
+		li{
+		 	width: 100% !important;
+		 	a{
+				margin-right:0 !important;
+			}
+		}
+	}
+	/***
+	/TEAMS
+	***/	
 	/***
 	FOOTER
 	***/
 	footer {
-		padding-bottom: 10px !important;
-		dl {
-			padding-right: 0 !important;
-			padding-left:10px !important;
-		}
+		display: none;
 	}
 	/***
 	/FOOTER
 	***/
 
-	/***
-	BLOG
-	 */
-	.table--profiles__blog {
-		margin: 0 @half-spacing-unit;
+			.news,.agenda,.match{
+				ul,ol{
+					li{
+						span.label {
+							display:block;
+							width:100% !important;
+							float:none;
+						}
+					}				
+				}
+			}
+
+	.form-standard
+	{
+		input,textarea{
+			width:100% !important;
+		}
+	}
+	.table--profiles
+	{
+		display: block !important;
+		width: 100% !important;
+		margin-left: 0;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		.row
+		{
+			display: block;
+			width: 100% !important;
+		}
+		.cell
+		{
+			display: block;
+			width: 100% !important;
+			margin-bottom: 10px;
+		}
+	}
+	.l-wrapper--profiles
+	{
+		position: relative;
+		left: auto;
+		top: auto;
+		z-index: auto;
+	}
+	.profiles__profile
+	{
+		padding: 10px;
+		width: 100%;
+		min-width: none !important;
+		max-width: none !important;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-o-box-sizing: border-box;
+	}
+	.media--profile-edit {
+		margin-right:15px;
+		margin-bottom:15px;
+	}
+	.media--contacts
+	{
+		padding-left:10px;
+		width:100%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		font-size:1.4rem;
+	}
+	.button--login
+	{
+		width: 100%;
+		max-width: none;
+		margin: 0;
 	}
 
-/*** CUSTOM PORTRAIT STYLES ***/
+	.error
+	{
+		//width: 100%;
+		//text-align: center;
+	}
+
+	/***
+		CLUBKIT
+	***/
+	.clubkit {
+		padding-right: 30px;
+	}
+
+	/* Eindsprong Banner */
+	.header--eindsprong {
+		margin-bottom: 0;
+	}
+
+	.sponsor {
+		height:230px;
+		margin-bottom:15px;
+	}
+
+	/** BLOG **/
+	.blog .inner {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.blog .right {
+		display:block;
+	}
+
+	.table--profiles__blog {
+		.row {
+			display: block !important;
+		}
+		.cell {
+			display:block!important;
+			width:100%;
+			border-radius:0;
+		}
+	}
 
 }

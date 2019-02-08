@@ -1,0 +1,96 @@
+@media only screen and (min-width: 1px) and (max-width: 800px) {
+  #full-container .menu-container {
+    height: 100px;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 1s;
+    -moz-transition: width 1s;
+    display: none;
+    min-height: 100%;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.75);
+    background: #fff;
+    overflow: auto; }
+    #full-container .menu-container nav {
+      border: 0;
+      margin: 0;
+      padding: 0; }
+    #full-container .menu-container ul.main li.main,
+    #full-container .menu-container ul.main li.main:hover {
+      border-bottom: 2px dotted #000000;
+      display: block;
+      clear: both;
+      width: 100%;
+      text-align: left;
+      padding-top: 5px;
+      padding-bottom: 5px; }
+      #full-container .menu-container ul.main li.main ul,
+      #full-container .menu-container ul.main li.main:hover ul {
+        width: 100%;
+        border: 0;
+        display: block;
+        position: static; }
+        #full-container .menu-container ul.main li.main ul li,
+        #full-container .menu-container ul.main li.main ul li:hover,
+        #full-container .menu-container ul.main li.main:hover ul li,
+        #full-container .menu-container ul.main li.main:hover ul li:hover {
+          padding-left: 20px;
+          padding-right: 0;
+          border-left: 0;
+          border-right: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          background: none !important; }
+          #full-container .menu-container ul.main li.main ul li a,
+          #full-container .menu-container ul.main li.main ul li a.active,
+          #full-container .menu-container ul.main li.main ul li a:hover,
+          #full-container .menu-container ul.main li.main ul li:hover a,
+          #full-container .menu-container ul.main li.main ul li:hover a.active,
+          #full-container .menu-container ul.main li.main ul li:hover a:hover,
+          #full-container .menu-container ul.main li.main:hover ul li a,
+          #full-container .menu-container ul.main li.main:hover ul li a.active,
+          #full-container .menu-container ul.main li.main:hover ul li a:hover,
+          #full-container .menu-container ul.main li.main:hover ul li:hover a,
+          #full-container .menu-container ul.main li.main:hover ul li:hover a.active,
+          #full-container .menu-container ul.main li.main:hover ul li:hover a:hover {
+            color: #00529b;
+            text-decoration: none;
+            padding: 0;
+            background: none !important;
+            color: #000 !important;
+            line-height: 2 !important; }
+        #full-container .menu-container ul.main li.main ul li:last-child,
+        #full-container .menu-container ul.main li.main:hover ul li:last-child {
+          border-bottom: 0; }
+    #full-container .menu-container ul.main li.logo {
+      display: none; }
+    #full-container .menu-container ul.main a {
+      width: 100%;
+      border: 0 !important;
+      height: auto !important;
+      line-height: 1 !important; }
+      #full-container .menu-container ul.main a:hover {
+        border: 0; }
+      #full-container .menu-container ul.main a span {
+        border: 0; }
+    #full-container .menu-container ul.main a.active {
+      color: #000; }
+  #full-container .content-container,
+  #full-container .l-wrapper--profiles {
+    width: 100%;
+    transition: margin 1s;
+    -moz-transition: margin 1s; }
+  #full-container.off-canvas {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+    #full-container.off-canvas .menu-container {
+      width: 60%;
+      display: block;
+      z-index: 99999999; }
+    #full-container.off-canvas .content-container,
+    #full-container.off-canvas .l-wrapper--profiles {
+      margin-left: 60%; } }

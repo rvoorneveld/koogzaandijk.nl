@@ -1,0 +1,329 @@
+body#mobile {
+  /*** GENERIC TABLET STYLES ***/
+  /***
+	HIDE RIGHT BANNER, MAIN CONTENT 100%
+	***/
+  /***
+	/HIDE RIGHT BANNER, MAIN CONTENT 100%
+	***/
+  /*** /GENERIC TABLET STYLES ***/
+  /*** CUSTOM PORTRAIT STYLES ***/
+  padding: 0 !important;
+  /***
+	PORTRAIT TABLET MENU OPENER
+	***/
+  /***
+	/PORTRAIT TABLET MENU OPENER
+	***/
+  /***
+	RESET WRAPPER INNER
+	***/
+  /***
+	/RESET WRAPPER INNER
+	***/
+  /***
+	REPOSITION LOGO
+	***/
+  /***
+	/REPOSITION LOGO
+	***/
+  /***
+	REARANGE CAROUSEL
+	***/
+  /***
+	/REARANGE CAROUSEL
+	***/
+  /***
+	NEWS WRAPPER
+	***/
+  /***
+	/NEWS WRAPPER
+	***/
+  /***
+	WIDGET 100% WIDTH
+	***/
+  /***
+	/WIDGET 100% WIDTH
+	***/
+  /***
+	PROFILE PAGE
+	***/
+  /***
+	/PROFILE PAGE
+	***/
+  /***
+	RESIZE SUPERKOOGER
+	***/
+  /***
+	/RESIZE SUPERKOOGER
+	***/
+  /***
+	WIDGET: GUESTBOOK
+	***/
+  /***
+	/WIDGET: GUESTBOOK
+	***/
+  /***
+	GUESTBOOK STYLING
+	***/
+  /***
+	/GUESTBOOK STYLING
+	***/
+  /***
+	TEAMS
+	***/
+  /***
+	/TEAMS
+	***/
+  /***
+	FOOTER
+	***/
+  /***
+	/FOOTER
+	***/
+  /***
+		CLUBKIT
+	***/
+  /* Eindsprong Banner */
+  /** BLOG **/ }
+  body#mobile div.col.main.left {
+    padding-right: 0 !important; }
+  body#mobile div.col.main.right {
+    display: none; }
+  body#mobile header {
+    padding: 5px 0 !important;
+    min-height: 50px; }
+    body#mobile header ul.col.right, body#mobile header ul.col.left {
+      display: none !important; }
+    body#mobile header .portrait {
+      display: block !important; }
+      body#mobile header .portrait .menu_button_container {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        z-index: 200;
+        display: block; }
+      body#mobile header .portrait span.menu_button {
+        -moz-border-radius: 5px;
+        /* Firefox */
+        -webkit-border-radius: 5px;
+        /* Safari, Chrome */
+        border-radius: 5px;
+        /* CSS3 */
+        text-decoration: none;
+        color: #000;
+        background: #fff;
+        padding: 10px 35px 10px 15px;
+        border: solid 1px #DDD;
+        cursor: pointer;
+        margin: 10px;
+        width: 100px;
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        /* Firefox */
+        -webkit-box-sizing: border-box;
+        /* Safari */ }
+        body#mobile header .portrait span.menu_button span.downarrow {
+          font-family: icons;
+          color: grey;
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 12px 5px 0 5px;
+          height: 100%;
+          border-left: 1px solid #ddd;
+          font-size: 1.2rem;
+          background: #fff;
+          -moz-border-radius: 0px 5px 5px 0px;
+          /* Firefox */
+          -webkit-border-radius: 0px 5px 5px 0px;
+          /* Safari, Chrome */
+          border-radius: 0px 5px 5px 0px;
+          /* CSS3 */
+          font-family: icons;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          /* Firefox */
+          -webkit-box-sizing: border-box;
+          /* Safari */ }
+      body#mobile header .portrait span.menu_button:hover {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+      body#mobile header .portrait .logo {
+        margin: 15px 0 0 10px; }
+    body#mobile header .col.left {
+      float: none;
+      padding: 10px 10px 5px 10px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      /* Firefox */
+      -webkit-box-sizing: border-box;
+      /* Safari */
+      -o-box-sizing: border-box;
+      /* Safari */
+      width: 100%; }
+  body#mobile .wrapper_inner {
+    border: 0 !important;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    padding: 0 !important; }
+    body#mobile .wrapper_inner #breadcrumb {
+      padding: 30px 0 0 30px !important; }
+    body#mobile .wrapper_inner #nextpage h2 {
+      font-size: 2.4rem !important;
+      margin-top: 15px;
+      margin-bottom: 5px; }
+    body#mobile .wrapper_inner #nextpage .col.full h2 {
+      padding-left: 15px; }
+    body#mobile .wrapper_inner #nextpage .col.left {
+      padding: 0 15px !important;
+      width: 100% !important; }
+      body#mobile .wrapper_inner #nextpage .col.left ul.row {
+        display: block !important; }
+    body#mobile .wrapper_inner #nextpage .col.right {
+      display: none !important; }
+    body#mobile .wrapper_inner #nextpage.full-mobile .col.left {
+      padding: 0 !important; }
+  body#mobile li.main.logo {
+    display: none;
+    position: absolute !important;
+    z-index: 100 !important;
+    left: 15px !important;
+    top: 10px !important; }
+    body#mobile li.main.logo img {
+      margin: 0 !important;
+      height: 80px !important; }
+  body#mobile ul#carousel {
+    margin-bottom: 30px !important; }
+    body#mobile ul#carousel li div {
+      width: 100% !important;
+      float: none !important; }
+    body#mobile ul#carousel li div.content {
+      min-height: 400px !important;
+      overflow: hidden !important; }
+    body#mobile ul#carousel li div.main_image {
+      display: none !important; }
+  body#mobile .news_wrapper h2 {
+    font-size: 2.4rem !important; }
+  body#mobile div.table {
+    display: block !important; }
+    body#mobile div.table ul.row {
+      display: block !important; }
+      body#mobile div.table ul.row li.cell {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        -moz-box-sizing: border-box !important;
+        -webkit-box-sizing: border-box !important;
+        border: 0 !important;
+        margin-bottom: 30px !important;
+        /*padding: 0 !important;*/ }
+        body#mobile div.table ul.row li.cell h3 {
+          font-size: 1.8rem !important; }
+        body#mobile div.table ul.row li.cell a.inline_link {
+          display: block !important;
+          padding-top: 10px;
+          text-align: center; }
+      body#mobile div.table ul.row li.ad {
+        display: none !important; }
+    body#mobile div.table ul.row.last-row {
+      display: none !important; }
+  body#mobile .teams-profile li.teams-profile-list {
+    width: 100% !important;
+    margin: 0 !important; }
+    body#mobile .teams-profile li.teams-profile-list .teams-profile-box {
+      border: 0 !important;
+      border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+      -webkit-border-radius: 0 !important;
+      -o-border-radius: 0 !important;
+      margin-bottom: 0 !important; }
+      body#mobile .teams-profile li.teams-profile-list .teams-profile-box .teams-profile-name {
+        padding-left: 15px !important; }
+  body#mobile li.fanzone img {
+    width: 50% !important; }
+  body#mobile .guestbook li ul li.poster {
+    position: relative; }
+    body#mobile .guestbook li ul li.poster span.name {
+      display: block; }
+    body#mobile .guestbook li ul li.poster span.date {
+      position: relative !important;
+      left: 0; }
+  body#mobile .button_guestbook_leavemessage {
+    float: none !important;
+    width: 100% !important; }
+  body#mobile .teams li {
+    width: 100% !important; }
+    body#mobile .teams li a {
+      margin-right: 0 !important; }
+  body#mobile footer {
+    display: none; }
+  body#mobile .news ul li span.label, body#mobile .news ol li span.label, body#mobile .agenda ul li span.label, body#mobile .agenda ol li span.label, body#mobile .match ul li span.label, body#mobile .match ol li span.label {
+    display: block;
+    width: 100% !important;
+    float: none; }
+  body#mobile .form-standard input, body#mobile .form-standard textarea {
+    width: 100% !important; }
+  body#mobile .table--profiles {
+    display: block !important;
+    width: 100% !important;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    body#mobile .table--profiles .row {
+      display: block;
+      width: 100% !important; }
+    body#mobile .table--profiles .cell {
+      display: block;
+      width: 100% !important;
+      margin-bottom: 10px; }
+  body#mobile .l-wrapper--profiles {
+    position: relative;
+    left: auto;
+    top: auto;
+    z-index: auto; }
+  body#mobile .profiles__profile {
+    padding: 10px;
+    width: 100%;
+    min-width: none !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box; }
+  body#mobile .media--profile-edit {
+    margin-right: 15px;
+    margin-bottom: 15px; }
+  body#mobile .media--contacts {
+    padding-left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    font-size: 1.4rem; }
+  body#mobile .button--login {
+    width: 100%;
+    max-width: none;
+    margin: 0; }
+  body#mobile .clubkit {
+    padding-right: 30px; }
+  body#mobile .header--eindsprong {
+    margin-bottom: 0; }
+  body#mobile .sponsor {
+    height: 230px;
+    margin-bottom: 15px; }
+  body#mobile .blog .inner {
+    width: 100%;
+    margin-left: 0; }
+  body#mobile .blog .right {
+    display: block; }
+  body#mobile .table--profiles__blog .row {
+    display: block !important; }
+  body#mobile .table--profiles__blog .cell {
+    display: block !important;
+    width: 100%;
+    border-radius: 0; }
