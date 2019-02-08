@@ -204,7 +204,7 @@ function JSONErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
  * @param Array $errcontext Error context array, contains all variables.
  * @return Bool Just return true for now.
  */
-public function JSErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function JSErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 {
     global $MCErrorHandler;
 
@@ -231,7 +231,7 @@ public function JSErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
  * @param Array $errcontext Error context array, contains all variables.
  * @return Bool Just return true for now.
  */
-public function StreamErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function StreamErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 {
     global $MCErrorHandler;
 
@@ -274,7 +274,7 @@ public function StreamErrorHandler($errno, $errstr, $errfile, $errline, $errcont
  * @param Array $errcontext Error context array, contains all variables.
  * @return Bool Just return true for now.
  */
-public function HTMLErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function HTMLErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 {
     global $MCErrorHandler;
 
