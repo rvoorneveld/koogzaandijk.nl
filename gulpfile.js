@@ -13,13 +13,23 @@ gulp.task('sass', function() {
 gulp.task('css', function() {
     return gulp.src('source/css/*.css')
         .pipe(concat('app.min.css'))
-        .pipe(minifyCss())
+        // .pipe(minifyCss())
         .pipe(gulp.dest('public/assets/default/css'));
 });
 
 gulp.task('javascript', function() {
-    return gulp.src('source/script/*.js')
-        .pipe(concat('app.js'))
+    gulp.src('source/script/async/*.js', '!source/script/async/*.mobile.js')
+        .pipe(concat('app.async.js'))
+        .pipe(minifyJavascript())
+        .pipe(gulp.dest('public/assets/default/script'));
+
+    gulp.src('source/script/async/*.js', '!source/script/async/*.app.js')
+        .pipe(concat('app.mobile.async.js'))
+        .pipe(minifyJavascript())
+        .pipe(gulp.dest('public/assets/default/script'));
+
+    return gulp.src('source/script/sync/*.js')
+        .pipe(concat('app.sync.js'))
         .pipe(minifyJavascript())
         .pipe(gulp.dest('public/assets/default/script'));
 });
