@@ -65,12 +65,12 @@ class KZ_Controller_Action_Google {
 						// Set Published Date Object
 						$objPublishedDate = new Zend_Date($objPlaylistItem->snippet->publishedAt);
 
-						$arrVideos[]    = array(
-							'title'         => $objPlaylistItem->snippet->title,
-							'video_id'      => $objPlaylistItem->snippet['modelData']['resourceId']['videoId'],
-							'thumbnail'     => $objPlaylistItem->snippet['modelData']['thumbnails']['high']['url'],
-							'published_at'  => $objPublishedDate->toString('dd-MM-yyyy HH:mm:ss'),
-						);
+                        $arrVideos[] = [
+                            'title' => $objPlaylistItem->snippet->title,
+                            'video_id' => $objPlaylistItem->snippet['resourceId']->videoId,
+                            'thumbnail' => $objPlaylistItem->snippet['thumbnails']['default']['url'],
+                            'published_at' => $objPublishedDate->toString('dd-MM-yyyy HH:mm:ss'),
+                        ];
 
 					}
 
