@@ -40,7 +40,7 @@ class KZ_View_Helper_Youtube extends Zend_View_Helper_Abstract
 			$strClientId        = "939231172527-i8ltn0qg2ppjfs1u12n6hje2pef2b32n.apps.googleusercontent.com";
 			$strClientSecret    = "jTMXzhZxoWpSEEGUuj4Bz2Vt";
 			$strApiKey          = "AIzaSyC7DLDewYp4h_4UJmlhsRdXy6kSEDkjvXA";
-			$strRedirectUrl     = "http://www.koogzaandijk.nl";
+			$strRedirectUrl     = "https://www.koogzaandijk.nl";
 
 			// Load the Google API
 			$objGoogle = new KZ_Controller_Action_Google();
@@ -80,7 +80,7 @@ class KZ_View_Helper_Youtube extends Zend_View_Helper_Abstract
 				// Mail Auth Url
 				if (APPLICATION_ENV == 'production') {
 
-					mail('development@hoteliers.com', 'Please do Google Plus authentication', $strAuthUrl);
+					mail('rvoorneveld@me.com', 'Please do Google Plus authentication', $strAuthUrl);
 
 					// Give feedback
 					echo "Er zijn geen video's om weer te geven";
