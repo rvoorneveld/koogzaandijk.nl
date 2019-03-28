@@ -29,61 +29,35 @@ class KZ_Controller_Action_Google {
 		return $this->objClient->createAuthUrl();
 	}
 
-	public function getVideos() {
+    public function getVideos(): array
+    {
+        $date = new Zend_Date();
+        $arrVideos = [];
+        $objChannels = ($objYouTube = new Google_Service_YouTube($this->objClient))->channels->listChannels('contentDetails', [
+            'mine' => true,
+        ]);
 
-		// Set Videos Array
-		$arrVideos      = array();
+        if (false === empty($objChannels) && true === is_object($objChannels)) {
+            foreach ($objChannels->items as $objChannel) {
+                $objPlaylistItems = $objYouTube->playlistItems->listPlaylistItems('snippet', [
+                    'playlistId' => $objChannel->contentDetails->relatedPlaylists->uploads,
+                    'maxResults' => 20,
+                ]);
 
-		// Set Youtube Service
-		$objYouTube     = new Google_Service_YouTube($this->objClient);
-
-		// Set Params
-		$arrParams      = array(
-			'mine' => true
-		);
-
-		// Get Activities
-		$objChannels    = $objYouTube->channels->listChannels('contentDetails',$arrParams);
-
-		if(! empty($objChannels) && is_object($objChannels)) {
-
-			foreach($objChannels->items as $objChannel) {
-
-				// Set Playlist ID
-				$strPlaylistID      = $objChannel->contentDetails->relatedPlaylists->uploads;
-
-				// Get Videos for current Playlist
-				$objPlaylistItems   = $objYouTube->playlistItems->listPlaylistItems('snippet', array(
-					'playlistId' => $strPlaylistID,
-					'maxResults' => 20
-				));
-
-				if(! empty($objPlaylistItems) && is_object($objPlaylistItems)) {
-
-					foreach ($objPlaylistItems->items as $objPlaylistItem) {
-
-						// Set Published Date Object
-						$objPublishedDate = new Zend_Date($objPlaylistItem->snippet->publishedAt);
-
+                if (null !== $objPlaylistItems && true === is_object($objPlaylistItems)) {
+                    foreach ($objPlaylistItems as $objPlaylistItem) {
                         $arrVideos[] = [
                             'title' => $objPlaylistItem->snippet->title,
                             'video_id' => $objPlaylistItem->snippet['resourceId']->videoId,
                             'thumbnail' => $objPlaylistItem->snippet['thumbnails']['default']['url'],
-                            'published_at' => $objPublishedDate->toString('dd-MM-yyyy HH:mm:ss'),
+                            'published_at' => $date->setDate($objPlaylistItem->snippet->publishedAt)->toString('dd-MM-yyyy HH:mm:ss'),
                         ];
-
-					}
-
-				}
-
-			}
-
-		}
-
-		// Return the Videos
-		return $arrVideos;
-
-	}
+                    }
+                }
+            }
+        }
+        return $arrVideos;
+    }
 
 	public function verify($strCode)
 	{
