@@ -4,7 +4,7 @@
  *
  * @package UploadedCookiePlugin
  * @author Moxiecode
- * @copyright Copyright © 2010, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2010, Moxiecode Systems AB, All rights reserved.
  */
 
 /**
@@ -53,7 +53,7 @@ class Moxiecode_UploadedPlugin extends Moxiecode_ManagerPlugin {
 		$cookievalue = $this->getCookieData($type);
 
 		$patharray = array();
-		$patharray = split(",", $cookievalue);
+		$patharray = explode(",", $cookievalue);
 		if (count($patharray) > 0) {
 
 			for($i=0;$i<count($patharray);$i++) {
@@ -154,7 +154,7 @@ class Moxiecode_UploadedFile extends Moxiecode_BaseFileImpl {
 
 		$patharray = array();
 		if (IndexOf($cookievalue, ",") != -1)
-			$patharray = split(",", $cookievalue);
+			$patharray = explode(",", $cookievalue);
 		else if ($cookievalue != "")
 			$patharray[] = $cookievalue;
 
@@ -194,7 +194,7 @@ class Moxiecode_UploadedFile extends Moxiecode_BaseFileImpl {
 		$cookievalue = $this->_getCookieData($type);
 
 		$patharray = array();
-		$patharray = split(",", $cookievalue);
+		$patharray = explode(",", $cookievalue);
 
 		$break = false;
 		if (count($patharray) > 0) {
