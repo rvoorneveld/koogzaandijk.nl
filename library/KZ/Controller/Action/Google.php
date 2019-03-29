@@ -31,7 +31,6 @@ class KZ_Controller_Action_Google {
 
     public function getVideos(): array
     {
-        $date = new Zend_Date();
         $arrVideos = [];
         $objChannels = ($objYouTube = new Google_Service_YouTube($this->objClient))->channels->listChannels('contentDetails', [
             'mine' => true,
@@ -50,7 +49,7 @@ class KZ_Controller_Action_Google {
                             'title' => $objPlaylistItem->snippet->title,
                             'video_id' => $objPlaylistItem->snippet['resourceId']->videoId,
                             'thumbnail' => $objPlaylistItem->snippet['thumbnails']['default']['url'],
-                            'published_at' => $date->setDate($objPlaylistItem->snippet->publishedAt)->toString('dd-MM-yyyy HH:mm:ss'),
+                            'published_at' => (new Zend_Date($objPlaylistItem->snippet->publishedAt))->toString('dd-MM-yyyy HH:mm:ss'),
                         ];
                     }
                 }
