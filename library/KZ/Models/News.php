@@ -5,8 +5,11 @@ class KZ_Models_News extends KZ_Controller_Table
 	protected $_name 	= 'news';
 	protected $_primary = 'news_id';
 
+    public $resultsCount;
+
 	public function __construct($config = array())
     {
+        $this->resultsCount = $this->getTotalResultsCount();
         parent::__construct($config);
     }
 

@@ -13,16 +13,7 @@ class GastenboekController extends KZ_Controller_Action
         // Get Config
         $this->objConfig = Zend_Registry::get('Zend_Config');
 
-        // Set Max Related items
-        $intMaxItems = (int)$this->objConfig->news->maxRelated * 2;
-
-        // Set Models
-        $objModelNews = new KZ_Models_News();
-
-        // Get Latest News
-        $arrLatestNews = $objModelNews->getLatestNews($intMaxItems);
-
-        $this->latestnews = $arrLatestNews;
+        $this->latestnews = ($objModelNews = new KZ_Models_News())->getLatestNews($objModelNews->resultsCount);
 
         // Set Google Recaptcha
         $this->strGoogleSiteKey = $this->objConfig->google->recaptcha->sitekey;

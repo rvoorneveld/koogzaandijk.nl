@@ -149,7 +149,7 @@ class Volunteerscontroller extends KZ_Controller_Action
     {
         $arrNewsByTag = false;
         if (false === empty($arrTag = (new KZ_Models_Tags())->getTagByName('kantinediensten')) && true === is_array($arrTag)) {
-            $arrNewsByTag = (new KZ_Models_News())->getNewsByTags(0, '0,'.$arrTag['tag_id'], $this->objConfig->news->maxRelated);
+            $arrNewsByTag = ($news = new KZ_Models_News())->getNewsByTags(0, '0,'.$arrTag['tag_id'], $news->resultsCount);
         }
 
         $this->view->assign([

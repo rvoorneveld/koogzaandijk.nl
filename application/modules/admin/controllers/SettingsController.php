@@ -611,58 +611,81 @@ class Admin_SettingsController extends KZ_Controller_Action
 			'link_target'			=> '_self',
 			'color_bg'				=> '',
 			'color_text'			=> '',
-			'status'				=> ''
+			'status'				=> '',
+            'newsItemCount' => $objModelNews->resultsCount,
 		);
-		
-		if($this->getRequest()->isPost()) {
-			
-			// Get All Params
-			$arrPostParams		= $this->_getAllParams();
-			
-			// Set Selected foreign key
-			if($arrPostParams['foreign_table'] == 'other') {
-				$arrPostParams['foreign_key'] 	= 0;
-			} else {
-				$arrPostParams['foreign_key']	= $arrPostParams['foreign_key_'.$arrPostParams['foreign_table']];
-			}
-			
-			if(empty($arrPostParams['title'])) {
-				$this->view->feedback = array('type' => 'error', 'message' => 'You didn\'t fill in a name');
-			} else {
-				
-				// Unset Data from Update Array
-				unset($arrPostParams['controller']);
-				unset($arrPostParams['action']);
-				unset($arrPostParams['module']);
-				unset($arrPostParams['formAction']);
-				unset($arrPostParams['feedback']);
-				
-				// Unset unnessecary foreign keys
-				unset($arrPostParams['foreign_key_page']);
-				unset($arrPostParams['foreign_key_news']);
-				unset($arrPostParams['foreign_key_agenda']);
-				unset($arrPostParams['foreign_key_other']);
 
-                // Get highest Rank
-                $intHighestRank = $objModelNews->getLastNewsCategoriesRank();
+        if (true === $this->getRequest()->isPost()) {
+            $arrPostParams = $arrDefaults = $this->getAllParams();
+            if (false === empty($arrPostParams['formType']) && 'newsItemCount' === $arrPostParams['formType']) {
+                if (
+                    true === empty($arrPostParams['newsItemCount'])
+                    || false === is_numeric($newsItemCount = $arrPostParams['newsItemCount'])
+                    || $newsItemCount < 10
+                    || $newsItemCount > 25
+                ) {
+                    $this->view->feedback = [
+                        'type' => 'error',
+                        'message' => 'Please fill in a number between 10 and 25',
+                    ];
+                } else {
+                    if (true === (bool)(new KZ_Models_Settings())->updateSettingsByKey('results_count', [
+                            'value' => $newsItemCount = $arrPostParams['newsItemCount'],
+                        ])) {
+                        $arrDefaults['newsItemsCount'] = $newsItemCount;
+                        $feedback = base64_encode(serialize([
+                            'type' => 'success',
+                            'message' => 'Succesfully saved number of items to show',
+                        ]));
+                        $this->redirect("/admin/settings/newscategories/feedback/{$feedback}/#tab0");
+                    }
 
-                // Add Rank to Post Params
-                $arrPostParams['rank'] = $intHighestRank+1;
-				
-				$intInsertID	= $objModelNews->addNewsCategory($arrPostParams);
-				
-				if(isset($intInsertID) && is_numeric($intInsertID)) {
-					$strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully added news category')));
-					$this->_redirect('/admin/settings/newscategories/feedback/'.$strFeedback.'/#tab0');
-				} else {
-					// Return feedback
-	    			$this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to add the news category');
-				}
-				
-			}
-			
-			// Overwrite Defaults by Post Variables
-			$arrDefaults		= $arrPostParams;
+                    $this->view->feedback = [
+                        'type' => 'error',
+                        'message' => 'Unable to save the number of items to show',
+                    ];
+                }
+            }
+
+
+            if (false === empty($arrPostParams['formType']) && 'addNewsCategory' === $arrPostParams['formType']) {
+                // Set Selected foreign key
+                if ($arrPostParams['foreign_table'] == 'other') {
+                    $arrPostParams['foreign_key'] = 0;
+                } else {
+                    $arrPostParams['foreign_key'] = $arrPostParams['foreign_key_' . $arrPostParams['foreign_table']];
+                }
+
+                if (empty($arrPostParams['title'])) {
+                    $this->view->feedback = array('type' => 'error', 'message' => 'You didn\'t fill in a name');
+                } else {
+                    // Get highest Rank
+                    $intHighestRank = $objModelNews->getLastNewsCategoriesRank();
+
+                    // Add Rank to Post Params
+                    $arrPostParams['rank'] = $intHighestRank + 1;
+
+                    $intInsertID = $objModelNews->addNewsCategory([
+                        'title' => $arrPostParams['title'],
+                        'foreign_table' => $arrPostParams['foreign_table'],
+                        'link' => $arrPostParams['link'],
+                        'link_target' => $arrPostParams['link_target'],
+                        'color_background' => $arrPostParams['color_background'],
+                        'color_text' => $arrPostParams['color_text'],
+                        'status' => $arrPostParams['status'],
+                        'foreign_key' => $arrPostParams['foreign_key'],
+                    ]);
+
+                    if (isset($intInsertID) && is_numeric($intInsertID)) {
+                        $strFeedback = base64_encode(serialize(array('type' => 'success', 'message' => 'Succesfully added news category')));
+                        $this->_redirect('/admin/settings/newscategories/feedback/' . $strFeedback . '/#tab0');
+                    } else {
+                        // Return feedback
+                        $this->view->feedback = array('type' => 'error', 'message' => 'Something went wrong trying to add the news category');
+                    }
+
+                }
+            }
 		}
 		
 		// Parse variables to view

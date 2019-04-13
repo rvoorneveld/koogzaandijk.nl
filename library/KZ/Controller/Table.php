@@ -2,6 +2,12 @@
 class KZ_Controller_Table extends Zend_Db_Table_Abstract
 {
     public $current_datetime;
+
+    /**
+     * @var $resultsCount
+     */
+    public $resultsCount;
+
     public function __construct($config = array())
     {
         $objDate = new Zend_Date();
@@ -23,6 +29,14 @@ class KZ_Controller_Table extends Zend_Db_Table_Abstract
             return $mixReturnData;
         }
         return false;
+    }
+
+    public function getTotalResultsCount(): int
+    {
+        if (null === $this->resultsCount) {
+            $this->resultsCount = Zend_Registry::get('Settings')['results_count'] ?? Zend_Registry::get('Zend_Config')->news->results_count ?? 10;
+        }
+        return $this->resultsCount;
     }
 	
 	public function _truncate($strTableName)

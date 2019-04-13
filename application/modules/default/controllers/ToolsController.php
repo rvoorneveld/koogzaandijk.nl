@@ -17,7 +17,7 @@ class Toolscontroller extends KZ_Controller_Action
         $intStatus = 1;
 
         // Get Limit
-        $intLimit = $objConfig->news->maxRelated;
+        $intLimit = (new KZ_Models_News())->resultsCount;
 
         // Set All Params
         $arrParams = $this->getAllParams();

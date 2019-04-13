@@ -41,7 +41,7 @@ class PageController extends KZ_Controller_Action
 
         $this->view->page = $arrPage;
         $this->view->content = $objModelPages->getPageContent($arrPage['page_id'], 1);
-        $this->view->latest = $objModelNews->getLatestNews($intLimit = (int)$objConfig->news->maxRelated * 2);
+        $this->view->latest = $objModelNews->getLatestNews($intLimit = $objModelNews->resultsCount);
         $this->view->activeRouteContact = $strActiveRouteContact;
     }
 
@@ -55,12 +55,6 @@ class PageController extends KZ_Controller_Action
             $this->_redirect(ROOT_URL);
             exit;
         }
-
-        // Get Config
-        $objConfig = Zend_Registry::get('Zend_Config');
-
-        // Set Max Related items
-        $intMaxItems = (int)$objConfig->news->maxRelated;
 
         // Set Models
         $objModelNews = new KZ_Models_News();
@@ -82,7 +76,7 @@ class PageController extends KZ_Controller_Action
         $this->_setSeo($arrNews);
 
         // Get Related News
-        $arrRelatedNews = $objModelNews->getNewsByTags($arrNews['news_id'], $arrNews['tags'], $intMaxItems);
+        $arrRelatedNews = $objModelNews->getNewsByTags($arrNews['news_id'], $arrNews['tags'], $intMaxItems = $objModelNews->resultsCount);
 
         // Get Latest News
         $arrLatestNews = $objModelNews->getLatestNews($intMaxItems);
@@ -178,28 +172,16 @@ class PageController extends KZ_Controller_Action
     public function agendaAction()
     {
         // Get All Params
-        $arrParams = $this->_getAllParams();
+        $arrParams = $this->getAllParams();
 
         // Check if title was set
-        if (!isset($arrParams['title']) || empty($arrParams['title'])) {
-            $this->_redirect(ROOT_URL);
+        if (true === empty($arrParams['title'])) {
+            $this->redirect('/');
             exit;
         }
 
-        // Get Config
-        $objConfig = Zend_Registry::get('Zend_Config');
-
-        // Set Max Related items
-        $intMaxItems = (int)$objConfig->news->maxRelated;
-
-        // Set Models
-        $objModelAgenda = new KZ_Models_Agenda();
-
-        // Set Title Slug
-        $strTitleSlug = $arrParams['title'];
-
         // Get Agemda by slug
-        $arrAgenda = $objModelAgenda->getAgendaBySlug($strTitleSlug);
+        $arrAgenda = ($objModelAgenda = new KZ_Models_Agenda())->getAgendaBySlug($strTitleSlug = $arrParams['title']);
 
         // Check if Agenda was found and active
         if (!isset($arrAgenda) || !is_array($arrAgenda) || count($arrAgenda) == 0) {
@@ -207,11 +189,8 @@ class PageController extends KZ_Controller_Action
             exit;
         }
 
-        // Set Status - active
-        $intStatus = 1;
-
         // Get Agenda Content
-        $arrAgendaContent = $objModelAgenda->getAgendaContent($arrAgenda['agenda_id'], $intStatus);
+        $arrAgendaContent = $objModelAgenda->getAgendaContent($arrAgenda['agenda_id'], $intStatus = 1);
 
         if ($arrAgenda['news_id'] > 0) {
 

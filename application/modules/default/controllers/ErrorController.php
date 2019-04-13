@@ -49,22 +49,12 @@ class ErrorController extends KZ_Controller_Action
     		
     		// Set View Render Script
     		$this->_helper->viewRenderer->setRender('errorstyled');
-    		
-    		// Get Config
-			$objConfig				= Zend_Registry::get('Zend_Config');
-    		
-    		// Set Max Related items
-			$intMaxItems			= (int)$objConfig->news->maxRelated * 2;
-			
-			// Set Models
-			$objModelPages			= new KZ_Models_Pages();
-			$objModelNews			= new KZ_Models_News();
 			
 			// Get Page by slug
-			$arrPage				= $objModelPages->getPageBySlug('error');
+			$arrPage				= ($objModelPages = new KZ_Models_Pages())->getPageBySlug('error');
 			
 			// Get Latest News
-			$arrLatestNews			= $objModelNews->getLatestNews($intMaxItems);
+			$arrLatestNews			= ($objModelNews = new KZ_Models_News())->getLatestNews($objModelNews->resultsCount);
 			
 			// Set Status - active
 			$intStatus				= 1;

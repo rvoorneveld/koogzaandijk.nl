@@ -96,21 +96,8 @@ class ClubpluginController extends KZ_Controller_Action
 	
 	public function programAction()
 	{
-		// Get Config
-		$objConfig				= Zend_Registry::get('Zend_Config');
-		
-		// Set Max Related items
-		$intMaxItems			= (int)$objConfig->news->maxRelated * 2;
-		
-		// Set Models
-		$objModelMatches		= new KZ_Models_Matches();
-		$objModelNews			= new KZ_Models_News();
-
-		// Get Matches
-		$arrMatches				= $objModelMatches->getMatches($this->year, $this->week, false, true, false, true);
-		
-		// Get Latest News
-		$arrLatestNews			= $objModelNews->getLatestNews($intMaxItems);
+		$arrMatches = (new KZ_Models_Matches())->getMatches($this->year, $this->week, false, true, false, true);
+		$arrLatestNews = ($objModelNews = new KZ_Models_News())->getLatestNews($objModelNews->resultsCount);
 		
 		// Set Previous and Next Week
 		$intWeekNext			= $this->week + 1;
@@ -155,19 +142,9 @@ class ClubpluginController extends KZ_Controller_Action
 	
 	public function resultsAction()
 	{
-		// Get Config
-		$objConfig				= Zend_Registry::get('Zend_Config');
-		
-		// Set Max Related items
-		$intMaxItems			= (int)$objConfig->news->maxRelated * 2;
-		
-		// Set Models
 		$objModelMatches		= new KZ_Models_Matches();
 		$objModelNews			= new KZ_Models_News();
 
-		// Set Defaults
-		$booShowCurrentWeek		= false;
-		
 		if(($this->week_current - 1) == $this->week && $this->filter_week === false && $this->filter_year === false) {
 			
 			// Get Matches
@@ -203,7 +180,7 @@ class ClubpluginController extends KZ_Controller_Action
 		$arrMatches				= $objModelMatches->getMatches($this->year, $this->week, false, true, false);
 		
 		// Get Latest News
-		$arrLatestNews			= $objModelNews->getLatestNews($intMaxItems);
+		$arrLatestNews			= $objModelNews->getLatestNews($objModelNews->resultsCount);
 		
 		// Set Previous and Next Week
 		$intWeekNext			= $this->week + 1;
@@ -254,29 +231,17 @@ class ClubpluginController extends KZ_Controller_Action
 			$arrMatch			= $objModelMatches->getMatchByID($arrParams['match_id']);
 			
 			if(isset($arrMatch) && is_array($arrMatch) && count($arrMatch) > 0) {
-				
-				// Get Config
-				$objConfig				= Zend_Registry::get('Zend_Config');
-				
-				// Set Max Related items
-				$intMaxItems			= (int)$objConfig->news->maxRelated * 2;
-				
-				// Set Models
-				$objModelNews			= new KZ_Models_News();
-				
-				// Get Latest News
-				$arrLatestNews			= $objModelNews->getLatestNews($intMaxItems);
-				
-				// Parse variables to view
-				$this->view->match	= $arrMatch;
-				$this->view->latest	= $arrLatestNews;	
+				$this->view->assign([
+                    'match' => $arrMatch,
+                    'latest' => ($objModelNews = new KZ_Models_News())->getLatestNews($objModelNews->resultsCount)
+                ]);
 			} else {
-				$this->_redirect(ROOT_URL);
+				$this->redirect(ROOT_URL);
 				exit;
 			}
 			
 		} else {
-			$this->_redirect(ROOT_URL);
+			$this->redirect(ROOT_URL);
 			exit;
 		}
 		

@@ -23,31 +23,19 @@ class KZ_View_Helper_News extends Zend_View_Helper_Abstract
             $objModelPage = new KZ_Models_Pages();
             $objModelBlog = new KZ_Models_Blog();
 
-            // Get Title Slug
-            $strTitleSlug = $objRequest->getParam('title');
-
             // Set Defaults
             $intCategoryID = false;
             $arrCategory = false;
             $booLoadBlogItems = true;
 
-            if ('home' !== $strTitleSlug) {
+            if ('home' !== $strTitleSlug = $objRequest->getParam('title')) {
                 $booLoadBlogItems = false;
                 $arrCategory = $objModelCategories->getCategoryBySlug($strTitleSlug);
                 $intCategoryID = (false === empty($arrCategory) && true === is_array($arrCategory)) ? $arrCategory['category_id'] : false;
             }
 
-            // Set Content Type ID - Carousel (1) and Top (2)
-            $intContentTypeID = [1, 2];
-
-            // Set Status - active
-            $intStatus = 1;
-
-            // Set Limit
-            $intLimit = ((true === $booIsMobile) ? $objConfig->news->maxRelatedMobile : $objConfig->news->maxRelated);
-
             // Get News items
-            $arrNewsItems = $objModelNews->getNews($intContentTypeID, $intCategoryID, $intStatus, false, $intLimit);
+            $arrNewsItems = $objModelNews->getNews($arrContentTypeID = [1, 2,], $intCategoryID, $intStatus = 1, false, $intLimit = $objModelNews->resultsCount);
             $arrOrderedNews = $this->orderByDateAndTime($arrNewsItems);
 
             if (true === $booLoadBlogItems) {

@@ -11,6 +11,20 @@
 <section>
 
 	<div id="tab0" class="tab default-tab">
+
+        <form method="POST" name="newsResultsForm" action="">
+            <dl>
+                <dt><label class="label" for="newsItemCount"><?php echo $this->translate('News items count'); ?>:</label></dt>
+                <dd>
+                    <input id="newsItemCount" class="small" type="text" name="newsItemCount" value="<?php echo $this->defaults['newsItemCount'] ?? ''; ?>" />
+                </dd>
+            </dl>
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Save'); ?>"></dd>
+            </dl>
+            <input type="hidden" name="formType" value="newsItemCount" />
+        </form>
 		
 		<?php
 			if(isset($this->news_categories) && is_array($this->news_categories) && count($this->news_categories) > 0) { 
@@ -262,7 +276,7 @@
 				<dt>&nbsp;</dt>
 				<dd><input class="button blue" type="submit" name="formAction" value="<?php echo $this->translate('Add news category'); ?>" /></dd>
 			</dl>
-		
+            <input type="hidden" name="formType" value="addNewsCategory" />
 		</form>
 	
 	</div>

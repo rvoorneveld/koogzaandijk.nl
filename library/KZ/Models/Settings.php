@@ -4,7 +4,14 @@ class KZ_Models_Settings extends KZ_Controller_Table
 	
 	protected $_name	= 'settings';
 	protected $_primary	= 'settings_id';
-	
+
+    public function getSettings()
+    {
+        return $this->_db->fetchPairs(
+            $this->select()->from($this->_name, ['key', 'value',])
+        );
+    }
+
 	public function getSettingsByID($intSettingsID)
 	{
 		$strQuery	= 	$this->select()
