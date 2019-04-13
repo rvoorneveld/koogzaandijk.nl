@@ -119,6 +119,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		Zend_Registry::set('Zend_Translate', $objTranslate);	
 		Zend_Registry::set('KZ_Translate', $arrAvailableTranslations);
 	}
+
+    protected function _initSettings(): void
+    {
+        Zend_Registry::set('Settings', (new KZ_Models_Settings())->getSettings());
+    }
 	
 	protected function _initCaching() {}
 	
