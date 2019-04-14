@@ -27,7 +27,7 @@ class KZ_Api_Services_GetVolunteers extends KZ_Api_Services
         $arrTaskIds = [];
         if (false === empty($arrTasks) && true === is_array($arrTasks)) {
             foreach ($arrTasks as $arrTask) {
-                if (false !== stristr($arrTask['naam'], 'bardienst weekend')) {
+                if (false !== stripos($arrTask['naam'], 'bardienst')) {
                     $arrTaskIds[] = $arrTask['vrijwilligerstaakcode'];
                 }
             }
@@ -62,6 +62,8 @@ class KZ_Api_Services_GetVolunteers extends KZ_Api_Services
                 'service' => 'GetVolunteers',
                 'Volunteers' => [
                     'inserted' => $intVolunteersAdded
-        ]]];
+                ]
+            ]
+        ];
     }
 }
