@@ -140,7 +140,7 @@
 							echo '<select class="small" name="foreign_key_news" id="foreign_key_news"'.(($this->defaults['foreign_table'] == 'news') ? '' : ' style="display:none;"').'>';
 														
 							foreach($this->news as $intNewsKey => $arrNews) {
-								$strSelected = (($this->defaults['foreign_table'] == 'news' && $this->defaults['foreign_key'] == $arrNews['news_id']) ? ' selected="selected"' : '');
+								$strSelected = ((false === empty($this->defaults['foreign_table']) && $this->defaults['foreign_table'] == 'news' && $this->defaults['foreign_key'] == $arrNews['news_id']) ? ' selected="selected"' : '');
 								echo '<option value="'.$arrNews['news_id'].'"'.$strSelected.'>'.stripslashes($arrNews['name']).'</option>';
 							}
 									
