@@ -1,6 +1,8 @@
 <?php
 class Volunteerscontroller extends KZ_Controller_Action
 {
+    protected const DATE_FORMAT = 'Y-m-d';
+
     public $year;
     public $week;
     public $year_current;
@@ -11,8 +13,8 @@ class Volunteerscontroller extends KZ_Controller_Action
     public $week_next;
     public $year_previous;
     public $year_next;
-    public $weekendStart;
-    public $weekendEnd;
+    public $weekStart;
+    public $weekEnd;
 
     public function init()
     {
@@ -103,12 +105,16 @@ class Volunteerscontroller extends KZ_Controller_Action
 
         switch ($intDayOfWeek = (int)$objDate->get(Zend_Date::WEEKDAY_DIGIT)) {
             case 0:
-                $this->weekendStart = $objDate->subDay(1)->toString('yyyy-MM-dd');
-                $this->weekendEnd = $objDate->addDay(1)->toString('yyyy-MM-dd');
+                $this->weekStart = date($dateFormat = static::DATE_FORMAT, strtotime('last Monday', $objDate->toValue()));
+                $this->weekEnd = date($dateFormat, $objDate->toValue());
+                break;
+            case 1:
+                $this->weekStart = date($dateFormat = static::DATE_FORMAT, $objDate->toValue());
+                $this->weekEnd = date($dateFormat, strtotime('next Sunday', $objDate->toValue()));
                 break;
             default:
-                $this->weekendStart = $objDate->addDay(6 - $intDayOfWeek)->toString('yyyy-MM-dd');
-                $this->weekendEnd = $objDate->addDay(1)->toString('yyyy-MM-dd');
+                $this->weekStart = date($dateFormat = static::DATE_FORMAT, strtotime('last Monday', $objDate->toValue()));
+                $this->weekEnd = date($dateFormat, strtotime('next Sunday', $objDate->toValue()));
                 break;
         }
 
@@ -153,7 +159,7 @@ class Volunteerscontroller extends KZ_Controller_Action
         }
 
         $this->view->assign([
-            'volunteers' => (new KZ_Models_Volunteers())->getVolunteersByDate($this->weekendStart, $this->weekendEnd),
+            'volunteers' => (new KZ_Models_Volunteers())->getVolunteersByDate($this->weekStart, $this->weekEnd),
             'year' => $this->year,
             'week' => $this->week,
             'week_previous' => $this->week_previous,
